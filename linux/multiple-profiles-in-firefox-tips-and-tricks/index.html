@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.15" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans|Marcellus+SC'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://hugo.rockhopper.hf//index.xml">
+
+    
+    <title>Multiple profiles in Firefox: tips and tricks - Rockhopper.dk</title>
+    <meta property='og:title' content="Multiple profiles in Firefox: tips and tricks - Rockhopper.dk">
+    <meta property="og:type" content="article">
+    
+
+    <meta property="og:url" content="http://hugo.rockhopper.hf/linux/multiple-profiles-in-firefox-tips-and-tricks/">
+    
+    
+
+  </head>
+
+  <body>
+
+    <header class="site">
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://hugo.rockhopper.hf/">Rockhopper.dk</a>
+          </div>
+
+          <div id="navbar" class="collapse navbar-collapse">
+            
+          </div>
+
+        </div>
+      </nav>
+    </header>
+
+    <div class="site">
+      <div class="container">
+
+
+
+<div class="single">
+
+  <div class="row">
+    <div class="col-md-8">
+
+      <article class="single" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+        <meta itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" content="http://hugo.rockhopper.hf/"/>
+        <meta itemprop="dateModified" content="2014-06-08T00:00:00&#43;00:00">
+        <meta itemprop="headline" content="Multiple profiles in Firefox: tips and tricks">
+        <meta itemprop="description" content="I have two different profiles for Firefox, one for work, and one for everything else. To start Firefox with the correct profile, I have created two different application launchers (.desktop files) in ~/.local/share/applications, one called firefox-work.desktop and the other firefox-home.desktop The files contain: [Desktop Entry] Name=Firefox Home GenericName=Web Browser Comment=Browse the World Wide Web Exec=/usr/lib/firefox/firefox -P Home -no-remote %u Icon=firefox Terminal=false Type=Application MimeType=text/html;text/xml;application/xhtml&#43;xml;application/vnd.mozilla.xul&#43;xml;text/mml;x-scheme-handler/http;x-scheme-handler/https; StartupNotify=true Categories=Network;WebBrowser; Replace &#8220;Home&#8221; with the name of your profile.">
+        <meta itemprop="url" content="http://hugo.rockhopper.hf/linux/multiple-profiles-in-firefox-tips-and-tricks/">
+        <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+          <meta itemprop="url" content="http://hugo.rockhopper.hf/images/default.jpg" />
+          <meta itemprop="width" content="800">
+          <meta itemprop="height" content="800">
+        </div>
+        <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+          <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+            <meta itemprop="url" content="http://hugo.rockhopper.hf/images/logo.jpg">
+            <meta itemprop="width" content="100">
+            <meta itemprop="height" content="100">
+          </div>
+          <meta itemprop="name" content="Rockhopper.dk">
+        </div>
+        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <meta itemprop="name" content="">
+        </div>
+
+        <header class="article-header">
+          <time itemprop="datePublished" pubdate="pubdate" datetime="2014-06-08T00:00:00&#43;00:00">Sun, Jun 8, 2014</time>
+          <h1 class="article-title">Multiple profiles in Firefox: tips and tricks</h1>
+        </header>
+
+        <div class="article-body" itemprop="articleBody">
+          <p>I have two different profiles for Firefox, one for work, and one for everything else.</p>
+
+<p>To start Firefox with the correct profile, I have created two different application launchers (.desktop files) in ~/.local/share/applications, one called firefox-work.desktop and the other firefox-home.desktop</p>
+
+<p>The files contain:</p>
+
+<pre>[Desktop Entry]
+Name=Firefox Home
+GenericName=Web Browser
+Comment=Browse the World Wide Web
+Exec=/usr/lib/firefox/firefox -P Home -no-remote %u
+Icon=firefox
+Terminal=false
+Type=Application
+MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true
+Categories=Network;WebBrowser;</pre>
+
+<p>Replace &#8220;Home&#8221; with the name of your profile.</p>
+
+<p>In order to open links in the correct profile, I made a small shell script that used xdotool and zenity:</p>
+
+<pre class="bash codesnip" style="font-family:monospace;"><span class="co0">#!/bin/sh</span>
+&nbsp;
+<span class="re2">PROFILE</span>=$<span class="br0">&#40;</span>zenity <span class="re5">--list</span> <span class="re5">--text</span> <span class="st0">"Open $1 in which profile?"</span> <span class="re5">--column</span> <span class="st0">"Profile"</span> Work Home<span class="br0">&#41;</span>;
+&nbsp;
+<span class="kw1">case</span> <span class="re1">$PROFILE</span> <span class="kw1">in</span>
+  Home<span class="br0">&#41;</span>
+    <span class="re2">PID</span>=$<span class="br0">&#40;</span>pgrep <span class="re5">-f</span> <span class="re5">--</span> <span class="st_h">'-P Home'</span><span class="br0">&#41;</span>
+    <span class="sy0">;;</span>
+  Work<span class="br0">&#41;</span>
+    <span class="re2">PID</span>=$<span class="br0">&#40;</span>pgrep <span class="re5">-f</span> <span class="re5">--</span> <span class="st_h">'-P Work'</span><span class="br0">&#41;</span>
+    <span class="sy0">;;</span>
+  <span class="sy0">*</span><span class="br0">&#41;</span>
+    <span class="kw3">exit</span>
+    <span class="sy0">;;</span>
+<span class="kw1">esac</span>
+&nbsp;
+<span class="co0"># Avoid "Can't consume 1 args; are only 0 available. This is a bug." message: https://github.com/jordansissel/xdotool/issues/14</span>
+<span class="co0"># Pick the last id, as it seems to be the one needed</span>
+<span class="re2">WID</span>=$<span class="br0">&#40;</span>xdotool search <span class="re5">--any</span> <span class="re5">--pid</span> <span class="re1">$PID</span> <span class="re5">--name</span> <span class="st0">"random_random_random"</span> <span class="sy0">|</span> <span class="kw2">tail</span> -n1<span class="br0">&#41;</span>
+&nbsp;
+xdotool windowactivate <span class="re5">--sync</span> <span class="re1">$WID</span>
+xdotool key <span class="re5">--window</span> <span class="re1">$WID</span> ctrl+t
+xdotool key <span class="re5">--window</span> <span class="re1">$WID</span> ctrl+l
+xdotool <span class="kw3">type</span> <span class="re5">--window</span> <span class="re1">$WID</span> <span class="st0">"$1"</span></pre>
+
+<p>The last thing to to is to open exo-preferred-applications and select the script as the preferred &#8220;web-browser&#8221; (remember &#8220;%s&#8221;).</p>
+
+        </div>
+
+
+        <aside>
+          <div class="section"><a href="http://hugo.rockhopper.hf/tags/firefox" class="tag">firefox</a> </div>
+
+          <div class="section share">
+            <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fmultiple-profiles-in-firefox-tips-and-tricks%2f&t=Multiple%20profiles%20in%20Firefox%3a%20tips%20and%20tricks" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+            <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fmultiple-profiles-in-firefox-tips-and-tricks%2f&text=Multiple%20profiles%20in%20Firefox%3a%20tips%20and%20tricks&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+            <a href="https://plus.google.com/share?url=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fmultiple-profiles-in-firefox-tips-and-tricks%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+            <a href="http://getpocket.com/edit?url=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fmultiple-profiles-in-firefox-tips-and-tricks%2f&title=Multiple%20profiles%20in%20Firefox%3a%20tips%20and%20tricks" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+          </div>
+
+          
+          
+          
+        </aside>
+
+      </article>
+
+    </div>
+    <div class="col-md-4">
+      
+<aside class="site">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">LatestPosts</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://hugo.rockhopper.hf/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/" class="list-group-item">Mouse hover not working in Chrome/Chromium? Solution: stop synergy</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/multiple-profiles-in-firefox-tips-and-tricks/" class="list-group-item">Multiple profiles in Firefox: tips and tricks</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/zsh-promptwindow-title-trim-middle-of-path/" class="list-group-item">zsh prompt/window title: trim middle of path</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/docker-and-php-xdebug/" class="list-group-item">Docker and PHP xdebug</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/" class="list-group-item">HTPC/NAS for watching Netflix on Linux part 1: the hardware</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/" class="list-group-item">UEFI booting Arch Linux on a HP ProBook 6360b</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/" class="list-group-item">Installing CyanogenMod 7.1 on a Sony Ericsson Xperia Arc (LT15i)</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/" class="list-group-item">Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1)</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/software/mythtv/anysee-e30-c-plus-mythtv/" class="list-group-item">AnySee E30 C Plus &#43; MythTV</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/" class="list-group-item">Xfce: auto rotate wallpaper without cron</a>
+      
+    </div>
+  </div>
+
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">category</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://hugo.rockhopper.hf/categories/hardware" class="list-group-item">hardware</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/software" class="list-group-item">software</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/linux" class="list-group-item">linux</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/mythtv" class="list-group-item">mythtv</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/xfce" class="list-group-item">xfce</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/vim" class="list-group-item">vim</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/xorg" class="list-group-item">xorg</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/development" class="list-group-item">development</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/php" class="list-group-item">php</a>
+      
+    </div>
+  </div>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">tag</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://hugo.rockhopper.hf/tags/android" class="list-group-item">android</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/mythbackend" class="list-group-item">mythbackend</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/archlinux" class="list-group-item">archlinux</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/motherboard" class="list-group-item">motherboard</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/mythfrontend" class="list-group-item">mythfrontend</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/dvb-c" class="list-group-item">dvb-c</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/zsh" class="list-group-item">zsh</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/probook-6360b" class="list-group-item">probook-6360b</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/raid" class="list-group-item">raid</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/cmd-line" class="list-group-item">cmd-line</a>
+      
+    </div>
+  </div>
+  
+
+</aside>
+
+
+    </div>
+  </div>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site">
+      <div class="container">
+        <p>&copy; 2014 Rockhopper.dk</p>
+        <p>Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>,</p>
+        <p>Theme <a href="https://github.com/dim0627/hugo_theme_beg" target="_blank">Beg</a> designed by <a href="http://yet.unresolved.xyz" target="_blank">Daisuke Tsuji</a></p>
+      </div>
+    </footer>
+
+    <script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+  </body>
+</html>
+

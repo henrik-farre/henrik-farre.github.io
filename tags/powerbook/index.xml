@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Powerbook on Rockhopper.dk</title>
+    <link>http://hugo.rockhopper.hf/tags/powerbook/</link>
+    <description>Recent content in Powerbook on Rockhopper.dk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 26 Jul 2008 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://hugo.rockhopper.hf/tags/powerbook/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Installing ArchLinux PPC on my Powerbook Titanium</title>
+      <link>http://hugo.rockhopper.hf/linux/hardware/installing-archlinux-ppc-on-my-powerbook-titanium/</link>
+      <pubDate>Sat, 26 Jul 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/hardware/installing-archlinux-ppc-on-my-powerbook-titanium/</guid>
+      <description>
+
+&lt;p&gt;I decided to bring my &lt;a href=&#34;https://rockhopper.dk/old/linux/hardware/powerbook-titanium.html&#34;&gt;Powerbook Titanium&lt;/a&gt; back into service as a server/torrent fetcher. So I downloaded &lt;a href=&#34;http://www.archlinuxppc.org/&#34;&gt;ArchLinux PPC&lt;/a&gt; and installed it.&lt;/p&gt;
+
+&lt;p&gt;I just followed the &lt;a href=&#34;http://wiki.archlinux.org/index.php/Install_Arch_Linux_PPC&#34;&gt;instructions available&lt;/a&gt; in the ArchLinux wiki, and here are my notes on the installation.&lt;/p&gt;
+
+&lt;h2 id=&#34;install-issues:ee78b04dbd8e2687e8423cd7c5e4eff0&#34;&gt;Install issues&lt;/h2&gt;
+
+&lt;p&gt;I experienced 2 issues with the /arch/quickinstall script. First it failed because wget was missing from the cd. So I used &amp;#8220;vi&amp;#8221; to replace wget with &lt;a href=&#34;http://www.xach.com/snarf/&#34;&gt;snarf&lt;/a&gt; (which is on the cd) in the script. Secondly the quickinstall ftp URL was wrong in the wiki, it should be core instead of current (I have updated the wiki with the correct link)&lt;/p&gt;
+
+&lt;p&gt;When I entered the chroot the last command &amp;#8220;makedevs&amp;#8221; was not found, I just proceeded as /dev/null and other devices existed within the chroot. I don&amp;#8217;t know if that is the source of my 2 small outstanding problems.&lt;/p&gt;
+
+&lt;p&gt;I ran into a small problem as I was creating users, probably not related to ArchLinux PPC. If I tried, as root, to run: &amp;#8220;adduser username&amp;#8221; I would get the following error:&lt;/p&gt;
+
+&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;You are required to change your password immediately &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;root enforced&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+useradd: PAM authentication failed&lt;/pre&gt;
+
+&lt;p&gt;I then changed my password, remember I was logged in as root, but I keep getting the same error. So I manually created the user by editing /etc/passwd and /etc/shadow (by copying the lines from another ArchLinux box)&lt;/p&gt;
+
+&lt;p&gt;But if I tried, still as root, to: &amp;#8220;su &amp;#8211; username&amp;#8221;, I got this error:&lt;/p&gt;
+
+&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;su&lt;/span&gt;: incorrect password&lt;/pre&gt;
+
+&lt;p&gt;I finally track the problem down to a mismatch between /etc/shadow and /etc/shadow- in the line with the root user.&lt;/p&gt;
+
+&lt;h2 id=&#34;post-install:ee78b04dbd8e2687e8423cd7c5e4eff0&#34;&gt;Post install&lt;/h2&gt;
+
+&lt;p&gt;When everything was installed and the system running, I started to add applications and tweak settings:&lt;/p&gt;
+
+&lt;p&gt;First I installed pbbuttonsd so that machine would switch of the display when it was booted&lt;/p&gt;
+
+&lt;p&gt;Next I tried to set CPU frequency scaling up, using the &amp;#8220;conservative&amp;#8221; governor. But I got this error:&lt;/p&gt;
+
+&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;conservative governor failed, too long transition latency of HW, fallback to performance governor&lt;/pre&gt;
+
+&lt;p&gt;Instead of wasting to much time on that, I just decided to use the &amp;#8220;powersave&amp;#8221; governor.&lt;/p&gt;
+
+&lt;p&gt;Finally I installed &lt;a href=&#34;http://www.transmissionbt.com/&#34;&gt;transmission bittorrent client&lt;/a&gt;, and the &lt;a href=&#34;http://clutchbt.com/&#34;&gt;clutch web interface for transmission&lt;/a&gt;, and a couple of other apps.&lt;/p&gt;
+
+&lt;h2 id=&#34;unresolved-issuses:ee78b04dbd8e2687e8423cd7c5e4eff0&#34;&gt;Unresolved issuses&lt;/h2&gt;
+
+&lt;p&gt;I have 2 small problems left that are minor annoyances:&lt;/p&gt;
+
+&lt;p&gt;udev gives an error on every boot:&lt;/p&gt;
+
+&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;:: Loading udev...&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;etc&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;start_udev: &lt;span class=&#34;nu0&#34;&gt;110&lt;/span&gt;: &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;sbin&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;udevtrigger: not found
+&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;etc&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;start_udev: &lt;span class=&#34;nu0&#34;&gt;110&lt;/span&gt;: &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;sbin&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;udevsettle: not found done.&lt;/pre&gt;
+
+&lt;p&gt;I tried a [couple of solutions][7] I found in ArchLinux&amp;#8217;s forum but they did not help, so I&amp;#8217;m just ignoring it &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Another error that comes at each boot is this clock error:&lt;/p&gt;
+
+&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;Cannot access the Hardware Clock via any know method. Use the &lt;span class=&#34;re5&#34;&gt;-debug&lt;/span&gt; option to see the details of our search &lt;span class=&#34;kw1&#34;&gt;for&lt;/span&gt; an access method&lt;/pre&gt;
+
+&lt;p&gt;I also ignore this, because the machine uses ntpdate to set its time.&lt;/p&gt;
+
+&lt;h2 id=&#34;status:ee78b04dbd8e2687e8423cd7c5e4eff0&#34;&gt;Status&lt;/h2&gt;
+
+&lt;p&gt;The machine has been running stable in a couple of weeks, and ArchLinux PPC feels as stable as the x86 edition.&lt;/p&gt;
+
+&lt;p&gt;[7]: &lt;a href=&#34;http://bbs.archlinux.org/viewtopic.php?id=49285&#34;&gt;http://bbs.archlinux.org/viewtopic.php?id=49285&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

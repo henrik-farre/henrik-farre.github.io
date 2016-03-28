@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.15" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans|Marcellus+SC'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://hugo.rockhopper.hf//index.xml">
+
+    
+    <title>Android - Rockhopper.dk</title>
+    <meta property='og:title' content="Android - Rockhopper.dk">
+    <meta property="og:type" content="article">
+    
+
+    <meta property="og:url" content="http://hugo.rockhopper.hf/tags/android/">
+    
+    
+
+  </head>
+
+  <body>
+
+    <header class="site">
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://hugo.rockhopper.hf/">Rockhopper.dk</a>
+          </div>
+
+          <div id="navbar" class="collapse navbar-collapse">
+            
+          </div>
+
+        </div>
+      </nav>
+    </header>
+
+    <div class="site">
+      <div class="container">
+
+
+<div class="list">
+
+  <div class="row">
+    <div class="col-md-8">
+      <header class="page-title">Android</header>
+
+      
+      <article class="li">
+  <header>
+    <div class="date">Tue, Apr 3, 2012</div>
+    <div class="title"><a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/">Installing CyanogenMod 7.1 on a Sony Ericsson Xperia Arc (LT15i)</a></div>
+  </header>
+  <div class="body">Although the instructions for upgrading the Sony Ericsson Xperia Arc (not the new S version) are pretty detailed there are some twists that are not documented: You need to upgrade to the latests official Sony Ericsson rom (currently &#8220;4.0.2.A.0.62 Generic Global World&#8221; ), you can find links in this xda developers thread, else the phone will not be able to unlock the SIM card To flash the rom you will need FlashTool (Java based app, works fine in Linux).</div>
+
+  
+  <footer>
+    <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/" class="btn btn-default">Read More…</a>
+  </footer>
+  
+</article>
+<hr>
+
+      
+      <article class="li">
+  <header>
+    <div class="date">Sat, Jun 19, 2010</div>
+    <div class="title"><a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/">Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1)</a></div>
+  </header>
+  <div class="body">My ADP1 has been running Android 1.6 (Cyanogenmod 4.2.x) for quite a while now, and I was exited to see that it would be possible to run Android 2.1 on it thanks to Cyanogen This guide is a digest of information found on Cyanogen&#8217;s wiki, like: ADP1 Firmware to CyanogenMod, please consult the wiki for up todate information and warnings Prerequisite Download the following files: RA recovery for dream I use version 1.7.0 DangerSPL Google apps for Cyanogen [Lateste Cyanogen 5.0.x for dream][5] Install recovery image Based on Full Update Guide &#8211; ADP1 Firmware to CyanogenMod Boot the phone into fastboot mode by holding the BACK button while pressing the power button On your computer run the following commands: ./fastboot device #check if the phone is available ./fastboot flash recovery recovery-RA-dream-v1.7.0.img ./fastboot reboot More information about fastboot Install bootloader In order to run Android 2.1 you need to replace the bootloader with one called &#8220;DangerSPL&#8221;, and there is a reason it is called &#8220;Danger&#8221; please read DangerSPL and CM 5 for Dream and read the warnings and prerequisites.</div>
+
+  
+  <footer>
+    <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/" class="btn btn-default">Read More…</a>
+  </footer>
+  
+</article>
+<hr>
+
+      
+      <article class="li">
+  <header>
+    <div class="date">Tue, Feb 10, 2009</div>
+    <div class="title"><a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/">Updating the Android Developer Phone1 to v1.1</a></div>
+  </header>
+  <div class="body">I&#8217;ve been putting off upgrading my ADP1 in fear of that I would brick it, but after reading that there now are official update images available I decided to give it a try. Here is a short walk through: First download the following (you can skip download of the JesusFreke images if you don&#8217;t want a backup): JesusFreke ADP1 (bottom of the page, before the comments) Fastboot (either compile it your self or download &#8220;DarkriftX&#8217;s precompiled&#8221; version) ADP1.1 update (get the &#8220;No Device Checks!&#8221; version) Backup the ADP1 (This is based on this google groups thread and the cleaned up version) This is a non destructive backup procedure, you will not have to install anything on your phone!</div>
+
+  
+  <footer>
+    <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/" class="btn btn-default">Read More…</a>
+  </footer>
+  
+</article>
+<hr>
+
+      
+      <article class="li">
+  <header>
+    <div class="date">Sat, Jan 24, 2009</div>
+    <div class="title"><a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/android-developer-phone-mini-review/">Android Developer Phone: Mini review</a></div>
+  </header>
+  <div class="body">I have been playing around with my Android Developer Phone (ADP) for about 2 weeks now, and this are my thoughts on it so far. Wireless connection (Wi-Fi/3G) The Wi-Fi range is a bit limited, with my laptop I get about 80% signal quality in my living room, but the ADP only gets &#8220;fair&#8221; or no connection. Another issue is that some times the phone will not connect to a remembered network (it might be a problem with hidden SSIDs), and the only way to fix it is to delete the saved network and add it again, which is highly annoying if you have a 64 char WPA2 passphrase :).</div>
+
+  
+  <footer>
+    <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/android-developer-phone-mini-review/" class="btn btn-default">Read More…</a>
+  </footer>
+  
+</article>
+<hr>
+
+      
+      <article class="li">
+  <header>
+    <div class="date">Sun, Jan 11, 2009</div>
+    <div class="title"><a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/android-g1-dev-phone-has-landed-in-denmark/">Android G1 Dev Phone has landed in Denmark</a></div>
+  </header>
+  <div class="body">Finally, my HTC G1 Dev Phone running Android OS has arrived! It could not be shipped directly to Denmark so it had to make a detour via Germany. The phone arrived in a small plain white box without any branding whatsoever. The box contained: The HTC G1, no branding, but with the specially designed developer battery cover Battery charger. Danish users: an adaptor is needed, see photos Head phones that connect directly to the micro usb port Micro usb to usb cable A quick set up guide A 1 Gb MicroSD card was already installed in the phone.</div>
+
+  
+  <footer>
+    <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/android-g1-dev-phone-has-landed-in-denmark/" class="btn btn-default">Read More…</a>
+  </footer>
+  
+</article>
+<hr>
+
+      
+      
+
+
+    </div>
+    <div class="col-md-4">
+      
+<aside class="site">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">LatestPosts</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://hugo.rockhopper.hf/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/" class="list-group-item">Mouse hover not working in Chrome/Chromium? Solution: stop synergy</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/multiple-profiles-in-firefox-tips-and-tricks/" class="list-group-item">Multiple profiles in Firefox: tips and tricks</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/zsh-promptwindow-title-trim-middle-of-path/" class="list-group-item">zsh prompt/window title: trim middle of path</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/docker-and-php-xdebug/" class="list-group-item">Docker and PHP xdebug</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/" class="list-group-item">HTPC/NAS for watching Netflix on Linux part 1: the hardware</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/" class="list-group-item">UEFI booting Arch Linux on a HP ProBook 6360b</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/" class="list-group-item">Installing CyanogenMod 7.1 on a Sony Ericsson Xperia Arc (LT15i)</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/" class="list-group-item">Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1)</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/software/mythtv/anysee-e30-c-plus-mythtv/" class="list-group-item">AnySee E30 C Plus &#43; MythTV</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/" class="list-group-item">Xfce: auto rotate wallpaper without cron</a>
+      
+    </div>
+  </div>
+
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">category</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://hugo.rockhopper.hf/categories/hardware" class="list-group-item">hardware</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/software" class="list-group-item">software</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/mythtv" class="list-group-item">mythtv</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/linux" class="list-group-item">linux</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/xfce" class="list-group-item">xfce</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/xorg" class="list-group-item">xorg</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/development" class="list-group-item">development</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/php" class="list-group-item">php</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/vim" class="list-group-item">vim</a>
+      
+    </div>
+  </div>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">tag</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://hugo.rockhopper.hf/tags/android" class="list-group-item">android</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/mythbackend" class="list-group-item">mythbackend</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/archlinux" class="list-group-item">archlinux</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/motherboard" class="list-group-item">motherboard</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/mythfrontend" class="list-group-item">mythfrontend</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/dvb-c" class="list-group-item">dvb-c</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/zsh" class="list-group-item">zsh</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/docker" class="list-group-item">docker</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/review" class="list-group-item">review</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/screen" class="list-group-item">screen</a>
+      
+    </div>
+  </div>
+  
+
+</aside>
+
+
+    </div>
+  </div>
+
+</div>
+      </div>
+    </div>
+
+    <footer class="site">
+      <div class="container">
+        <p>&copy; 2014 Rockhopper.dk</p>
+        <p>Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>,</p>
+        <p>Theme <a href="https://github.com/dim0627/hugo_theme_beg" target="_blank">Beg</a> designed by <a href="http://yet.unresolved.xyz" target="_blank">Daisuke Tsuji</a></p>
+      </div>
+    </footer>
+
+    <script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+  </body>
+</html>
+

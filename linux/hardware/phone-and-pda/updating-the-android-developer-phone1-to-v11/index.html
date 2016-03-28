@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.15" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans|Marcellus+SC'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://hugo.rockhopper.hf//index.xml">
+
+    
+    <title>Updating the Android Developer Phone1 to v1.1 - Rockhopper.dk</title>
+    <meta property='og:title' content="Updating the Android Developer Phone1 to v1.1 - Rockhopper.dk">
+    <meta property="og:type" content="article">
+    
+
+    <meta property="og:url" content="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/">
+    
+    
+
+  </head>
+
+  <body>
+
+    <header class="site">
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://hugo.rockhopper.hf/">Rockhopper.dk</a>
+          </div>
+
+          <div id="navbar" class="collapse navbar-collapse">
+            
+          </div>
+
+        </div>
+      </nav>
+    </header>
+
+    <div class="site">
+      <div class="container">
+
+
+
+<div class="single">
+
+  <div class="row">
+    <div class="col-md-8">
+
+      <article class="single" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+        <meta itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" content="http://hugo.rockhopper.hf/"/>
+        <meta itemprop="dateModified" content="2009-02-10T00:00:00&#43;00:00">
+        <meta itemprop="headline" content="Updating the Android Developer Phone1 to v1.1">
+        <meta itemprop="description" content="I&#8217;ve been putting off upgrading my ADP1 in fear of that I would brick it, but after reading that there now are official update images available I decided to give it a try. Here is a short walk through: First download the following (you can skip download of the JesusFreke images if you don&#8217;t want a backup): JesusFreke ADP1 (bottom of the page, before the comments) Fastboot (either compile it your self or download &#8220;DarkriftX&#8217;s precompiled&#8221; version) ADP1.1 update (get the &#8220;No Device Checks!&#8221; version) Backup the ADP1 (This is based on this google groups thread and the cleaned up version) This is a non destructive backup procedure, you will not have to install anything on your phone!">
+        <meta itemprop="url" content="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/">
+        <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+          <meta itemprop="url" content="http://hugo.rockhopper.hf/images/default.jpg" />
+          <meta itemprop="width" content="800">
+          <meta itemprop="height" content="800">
+        </div>
+        <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+          <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+            <meta itemprop="url" content="http://hugo.rockhopper.hf/images/logo.jpg">
+            <meta itemprop="width" content="100">
+            <meta itemprop="height" content="100">
+          </div>
+          <meta itemprop="name" content="Rockhopper.dk">
+        </div>
+        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <meta itemprop="name" content="">
+        </div>
+
+        <header class="article-header">
+          <time itemprop="datePublished" pubdate="pubdate" datetime="2009-02-10T00:00:00&#43;00:00">Tue, Feb 10, 2009</time>
+          <h1 class="article-title">Updating the Android Developer Phone1 to v1.1</h1>
+        </header>
+
+        <div class="article-body" itemprop="articleBody">
+          
+
+<p>I&#8217;ve been putting off upgrading my ADP1 in fear of that I would brick it, but after reading that there now are official update images available I decided to give it a try.</p>
+
+<p>Here is a short walk through:</p>
+
+<p>First download the following (you can skip download of the JesusFreke images if you don&#8217;t want a backup):</p>
+
+<ul>
+<li><a href="http://andblogs.net/2009/01/jesusfrekes-14-images-are-out/" target="_blank"><span class="downloadlink">JesusFreke ADP1</span></a> (bottom of the page, before the comments)</li>
+<li><a href="http://android-dls.com/wiki/index.php?title=Fastboot" target="_blank">Fastboot</a> (either compile it your self or download &#8220;DarkriftX&#8217;s precompiled&#8221; version)</li>
+<li><a href="http://andblogs.net/2009/02/new-adp1-update-official-with-google-voice-and-more/" target="_blank">ADP1.1 update</a> (get the &#8220;No Device Checks!&#8221; version)</li>
+</ul>
+
+<h1 id="backup-the-adp1:a7d24fea433cc3a9c2cce45be1a10207">Backup the ADP1</h1>
+
+<p>(This is based on this <a title=" ADP1 ONLY instructions for backup, installing from git, then back to backup " href="http://groups.google.com/group/android-discuss/browse_thread/thread/e9eb4604357ff117?hide_quotes=no&pli=1" target="_blank">google groups thread</a> and the <a href="http://antonmelser.org/open-source/backup-install-restore-adp1.html" target="_blank">cleaned up version</a>)</p>
+
+<p>This is a non destructive backup procedure, you will not have to install anything on your phone!</p>
+
+<p>You will need about 110mb free on the SD card installed in your phone.</p>
+
+<p>Extract JFv1.41_ADP1.1.zip and then boot the ADP1 into &#8220;fastboot&#8221; mode:</p>
+
+<ol>
+<li>Power the phone off</li>
+<li>Hold the camera button down</li>
+<li>Press the power button (still holding the camera button down)</li>
+</ol>
+
+<p>A white screen with small androids on skateboards will apper on the screen, and in the middle of the screen it will say &#8220;serial0&#8221;. Connect the USB cable to your computer and the ADP1, wait a bit, then press the &#8220;back&#8221; button. The text should change to &#8220;fastboot&#8221;. If not, check the dmesg on your computer, it should say something like:</p>
+
+<pre>usb 1-2: new high speed USB device using ehci_hcd and address 11
+usb 1-2: configuration #1 chosen from 1 choice</pre>
+
+<p>Now the phone should be ready to boot the recovery image from JF (if you don&#8217;t have sudo, log in as root):</p>
+
+<ul>
+<li>sudo ./fastboot boot JFv1.41_ADP1.1/data/recovery.img</li>
+</ul>
+
+<p>The phone will now boot using the image, and you should see some Linux kernel messages scrolling by, and then an image with yellow text.</p>
+
+<ul>
+<li>Press &#8220;Alt+b&#8221; (without the quotes)</li>
+</ul>
+
+<p>Backup is now running and you should see the following messages:</p>
+
+<pre>Performing backup...
+Backup complete!</pre>
+
+<p>Now reboot the phone</p>
+
+<h2 id="flashing-new-firmware:a7d24fea433cc3a9c2cce45be1a10207">Flashing new firmware</h2>
+
+<p>Connect the USB cable to the phone and mount the SD card, I have mine mounted at /media/android_sd</p>
+
+<p>Copy the update image to the SD card:</p>
+
+<pre>cp signed-holiday_nochecks_devphone-ota-130444-debug.55489994.zip /media/android_sd/update.img</pre>
+
+<p>Now perform the following steps:</p>
+
+<ol>
+<li>Power off</li>
+<li>Press and hold the &#8220;home&#8221; button</li>
+<li>Press the power button</li>
+<li>When a image of a phone and a exclamation sign appears press &#8220;Alt+l&#8221; and then &#8220;Alt+s&#8221;</li>
+</ol>
+
+<p>The phone should start the updating process and show these messages:</p>
+
+<pre>Installing from sdcard...
+Finding update package...
+Opening update package...
+Verifying update package...
+Installing update
+Formatting Boot:...
+Extraction radio image
+Formatting System
+Copying files
+Writing boot
+Installation complete
+Press home+back to reboot</pre>
+
+<p>After pressing home+backup a final message will appear:</p>
+
+<pre>Writing radio image</pre>
+
+<p>Then the phone rebooted twice (the process took about 3-4 mins), and it displayed two images, one where there is an arrow pointing onto a chip, and an arrow comming out of a box and pointing to a phone.</p>
+
+<p>The update should be complete after that.</p>
+
+<h2 id="new-things-after-the-update:a7d24fea433cc3a9c2cce45be1a10207">New things after the update</h2>
+
+<p>2 new applications are installed; &#8220;Voice Dialer&#8221; and &#8220;Voice Search&#8221;. I have not played with them yet so I can&#8217;t really say anything about them <img src="http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+
+<p>There are a couple of new settings here and there, but I have not noticed anything fancy, so I guess we still have to wait the the mysterious &#8220;cupcake&#8221; update, if such a thing even exists.</p>
+
+<p>Before the update the phone had the following information:</p>
+
+<ul>
+<li>Build date: Mon Now 3 12:54:32 PST 2008</li>
+<li>Linux kernel version: 2.6.25-01843-gfea26b0</li>
+<li>Baseband version: 62.33.20.08H_1.22.12.29</li>
+</ul>
+
+<p>Now it has:</p>
+
+<ul>
+<li>Build date: Mon Feb 9 10:28:32 PST 2009</li>
+<li>Linux kernel version: 2.6.25-01845-g85d4f0d</li>
+<li>Baseband version: 62.33.20.08H_1.22.14.11</li>
+</ul>
+
+        </div>
+
+
+        <aside>
+          <div class="section"><a href="http://hugo.rockhopper.hf/tags/android" class="tag">android</a> </div>
+
+          <div class="section share">
+            <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fhardware%2fphone-and-pda%2fupdating-the-android-developer-phone1-to-v11%2f&t=Updating%20the%20Android%20Developer%20Phone1%20to%20v1.1" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+            <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fhardware%2fphone-and-pda%2fupdating-the-android-developer-phone1-to-v11%2f&text=Updating%20the%20Android%20Developer%20Phone1%20to%20v1.1&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+            <a href="https://plus.google.com/share?url=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fhardware%2fphone-and-pda%2fupdating-the-android-developer-phone1-to-v11%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+            <a href="http://getpocket.com/edit?url=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fhardware%2fphone-and-pda%2fupdating-the-android-developer-phone1-to-v11%2f&title=Updating%20the%20Android%20Developer%20Phone1%20to%20v1.1" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+          </div>
+
+          
+          
+          
+        </aside>
+
+      </article>
+
+    </div>
+    <div class="col-md-4">
+      
+<aside class="site">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">LatestPosts</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://hugo.rockhopper.hf/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/" class="list-group-item">Mouse hover not working in Chrome/Chromium? Solution: stop synergy</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/multiple-profiles-in-firefox-tips-and-tricks/" class="list-group-item">Multiple profiles in Firefox: tips and tricks</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/zsh-promptwindow-title-trim-middle-of-path/" class="list-group-item">zsh prompt/window title: trim middle of path</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/docker-and-php-xdebug/" class="list-group-item">Docker and PHP xdebug</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/" class="list-group-item">HTPC/NAS for watching Netflix on Linux part 1: the hardware</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/" class="list-group-item">UEFI booting Arch Linux on a HP ProBook 6360b</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/" class="list-group-item">Installing CyanogenMod 7.1 on a Sony Ericsson Xperia Arc (LT15i)</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/" class="list-group-item">Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1)</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/software/mythtv/anysee-e30-c-plus-mythtv/" class="list-group-item">AnySee E30 C Plus &#43; MythTV</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/" class="list-group-item">Xfce: auto rotate wallpaper without cron</a>
+      
+    </div>
+  </div>
+
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">category</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://hugo.rockhopper.hf/categories/hardware" class="list-group-item">hardware</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/software" class="list-group-item">software</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/mythtv" class="list-group-item">mythtv</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/linux" class="list-group-item">linux</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/xfce" class="list-group-item">xfce</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/vim" class="list-group-item">vim</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/xorg" class="list-group-item">xorg</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/development" class="list-group-item">development</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/php" class="list-group-item">php</a>
+      
+    </div>
+  </div>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">tag</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://hugo.rockhopper.hf/tags/android" class="list-group-item">android</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/mythbackend" class="list-group-item">mythbackend</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/archlinux" class="list-group-item">archlinux</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/mythfrontend" class="list-group-item">mythfrontend</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/dvb-c" class="list-group-item">dvb-c</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/zsh" class="list-group-item">zsh</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/motherboard" class="list-group-item">motherboard</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/review" class="list-group-item">review</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/screen" class="list-group-item">screen</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/htpc" class="list-group-item">htpc</a>
+      
+    </div>
+  </div>
+  
+
+</aside>
+
+
+    </div>
+  </div>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site">
+      <div class="container">
+        <p>&copy; 2014 Rockhopper.dk</p>
+        <p>Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>,</p>
+        <p>Theme <a href="https://github.com/dim0627/hugo_theme_beg" target="_blank">Beg</a> designed by <a href="http://yet.unresolved.xyz" target="_blank">Daisuke Tsuji</a></p>
+      </div>
+    </footer>
+
+    <script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+  </body>
+</html>
+

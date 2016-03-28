@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Firefox on Rockhopper.dk</title>
+    <link>http://hugo.rockhopper.hf/tags/firefox/</link>
+    <description>Recent content in Firefox on Rockhopper.dk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 08 Jun 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://hugo.rockhopper.hf/tags/firefox/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Multiple profiles in Firefox: tips and tricks</title>
+      <link>http://hugo.rockhopper.hf/linux/multiple-profiles-in-firefox-tips-and-tricks/</link>
+      <pubDate>Sun, 08 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/multiple-profiles-in-firefox-tips-and-tricks/</guid>
+      <description>&lt;p&gt;I have two different profiles for Firefox, one for work, and one for everything else.&lt;/p&gt;
+
+&lt;p&gt;To start Firefox with the correct profile, I have created two different application launchers (.desktop files) in ~/.local/share/applications, one called firefox-work.desktop and the other firefox-home.desktop&lt;/p&gt;
+
+&lt;p&gt;The files contain:&lt;/p&gt;
+
+&lt;pre&gt;[Desktop Entry]
+Name=Firefox Home
+GenericName=Web Browser
+Comment=Browse the World Wide Web
+Exec=/usr/lib/firefox/firefox -P Home -no-remote %u
+Icon=firefox
+Terminal=false
+Type=Application
+MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true
+Categories=Network;WebBrowser;&lt;/pre&gt;
+
+&lt;p&gt;Replace &amp;#8220;Home&amp;#8221; with the name of your profile.&lt;/p&gt;
+
+&lt;p&gt;In order to open links in the correct profile, I made a small shell script that used xdotool and zenity:&lt;/p&gt;
+
+&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;co0&#34;&gt;#!/bin/sh&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&#34;re2&#34;&gt;PROFILE&lt;/span&gt;=$&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;zenity &lt;span class=&#34;re5&#34;&gt;--list&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--text&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;Open $1 in which profile?&#34;&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--column&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;Profile&#34;&lt;/span&gt; Work Home&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;;
+&amp;nbsp;
+&lt;span class=&#34;kw1&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$PROFILE&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;in&lt;/span&gt;
+  Home&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&#34;re2&#34;&gt;PID&lt;/span&gt;=$&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;pgrep &lt;span class=&#34;re5&#34;&gt;-f&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;-P Home&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
+  Work&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&#34;re2&#34;&gt;PID&lt;/span&gt;=$&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;pgrep &lt;span class=&#34;re5&#34;&gt;-f&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;-P Work&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
+  &lt;span class=&#34;sy0&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&#34;kw3&#34;&gt;exit&lt;/span&gt;
+    &lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
+&lt;span class=&#34;kw1&#34;&gt;esac&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&#34;co0&#34;&gt;# Avoid &#34;Can&#39;t consume 1 args; are only 0 available. This is a bug.&#34; message: https://github.com/jordansissel/xdotool/issues/14&lt;/span&gt;
+&lt;span class=&#34;co0&#34;&gt;# Pick the last id, as it seems to be the one needed&lt;/span&gt;
+&lt;span class=&#34;re2&#34;&gt;WID&lt;/span&gt;=$&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;xdotool search &lt;span class=&#34;re5&#34;&gt;--any&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--pid&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$PID&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--name&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;random_random_random&#34;&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;tail&lt;/span&gt; -n1&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+&amp;nbsp;
+xdotool windowactivate &lt;span class=&#34;re5&#34;&gt;--sync&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$WID&lt;/span&gt;
+xdotool key &lt;span class=&#34;re5&#34;&gt;--window&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$WID&lt;/span&gt; ctrl+t
+xdotool key &lt;span class=&#34;re5&#34;&gt;--window&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$WID&lt;/span&gt; ctrl+l
+xdotool &lt;span class=&#34;kw3&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--window&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$WID&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;$1&#34;&lt;/span&gt;&lt;/pre&gt;
+
+&lt;p&gt;The last thing to to is to open exo-preferred-applications and select the script as the preferred &amp;#8220;web-browser&amp;#8221; (remember &amp;#8220;%s&amp;#8221;).&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

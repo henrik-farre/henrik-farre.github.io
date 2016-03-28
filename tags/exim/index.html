@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.15" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans|Marcellus+SC'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://hugo.rockhopper.hf//index.xml">
+
+    
+    <title>Exim - Rockhopper.dk</title>
+    <meta property='og:title' content="Exim - Rockhopper.dk">
+    <meta property="og:type" content="article">
+    
+
+    <meta property="og:url" content="http://hugo.rockhopper.hf/tags/exim/">
+    
+    
+
+  </head>
+
+  <body>
+
+    <header class="site">
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://hugo.rockhopper.hf/">Rockhopper.dk</a>
+          </div>
+
+          <div id="navbar" class="collapse navbar-collapse">
+            
+          </div>
+
+        </div>
+      </nav>
+    </header>
+
+    <div class="site">
+      <div class="container">
+
+
+<div class="list">
+
+  <div class="row">
+    <div class="col-md-8">
+      <header class="page-title">Exim</header>
+
+      
+      <article class="li">
+  <header>
+    <div class="date">Sat, Jul 26, 2008</div>
+    <div class="title"><a href="http://hugo.rockhopper.hf/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/">Fast nagios exim mail queue plugin replacement</a></div>
+  </header>
+  <div class="body">We had a problem with the nagios check_mailq plugin at [work][1], it kept timing out. So I wrote a simple bash script (instead of 610 lines of perl) which is &#8220;compatible&#8221; with check_mailq (supports the same arguments) which uses &#8220;exim4&#8221; and is very quick. Just drop it in /usr/local/bin/check_mailq_simple.sh and adjust your nagios conf to use that instead of check_mailq #!/bin/bash &nbsp; WARNING="" CRITICAL="" MAILER="" TIMER="" &nbsp; while getopts "w:c:M:t" optionName; do case "${optionName}" in w&#41; WARNING="${OPTARG}";; c&#41; CRITICAL="${OPTARG}";; M&#41; MAILER="${OPTARG}";; t&#41; TIMER="${OPTARG}";; esac done &nbsp; MAILS_IN_QUEUE=`sudo /usr/sbin/exim4 -bpc` &nbsp; if &#91;&#91; ${MAILS_IN_QUEUE} -gt ${CRITICAL} &#93;&#93;; then echo "CRITICAL: mailq is ${MAILS_IN_QUEUE} (threshold w = ${CRITICAL})|unsent=${MAILS_IN_QUEUE};${WARNING};${CRITICAL};0" exit 2 elif &#91;&#91; ${MAILS_IN_QUEUE} -gt ${WARNING} &#93;&#93;; then echo "WARNING: mailq is ${MAILS_IN_QUEUE} (threshold w = ${WARNING})|unsent=${MAILS_IN_QUEUE};${WARNING};${CRITICAL};0" exit 1 elif &#91;&#91; ${MAILS_IN_QUEUE} -lt ${WARNING} &#93;&#93;; then echo "OK: mailq is ${MAILS_IN_QUEUE} (threshold w = ${WARNING})|unsent=${MAILS_IN_QUEUE};${WARNING};${CRITICAL};0" exit else echo "ERROR: something did not go right" exit 2 fi This has been tested on Debian sarge.</div>
+
+  
+  <footer>
+    <a href="http://hugo.rockhopper.hf/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/" class="btn btn-default">Read More…</a>
+  </footer>
+  
+</article>
+<hr>
+
+      
+      
+
+
+    </div>
+    <div class="col-md-4">
+      
+<aside class="site">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">LatestPosts</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://hugo.rockhopper.hf/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/" class="list-group-item">Mouse hover not working in Chrome/Chromium? Solution: stop synergy</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/multiple-profiles-in-firefox-tips-and-tricks/" class="list-group-item">Multiple profiles in Firefox: tips and tricks</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/zsh-promptwindow-title-trim-middle-of-path/" class="list-group-item">zsh prompt/window title: trim middle of path</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/docker-and-php-xdebug/" class="list-group-item">Docker and PHP xdebug</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/" class="list-group-item">HTPC/NAS for watching Netflix on Linux part 1: the hardware</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/" class="list-group-item">UEFI booting Arch Linux on a HP ProBook 6360b</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/" class="list-group-item">Installing CyanogenMod 7.1 on a Sony Ericsson Xperia Arc (LT15i)</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/" class="list-group-item">Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1)</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/software/mythtv/anysee-e30-c-plus-mythtv/" class="list-group-item">AnySee E30 C Plus &#43; MythTV</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/" class="list-group-item">Xfce: auto rotate wallpaper without cron</a>
+      
+    </div>
+  </div>
+
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">category</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://hugo.rockhopper.hf/categories/hardware" class="list-group-item">hardware</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/software" class="list-group-item">software</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/mythtv" class="list-group-item">mythtv</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/linux" class="list-group-item">linux</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/xfce" class="list-group-item">xfce</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/development" class="list-group-item">development</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/php" class="list-group-item">php</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/vim" class="list-group-item">vim</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/xorg" class="list-group-item">xorg</a>
+      
+    </div>
+  </div>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">tag</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://hugo.rockhopper.hf/tags/android" class="list-group-item">android</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/mythbackend" class="list-group-item">mythbackend</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/archlinux" class="list-group-item">archlinux</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/zsh" class="list-group-item">zsh</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/motherboard" class="list-group-item">motherboard</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/mythfrontend" class="list-group-item">mythfrontend</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/dvb-c" class="list-group-item">dvb-c</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/raid" class="list-group-item">raid</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/cmd-line" class="list-group-item">cmd-line</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/synergy" class="list-group-item">synergy</a>
+      
+    </div>
+  </div>
+  
+
+</aside>
+
+
+    </div>
+  </div>
+
+</div>
+      </div>
+    </div>
+
+    <footer class="site">
+      <div class="container">
+        <p>&copy; 2014 Rockhopper.dk</p>
+        <p>Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>,</p>
+        <p>Theme <a href="https://github.com/dim0627/hugo_theme_beg" target="_blank">Beg</a> designed by <a href="http://yet.unresolved.xyz" target="_blank">Daisuke Tsuji</a></p>
+      </div>
+    </footer>
+
+    <script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+  </body>
+</html>
+

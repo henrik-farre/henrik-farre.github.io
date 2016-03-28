@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Rockhopper.dk</title>
+    <link>http://hugo.rockhopper.hf/categories/linux/</link>
+    <description>Recent content in Linux on Rockhopper.dk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Jun 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://hugo.rockhopper.hf/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Mouse hover not working in Chrome/Chromium? Solution: stop synergy</title>
+      <link>http://hugo.rockhopper.hf/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/</link>
+      <pubDate>Thu, 12 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/</guid>
+      <description>&lt;p&gt;I had a strange problem: when I was using Chromium (Open source version of Chrome): mouse hover was not working. Click, scroll and so on worked fine, but when the mouse hovered above an element on a webpage nothing happend.&lt;/p&gt;
+
+&lt;p&gt;After googling I found that &lt;a href=&#34;http://synergy-project.org/&#34;&gt;synergy&lt;/a&gt; is the [cause][2], so now I only start synergy when I need it.&lt;/p&gt;
+
+&lt;p&gt;[2]: &lt;a href=&#34;https://www.google.dk/search?q=chrome+hover+synergy&#34;&gt;https://www.google.dk/search?q=chrome+hover+synergy&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Multiple profiles in Firefox: tips and tricks</title>
+      <link>http://hugo.rockhopper.hf/linux/multiple-profiles-in-firefox-tips-and-tricks/</link>
+      <pubDate>Sun, 08 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/multiple-profiles-in-firefox-tips-and-tricks/</guid>
+      <description>&lt;p&gt;I have two different profiles for Firefox, one for work, and one for everything else.&lt;/p&gt;
+
+&lt;p&gt;To start Firefox with the correct profile, I have created two different application launchers (.desktop files) in ~/.local/share/applications, one called firefox-work.desktop and the other firefox-home.desktop&lt;/p&gt;
+
+&lt;p&gt;The files contain:&lt;/p&gt;
+
+&lt;pre&gt;[Desktop Entry]
+Name=Firefox Home
+GenericName=Web Browser
+Comment=Browse the World Wide Web
+Exec=/usr/lib/firefox/firefox -P Home -no-remote %u
+Icon=firefox
+Terminal=false
+Type=Application
+MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true
+Categories=Network;WebBrowser;&lt;/pre&gt;
+
+&lt;p&gt;Replace &amp;#8220;Home&amp;#8221; with the name of your profile.&lt;/p&gt;
+
+&lt;p&gt;In order to open links in the correct profile, I made a small shell script that used xdotool and zenity:&lt;/p&gt;
+
+&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;co0&#34;&gt;#!/bin/sh&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&#34;re2&#34;&gt;PROFILE&lt;/span&gt;=$&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;zenity &lt;span class=&#34;re5&#34;&gt;--list&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--text&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;Open $1 in which profile?&#34;&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--column&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;Profile&#34;&lt;/span&gt; Work Home&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;;
+&amp;nbsp;
+&lt;span class=&#34;kw1&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$PROFILE&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;in&lt;/span&gt;
+  Home&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&#34;re2&#34;&gt;PID&lt;/span&gt;=$&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;pgrep &lt;span class=&#34;re5&#34;&gt;-f&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;-P Home&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
+  Work&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&#34;re2&#34;&gt;PID&lt;/span&gt;=$&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;pgrep &lt;span class=&#34;re5&#34;&gt;-f&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;-P Work&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
+  &lt;span class=&#34;sy0&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&#34;kw3&#34;&gt;exit&lt;/span&gt;
+    &lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
+&lt;span class=&#34;kw1&#34;&gt;esac&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&#34;co0&#34;&gt;# Avoid &#34;Can&#39;t consume 1 args; are only 0 available. This is a bug.&#34; message: https://github.com/jordansissel/xdotool/issues/14&lt;/span&gt;
+&lt;span class=&#34;co0&#34;&gt;# Pick the last id, as it seems to be the one needed&lt;/span&gt;
+&lt;span class=&#34;re2&#34;&gt;WID&lt;/span&gt;=$&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;xdotool search &lt;span class=&#34;re5&#34;&gt;--any&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--pid&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$PID&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--name&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;random_random_random&#34;&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;tail&lt;/span&gt; -n1&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+&amp;nbsp;
+xdotool windowactivate &lt;span class=&#34;re5&#34;&gt;--sync&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$WID&lt;/span&gt;
+xdotool key &lt;span class=&#34;re5&#34;&gt;--window&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$WID&lt;/span&gt; ctrl+t
+xdotool key &lt;span class=&#34;re5&#34;&gt;--window&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$WID&lt;/span&gt; ctrl+l
+xdotool &lt;span class=&#34;kw3&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--window&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$WID&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;$1&#34;&lt;/span&gt;&lt;/pre&gt;
+
+&lt;p&gt;The last thing to to is to open exo-preferred-applications and select the script as the preferred &amp;#8220;web-browser&amp;#8221; (remember &amp;#8220;%s&amp;#8221;).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>zsh prompt/window title: trim middle of path</title>
+      <link>http://hugo.rockhopper.hf/linux/zsh-promptwindow-title-trim-middle-of-path/</link>
+      <pubDate>Tue, 07 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/zsh-promptwindow-title-trim-middle-of-path/</guid>
+      <description>&lt;p&gt;I run zsh in tmux, and sometimes I end up in a deep directory where the path matches that of another window in tmux (for example in my local docker development environment and on the testing/production server). When this happens just seeing the last part of the path as the window title is not enough, like this: &amp;#8230;/sites/all/modules/somemodule.&lt;/p&gt;
+
+&lt;p&gt;So I changed my ~/.zshrc to contain this:&lt;/p&gt;
+
+&lt;pre&gt;####################################################
+# Set title function
+# Used in precmd
+function title() {
+  # escape &#39;%&#39; chars in $1, make nonprintables visible
+  local cmd=${(V)1//\%/\%\%}
+
+  # See &#34;Conditional Substrings in Prompts&#34;
+  # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+  # %X&amp;gt;...&amp;gt;                     : truncate to 40 chars followed by ...
+  # %X(c:true-text:false-text)  : if c &amp;gt; %X show true text, else false text
+
+  # Truncate cmd to 40
+  cmd=$(print -Pn &#34;%40&amp;gt;...&amp;gt;$cmd&#34; | tr -d &#34;\n&#34;)
+
+  case $TERM in
+    screen|screen-bce|screen-256color|screen-256color-bce)
+      if [[ -z $SSH_TTY ]]; then
+        #print -Pn &#34;\ek%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\e\\&#34;
+        # if c (current path with prefix replace, aka ~) is larger than 7, 
+        # show first 3 parts, then ... and then last 3 parts, else just %~
+        print -Pn &#34;\ek%7(c:%-3~/.../%3~:%~) $cmd\e\\&#34;
+      else
+        # With user/hostname
+        print -Pn &#34;\ek%m:%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\e\\&#34;
+      fi
+      ;;
+    xterm*|rxvt*)
+      # plain xterm title
+      if [[ -z $SSH_TTY ]]; then
+        print -Pn &#34;\e]2;%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\a&#34;
+      else
+        # With user/hostname
+        print -Pn &#34;\e]2;%n@%m:%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\a&#34;
+      fi
+      ;;
+  esac
+}
+
+####################################################
+# Window title
+# precmd is called just before the prompt is printed
+function precmd() { 
+  title &#34;&#34; 
+  # Don&#39;t run vcs_info if remote shell
+  if [[ -z $SSH_TTY ]]; then
+    vcs_info
+  fi
+}
+# preexec is called just before any command line is executed
+function preexec() { 
+  title &#34;$1&#34;
+}
+&lt;/pre&gt;
+
+&lt;p&gt;This creates the following window title: ~/Work/docker/&amp;#8230;/all/modules/somemodule. The magic happens by saying %7(c:%-3~/&amp;#8230;/%3~:%~) which means: if &amp;#8220;c&amp;#8221;, which contains the entire path after prefix has been replaced -&amp;gt; /home/username to ~, is larger than 7, show the 3 first directories, then &amp;#8230; and finally the last 3 directories.&lt;/p&gt;
+
+&lt;p&gt;The same can be done in the shell prompt.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Docker and PHP xdebug</title>
+      <link>http://hugo.rockhopper.hf/linux/docker-and-php-xdebug/</link>
+      <pubDate>Sat, 04 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/docker-and-php-xdebug/</guid>
+      <description>&lt;p&gt;I have switched from using Vagrant to Docker as my local development environment, and I&amp;#8217;m still mentally trying to switch &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To use the &lt;a href=&#34;https://github.com/joonty/vdebug&#34;&gt;vdebug plugin&lt;/a&gt; in Vim I have set xdebug up inside the container as follows:&lt;/p&gt;
+
+&lt;p&gt;/etc/php5/conf.d/20-xdebug.ini (Debian wheezy)&lt;/p&gt;
+
+&lt;pre&gt;zend_extension=/usr/lib/php5/20100525/xdebug.so
+xdebug.remote_enable=1
+xdebug.remote_autostart=0
+xdebug.remote_connect_back=1
+xdebug.remote_port=9000&lt;/pre&gt;
+
+&lt;p&gt;And in my ~/.vimrc I have these vdebug settings:&lt;/p&gt;
+
+&lt;pre&gt;let g:vdebug_options = {&#34;path_maps&#34;: {&#34;/var/www&#34;: &#34;/home/username/Localdev&#34;}, \
+&#34;break_on_open&#34;: 0, &#34;watch_window_style&#34;: &#34;compact&#34;, \
+&#34;server&#34; : &#34;172.17.42.1&#34;}&lt;/pre&gt;
+
+&lt;p&gt;172.17.42.1 is the ip of the bridge created by docker, it can be found by using ip addr and looking for the &amp;#8220;docker0&amp;#8221; interface.&lt;/p&gt;
+
+&lt;p&gt;I create the xdebug ini file in my Dockerfile, see my [Docker repository][2]&lt;/p&gt;
+
+&lt;p&gt;[2]: &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;https://github.com/henrik-farre/docker&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

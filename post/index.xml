@@ -1,0 +1,1144 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Rockhopper.dk</title>
+    <link>http://hugo.rockhopper.hf/post/</link>
+    <description>Recent content in Posts on Rockhopper.dk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Jun 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://hugo.rockhopper.hf/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Mouse hover not working in Chrome/Chromium? Solution: stop synergy</title>
+      <link>http://hugo.rockhopper.hf/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/</link>
+      <pubDate>Thu, 12 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/</guid>
+      <description>&lt;p&gt;I had a strange problem: when I was using Chromium (Open source version of Chrome): mouse hover was not working. Click, scroll and so on worked fine, but when the mouse hovered above an element on a webpage nothing happend.&lt;/p&gt;
+
+&lt;p&gt;After googling I found that &lt;a href=&#34;http://synergy-project.org/&#34;&gt;synergy&lt;/a&gt; is the [cause][2], so now I only start synergy when I need it.&lt;/p&gt;
+
+&lt;p&gt;[2]: &lt;a href=&#34;https://www.google.dk/search?q=chrome+hover+synergy&#34;&gt;https://www.google.dk/search?q=chrome+hover+synergy&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Multiple profiles in Firefox: tips and tricks</title>
+      <link>http://hugo.rockhopper.hf/linux/multiple-profiles-in-firefox-tips-and-tricks/</link>
+      <pubDate>Sun, 08 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/multiple-profiles-in-firefox-tips-and-tricks/</guid>
+      <description>&lt;p&gt;I have two different profiles for Firefox, one for work, and one for everything else.&lt;/p&gt;
+
+&lt;p&gt;To start Firefox with the correct profile, I have created two different application launchers (.desktop files) in ~/.local/share/applications, one called firefox-work.desktop and the other firefox-home.desktop&lt;/p&gt;
+
+&lt;p&gt;The files contain:&lt;/p&gt;
+
+&lt;pre&gt;[Desktop Entry]
+Name=Firefox Home
+GenericName=Web Browser
+Comment=Browse the World Wide Web
+Exec=/usr/lib/firefox/firefox -P Home -no-remote %u
+Icon=firefox
+Terminal=false
+Type=Application
+MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true
+Categories=Network;WebBrowser;&lt;/pre&gt;
+
+&lt;p&gt;Replace &amp;#8220;Home&amp;#8221; with the name of your profile.&lt;/p&gt;
+
+&lt;p&gt;In order to open links in the correct profile, I made a small shell script that used xdotool and zenity:&lt;/p&gt;
+
+&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;co0&#34;&gt;#!/bin/sh&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&#34;re2&#34;&gt;PROFILE&lt;/span&gt;=$&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;zenity &lt;span class=&#34;re5&#34;&gt;--list&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--text&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;Open $1 in which profile?&#34;&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--column&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;Profile&#34;&lt;/span&gt; Work Home&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;;
+&amp;nbsp;
+&lt;span class=&#34;kw1&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$PROFILE&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;in&lt;/span&gt;
+  Home&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&#34;re2&#34;&gt;PID&lt;/span&gt;=$&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;pgrep &lt;span class=&#34;re5&#34;&gt;-f&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;-P Home&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
+  Work&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&#34;re2&#34;&gt;PID&lt;/span&gt;=$&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;pgrep &lt;span class=&#34;re5&#34;&gt;-f&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;-P Work&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
+  &lt;span class=&#34;sy0&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&#34;kw3&#34;&gt;exit&lt;/span&gt;
+    &lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
+&lt;span class=&#34;kw1&#34;&gt;esac&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&#34;co0&#34;&gt;# Avoid &#34;Can&#39;t consume 1 args; are only 0 available. This is a bug.&#34; message: https://github.com/jordansissel/xdotool/issues/14&lt;/span&gt;
+&lt;span class=&#34;co0&#34;&gt;# Pick the last id, as it seems to be the one needed&lt;/span&gt;
+&lt;span class=&#34;re2&#34;&gt;WID&lt;/span&gt;=$&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;xdotool search &lt;span class=&#34;re5&#34;&gt;--any&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--pid&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$PID&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--name&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;random_random_random&#34;&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;tail&lt;/span&gt; -n1&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+&amp;nbsp;
+xdotool windowactivate &lt;span class=&#34;re5&#34;&gt;--sync&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$WID&lt;/span&gt;
+xdotool key &lt;span class=&#34;re5&#34;&gt;--window&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$WID&lt;/span&gt; ctrl+t
+xdotool key &lt;span class=&#34;re5&#34;&gt;--window&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$WID&lt;/span&gt; ctrl+l
+xdotool &lt;span class=&#34;kw3&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--window&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$WID&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;$1&#34;&lt;/span&gt;&lt;/pre&gt;
+
+&lt;p&gt;The last thing to to is to open exo-preferred-applications and select the script as the preferred &amp;#8220;web-browser&amp;#8221; (remember &amp;#8220;%s&amp;#8221;).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>zsh prompt/window title: trim middle of path</title>
+      <link>http://hugo.rockhopper.hf/linux/zsh-promptwindow-title-trim-middle-of-path/</link>
+      <pubDate>Tue, 07 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/zsh-promptwindow-title-trim-middle-of-path/</guid>
+      <description>&lt;p&gt;I run zsh in tmux, and sometimes I end up in a deep directory where the path matches that of another window in tmux (for example in my local docker development environment and on the testing/production server). When this happens just seeing the last part of the path as the window title is not enough, like this: &amp;#8230;/sites/all/modules/somemodule.&lt;/p&gt;
+
+&lt;p&gt;So I changed my ~/.zshrc to contain this:&lt;/p&gt;
+
+&lt;pre&gt;####################################################
+# Set title function
+# Used in precmd
+function title() {
+  # escape &#39;%&#39; chars in $1, make nonprintables visible
+  local cmd=${(V)1//\%/\%\%}
+
+  # See &#34;Conditional Substrings in Prompts&#34;
+  # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+  # %X&amp;gt;...&amp;gt;                     : truncate to 40 chars followed by ...
+  # %X(c:true-text:false-text)  : if c &amp;gt; %X show true text, else false text
+
+  # Truncate cmd to 40
+  cmd=$(print -Pn &#34;%40&amp;gt;...&amp;gt;$cmd&#34; | tr -d &#34;\n&#34;)
+
+  case $TERM in
+    screen|screen-bce|screen-256color|screen-256color-bce)
+      if [[ -z $SSH_TTY ]]; then
+        #print -Pn &#34;\ek%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\e\\&#34;
+        # if c (current path with prefix replace, aka ~) is larger than 7, 
+        # show first 3 parts, then ... and then last 3 parts, else just %~
+        print -Pn &#34;\ek%7(c:%-3~/.../%3~:%~) $cmd\e\\&#34;
+      else
+        # With user/hostname
+        print -Pn &#34;\ek%m:%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\e\\&#34;
+      fi
+      ;;
+    xterm*|rxvt*)
+      # plain xterm title
+      if [[ -z $SSH_TTY ]]; then
+        print -Pn &#34;\e]2;%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\a&#34;
+      else
+        # With user/hostname
+        print -Pn &#34;\e]2;%n@%m:%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\a&#34;
+      fi
+      ;;
+  esac
+}
+
+####################################################
+# Window title
+# precmd is called just before the prompt is printed
+function precmd() { 
+  title &#34;&#34; 
+  # Don&#39;t run vcs_info if remote shell
+  if [[ -z $SSH_TTY ]]; then
+    vcs_info
+  fi
+}
+# preexec is called just before any command line is executed
+function preexec() { 
+  title &#34;$1&#34;
+}
+&lt;/pre&gt;
+
+&lt;p&gt;This creates the following window title: ~/Work/docker/&amp;#8230;/all/modules/somemodule. The magic happens by saying %7(c:%-3~/&amp;#8230;/%3~:%~) which means: if &amp;#8220;c&amp;#8221;, which contains the entire path after prefix has been replaced -&amp;gt; /home/username to ~, is larger than 7, show the 3 first directories, then &amp;#8230; and finally the last 3 directories.&lt;/p&gt;
+
+&lt;p&gt;The same can be done in the shell prompt.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Docker and PHP xdebug</title>
+      <link>http://hugo.rockhopper.hf/linux/docker-and-php-xdebug/</link>
+      <pubDate>Sat, 04 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/docker-and-php-xdebug/</guid>
+      <description>&lt;p&gt;I have switched from using Vagrant to Docker as my local development environment, and I&amp;#8217;m still mentally trying to switch &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To use the &lt;a href=&#34;https://github.com/joonty/vdebug&#34;&gt;vdebug plugin&lt;/a&gt; in Vim I have set xdebug up inside the container as follows:&lt;/p&gt;
+
+&lt;p&gt;/etc/php5/conf.d/20-xdebug.ini (Debian wheezy)&lt;/p&gt;
+
+&lt;pre&gt;zend_extension=/usr/lib/php5/20100525/xdebug.so
+xdebug.remote_enable=1
+xdebug.remote_autostart=0
+xdebug.remote_connect_back=1
+xdebug.remote_port=9000&lt;/pre&gt;
+
+&lt;p&gt;And in my ~/.vimrc I have these vdebug settings:&lt;/p&gt;
+
+&lt;pre&gt;let g:vdebug_options = {&#34;path_maps&#34;: {&#34;/var/www&#34;: &#34;/home/username/Localdev&#34;}, \
+&#34;break_on_open&#34;: 0, &#34;watch_window_style&#34;: &#34;compact&#34;, \
+&#34;server&#34; : &#34;172.17.42.1&#34;}&lt;/pre&gt;
+
+&lt;p&gt;172.17.42.1 is the ip of the bridge created by docker, it can be found by using ip addr and looking for the &amp;#8220;docker0&amp;#8221; interface.&lt;/p&gt;
+
+&lt;p&gt;I create the xdebug ini file in my Dockerfile, see my [Docker repository][2]&lt;/p&gt;
+
+&lt;p&gt;[2]: &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;https://github.com/henrik-farre/docker&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>HTPC/NAS for watching Netflix on Linux part 1: the hardware</title>
+      <link>http://hugo.rockhopper.hf/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</link>
+      <pubDate>Wed, 13 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</guid>
+      <description>
+
+&lt;p&gt;I decided to build a new HTPC/NAS in order to watch &lt;a href=&#34;http://www.netflix.com&#34;&gt;Netflix&lt;/a&gt; (using &lt;a href=&#34;https://wiki.archlinux.org/index.php/Pipelight&#34;&gt;pipelight&lt;/a&gt;) on Linux, and combine two older machines into one.&lt;/p&gt;
+
+&lt;p&gt;My old HTPC was based on a 1.6GHz AMD Sempron from 2007 and a Nvidia GeForce N210. While it played Full HD content fine using &lt;a href=&#34;https://wiki.archlinux.org/index.php/VDPAU&#34;&gt;vdpau&lt;/a&gt;, it was not able to handle Netflix using pipelight. A second machine with a Intel Atom CPU was used to store all the multimedia and host MythTV.&lt;/p&gt;
+
+&lt;p&gt;Specifications of the new machine are:&lt;/p&gt;
+
+&lt;h2 id=&#34;motherboard:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Motherboard&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.gigabyte.com/products/product-page.aspx?pid=4519&#34;&gt;Gigabyte GA-Z87-D3HP&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Nice motherboard, ok PWM fan controls, only thing I dislike is the UEFI bios. Some options change when I navigate using the keyboard arrows&amp;#8230; come on, do I &lt;em&gt;really&lt;/em&gt; need a mouse for changing bios options?&lt;/p&gt;
+
+&lt;p&gt;Everything I have tested works in Linux, also these things:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;lm-sensors: supports the it8728 chip&lt;/li&gt;
+&lt;li&gt;Wake-on-lan&lt;/li&gt;
+&lt;li&gt;Audio over HDMI&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I did not test:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;USB 3.0&lt;/li&gt;
+&lt;li&gt;Changing the &amp;#8220;Resume by Alarm&amp;#8221; time from Linux.&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Fancontrol in Linux&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;lspci reports:&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;00:00.0 Host bridge: Intel Corporation 4th Gen Core Processor DRAM Controller (rev 06)
+00:02.0 VGA compatible controller: Intel Corporation Device 041e (rev 06)
+00:03.0 Audio device: Intel Corporation Xeon E3-1200 v3/4th Gen Core Processor HD Audio Controller (rev 06)
+00:14.0 USB controller: Intel Corporation 8 Series/C220 Series Chipset Family USB xHCI (rev 04)
+00:16.0 Communication controller: Intel Corporation 8 Series/C220 Series Chipset Family MEI Controller #1 (rev 04)
+00:19.0 Ethernet controller: Intel Corporation Ethernet Connection I217-V (rev 04)
+00:1a.0 USB controller: Intel Corporation 8 Series/C220 Series Chipset Family USB EHCI #2 (rev 04)
+00:1b.0 Audio device: Intel Corporation 8 Series/C220 Series Chipset High Definition Audio Controller (rev 04)
+00:1c.0 PCI bridge: Intel Corporation 8 Series/C220 Series Chipset Family PCI Express Root Port #1 (rev d4)
+00:1c.3 PCI bridge: Intel Corporation 82801 PCI Bridge (rev d4)
+00:1d.0 USB controller: Intel Corporation 8 Series/C220 Series Chipset Family USB EHCI #1 (rev 04)
+00:1f.0 ISA bridge: Intel Corporation Z87 Express LPC Controller (rev 04)
+00:1f.2 SATA controller: Intel Corporation 8 Series/C220 Series Chipset Family 6-port SATA Controller 1 [AHCI mode] (rev 04)
+00:1f.3 SMBus: Intel Corporation 8 Series/C220 Series Chipset Family SMBus Controller (rev 04)
+02:00.0 PCI bridge: Intel Corporation 82801 PCI Bridge (rev 41)&lt;/pre&gt;
+
+&lt;h3 id=&#34;ram:6f5e50861940930885d16cc412b3fd7a&#34;&gt;RAM&lt;/h3&gt;
+
+&lt;p&gt;I went for some cheap &lt;a href=&#34;http://www.kingston.com/us/memory/hyperx/blu&#34;&gt;Kingston HyperX blu&lt;/a&gt; 2 x 2 GB memory. The motherboard supports faster memory which should boost graphics performance, but I&amp;#8217;m content with how it performs now.&lt;/p&gt;
+
+&lt;h2 id=&#34;cpu:6f5e50861940930885d16cc412b3fd7a&#34;&gt;CPU&lt;/h2&gt;
+
+&lt;p&gt;I really like the &lt;a href=&#34;http://ark.intel.com/products/77481/&#34;&gt;Intel i3-4130T&lt;/a&gt; (Haswell) CPU. It runs @ 2.9GHz with a TDP of just 35W, and it comes with integrated Intel HD graphics 4400.&lt;/p&gt;
+
+&lt;p&gt;It is possible to view Full HD content using &lt;a href=&#34;https://wiki.archlinux.org/index.php/VA-API&#34;&gt;va-api&lt;/a&gt; without using more than &amp;lt;20% CPU.&lt;/p&gt;
+
+&lt;h3 id=&#34;cpu-cooler:6f5e50861940930885d16cc412b3fd7a&#34;&gt;CPU cooler&lt;/h3&gt;
+
+&lt;p&gt;The &lt;a href=&#34;http://www.coolermaster.com/product/Detail/cooling/cpu-air-cooler/hyper-212-evo.html&#34;&gt;Cooler Master Hyper 212 Evo&lt;/a&gt; is a direct heatpipe touch CPU cooler, and its fan can run at the lowest speed all the time thanks to the CPU&amp;#8217;s low TDP. I use &lt;a href=&#34;http://www.arcticsilver.com/as5.htm&#34;&gt;Arctic Silver 5&lt;/a&gt; thermal compound.&lt;/p&gt;
+
+&lt;h2 id=&#34;control:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Control&lt;/h2&gt;
+
+&lt;p&gt;I picked the &lt;a href=&#34;http://www.chill-innovation.com/en/bluetooth-keyboards/12-chill-kb-1bt-wireless-bluetooth-micro-keyboard-nordic-5711045075841.html&#34;&gt;Chill KB-1BT Wireless Bluetooth Micro Keyboard&lt;/a&gt; because I was tired of my old infrared connected keyboard&amp;#8217;s poor range and it also had to be pointing directly at its receiver. And not only does the Chill KB-1BT have better range, it&amp;#8217;s also much easier to type on because it&amp;#8217;s much smaller so I can reach most keys with my thumbs.&lt;/p&gt;
+
+&lt;p&gt;While the keyboard is excellent for typing and controlling Netflix/Rdio, I also bought a &lt;a href=&#34;http://www.pulse-eight.com/store/products/104-usb-hdmi-cec-adapter.aspx&#34;&gt;Pulse Eight USB &amp;#8211; CEC Adapter&lt;/a&gt; which allows me to control XBMC 100% using my TV&amp;#8217;s (Sony KDL-40WE5) remote.&lt;/p&gt;
+
+&lt;h2 id=&#34;storage:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Storage&lt;/h2&gt;
+
+&lt;p&gt;I reused the 3 x 500Gb Seagate ST3500630AS discs from the Atom server running in a Raid 5 configuration.&lt;/p&gt;
+
+&lt;h2 id=&#34;case:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Case&lt;/h2&gt;
+
+&lt;p&gt;First revision [Antec Sonata]&lt;a href=&#34;does not even exist on Antec&amp;amp;#8217;s page any more&#34;&gt;12&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;[12]: &lt;a href=&#34;http://techreport.com/review/6247/antec-sonata-atx-case&#34;&gt;http://techreport.com/review/6247/antec-sonata-atx-case&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>UEFI booting Arch Linux on a HP ProBook 6360b</title>
+      <link>http://hugo.rockhopper.hf/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</link>
+      <pubDate>Sun, 17 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</guid>
+      <description>
+
+&lt;p&gt;As I&amp;#8217;ve just got a new Samsung 840 Pro Series 256GB SSD for my work laptop (HP ProBook 6360b), I wanted to try switching from BIOS booting to UEFI.&lt;/p&gt;
+
+&lt;h1 id=&#34;ssd-setup:769087bd4497991a049e43a8b2be2b7e&#34;&gt;SSD setup&lt;/h1&gt;
+
+&lt;p&gt;Using gdisk I created two partitions:&lt;/p&gt;
+
+&lt;pre&gt;Number  Start (sector)    End (sector)  Size       Code  Name
+   1            2048          206847   100.0 MiB   EF00  EFI System
+   2          206848       500118158   238.4 GiB   8300  Linux filesystem&lt;/pre&gt;
+
+&lt;p&gt;I left the default align to 2048-sector boundaries.&lt;/p&gt;
+
+&lt;p&gt;In gdisk I entered &amp;#8220;extra functionality (experts only)&amp;#8221; by pressing &amp;#8220;x&amp;#8221;, and then &amp;#8220;a&amp;#8221; ( &amp;#8220;set attributes&amp;#8221;), and selected &amp;#8220;0&amp;#8221; for &amp;#8220;system partition&amp;#8221; and &amp;#8220;2&amp;#8221; for &amp;#8220;legacy BIOS bootable&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;Next I formatted the two partitions using:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;mkfs.vfat -F32 /dev/sda1&lt;/li&gt;
+&lt;li&gt;mkfs.ext4 -m0 /dev/sda2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Finally I mounted the old disk (connected using the eSATA connector on the laptop) and the new disk, and used rsync to copy everything to the new disk.&lt;/p&gt;
+
+&lt;h1 id=&#34;bootloader-setup:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Bootloader setup&lt;/h1&gt;
+
+&lt;p&gt;This was the tricky part. First I updated the firmware on the laptop to the newest version (F.29 from &lt;a href=&#34;http://h20000.www2.hp.com/bizsupport/TechSupport/SoftwareIndex.jsp?lang=en&amp;amp;cc=dk&amp;amp;prodNameId=5045588&amp;amp;prodTypeId=321957&amp;amp;prodSeriesId=5045581&amp;amp;swLang=13&amp;amp;taskId=135&amp;amp;swEnvOID=4060&#34;&gt;HPs support site&lt;/a&gt;). I tried all the .exe files on a computer running Windows 7 until I found the one that could create an USB stick.&lt;/p&gt;
+
+&lt;h2 id=&#34;booting-in-uefi-mode:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Booting in UEFI mode&lt;/h2&gt;
+
+&lt;p&gt;Very importen bit: you can&amp;#8217;t install a UEFI bootloader unless you&amp;#8217;ve booted in UEFI mode.&lt;/p&gt;
+
+&lt;p&gt;I used the instructions in the Arch Linux wiki on how to &lt;a href=&#34;https://wiki.archlinux.org/index.php/UEFI#Create_UEFI_bootable_USB_from_ISO&#34;&gt;Create UEFI bootable USB from ISO&lt;/a&gt;. Sometimes UEFI refused to boot from the USB, but it worked each time I selected the EFI file on the USB stick. To do that press F9 while the computer is booting and select &amp;#8220;Boot from EFI file&amp;#8221;, then select the USB device and EFI/boot/bootx64.efi&lt;/p&gt;
+
+&lt;h2 id=&#34;installing-the-bootloader:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Installing the bootloader&lt;/h2&gt;
+
+&lt;p&gt;I tried rEFInd, gummiboot, grub2 and just using the kernel EFI stub support. Nothing worked. After reading [UEFI Booting 64-bit Redhat Enterprise Linux 6][3] I figured out that HPs firmware only allows you to boot from &amp;#8220;OS bootloader&amp;#8221;, which means that it will only boot from \EFI\BOOT\BOOTX64.EFI. So I installed grub2 using these commands (/dev/sda1 is mounted at /boot/efi):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;grub-install &amp;#8211;target=x86_64-efi &amp;#8211;efi-directory=/boot/efi &amp;#8211;bootloader-id=arch_grub &amp;#8211;recheck&lt;/li&gt;
+&lt;li&gt;grub-mkconfig -o /boot/grub/grub.cfg&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This will put the EFI application in /boot/efi/EFI/arch_grub/grubx64.efi which does not work. So I just copied /boot/efi/EFI/arch_grub/grubx64.efi /boot/efi/EFI/BOOT/BOOTX64.EFI and everything works.&lt;/p&gt;
+
+&lt;h1 id=&#34;conclusion:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;I can&amp;#8217;t say that that the time I used to get UEFI booting working was time well spend, nothing magic happens when booting using UEFI compared to legacy BIOS, but at least I&amp;#8217;m not using anything that is labelled &amp;#8220;legacy&amp;#8221; &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:-)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;[3]: &lt;a href=&#34;http://blog.fpmurphy.com/2010/09/uefi-booting-64-bit-redhat-enterprise-linux-6.html&#34;&gt;http://blog.fpmurphy.com/2010/09/uefi-booting-64-bit-redhat-enterprise-linux-6.html&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Installing CyanogenMod 7.1 on a Sony Ericsson Xperia Arc (LT15i)</title>
+      <link>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/</link>
+      <pubDate>Tue, 03 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/</guid>
+      <description>&lt;p&gt;Although the instructions for upgrading the Sony Ericsson Xperia Arc (not the new S version) are &lt;a title=&#34;Sony Ericsson Xperia Arc: Full Update Guide&#34; href=&#34;http://wiki.cyanogenmod.com/wiki/Sony_Ericsson_Xperia_Arc:_Full_Update_Guide&#34; target=&#34;_blank&#34;&gt;pretty detailed&lt;/a&gt; there are some twists that are not documented:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;You need to upgrade to the latests official Sony Ericsson rom (currently &amp;#8220;4.0.2.A.0.62 Generic Global World&amp;#8221; ), you can find links in this &lt;a title=&#34;ARC/ARC S (ROOT.FTF&amp;.IMG)4.0.2.A.0.62 Generic Global World+Flashtool+Ringtones+Other&#34; href=&#34;http://forum.xda-developers.com/showthread.php?t=1330314&#34; target=&#34;_blank&#34;&gt;xda developers thread&lt;/a&gt;, else the phone will not be able to unlock the SIM card&lt;/li&gt;
+&lt;li&gt;To flash the rom you will need &lt;a title=&#34;Flashtool&#34; href=&#34;http://androxyde.github.com/&#34; target=&#34;_blank&#34;&gt;FlashTool&lt;/a&gt; (Java based app, works fine in Linux). And when it says that you have to connect the USB cable, and press a button, you don&amp;#8217;t have to press the power button at the same time&lt;/li&gt;
+&lt;li&gt;The 7.1.0.2 version of CyanogenMod is not usable on the phone I installed it on, it kept crashing on the first screen, apparently the fix is to &lt;a title=&#34;The CyanogenMod7 droid animated screen loads in loop, can&#39;t setup phone &#34; href=&#34;http://forum.cyanogenmod.com/topic/44435-the-cyanogenmod7-droid-animated-screen-loads-in-loop-cant-setup-phone/page__p__302315#entry302315&#34; target=&#34;_blank&#34;&gt;remove an app using adb&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I ended up using 7.1.0.1 which works fine, except vibrate.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1)</title>
+      <link>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/</link>
+      <pubDate>Sat, 19 Jun 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/</guid>
+      <description>
+
+&lt;p&gt;My ADP1 has been running Android 1.6 (Cyanogenmod 4.2.x) for quite a while now, and I was exited to see that it would be possible to run Android 2.1 on it thanks to Cyanogen   &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;This guide is a digest of information found on Cyanogen&amp;#8217;s wiki, like: &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Full_Update_Guide_-_ADP1_Firmware_to_CyanogenMod&#34;&gt;ADP1 Firmware to CyanogenMod&lt;/a&gt;, please consult the wiki for up todate information and warnings &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;prerequisite:8dd91434cb3dabb8ad3f5975fe4ac3b3&#34;&gt;Prerequisite&lt;/h2&gt;
+
+&lt;p&gt;Download the following files:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://forum.xda-developers.com/showpost.php?p=4647751&amp;amp;postcount=1&#34;&gt;RA recovery for dream&lt;/a&gt; I use version 1.7.0&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/DangerSPL_and_CM_5_for_Dream&#34;&gt;DangerSPL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Latest_version#ERE36B_Google_addon_for_G1.2FDream.2FSapphire&#34;&gt;Google apps for Cyanogen&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[Lateste Cyanogen 5.0.x for dream][5]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;install-recovery-image:8dd91434cb3dabb8ad3f5975fe4ac3b3&#34;&gt;Install recovery image&lt;/h2&gt;
+
+&lt;p&gt;Based on &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Full_Update_Guide_-_ADP1_Firmware_to_CyanogenMod&#34;&gt;Full Update Guide &amp;#8211; ADP1 Firmware to CyanogenMod&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Boot the phone into fastboot mode by holding the BACK  button while pressing the power button&lt;/li&gt;
+&lt;li&gt;On your computer run the following commands:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;./fastboot device #check if the phone is available
+./fastboot flash recovery recovery-RA-dream-v1.7.0.img
+./fastboot reboot
+
+&lt;a href=&#34;http://android-dls.com/wiki/index.php?title=Fastboot&#34;&gt;More information about fastboot&lt;/a&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;install-bootloader:8dd91434cb3dabb8ad3f5975fe4ac3b3&#34;&gt;Install bootloader&lt;/h2&gt;
+
+&lt;p&gt;In order to run Android 2.1 you need to replace the bootloader with one called &amp;#8220;DangerSPL&amp;#8221;, and there is a reason it is called &amp;#8220;Danger&amp;#8221;  &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;please read &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/DangerSPL_and_CM_5_for_Dream&#34;&gt;DangerSPL and CM 5 for Dream&lt;/a&gt; and read the warnings and prerequisites.&lt;/p&gt;
+
+&lt;p&gt;Copy the files to the root of your SD card:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;DangerSPL: spl-signed.zip&lt;/li&gt;
+&lt;li&gt;CyanogenMod: update-cm-5.0.7-DS-signed.zip&lt;/li&gt;
+&lt;li&gt;Google Apps: gapps-ds-ERE36B-signed.zip&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Reboot the phone into recovery mode by holding hold the home button while booting.&lt;/p&gt;
+
+&lt;p&gt;I did the following steps:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Run a Nandroid Backup&lt;/li&gt;
+&lt;li&gt;Wipe Data/Factory Reset&lt;/li&gt;
+&lt;li&gt;Flash DangerSPL by selecting &amp;#8220;Apply any zip from SD&amp;#8221; and then select spl-signed.zip&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;After the bootloader has been flashed, reboot the phone when asked for it. The phone should boot into recovery mode again to complete the upgrade.&lt;/p&gt;
+
+&lt;h2 id=&#34;install-cyanogenmod-5-0-7-and-google-apps:8dd91434cb3dabb8ad3f5975fe4ac3b3&#34;&gt;Install Cyanogenmod 5.0.7 and Google apps&lt;/h2&gt;
+
+&lt;p&gt;After the bootloader has been installed it is time to flash Android 2.1 and Google apps&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Select &amp;#8220;Apply any zip from SD&amp;#8221; and then update-cm-5.0.7-DS-signed.zip&lt;/li&gt;
+&lt;li&gt;Do the same with gapps-ds-ERE36B-signed.zip after CM 5.0.x&lt;/li&gt;
+&lt;li&gt;Reboot (takes awhile to boot)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If all went well, you should be able to enter your PIN number and enjoy Android 2.1 &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
+
+&lt;div id=&#34;_mcePaste&#34; style=&#34;position: absolute; left: -10000px; top: 202px; width: 1px; height: 1px; overflow: hidden;&#34;&gt;
+  &lt;h1 id=&#34;firstHeading&#34; class=&#34;firstHeading&#34;&gt;
+    DangerSPL and CM 5 for Dream
+  &lt;/h1&gt;
+&lt;/div&gt;
+
+&lt;p&gt;[5]: &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Latest_version#Current_Stable_Version_2&#34;&gt;http://wiki.cyanogenmod.com/index.php/Latest_version#Current_Stable_Version_2&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AnySee E30 C Plus &#43; MythTV</title>
+      <link>http://hugo.rockhopper.hf/linux/software/mythtv/anysee-e30-c-plus-mythtv/</link>
+      <pubDate>Sat, 29 May 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/software/mythtv/anysee-e30-c-plus-mythtv/</guid>
+      <description>&lt;p&gt;I had the chance to test &lt;a href=&#34;http://www.anysee.dk/products.html&#34;&gt;AnySee&amp;#8217;s USB based DVB-C tuner&lt;/a&gt; with MythTV, and I can confirm it &amp;#8220;just works&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;To setup the AnySee E30 C Plus just follow my [Terratec Cinergy C PCI HD + MythTV guide][2], the setup is exactly the same. The only thing I noticed is that the signal strength is not as high as it is with the Terratec card, it hovers around 40-50% vs 90-95%.&lt;/p&gt;
+
+&lt;p&gt;Dmesg output:&lt;/p&gt;
+
+&lt;pre&gt;usb 2-6: USB disconnect, address 4
+dvb-usb: Anysee DVB USB2.0 successfully deinitialized and disconnected.
+usb 2-6: new high speed USB device using ehci_hcd and address 5
+usb 2-6: device not accepting address 5, error -71
+usb 2-6: new high speed USB device using ehci_hcd and address 6
+usb 2-6: config 1 interface 0 altsetting 0 bulk endpoint 0x1 has invalid maxpacket 64
+usb 2-6: config 1 interface 0 altsetting 0 bulk endpoint 0x81 has invalid maxpacket 64
+usb 2-6: config 1 interface 0 altsetting 1 bulk endpoint 0x1 has invalid maxpacket 64
+usb 2-6: config 1 interface 0 altsetting 1 bulk endpoint 0x81 has invalid maxpacket 64
+usb 2-6: configuration #1 chosen from 1 choice
+dvb-usb: found a &#39;Anysee DVB USB2.0&#39; in warm state.
+dvb-usb: will pass the complete MPEG2 transport stream to the software demuxer.
+DVB: registering new adapter (Anysee DVB USB2.0)
+anysee: firmware version:0.1.2 hardware id:15
+DVB: registering adapter 0 frontend 0 (Philips TDA10023 DVB-C)...
+input: IR-receiver inside an USB DVB receiver as /devices/pci0000:00/0000:00:1d.7/usb2/2-6/input/input10
+dvb-usb: schedule remote query interval to 200 msecs.
+dvb-usb: Anysee DVB USB2.0 successfully initialized and connected.&lt;/pre&gt;
+
+&lt;p&gt;[2]: &lt;a href=&#34;https://rockhopper.dk/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/&#34;&gt;https://rockhopper.dk/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Xfce: auto rotate wallpaper without cron</title>
+      <link>http://hugo.rockhopper.hf/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/</link>
+      <pubDate>Sun, 14 Feb 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/</guid>
+      <description>&lt;p&gt;Since Xfce 4.6 I&amp;#8217;ve had the wallpaper autorotated on my Xfce desktop with the help of a small script and cron. But after an update of some component (probably libxfconf / xfconf) my script did not work anymore and I got this error if I tried to run the script from a console or via ssh:&lt;/p&gt;
+
+&lt;pre&gt;** (process:4150): CRITICAL **: Failed to init libxfconf: Failed to connect to socket /tmp/dbus-xrIvHB4Jas: Connection refused&lt;/pre&gt;
+
+&lt;p&gt;So I made a workaround that did not require cron, and it runs in the current session. I created a .desktop file in ~/.config/autostart with this content:&lt;/p&gt;
+
+&lt;pre&gt;[Desktop Entry]
+Encoding=UTF-8
+Version=0.9.4
+Type=Application
+Name=Rotate bg
+Comment=
+Exec=/home/enrique/bin/xfce-rotatebg.sh &amp;
+StartupNotify=false
+Terminal=false
+Hidden=false&lt;/pre&gt;
+
+&lt;p&gt;And the content of the xfce-rotatebg.sh is:&lt;/p&gt;
+
+&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;co0&#34;&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class=&#34;kw1&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;true&lt;/span&gt;; &lt;span class=&#34;kw1&#34;&gt;do&lt;/span&gt;
+&lt;span class=&#34;re2&#34;&gt;PROPERTY&lt;/span&gt;=&lt;span class=&#34;st0&#34;&gt;&#34;/backdrop/screen0/monitor0/image-path&#34;&lt;/span&gt;
+&lt;span class=&#34;re2&#34;&gt;IMAGE_PATH&lt;/span&gt;=&lt;span class=&#34;sy0&#34;&gt;`&lt;/span&gt;xfconf-query &lt;span class=&#34;re5&#34;&gt;-c&lt;/span&gt; xfce4-desktop &lt;span class=&#34;re5&#34;&gt;-p&lt;/span&gt; &lt;span class=&#34;co1&#34;&gt;${PROPERTY}&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;`&lt;/span&gt;
+xfconf-query &lt;span class=&#34;re5&#34;&gt;-c&lt;/span&gt; xfce4-desktop &lt;span class=&#34;re5&#34;&gt;-p&lt;/span&gt; &lt;span class=&#34;co1&#34;&gt;${PROPERTY}&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-s&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;&#34;&lt;/span&gt;
+xfconf-query &lt;span class=&#34;re5&#34;&gt;-c&lt;/span&gt; xfce4-desktop &lt;span class=&#34;re5&#34;&gt;-p&lt;/span&gt; &lt;span class=&#34;co1&#34;&gt;${PROPERTY}&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-s&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;&lt;span class=&#34;es3&#34;&gt;${IMAGE_PATH}&lt;/span&gt;&#34;&lt;/span&gt;
+&lt;span class=&#34;kw2&#34;&gt;sleep&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;600&lt;/span&gt;
+&lt;span class=&#34;kw1&#34;&gt;done&lt;/span&gt;&lt;/pre&gt;
+
+&lt;p&gt;The sleep command controls the delay between wallpaper changes.&lt;/p&gt;
+
+&lt;p&gt;Remember this only works if you have created a list of wallpapers in the desktop settings of Xfce.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Terratec Cinergy C PCI HD &#43; MythTV</title>
+      <link>http://hugo.rockhopper.hf/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/</link>
+      <pubDate>Tue, 09 Feb 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/</guid>
+      <description>
+
+&lt;p&gt;In the middle of December 2009 danish cable TV providor &lt;a href=&#34;http://stofa.dk&#34;&gt;Stofa&lt;/a&gt; made most of the channels in its DVB-C network &lt;a href=&#34;http://www.stofa.dk/showpage.php?mid=368&#34;&gt;available unencoded&lt;/a&gt;. This prompted me to replace my analogue &lt;a href=&#34;https://rockhopper.dk/old/linux/hardware/pvr_cards.html&#34;&gt;Hauppauge WinTV-PVR-500 TV tuner card&lt;/a&gt; (yes the links goes to my old PVR-150 page) with something that could record the digital signal from DVB-C. I looked for a card that had the following characteristic:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Have stable Open Source Linux drivers&lt;/li&gt;
+&lt;li&gt;It should work with &lt;a href=&#34;http://hugo.rockhopper.hf/category/linux/software/mythtv/&#34;&gt;MythTV&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fit in a PCI slot (My Asus AT3N7A-I motherboard only has one PCI slot)&lt;/li&gt;
+&lt;li&gt;Be able to record HD TV&lt;/li&gt;
+&lt;li&gt;Not be to expensive&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I spend a lot of time looking for information on different sites like &lt;a href=&#34;http://www.linuxtv.org/wiki/index.php&#34;&gt;LinuxTV wiki&lt;/a&gt; (direct link to &lt;a href=&#34;http://www.linuxtv.org/wiki/index.php/TerraTec_Cinergy_C_DVB-C&#34;&gt;TerraTec Cinergy C DVB-C&lt;/a&gt;) and &lt;a href=&#34;http://www.mythtv.org/wiki/Video_capture_card&#34;&gt;MythTV wiki&lt;/a&gt;, and ended up with the TerraTec card.&lt;/p&gt;
+
+&lt;h2 id=&#34;installing-the-card:0c6998ea031b046b392950a185a01db3&#34;&gt;Installing the card&lt;/h2&gt;
+
+&lt;p&gt;On the physical installation I don&amp;#8217;t have any interesting to say, it fits into the PCI slot on the motherboard without covering/blocking anything.&lt;/p&gt;
+
+&lt;p&gt;The &amp;#8220;mantis&amp;#8221; driver that the card uses is currently not in the mainline kernel, but it will be of version 2.6.33 (I&amp;#8217;m currently on 2.6.32). So you have to download the source and build the driver yourself.&lt;/p&gt;
+
+&lt;p&gt;I found the &amp;#8220;ArchVDR&amp;#8221; project quite useful, I just followed the instructions in their wiki on &lt;a href=&#34;http://sourceforge.net/apps/trac/archvdr/wiki/ArchVDR&#34;&gt;how to build the s2-liplianin-hg package&lt;/a&gt; (scroll down to the section about s2-liplianin-hg). After building (it takes a while as there are a lot of drives in the &lt;a href=&#34;http://mercurial.intuxication.org/hg/s2-liplianin&#34;&gt;s2-liplianin mercurial repository&lt;/a&gt;). When the build is complete and the package is installed, you only have to run &amp;#8220;modprobe mantis&amp;#8221; as root.&lt;/p&gt;
+
+&lt;p&gt;You can check if the driver loaded correctly by looking at the output of &amp;#8220;dmesg&amp;#8221;, I get the following:&lt;/p&gt;
+
+&lt;pre&gt;Mantis 0000:01:05.0: PCI INT A -&amp;gt; Link[LNKA] -&amp;gt; GSI 18 (level, low) -&amp;gt; IRQ 18
+irq: 18, latency: 64
+ memory: 0xdffff000, mmio: 0xffffc90003f72000
+found a VP-2040 PCI DVB-C device on (01:05.0),
+ Mantis Rev 1 [153b:1178], irq: 18, latency: 64
+ memory: 0xdffff000, mmio: 0xffffc90003f72000
+ MAC Address=[00:08:ca:1e:b5:a7]
+mantis_alloc_buffers (0): DMA=0x77a40000 cpu=0xffff880077a40000 size=65536
+mantis_alloc_buffers (0): RISC=0x7b588000 cpu=0xffff88007b588000 size=1000
+DVB: registering new adapter (Mantis dvb adapter)
+mantis_frontend_init (0): Probing for CU1216 (DVB-C)
+TDA10023: i2c-addr = 0x0c, id = 0x7d
+mantis_frontend_init (0): found Philips CU1216 DVB-C frontend (TDA10023) @ 0x0c
+mantis_frontend_init (0): Mantis DVB-C Philips CU1216 frontend attach success
+DVB: registering adapter 0 frontend 0 (Philips TDA10023 DVB-C)...
+mantis_ca_init (0): Registering EN50221 device
+mantis_ca_init (0): Registered EN50221 device
+mantis_hif_init (0): Adapter(0) Initializing Mantis Host Interface
+input: Mantis VP-2040 IR Receiver as /devices/virtual/input/input4
+Creating IR device irrcv0
+Mantis VP-2040 IR Receiver: unknown key for scancode 0x0000
+Mantis VP-2040 IR Receiver: unknown key: key=0x00 down=1
+Mantis VP-2040 IR Receiver: unknown key: key=0x00 down=0
+&lt;/pre&gt;
+
+&lt;h2 id=&#34;adding-the-card-to-mythtv:0c6998ea031b046b392950a185a01db3&#34;&gt;Adding the card to MythTV&lt;/h2&gt;
+
+&lt;p&gt;I started by scanning for channels using the &amp;#8220;scan&amp;#8221; tool from the linuxtv-dvb-apps package in ArchLinux. None of the provided data files (in &amp;#8220;/usr/share/dvb/dvb-c/&amp;#8221;) contained the correct information, so I created one using information about frequency and other bits provided by &lt;a href=&#34;http://www.stofa.dk/showpage.php?shortcut=kanalsoeg&#34;&gt;Stofa&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;Frekvens: 346 MHz
+Netværsks-ID: 0
+Modulation: 64 QAM
+Symbol rate: 6900 KS
+&lt;/pre&gt;
+
+&lt;p&gt;From which I created a file called &amp;#8220;stofa&amp;#8221;:&lt;/p&gt;
+
+&lt;pre&gt;# Stofa
+# http://www.stofa.dk/
+# freq sr fec mod
+C 346000000 6900000 NONE QAM64&lt;/pre&gt;
+
+&lt;p&gt;To scan for channels using this file run: &amp;#8220;scan stofa &amp;gt; channels.conf&amp;#8221; (You can run &amp;#8220;scan stofa&amp;#8221; to test it without creating the channels.conf file).  ****&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Later I have learned that importing a channels file into MythTV does not provide MythTV with enough information to get EIT (TV guide) working, but more on that later. Running the &amp;#8220;scan&amp;#8221; tool showed that the driver/card could find the DVB stream.&lt;/p&gt;
+
+&lt;p&gt;So instead of importing the channels.conf file, I made MythTV itself scan for the channels.&lt;/p&gt;
+
+&lt;h2 id=&#34;mythtv-setup:0c6998ea031b046b392950a185a01db3&#34;&gt;Mythtv setup&lt;/h2&gt;
+
+&lt;p&gt;I started by shutting down the mythbackend, and starting &amp;#8220;mythtv-setup&amp;#8221;. I deleted all references to my old analogue TV card, and proceeded to setup the new Terratec Cinergy C PCI HD card. &lt;strong&gt;Note:&lt;/strong&gt; I only mention the settings that I changed, the rest are left on their default setting.&lt;/p&gt;
+
+&lt;h3 id=&#34;adding-a-new-capture-card:0c6998ea031b046b392950a185a01db3&#34;&gt;Adding a new capture card&lt;/h3&gt;
+
+&lt;p&gt;In mythtv-setup enter &amp;#8220;Capture cards&amp;#8221; and select &amp;#8220;New capture card&amp;#8221;.&lt;/p&gt;
+
+&lt;div id=&#34;attachment_230&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
+  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_capture_card_add_new.png&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-230 &#34; title=&#34;mythtv_capture_card_add_new&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_capture_card_add_new-150x150.png&#34; alt=&#34;MythTV setup: adding new capture card&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    MythTV setup: adding new capture card
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Card type: &amp;#8220;DVB DTV capture card (v3.x)&amp;#8221; (DVB Device Number should change to &amp;#8220;/dev/dvb/adapter0/frontend0&amp;#8221; and Frontend ID should change to Philips TDA10023 DVB-C)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In &amp;#8220;Recording options&amp;#8221; I entered:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Max recordings: 2 (allows you to record 2 streams simultaneously if the channels are in the same &lt;a href=&#34;http://en.wikipedia.org/wiki/DVB-C#Technical_description_of_the_DVB-C_transmitter&#34;&gt;mux&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Use DVB Card for active EIT scan: checked (should allow MythTV to get data for its TV guide from the DVB stream)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;When I pressed finish, the card is listed on the capture cards page.&lt;/p&gt;
+
+&lt;h3 id=&#34;adding-a-new-video-source:0c6998ea031b046b392950a185a01db3&#34;&gt;Adding a new video source&lt;/h3&gt;
+
+&lt;p&gt;In mythtv-setup enter &amp;#8220;Video sources&amp;#8221; and select &amp;#8220;New video source&amp;#8221;.&lt;/p&gt;
+
+&lt;div id=&#34;attachment_234&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
+  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_video_source_add_new.png&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-234 &#34; title=&#34;mythtv_video_source_add_new&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_video_source_add_new-150x150.png&#34; alt=&#34;MythTV setup: adding new video source&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    MythTV setup: adding new video source
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Video source name: &amp;#8220;TV Guide&amp;#8221; (whatever you want)&lt;/li&gt;
+&lt;li&gt;Listings grabber: &amp;#8220;Transmitted guide only (EIT)&amp;#8221;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Press finish and the source should be listed on the sources page.&lt;/p&gt;
+
+&lt;h3 id=&#34;connection-capture-card-to-video-source:0c6998ea031b046b392950a185a01db3&#34;&gt;Connection capture card to video source&lt;/h3&gt;
+
+&lt;p&gt;In mythtv-setup enter &amp;#8220;Input connections&amp;#8221; and select the one that matches the DVB device number you got from capture cards.&lt;/p&gt;
+
+&lt;div id=&#34;attachment_237&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
+  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_input_connections.png&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-237 &#34; title=&#34;mythtv_input_connections&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_input_connections-150x150.png&#34; alt=&#34;MythTV setup: input connections&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    MythTV setup: input connections
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Display Name: TV&lt;/li&gt;
+&lt;li&gt;Video source: &amp;#8220;TV Guide&amp;#8221; (the one that was added previously)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now press &amp;#8220;Scan for channels&amp;#8221;&lt;/p&gt;
+
+&lt;h3 id=&#34;scanning-for-channels:0c6998ea031b046b392950a185a01db3&#34;&gt;Scanning for channels&lt;/h3&gt;
+
+&lt;div id=&#34;attachment_239&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
+  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels.png&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-239 &#34; title=&#34;mythtv_scanning_for_channels&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels-150x150.png&#34; alt=&#34;MythTV setup: scanning for channels&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    MythTV setup: scanning for channels
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Desired Services: TV&lt;/li&gt;
+&lt;li&gt;Scan Type: &amp;#8220;Full Scan (Tuned)&amp;#8221;&lt;/li&gt;
+&lt;li&gt;Frequency: 346000000 (based on the information from &lt;a href=&#34;http://www.stofa.dk/showpage.php?shortcut=kanalsoeg&#34;&gt;Stofa&lt;/a&gt;, &lt;strong&gt;Note:&lt;/strong&gt; the frequency is in Hz)&lt;/li&gt;
+&lt;li&gt;Symbol Rate: 6900000&lt;/li&gt;
+&lt;li&gt;Modulation: &amp;#8220;QAM 64&amp;#8221;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;When you press next MythTV should start scanning:&lt;/p&gt;
+
+&lt;div id=&#34;attachment_244&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
+  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels2.png&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-244 &#34; title=&#34;mythtv_scanning_for_channels2&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels2-150x150.png&#34; alt=&#34;MythTV setup: performing the scan&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    MythTV setup: performing the scan
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This takes a while, and then you should get:&lt;/p&gt;
+
+&lt;div id=&#34;attachment_245&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
+  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels_done.png&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-245 &#34; title=&#34;mythtv_scanning_for_channels_done&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels_done-150x150.png&#34; alt=&#34;MythTV setup: channel scanning completed&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    MythTV setup: channel scanning completed
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Select &amp;#8220;Insert all&amp;#8221; which brings you back to the input connection screen.&lt;/p&gt;
+
+&lt;h3 id=&#34;channel-editor:0c6998ea031b046b392950a185a01db3&#34;&gt;Channel editor&lt;/h3&gt;
+
+&lt;p&gt;In mythtv-setup enter &amp;#8220;Channel Editor&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;Here you can see all the found channels and change their names, channel number, and so on. I did not change anything using the channel editor, but went to phpMyAdmin and changed settings like &amp;#8220;Use on air guide&amp;#8221; in one SQL.&lt;/p&gt;
+
+&lt;p&gt;This should be it, you should be able to record now &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;eit-tv-guide:0c6998ea031b046b392950a185a01db3&#34;&gt;EIT (TV guide)&lt;/h2&gt;
+
+&lt;p&gt;MythTV should be able to get the data for the TV guide from the DVB-C stream, but I can&amp;#8217;t get it working. When googling the problem I learned that importing the channels.conf generated by the &amp;#8220;scan&amp;#8221; tool does not provide enough data for MythTV to pickup the EIT data from the stream.&lt;/p&gt;
+
+&lt;p&gt;To further debug the problem I set mythbackend to log messages about EIT, in ArchLinux you can edit &amp;#8220;/etc/conf.d/mythbackend&amp;#8221; and change LOG_OPTS to:&lt;/p&gt;
+
+&lt;pre&gt;LOG_OPTS=&#39;--verbose important,general,eit&#39;
+&lt;/pre&gt;
+
+&lt;p&gt;So I shut the myhtbackend down, went to phpMyAdmin and truncated all tables related to channels/capture card and started over, and then let MythTV do the scan.&lt;/p&gt;
+
+&lt;p&gt;But I still get messages like this in &amp;#8220;/var/log/mythbackend.log&amp;#8221;:&lt;/p&gt;
+
+&lt;pre&gt;2010-01-31 21:22:19.366 Program #1148 not found in PAT!
+Program Association Table
+ PSIP tableID(0x0) length(33) extension(0xb)
+ version(27) current(1) section(0) last_section(0)
+ tsid: 11
+ programCount: 6
+ program number     0 has PID 0x  10   data  0x 0 0x 0 0xe0 0x10
+ program number  1090 has PID 0x  5a   data  0x 4 0x42 0xe0 0x5a
+ program number  1098 has PID 0x  62   data  0x 4 0x4a 0xe0 0x62
+ program number  1099 has PID 0x  63   data  0x 4 0x4b 0xe0 0x63
+ program number  1165 has PID 0x  a5   data  0x 4 0x8d 0xe0 0xa5
+ program number  1251 has PID 0x  fb   data  0x 4 0xe3 0xe0 0xfb
+
+2010-01-31 21:22:20.120 ProcessPAT: Program not found in PAT.
+ Rescan your transports.
+2010-01-31 21:22:20.156 Desired program #1148 not found in PAT.
+ Can Not create single program PAT.
+&lt;/pre&gt;
+
+&lt;p&gt;So for the time being I have given up, but luckily I found another way to get data from the stream.&lt;/p&gt;
+
+&lt;h2 id=&#34;tv-grab-dvb-plus:0c6998ea031b046b392950a185a01db3&#34;&gt;TV grab dvb plus&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sourceforge.net/projects/tvgrabeit/&#34;&gt;tv_grab_dvb_plus&lt;/a&gt; is a small tool that produces a xmltv file that can be imported into MythTV, just download and compile it. It worked the first time I tried it, although there are two minor issues:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;The mapping of xmltv ids to channels in MythTV&lt;/li&gt;
+&lt;li&gt;The encoding of special characters like Danish letters (æøå)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The first issue I fixed with a small PHP script:&lt;/p&gt;
+
+&lt;pre class=&#34;php codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$mysqli&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;new&lt;/span&gt; mysqli&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;localhost&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;YOUR DB USER&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;YOUR DB PASSWORD&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;mythconverg&#34;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;connect_error&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;
+&lt;a href=&#34;http://www.php.net/printf&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;printf&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;Connect failed: &lt;span class=&#34;es6&#34;&gt;%s&lt;/span&gt;&lt;span class=&#34;es1&#34;&gt;\n&lt;/span&gt;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; mysqli_connect_error&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
+&lt;a href=&#34;http://www.php.net/exit&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;exit&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&#34;re0&#34;&gt;$result&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;SELECT chanid, serviceid FROM channel&#34;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&#34;kw1&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$row&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$result&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;fetch_assoc&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;
+&lt;span class=&#34;re0&#34;&gt;$sql&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/sprintf&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;sprintf&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;UPDATE channel SET xmltvid = &#39;&lt;span class=&#34;es6&#34;&gt;%s&lt;/span&gt;&#39; WHERE chanid = &lt;span class=&#34;es6&#34;&gt;%d&lt;/span&gt;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$row&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#091;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;serviceid&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#093;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;.dvb.guide&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;int&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$row&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#091;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;chanid&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#093;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&#34;re0&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$sql&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&#34;re0&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;close&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&#34;kw2&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+
+&lt;p&gt;Remember to replace &amp;#8220;YOUR DB USER&amp;#8221; and &amp;#8220;YOUR DB PASSWORD&amp;#8221; with real values.&lt;/p&gt;
+
+&lt;p&gt;This script uses the serviceid from the channel table to set the xmltvid to the correct value.&lt;/p&gt;
+
+&lt;p&gt;The encoding issue was fixed by editing the source of tv_grab_dvb_plus. In the file &amp;#8220;src/dvb_text.cpp&amp;#8221; on line 133, I changed the encoding to &amp;#8220;ISO-8859-1&amp;#8221;:&lt;/p&gt;
+
+&lt;pre class=&#34;c codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;cd &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; iconv_open&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;ISO-8859-1&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; cs_new&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;
+
+&lt;p&gt;And now it works.&lt;/p&gt;
+
+&lt;p&gt;All that is left is to import the produced xml file into MythTV with this command: &amp;#8220;mythfilldatabase &amp;#8211;file 1 dvbplus.xml&amp;#8221; (or whatever you called the file).&lt;/p&gt;
+
+&lt;h2 id=&#34;final-thoughts:0c6998ea031b046b392950a185a01db3&#34;&gt;Final thoughts&lt;/h2&gt;
+
+&lt;p&gt;So far I&amp;#8217;m pleased with the combination of the TerraTec Cinergy C DVB-C card and MythTV, although it&amp;#8217;s not super stable, and sometimes MythTV fails to record a program, and the following messages appear in dmesg:&lt;/p&gt;
+
+&lt;pre&gt;mantis_ack_wait (0): Slave RACK Fail !
+mantis_ack_wait (0): Slave RACK Fail !
+mantis_ack_wait (0): Slave RACK Fail !
+mantis_ack_wait (0): Slave RACK Fail !
+mantis_ack_wait (0): Slave RACK Fail !
+mantis_ack_wait (0): Slave RACK Fail !
+mantis_ack_wait (0): Slave RACK Fail !&lt;/pre&gt;
+
+&lt;p&gt;I hope this problem is fixed when the 2.6.33 Linux kernel hits my machine.&lt;/p&gt;
+
+&lt;p&gt;To view the recorded shows I strongly recommend a [Nvidia graphics card that support VDPAU][13].&lt;/p&gt;
+
+&lt;p&gt;[13]: &lt;a href=&#34;http://en.wikipedia.org/wiki/VDPAU&#34;&gt;http://en.wikipedia.org/wiki/VDPAU&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Gigabyte GA-MA790FXT-UD5P and Linux</title>
+      <link>http://hugo.rockhopper.hf/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</link>
+      <pubDate>Sat, 18 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</guid>
+      <description>
+
+&lt;p&gt;I recently upgraded the hardware of my desktop and here is my experience with the new hardware. The upgrade consists of:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Motherboard: Gigabyte GA-MA790FXT-UD5P (&lt;a href=&#34;http://www.gigabyte.com.tw/Products/Motherboard/Products_Spec.aspx?ProductID=3005&#34;&gt;Product page&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;CPU: AMD Phenom II X4 810 Processor 2.6Ghz AM3 socket (&lt;a href=&#34;http://products.amd.com/en-us/DesktopCPUDetail.aspx?id=526&amp;amp;f1=AMD+Phenom%E2%84%A2+II+X4&amp;amp;f2=810&amp;amp;f3=2600&amp;amp;f4=512&amp;amp;f5=AM3&amp;amp;f6=C2&amp;amp;f7=45nm+SOI&amp;amp;f8=95+W&amp;amp;f9=4000&amp;amp;f10=False&amp;amp;f11=False&#34;&gt;Specs&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;CPU cooler: Xigmatek HDT-S1283 Cooler (&lt;a href=&#34;http://www.xigmatek.com/product/air-hdts1283.php&#34;&gt;Product page&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;RAM: Corsair 4Gb DDR3 XMS3 DHX PC10600 1333MHz (&lt;a href=&#34;http://www.corsair.com/products/xms3dhx/default.aspx&#34;&gt;Product page&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I reused my Hauppauge PVR-500, Nvidia GS-7300 and 3x500Gb Seagate harddrives (raid5+LVM).&lt;/p&gt;
+
+&lt;h2 id=&#34;installation:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;Installation&lt;/h2&gt;
+
+&lt;p&gt;The motherboard with attached CPU cooler fits nicely into my Antec P182.&lt;/p&gt;
+
+&lt;div id=&#34;attachment_213&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
+  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/gigabyte_ga-ma790fxt-ud5p_1.jpg&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-213 &#34; title=&#34;gigabyte_ga-ma790fxt-ud5p_1&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/gigabyte_ga-ma790fxt-ud5p_1-150x150.jpg&#34; alt=&#34;gigabyte_ga-ma790fxt-ud5p_1&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    Gigabyte GA-MA790FXT-UD5P mounted in Antec P182
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The CPU cooler can only be installed on a socket AM3 motherboard in such a way that the fan either blows up (towards the top of the case) or down (towards the PCI-e slots). When the cooler is mounted in this way, it also means that the lowest fins on the heatsink extends over the two first RAM slots. This might not normally cause any problems, but because the Corsair memory modules have headspreaders attached, they are rather tall, preventing them from being placed below the fins. The solution is to place the modules in the last 2 slots. I choose to install the cooler so the fan blows air hot upwards and out of the case&amp;#8217;s top vents.&lt;/p&gt;
+
+&lt;div id=&#34;attachment_214&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
+  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/gigabyte_ga-ma790fxt-ud5p_2.jpg&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-214 &#34; title=&#34;gigabyte_ga-ma790fxt-ud5p_2&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/gigabyte_ga-ma790fxt-ud5p_2-150x150.jpg&#34; alt=&#34;gigabyte_ga-ma790fxt-ud5p_2&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    Xigmatek HDT-S1283 Cooler blocking first two RAM slots
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;bios:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;BIOS&lt;/h2&gt;
+
+&lt;p&gt;The default version shipped with the motherboard does not have legacy USB keyboard support enabled, which means there is no keyboard in GRUB (when Linux is booted there is no problem). I didn&amp;#8217;t notice if there was a option to enabled it, I just updated to the newest version at the time (version F5c) which fixed it. Updating the BIOS just require a USB thumbdrive formattet with FAT32, and the extracted BIOS file (use unrar to extract it from the .exe file). While tweaking the BIOS I switched all SATA drives to AHCI, to get the most from the drives in Linux, and set the memory frequency to 1333MHz.&lt;/p&gt;
+
+&lt;h2 id=&#34;os:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;OS&lt;/h2&gt;
+
+&lt;p&gt;To match the new hardware I also switched from Arch Linux x686 to Arch Linux x86_64. I have not experienced any crashes or trouble after switching to the new hardware, so the hardware is 100% Linux compatible. There might be problems with older kernels, but I can confirm that it works with 2.6.28 or newer.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update the 01-Aug-2009: attached [dmesg][5]&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;fancontrol-and-sensors:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;Fancontrol and sensors&lt;/h2&gt;
+
+&lt;p&gt;I installed lm_sensors and used pwmconfig to create a /etc/fancontrol file:&lt;/p&gt;
+
+&lt;pre&gt;# Configuration file generated by pwmconfig, changes will be lost
+# cpu : temp2, pwm1, min:35, max:50
+# sys1: temp1, pwm2, min:45, max:50
+INTERVAL=10
+FCTEMPS=hwmon0/device/pwm1=hwmon0/device/temp2_input hwmon0/device/pwm2=hwmon0/device/temp1_input
+FCFANS=hwmon0/device/pwm1=hwmon0/device/fan1_input hwmon0/device/pwm2=hwmon0/device/fan2_input
+MINTEMP=hwmon0/device/pwm1=35 hwmon0/device/pwm2=45
+MAXTEMP=hwmon0/device/pwm1=45 hwmon0/device/pwm2=50
+MINSTART=hwmon0/device/pwm1=150 hwmon0/device/pwm2=150
+MINSTOP=hwmon0/device/pwm1=100 hwmon0/device/pwm2=100&lt;/pre&gt;
+
+&lt;p&gt;On a hot summerday the sensors command outputs:&lt;/p&gt;
+
+&lt;pre&gt;it8720-isa-0228
+Adapter: ISA adapter
+in0:         +1.04 V  (min =  +0.00 V, max =  +4.08 V)
+in1:         +1.62 V  (min =  +0.00 V, max =  +4.08 V)
+in2:         +3.28 V  (min =  +0.00 V, max =  +4.08 V)
+in3:         +2.96 V  (min =  +0.00 V, max =  +4.08 V)
+in4:         +3.07 V  (min =  +0.00 V, max =  +4.08 V)
+in5:         +1.97 V  (min =  +0.00 V, max =  +4.08 V)
+in6:         +4.08 V  (min =  +0.00 V, max =  +4.08 V)
+in7:         +2.16 V  (min =  +0.00 V, max =  +4.08 V)
+Vbat:        +3.25 V
+fan1:        198 RPM  (min =    0 RPM)
+fan2:        941 RPM  (min =    0 RPM)
+fan3:          0 RPM  (min =    0 RPM)
+fan4:          0 RPM  (min =    0 RPM)
+fan5:        521 RPM  (min =    0 RPM)
+temp1:       +48.0°C  (low  = +127.0°C, high = +127.0°C)  sensor = thermistor
+temp2:       +40.0°C  (low  = +127.0°C, high = +60.0°C)  sensor = thermal diode
+temp3:       +45.0°C  (low  = +127.0°C, high = +127.0°C)  sensor = thermistor
+cpu0_vid:   +1.550 V&lt;/pre&gt;
+
+&lt;h2 id=&#34;other-applications:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;Other applications&lt;/h2&gt;
+
+&lt;p&gt;To get the most from a multicore CPU some appliations needs to be configured to use all cores.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Blender: works out of the box, if not check render settings (F10) for &amp;#8220;Threads: 4&amp;#8221;&lt;/li&gt;
+&lt;li&gt;The GIMP: should also use all four cores, else check enviroment settings&lt;/li&gt;
+&lt;li&gt;OGMRip: go to profiles, edit a profile and in the &amp;#8220;Video&amp;#8221; tab increase the number of threads to 4&lt;/li&gt;
+&lt;li&gt;Makepkg: edit /etc/makepkg.conf and set MAKEFLAGS=&amp;#8221;-j5&amp;#8243; (Yes 5, one pr core + 1)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;cpu-frequency-scaling:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;CPU frequency scaling&lt;/h2&gt;
+
+&lt;p&gt;I use the ondemand CPU frequceny scaling governor, so most of the time all four cores run at 800MHz and only switch to 2.6GHz when it is needed. I have put the following in my /etc/rc.local:&lt;/p&gt;
+
+&lt;pre&gt;for i in 0 1 2 3; do
+echo ondemand &amp;gt; /sys/devices/system/cpu/cpu${i}/cpufreq/scaling_governor
+echo 1 &amp;gt;/sys/devices/system/cpu/cpu${i}/cpufreq/ondemand/ignore_nice_load
+done&lt;/pre&gt;
+
+&lt;p&gt;[5]: &lt;a href=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/dmesg.txt&#34;&gt;https://rockhopper.dk/wp-content/uploads/2009/07/dmesg.txt&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How not to restore a Linux software raid</title>
+      <link>http://hugo.rockhopper.hf/linux/software/how-not-to-restore-a-linux-software-raid/</link>
+      <pubDate>Sun, 19 Apr 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/software/how-not-to-restore-a-linux-software-raid/</guid>
+      <description>&lt;p&gt;We had a disk failure on one of our Xen servers at &lt;a href=&#34;http://www.bellcom.dk&#34; title=&#34;Bellcom Open Source ApS&#34;&gt;work&lt;/a&gt; last week, and what we thought would be a quick disk replace, turned into a small nightmare.&lt;/p&gt;
+
+&lt;p&gt;Our setup is fairly &amp;#8220;simple&amp;#8221;: 2 x raid1&amp;#8217;s consisting of sda1/sdb1 (/dev/md0 mounted at /) and sda3/sdb3 (/dev/md1 with LVM on top of it).&lt;/p&gt;
+
+&lt;p&gt;mdadm reported that sdb1 and sdb3 had failed, so we just had to identify which disk was sdb in the server and replace it. Well it wasn&amp;#8217;t easy to see which disk has which after we had opened the server, so we decided to boot the server again to look up the drives&amp;#8217; serial number (using hdparm -I /dev/sda, and the small barcode on the front of the disk).&lt;/p&gt;
+
+&lt;p&gt;Now the fun part starts. The contents of /proc/mdstat showed something like this after the reboot:&lt;/p&gt;
+
+&lt;pre&gt;Personalities : [raid1]
+md1 : active raid1 sdb3[0] sda3[1] (F)
+      235400320 blocks [2/1] [U_]
+
+md0 : active raid1 sdb1[0] (F) sda1[1]
+      7815488 blocks [1/2] [_U]
+
+unused devices: &amp;lt;none&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;On md0 sdb1 is failed, and on md1 it&amp;#8217;s sda3, so one partition is marked failed on each drive. Here we made the &lt;strong&gt;big mistake&lt;/strong&gt;: we decided to readd sdb1 to md0 and sdb3 to md1.&lt;/p&gt;
+
+&lt;p&gt;While the raid was syncing there was a lot of disk errors on sda1 and sda3, so we identified sda using its serial number, shutdown the server, replaced the disk, booted and everything looked fine.&lt;/p&gt;
+
+&lt;p&gt;Fast forward to the next day: we started receiving e-mails from customers saying data was missing from their sites, and they where missing data from the day the drive failed&amp;#8230; then it dawned on us: when we readded sda3 it was overridden with the old data from sdb3  &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/frownie.png&#34; alt=&#34;:(&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;. Only one thing to do: restore from backup.&lt;/p&gt;
+
+&lt;p&gt;Now the question is: why the hell was sda3 marked as failed after the reboot? It was on the good drive&amp;#8230;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Updating the Android Developer Phone1 to v1.1</title>
+      <link>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/</link>
+      <pubDate>Tue, 10 Feb 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/</guid>
+      <description>
+
+&lt;p&gt;I&amp;#8217;ve been putting off upgrading my ADP1 in fear of that I would brick it, but after reading that there now are official update images available I decided to give it a try.&lt;/p&gt;
+
+&lt;p&gt;Here is a short walk through:&lt;/p&gt;
+
+&lt;p&gt;First download the following (you can skip download of the JesusFreke images if you don&amp;#8217;t want a backup):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://andblogs.net/2009/01/jesusfrekes-14-images-are-out/&#34; target=&#34;_blank&#34;&gt;&lt;span class=&#34;downloadlink&#34;&gt;JesusFreke ADP1&lt;/span&gt;&lt;/a&gt; (bottom of the page, before the comments)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://android-dls.com/wiki/index.php?title=Fastboot&#34; target=&#34;_blank&#34;&gt;Fastboot&lt;/a&gt; (either compile it your self or download &amp;#8220;DarkriftX&amp;#8217;s precompiled&amp;#8221; version)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://andblogs.net/2009/02/new-adp1-update-official-with-google-voice-and-more/&#34; target=&#34;_blank&#34;&gt;ADP1.1 update&lt;/a&gt; (get the &amp;#8220;No Device Checks!&amp;#8221; version)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;backup-the-adp1:a7d24fea433cc3a9c2cce45be1a10207&#34;&gt;Backup the ADP1&lt;/h1&gt;
+
+&lt;p&gt;(This is based on this &lt;a title=&#34; ADP1 ONLY instructions for backup, installing from git, then back to backup &#34; href=&#34;http://groups.google.com/group/android-discuss/browse_thread/thread/e9eb4604357ff117?hide_quotes=no&amp;pli=1&#34; target=&#34;_blank&#34;&gt;google groups thread&lt;/a&gt; and the &lt;a href=&#34;http://antonmelser.org/open-source/backup-install-restore-adp1.html&#34; target=&#34;_blank&#34;&gt;cleaned up version&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;This is a non destructive backup procedure, you will not have to install anything on your phone!&lt;/p&gt;
+
+&lt;p&gt;You will need about 110mb free on the SD card installed in your phone.&lt;/p&gt;
+
+&lt;p&gt;Extract JFv1.41_ADP1.1.zip and then boot the ADP1 into &amp;#8220;fastboot&amp;#8221; mode:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Power the phone off&lt;/li&gt;
+&lt;li&gt;Hold the camera button down&lt;/li&gt;
+&lt;li&gt;Press the power button (still holding the camera button down)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;A white screen with small androids on skateboards will apper on the screen, and in the middle of the screen it will say &amp;#8220;serial0&amp;#8221;. Connect the USB cable to your computer and the ADP1, wait a bit, then press the &amp;#8220;back&amp;#8221; button. The text should change to &amp;#8220;fastboot&amp;#8221;. If not, check the dmesg on your computer, it should say something like:&lt;/p&gt;
+
+&lt;pre&gt;usb 1-2: new high speed USB device using ehci_hcd and address 11
+usb 1-2: configuration #1 chosen from 1 choice&lt;/pre&gt;
+
+&lt;p&gt;Now the phone should be ready to boot the recovery image from JF (if you don&amp;#8217;t have sudo, log in as root):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;sudo ./fastboot boot JFv1.41_ADP1.1/data/recovery.img&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The phone will now boot using the image, and you should see some Linux kernel messages scrolling by, and then an image with yellow text.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Press &amp;#8220;Alt+b&amp;#8221; (without the quotes)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Backup is now running and you should see the following messages:&lt;/p&gt;
+
+&lt;pre&gt;Performing backup...
+Backup complete!&lt;/pre&gt;
+
+&lt;p&gt;Now reboot the phone&lt;/p&gt;
+
+&lt;h2 id=&#34;flashing-new-firmware:a7d24fea433cc3a9c2cce45be1a10207&#34;&gt;Flashing new firmware&lt;/h2&gt;
+
+&lt;p&gt;Connect the USB cable to the phone and mount the SD card, I have mine mounted at /media/android_sd&lt;/p&gt;
+
+&lt;p&gt;Copy the update image to the SD card:&lt;/p&gt;
+
+&lt;pre&gt;cp signed-holiday_nochecks_devphone-ota-130444-debug.55489994.zip /media/android_sd/update.img&lt;/pre&gt;
+
+&lt;p&gt;Now perform the following steps:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Power off&lt;/li&gt;
+&lt;li&gt;Press and hold the &amp;#8220;home&amp;#8221; button&lt;/li&gt;
+&lt;li&gt;Press the power button&lt;/li&gt;
+&lt;li&gt;When a image of a phone and a exclamation sign appears press &amp;#8220;Alt+l&amp;#8221; and then &amp;#8220;Alt+s&amp;#8221;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The phone should start the updating process and show these messages:&lt;/p&gt;
+
+&lt;pre&gt;Installing from sdcard...
+Finding update package...
+Opening update package...
+Verifying update package...
+Installing update
+Formatting Boot:...
+Extraction radio image
+Formatting System
+Copying files
+Writing boot
+Installation complete
+Press home+back to reboot&lt;/pre&gt;
+
+&lt;p&gt;After pressing home+backup a final message will appear:&lt;/p&gt;
+
+&lt;pre&gt;Writing radio image&lt;/pre&gt;
+
+&lt;p&gt;Then the phone rebooted twice (the process took about 3-4 mins), and it displayed two images, one where there is an arrow pointing onto a chip, and an arrow comming out of a box and pointing to a phone.&lt;/p&gt;
+
+&lt;p&gt;The update should be complete after that.&lt;/p&gt;
+
+&lt;h2 id=&#34;new-things-after-the-update:a7d24fea433cc3a9c2cce45be1a10207&#34;&gt;New things after the update&lt;/h2&gt;
+
+&lt;p&gt;2 new applications are installed; &amp;#8220;Voice Dialer&amp;#8221; and &amp;#8220;Voice Search&amp;#8221;. I have not played with them yet so I can&amp;#8217;t really say anything about them &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There are a couple of new settings here and there, but I have not noticed anything fancy, so I guess we still have to wait the the mysterious &amp;#8220;cupcake&amp;#8221; update, if such a thing even exists.&lt;/p&gt;
+
+&lt;p&gt;Before the update the phone had the following information:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Build date: Mon Now 3 12:54:32 PST 2008&lt;/li&gt;
+&lt;li&gt;Linux kernel version: 2.6.25-01843-gfea26b0&lt;/li&gt;
+&lt;li&gt;Baseband version: 62.33.20.08H_1.22.12.29&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now it has:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Build date: Mon Feb 9 10:28:32 PST 2009&lt;/li&gt;
+&lt;li&gt;Linux kernel version: 2.6.25-01845-g85d4f0d&lt;/li&gt;
+&lt;li&gt;Baseband version: 62.33.20.08H_1.22.14.11&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Android Developer Phone: Mini review</title>
+      <link>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/android-developer-phone-mini-review/</link>
+      <pubDate>Sat, 24 Jan 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/android-developer-phone-mini-review/</guid>
+      <description>
+
+&lt;p&gt;I have been playing around with my Android Developer Phone (ADP) for about 2 weeks now, and this are my thoughts on it so far.&lt;/p&gt;
+
+&lt;h2 id=&#34;wireless-connection-wi-fi-3g:e34d9999eee4760eb56defff6b973d08&#34;&gt;Wireless connection (Wi-Fi/3G)&lt;/h2&gt;
+
+&lt;p&gt;The Wi-Fi range is a bit limited, with my laptop I get about 80% signal quality in my living room, but the ADP only gets &amp;#8220;fair&amp;#8221; or no connection.&lt;/p&gt;
+
+&lt;p&gt;Another issue is that some times the phone will not connect to a remembered network (it might be a problem with hidden SSIDs), and the only way to fix it is to delete the saved network and add it again, which is highly annoying if you have a 64 char WPA2 passphrase :).&lt;/p&gt;
+
+&lt;p&gt;I can&amp;#8217;t really say anything about the quality of the 3G, because coverage is rather bad where I live and where I work.&lt;/p&gt;
+
+&lt;h2 id=&#34;screen:e34d9999eee4760eb56defff6b973d08&#34;&gt;Screen&lt;/h2&gt;
+
+&lt;p&gt;Even though I run the screen at lowest brightness setting it is still bright enough to see it in sunlight (well it is winter right now, so the sun isn&amp;#8217;t that bright). Sometimes it takes 2-3 tries to select something on the screen, probably because I tap on it to quickly/lightly.&lt;/p&gt;
+
+&lt;p&gt;I have found some nice &lt;a href=&#34;http://interfacelift.com&#34;&gt;wallpapers on InterfaceLIFT&lt;/a&gt;. I download the images in 800&amp;#215;480 and crop the image to fit the screen.&lt;/p&gt;
+
+&lt;h2 id=&#34;audio:e34d9999eee4760eb56defff6b973d08&#34;&gt;Audio&lt;/h2&gt;
+
+&lt;p&gt;The audio player that comes with Android works well, and the sound quality is better than my old iPod mini 4Gb. I have upgrade the 1Gb MicroSD to a 16Gb MicroSDHC class 2 card and stuffed it full with music, and it works great. It&amp;#8217;s nice that file formats other than mp3 are support (e.g. ogg vorbis).&lt;/p&gt;
+
+&lt;p&gt;It took me a while to get album covers to show up in the player, but after I tried &lt;a href=&#34;http://banshee-project.org/&#34;&gt;Banshee&lt;/a&gt; (which supports the G1 out of the box), I discovered that I should just rename my cover.jpg files to AlbumArt.jpg :). Bash one liner to do this:&lt;/p&gt;
+
+&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;find&lt;/span&gt; . &lt;span class=&#34;re5&#34;&gt;-name&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;cover.jpg&#34;&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-print0&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;read&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-d&lt;/span&gt; $&lt;span class=&#34;st_h&#34;&gt;&#39;\0&#39;&lt;/span&gt; i; &lt;span class=&#34;kw1&#34;&gt;do&lt;/span&gt; &lt;span class=&#34;re2&#34;&gt;j&lt;/span&gt;=&lt;span class=&#34;sy0&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;kw2&#34;&gt;dirname&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;&lt;span class=&#34;es2&#34;&gt;$i&lt;/span&gt;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;`&lt;/span&gt;; &lt;span class=&#34;kw2&#34;&gt;mv&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;&lt;span class=&#34;es2&#34;&gt;$i&lt;/span&gt;&#34;&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;&lt;span class=&#34;es2&#34;&gt;$j&lt;/span&gt;/AlbumArt.jpg&#34;&lt;/span&gt;; &lt;span class=&#34;kw1&#34;&gt;done&lt;/span&gt;&lt;/pre&gt;
+
+&lt;p&gt;A nice features is the ability to control the music player using the button on the headphones&amp;#8217; cable.&lt;/p&gt;
+
+&lt;h2 id=&#34;applications-android-os:e34d9999eee4760eb56defff6b973d08&#34;&gt;Applications / Android OS&lt;/h2&gt;
+
+&lt;p&gt;The applications that come with the G1, like Gmail, browser and messaging, are easy to use and just work. Please note that I had a PalmOne Treo 600 before the ADP, so everything is super compared to it ;).&lt;/p&gt;
+
+&lt;p&gt;I have installed a couple of extra applications (either from the market place or directly from webpages) that you might find useful:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://code.google.com/p/connectbot/&#34;&gt;Connectbot&lt;/a&gt;: establish ssh connections to servers, supports ssh keys&lt;/li&gt;
+&lt;li&gt;[AndFTP][4]: upload/download files via ftp/sftp&lt;/li&gt;
+&lt;li&gt;Terminal: gives access to the ADP&amp;#8217;s Linux shell&lt;/li&gt;
+&lt;li&gt;Anycut: create shortcuts to applications or activities like text a specific contact&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The Android OS feels stable and relative mature, and I have only experienced one major crash. It happened just after adding 14Gb of music to the sd card, and I was playing around with the headphones while the player was busy creating thumbnails of the Album art. Suddenly the player forced quit, and then the sd card could not be accessed, neither by the player nor could I mount the card on my computer. I could only make it work again by reformatting the card, and copying all the music on to the card again.&lt;/p&gt;
+
+&lt;h2 id=&#34;camera:e34d9999eee4760eb56defff6b973d08&#34;&gt;Camera&lt;/h2&gt;
+
+&lt;p&gt;Light years ahead of the crappy camera in the Treo 600, takes good pictures, but I don&amp;#8217;t see me using it much.&lt;/p&gt;
+
+&lt;p&gt;When I took the phone out of the box, the small plastic cover above the camera lens was lose and still does not sit flush with the rest of the back cover, but I&amp;#8217;m sure it can be fixed.&lt;/p&gt;
+
+&lt;h2 id=&#34;keyboard:e34d9999eee4760eb56defff6b973d08&#34;&gt;Keyboard&lt;/h2&gt;
+
+&lt;p&gt;I like the keyboard, the keys are not to small and provide excellent tactile feedback. My only issues are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;I often hit enter when I want to hit del, and the other way around, but that&amp;#8217;s probably me having to get use to the placement of the keys&lt;/li&gt;
+&lt;li&gt;Danish characters (æøå) are slow to type, first you have to long press a (for æå) or o (for ø) and then either use the trackball or touch screen to select the character (you can also use enter to type the selected character, and space to select the last character)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I&amp;#8217;m used to my phone no having auto completion, but it would speed up typing words with Danish characters.&lt;/p&gt;
+
+&lt;h2 id=&#34;overall:e34d9999eee4760eb56defff6b973d08&#34;&gt;Overall&lt;/h2&gt;
+
+&lt;p&gt;Although I have limited experience with smart phones, I really prefer the ADP when I compare it to my friends iPhones or HTC phones running Windows Mobile. My girlfriend also really likes it and is defently going to buy the regular HTC G1 when it hits Denmark.&lt;/p&gt;
+
+&lt;p&gt;[4]: &lt;a href=&#34;http://www.lysesoft.com/products/andftp/&#34;&gt;http://www.lysesoft.com/products/andftp/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

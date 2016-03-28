@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.15" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans|Marcellus+SC'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://hugo.rockhopper.hf//index.xml">
+
+    
+    <title>Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1) - Rockhopper.dk</title>
+    <meta property='og:title' content="Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1) - Rockhopper.dk">
+    <meta property="og:type" content="article">
+    
+
+    <meta property="og:url" content="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/">
+    
+    
+
+  </head>
+
+  <body>
+
+    <header class="site">
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://hugo.rockhopper.hf/">Rockhopper.dk</a>
+          </div>
+
+          <div id="navbar" class="collapse navbar-collapse">
+            
+          </div>
+
+        </div>
+      </nav>
+    </header>
+
+    <div class="site">
+      <div class="container">
+
+
+
+<div class="single">
+
+  <div class="row">
+    <div class="col-md-8">
+
+      <article class="single" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+        <meta itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" content="http://hugo.rockhopper.hf/"/>
+        <meta itemprop="dateModified" content="2010-06-19T00:00:00&#43;00:00">
+        <meta itemprop="headline" content="Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1)">
+        <meta itemprop="description" content="My ADP1 has been running Android 1.6 (Cyanogenmod 4.2.x) for quite a while now, and I was exited to see that it would be possible to run Android 2.1 on it thanks to Cyanogen This guide is a digest of information found on Cyanogen&#8217;s wiki, like: ADP1 Firmware to CyanogenMod, please consult the wiki for up todate information and warnings Prerequisite Download the following files: RA recovery for dream I use version 1.7.0 DangerSPL Google apps for Cyanogen [Lateste Cyanogen 5.0.x for dream][5] Install recovery image Based on Full Update Guide &#8211; ADP1 Firmware to CyanogenMod Boot the phone into fastboot mode by holding the BACK button while pressing the power button On your computer run the following commands: ./fastboot device #check if the phone is available ./fastboot flash recovery recovery-RA-dream-v1.7.0.img ./fastboot reboot More information about fastboot Install bootloader In order to run Android 2.1 you need to replace the bootloader with one called &#8220;DangerSPL&#8221;, and there is a reason it is called &#8220;Danger&#8221; please read DangerSPL and CM 5 for Dream and read the warnings and prerequisites.">
+        <meta itemprop="url" content="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/">
+        <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+          <meta itemprop="url" content="http://hugo.rockhopper.hf/images/default.jpg" />
+          <meta itemprop="width" content="800">
+          <meta itemprop="height" content="800">
+        </div>
+        <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+          <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+            <meta itemprop="url" content="http://hugo.rockhopper.hf/images/logo.jpg">
+            <meta itemprop="width" content="100">
+            <meta itemprop="height" content="100">
+          </div>
+          <meta itemprop="name" content="Rockhopper.dk">
+        </div>
+        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <meta itemprop="name" content="">
+        </div>
+
+        <header class="article-header">
+          <time itemprop="datePublished" pubdate="pubdate" datetime="2010-06-19T00:00:00&#43;00:00">Sat, Jun 19, 2010</time>
+          <h1 class="article-title">Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1)</h1>
+        </header>
+
+        <div class="article-body" itemprop="articleBody">
+          
+
+<p>My ADP1 has been running Android 1.6 (Cyanogenmod 4.2.x) for quite a while now, and I was exited to see that it would be possible to run Android 2.1 on it thanks to Cyanogen   <img src="http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />This guide is a digest of information found on Cyanogen&#8217;s wiki, like: <a href="http://wiki.cyanogenmod.com/index.php/Full_Update_Guide_-_ADP1_Firmware_to_CyanogenMod">ADP1 Firmware to CyanogenMod</a>, please consult the wiki for up todate information and warnings <img src="http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+
+<h2 id="prerequisite:8dd91434cb3dabb8ad3f5975fe4ac3b3">Prerequisite</h2>
+
+<p>Download the following files:</p>
+
+<ul>
+<li><a href="http://forum.xda-developers.com/showpost.php?p=4647751&amp;postcount=1">RA recovery for dream</a> I use version 1.7.0</li>
+<li><a href="http://wiki.cyanogenmod.com/index.php/DangerSPL_and_CM_5_for_Dream">DangerSPL</a></li>
+<li><a href="http://wiki.cyanogenmod.com/index.php/Latest_version#ERE36B_Google_addon_for_G1.2FDream.2FSapphire">Google apps for Cyanogen</a></li>
+<li>[Lateste Cyanogen 5.0.x for dream][5]</li>
+</ul>
+
+<h2 id="install-recovery-image:8dd91434cb3dabb8ad3f5975fe4ac3b3">Install recovery image</h2>
+
+<p>Based on <a href="http://wiki.cyanogenmod.com/index.php/Full_Update_Guide_-_ADP1_Firmware_to_CyanogenMod">Full Update Guide &#8211; ADP1 Firmware to CyanogenMod</a></p>
+
+<ol>
+<li>Boot the phone into fastboot mode by holding the BACK  button while pressing the power button</li>
+<li>On your computer run the following commands:</li>
+</ol>
+
+<pre>./fastboot device #check if the phone is available
+./fastboot flash recovery recovery-RA-dream-v1.7.0.img
+./fastboot reboot
+
+<a href="http://android-dls.com/wiki/index.php?title=Fastboot">More information about fastboot</a></pre>
+
+<h2 id="install-bootloader:8dd91434cb3dabb8ad3f5975fe4ac3b3">Install bootloader</h2>
+
+<p>In order to run Android 2.1 you need to replace the bootloader with one called &#8220;DangerSPL&#8221;, and there is a reason it is called &#8220;Danger&#8221;  <img src="http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />please read <a href="http://wiki.cyanogenmod.com/index.php/DangerSPL_and_CM_5_for_Dream">DangerSPL and CM 5 for Dream</a> and read the warnings and prerequisites.</p>
+
+<p>Copy the files to the root of your SD card:</p>
+
+<ol>
+<li>DangerSPL: spl-signed.zip</li>
+<li>CyanogenMod: update-cm-5.0.7-DS-signed.zip</li>
+<li>Google Apps: gapps-ds-ERE36B-signed.zip</li>
+</ol>
+
+<p>Reboot the phone into recovery mode by holding hold the home button while booting.</p>
+
+<p>I did the following steps:</p>
+
+<ol>
+<li>Run a Nandroid Backup</li>
+<li>Wipe Data/Factory Reset</li>
+<li>Flash DangerSPL by selecting &#8220;Apply any zip from SD&#8221; and then select spl-signed.zip</li>
+</ol>
+
+<p>After the bootloader has been flashed, reboot the phone when asked for it. The phone should boot into recovery mode again to complete the upgrade.</p>
+
+<h2 id="install-cyanogenmod-5-0-7-and-google-apps:8dd91434cb3dabb8ad3f5975fe4ac3b3">Install Cyanogenmod 5.0.7 and Google apps</h2>
+
+<p>After the bootloader has been installed it is time to flash Android 2.1 and Google apps</p>
+
+<ol>
+<li>Select &#8220;Apply any zip from SD&#8221; and then update-cm-5.0.7-DS-signed.zip</li>
+<li>Do the same with gapps-ds-ERE36B-signed.zip after CM 5.0.x</li>
+<li>Reboot (takes awhile to boot)</li>
+</ol>
+
+<p>If all went well, you should be able to enter your PIN number and enjoy Android 2.1 <img src="http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+
+<div id="_mcePaste" style="position: absolute; left: -10000px; top: 202px; width: 1px; height: 1px; overflow: hidden;">
+  <h1 id="firstHeading" class="firstHeading">
+    DangerSPL and CM 5 for Dream
+  </h1>
+</div>
+
+<p>[5]: <a href="http://wiki.cyanogenmod.com/index.php/Latest_version#Current_Stable_Version_2">http://wiki.cyanogenmod.com/index.php/Latest_version#Current_Stable_Version_2</a></p>
+
+        </div>
+
+
+        <aside>
+          <div class="section"><a href="http://hugo.rockhopper.hf/tags/android" class="tag">android</a> </div>
+
+          <div class="section share">
+            <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fhardware%2fphone-and-pda%2fupgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1%2f&t=Upgrading%20an%20Android%20Developer%20Phone%201%20to%20Cyanogenmod%205.0.7%20%28Android%202.1%29" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+            <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fhardware%2fphone-and-pda%2fupgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1%2f&text=Upgrading%20an%20Android%20Developer%20Phone%201%20to%20Cyanogenmod%205.0.7%20%28Android%202.1%29&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+            <a href="https://plus.google.com/share?url=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fhardware%2fphone-and-pda%2fupgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+            <a href="http://getpocket.com/edit?url=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fhardware%2fphone-and-pda%2fupgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1%2f&title=Upgrading%20an%20Android%20Developer%20Phone%201%20to%20Cyanogenmod%205.0.7%20%28Android%202.1%29" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+          </div>
+
+          
+          
+          
+        </aside>
+
+      </article>
+
+    </div>
+    <div class="col-md-4">
+      
+<aside class="site">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">LatestPosts</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://hugo.rockhopper.hf/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/" class="list-group-item">Mouse hover not working in Chrome/Chromium? Solution: stop synergy</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/multiple-profiles-in-firefox-tips-and-tricks/" class="list-group-item">Multiple profiles in Firefox: tips and tricks</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/zsh-promptwindow-title-trim-middle-of-path/" class="list-group-item">zsh prompt/window title: trim middle of path</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/docker-and-php-xdebug/" class="list-group-item">Docker and PHP xdebug</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/" class="list-group-item">HTPC/NAS for watching Netflix on Linux part 1: the hardware</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/" class="list-group-item">UEFI booting Arch Linux on a HP ProBook 6360b</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/" class="list-group-item">Installing CyanogenMod 7.1 on a Sony Ericsson Xperia Arc (LT15i)</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/" class="list-group-item">Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1)</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/software/mythtv/anysee-e30-c-plus-mythtv/" class="list-group-item">AnySee E30 C Plus &#43; MythTV</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/" class="list-group-item">Xfce: auto rotate wallpaper without cron</a>
+      
+    </div>
+  </div>
+
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">category</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://hugo.rockhopper.hf/categories/hardware" class="list-group-item">hardware</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/software" class="list-group-item">software</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/linux" class="list-group-item">linux</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/mythtv" class="list-group-item">mythtv</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/xfce" class="list-group-item">xfce</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/vim" class="list-group-item">vim</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/xorg" class="list-group-item">xorg</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/development" class="list-group-item">development</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/php" class="list-group-item">php</a>
+      
+    </div>
+  </div>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">tag</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://hugo.rockhopper.hf/tags/android" class="list-group-item">android</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/archlinux" class="list-group-item">archlinux</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/mythbackend" class="list-group-item">mythbackend</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/zsh" class="list-group-item">zsh</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/motherboard" class="list-group-item">motherboard</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/dvb-c" class="list-group-item">dvb-c</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/mythfrontend" class="list-group-item">mythfrontend</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/bios" class="list-group-item">bios</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/cmd-line" class="list-group-item">cmd-line</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/synergy" class="list-group-item">synergy</a>
+      
+    </div>
+  </div>
+  
+
+</aside>
+
+
+    </div>
+  </div>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site">
+      <div class="container">
+        <p>&copy; 2014 Rockhopper.dk</p>
+        <p>Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>,</p>
+        <p>Theme <a href="https://github.com/dim0627/hugo_theme_beg" target="_blank">Beg</a> designed by <a href="http://yet.unresolved.xyz" target="_blank">Daisuke Tsuji</a></p>
+      </div>
+    </footer>
+
+    <script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+  </body>
+</html>
+

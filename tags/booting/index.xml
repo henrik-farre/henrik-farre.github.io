@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Booting on Rockhopper.dk</title>
+    <link>http://hugo.rockhopper.hf/tags/booting/</link>
+    <description>Recent content in Booting on Rockhopper.dk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 17 Mar 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://hugo.rockhopper.hf/tags/booting/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>UEFI booting Arch Linux on a HP ProBook 6360b</title>
+      <link>http://hugo.rockhopper.hf/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</link>
+      <pubDate>Sun, 17 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</guid>
+      <description>
+
+&lt;p&gt;As I&amp;#8217;ve just got a new Samsung 840 Pro Series 256GB SSD for my work laptop (HP ProBook 6360b), I wanted to try switching from BIOS booting to UEFI.&lt;/p&gt;
+
+&lt;h1 id=&#34;ssd-setup:769087bd4497991a049e43a8b2be2b7e&#34;&gt;SSD setup&lt;/h1&gt;
+
+&lt;p&gt;Using gdisk I created two partitions:&lt;/p&gt;
+
+&lt;pre&gt;Number  Start (sector)    End (sector)  Size       Code  Name
+   1            2048          206847   100.0 MiB   EF00  EFI System
+   2          206848       500118158   238.4 GiB   8300  Linux filesystem&lt;/pre&gt;
+
+&lt;p&gt;I left the default align to 2048-sector boundaries.&lt;/p&gt;
+
+&lt;p&gt;In gdisk I entered &amp;#8220;extra functionality (experts only)&amp;#8221; by pressing &amp;#8220;x&amp;#8221;, and then &amp;#8220;a&amp;#8221; ( &amp;#8220;set attributes&amp;#8221;), and selected &amp;#8220;0&amp;#8221; for &amp;#8220;system partition&amp;#8221; and &amp;#8220;2&amp;#8221; for &amp;#8220;legacy BIOS bootable&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;Next I formatted the two partitions using:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;mkfs.vfat -F32 /dev/sda1&lt;/li&gt;
+&lt;li&gt;mkfs.ext4 -m0 /dev/sda2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Finally I mounted the old disk (connected using the eSATA connector on the laptop) and the new disk, and used rsync to copy everything to the new disk.&lt;/p&gt;
+
+&lt;h1 id=&#34;bootloader-setup:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Bootloader setup&lt;/h1&gt;
+
+&lt;p&gt;This was the tricky part. First I updated the firmware on the laptop to the newest version (F.29 from &lt;a href=&#34;http://h20000.www2.hp.com/bizsupport/TechSupport/SoftwareIndex.jsp?lang=en&amp;amp;cc=dk&amp;amp;prodNameId=5045588&amp;amp;prodTypeId=321957&amp;amp;prodSeriesId=5045581&amp;amp;swLang=13&amp;amp;taskId=135&amp;amp;swEnvOID=4060&#34;&gt;HPs support site&lt;/a&gt;). I tried all the .exe files on a computer running Windows 7 until I found the one that could create an USB stick.&lt;/p&gt;
+
+&lt;h2 id=&#34;booting-in-uefi-mode:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Booting in UEFI mode&lt;/h2&gt;
+
+&lt;p&gt;Very importen bit: you can&amp;#8217;t install a UEFI bootloader unless you&amp;#8217;ve booted in UEFI mode.&lt;/p&gt;
+
+&lt;p&gt;I used the instructions in the Arch Linux wiki on how to &lt;a href=&#34;https://wiki.archlinux.org/index.php/UEFI#Create_UEFI_bootable_USB_from_ISO&#34;&gt;Create UEFI bootable USB from ISO&lt;/a&gt;. Sometimes UEFI refused to boot from the USB, but it worked each time I selected the EFI file on the USB stick. To do that press F9 while the computer is booting and select &amp;#8220;Boot from EFI file&amp;#8221;, then select the USB device and EFI/boot/bootx64.efi&lt;/p&gt;
+
+&lt;h2 id=&#34;installing-the-bootloader:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Installing the bootloader&lt;/h2&gt;
+
+&lt;p&gt;I tried rEFInd, gummiboot, grub2 and just using the kernel EFI stub support. Nothing worked. After reading [UEFI Booting 64-bit Redhat Enterprise Linux 6][3] I figured out that HPs firmware only allows you to boot from &amp;#8220;OS bootloader&amp;#8221;, which means that it will only boot from \EFI\BOOT\BOOTX64.EFI. So I installed grub2 using these commands (/dev/sda1 is mounted at /boot/efi):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;grub-install &amp;#8211;target=x86_64-efi &amp;#8211;efi-directory=/boot/efi &amp;#8211;bootloader-id=arch_grub &amp;#8211;recheck&lt;/li&gt;
+&lt;li&gt;grub-mkconfig -o /boot/grub/grub.cfg&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This will put the EFI application in /boot/efi/EFI/arch_grub/grubx64.efi which does not work. So I just copied /boot/efi/EFI/arch_grub/grubx64.efi /boot/efi/EFI/BOOT/BOOTX64.EFI and everything works.&lt;/p&gt;
+
+&lt;h1 id=&#34;conclusion:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;I can&amp;#8217;t say that that the time I used to get UEFI booting working was time well spend, nothing magic happens when booting using UEFI compared to legacy BIOS, but at least I&amp;#8217;m not using anything that is labelled &amp;#8220;legacy&amp;#8221; &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:-)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;[3]: &lt;a href=&#34;http://blog.fpmurphy.com/2010/09/uefi-booting-64-bit-redhat-enterprise-linux-6.html&#34;&gt;http://blog.fpmurphy.com/2010/09/uefi-booting-64-bit-redhat-enterprise-linux-6.html&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

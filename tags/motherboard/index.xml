@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Motherboard on Rockhopper.dk</title>
+    <link>http://hugo.rockhopper.hf/tags/motherboard/</link>
+    <description>Recent content in Motherboard on Rockhopper.dk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 13 Nov 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://hugo.rockhopper.hf/tags/motherboard/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HTPC/NAS for watching Netflix on Linux part 1: the hardware</title>
+      <link>http://hugo.rockhopper.hf/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</link>
+      <pubDate>Wed, 13 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</guid>
+      <description>
+
+&lt;p&gt;I decided to build a new HTPC/NAS in order to watch &lt;a href=&#34;http://www.netflix.com&#34;&gt;Netflix&lt;/a&gt; (using &lt;a href=&#34;https://wiki.archlinux.org/index.php/Pipelight&#34;&gt;pipelight&lt;/a&gt;) on Linux, and combine two older machines into one.&lt;/p&gt;
+
+&lt;p&gt;My old HTPC was based on a 1.6GHz AMD Sempron from 2007 and a Nvidia GeForce N210. While it played Full HD content fine using &lt;a href=&#34;https://wiki.archlinux.org/index.php/VDPAU&#34;&gt;vdpau&lt;/a&gt;, it was not able to handle Netflix using pipelight. A second machine with a Intel Atom CPU was used to store all the multimedia and host MythTV.&lt;/p&gt;
+
+&lt;p&gt;Specifications of the new machine are:&lt;/p&gt;
+
+&lt;h2 id=&#34;motherboard:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Motherboard&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.gigabyte.com/products/product-page.aspx?pid=4519&#34;&gt;Gigabyte GA-Z87-D3HP&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Nice motherboard, ok PWM fan controls, only thing I dislike is the UEFI bios. Some options change when I navigate using the keyboard arrows&amp;#8230; come on, do I &lt;em&gt;really&lt;/em&gt; need a mouse for changing bios options?&lt;/p&gt;
+
+&lt;p&gt;Everything I have tested works in Linux, also these things:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;lm-sensors: supports the it8728 chip&lt;/li&gt;
+&lt;li&gt;Wake-on-lan&lt;/li&gt;
+&lt;li&gt;Audio over HDMI&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I did not test:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;USB 3.0&lt;/li&gt;
+&lt;li&gt;Changing the &amp;#8220;Resume by Alarm&amp;#8221; time from Linux.&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Fancontrol in Linux&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;lspci reports:&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;00:00.0 Host bridge: Intel Corporation 4th Gen Core Processor DRAM Controller (rev 06)
+00:02.0 VGA compatible controller: Intel Corporation Device 041e (rev 06)
+00:03.0 Audio device: Intel Corporation Xeon E3-1200 v3/4th Gen Core Processor HD Audio Controller (rev 06)
+00:14.0 USB controller: Intel Corporation 8 Series/C220 Series Chipset Family USB xHCI (rev 04)
+00:16.0 Communication controller: Intel Corporation 8 Series/C220 Series Chipset Family MEI Controller #1 (rev 04)
+00:19.0 Ethernet controller: Intel Corporation Ethernet Connection I217-V (rev 04)
+00:1a.0 USB controller: Intel Corporation 8 Series/C220 Series Chipset Family USB EHCI #2 (rev 04)
+00:1b.0 Audio device: Intel Corporation 8 Series/C220 Series Chipset High Definition Audio Controller (rev 04)
+00:1c.0 PCI bridge: Intel Corporation 8 Series/C220 Series Chipset Family PCI Express Root Port #1 (rev d4)
+00:1c.3 PCI bridge: Intel Corporation 82801 PCI Bridge (rev d4)
+00:1d.0 USB controller: Intel Corporation 8 Series/C220 Series Chipset Family USB EHCI #1 (rev 04)
+00:1f.0 ISA bridge: Intel Corporation Z87 Express LPC Controller (rev 04)
+00:1f.2 SATA controller: Intel Corporation 8 Series/C220 Series Chipset Family 6-port SATA Controller 1 [AHCI mode] (rev 04)
+00:1f.3 SMBus: Intel Corporation 8 Series/C220 Series Chipset Family SMBus Controller (rev 04)
+02:00.0 PCI bridge: Intel Corporation 82801 PCI Bridge (rev 41)&lt;/pre&gt;
+
+&lt;h3 id=&#34;ram:6f5e50861940930885d16cc412b3fd7a&#34;&gt;RAM&lt;/h3&gt;
+
+&lt;p&gt;I went for some cheap &lt;a href=&#34;http://www.kingston.com/us/memory/hyperx/blu&#34;&gt;Kingston HyperX blu&lt;/a&gt; 2 x 2 GB memory. The motherboard supports faster memory which should boost graphics performance, but I&amp;#8217;m content with how it performs now.&lt;/p&gt;
+
+&lt;h2 id=&#34;cpu:6f5e50861940930885d16cc412b3fd7a&#34;&gt;CPU&lt;/h2&gt;
+
+&lt;p&gt;I really like the &lt;a href=&#34;http://ark.intel.com/products/77481/&#34;&gt;Intel i3-4130T&lt;/a&gt; (Haswell) CPU. It runs @ 2.9GHz with a TDP of just 35W, and it comes with integrated Intel HD graphics 4400.&lt;/p&gt;
+
+&lt;p&gt;It is possible to view Full HD content using &lt;a href=&#34;https://wiki.archlinux.org/index.php/VA-API&#34;&gt;va-api&lt;/a&gt; without using more than &amp;lt;20% CPU.&lt;/p&gt;
+
+&lt;h3 id=&#34;cpu-cooler:6f5e50861940930885d16cc412b3fd7a&#34;&gt;CPU cooler&lt;/h3&gt;
+
+&lt;p&gt;The &lt;a href=&#34;http://www.coolermaster.com/product/Detail/cooling/cpu-air-cooler/hyper-212-evo.html&#34;&gt;Cooler Master Hyper 212 Evo&lt;/a&gt; is a direct heatpipe touch CPU cooler, and its fan can run at the lowest speed all the time thanks to the CPU&amp;#8217;s low TDP. I use &lt;a href=&#34;http://www.arcticsilver.com/as5.htm&#34;&gt;Arctic Silver 5&lt;/a&gt; thermal compound.&lt;/p&gt;
+
+&lt;h2 id=&#34;control:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Control&lt;/h2&gt;
+
+&lt;p&gt;I picked the &lt;a href=&#34;http://www.chill-innovation.com/en/bluetooth-keyboards/12-chill-kb-1bt-wireless-bluetooth-micro-keyboard-nordic-5711045075841.html&#34;&gt;Chill KB-1BT Wireless Bluetooth Micro Keyboard&lt;/a&gt; because I was tired of my old infrared connected keyboard&amp;#8217;s poor range and it also had to be pointing directly at its receiver. And not only does the Chill KB-1BT have better range, it&amp;#8217;s also much easier to type on because it&amp;#8217;s much smaller so I can reach most keys with my thumbs.&lt;/p&gt;
+
+&lt;p&gt;While the keyboard is excellent for typing and controlling Netflix/Rdio, I also bought a &lt;a href=&#34;http://www.pulse-eight.com/store/products/104-usb-hdmi-cec-adapter.aspx&#34;&gt;Pulse Eight USB &amp;#8211; CEC Adapter&lt;/a&gt; which allows me to control XBMC 100% using my TV&amp;#8217;s (Sony KDL-40WE5) remote.&lt;/p&gt;
+
+&lt;h2 id=&#34;storage:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Storage&lt;/h2&gt;
+
+&lt;p&gt;I reused the 3 x 500Gb Seagate ST3500630AS discs from the Atom server running in a Raid 5 configuration.&lt;/p&gt;
+
+&lt;h2 id=&#34;case:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Case&lt;/h2&gt;
+
+&lt;p&gt;First revision [Antec Sonata]&lt;a href=&#34;does not even exist on Antec&amp;amp;#8217;s page any more&#34;&gt;12&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;[12]: &lt;a href=&#34;http://techreport.com/review/6247/antec-sonata-atx-case&#34;&gt;http://techreport.com/review/6247/antec-sonata-atx-case&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Gigabyte GA-MA790FXT-UD5P and Linux</title>
+      <link>http://hugo.rockhopper.hf/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</link>
+      <pubDate>Sat, 18 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</guid>
+      <description>
+
+&lt;p&gt;I recently upgraded the hardware of my desktop and here is my experience with the new hardware. The upgrade consists of:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Motherboard: Gigabyte GA-MA790FXT-UD5P (&lt;a href=&#34;http://www.gigabyte.com.tw/Products/Motherboard/Products_Spec.aspx?ProductID=3005&#34;&gt;Product page&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;CPU: AMD Phenom II X4 810 Processor 2.6Ghz AM3 socket (&lt;a href=&#34;http://products.amd.com/en-us/DesktopCPUDetail.aspx?id=526&amp;amp;f1=AMD+Phenom%E2%84%A2+II+X4&amp;amp;f2=810&amp;amp;f3=2600&amp;amp;f4=512&amp;amp;f5=AM3&amp;amp;f6=C2&amp;amp;f7=45nm+SOI&amp;amp;f8=95+W&amp;amp;f9=4000&amp;amp;f10=False&amp;amp;f11=False&#34;&gt;Specs&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;CPU cooler: Xigmatek HDT-S1283 Cooler (&lt;a href=&#34;http://www.xigmatek.com/product/air-hdts1283.php&#34;&gt;Product page&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;RAM: Corsair 4Gb DDR3 XMS3 DHX PC10600 1333MHz (&lt;a href=&#34;http://www.corsair.com/products/xms3dhx/default.aspx&#34;&gt;Product page&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I reused my Hauppauge PVR-500, Nvidia GS-7300 and 3x500Gb Seagate harddrives (raid5+LVM).&lt;/p&gt;
+
+&lt;h2 id=&#34;installation:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;Installation&lt;/h2&gt;
+
+&lt;p&gt;The motherboard with attached CPU cooler fits nicely into my Antec P182.&lt;/p&gt;
+
+&lt;div id=&#34;attachment_213&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
+  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/gigabyte_ga-ma790fxt-ud5p_1.jpg&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-213 &#34; title=&#34;gigabyte_ga-ma790fxt-ud5p_1&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/gigabyte_ga-ma790fxt-ud5p_1-150x150.jpg&#34; alt=&#34;gigabyte_ga-ma790fxt-ud5p_1&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    Gigabyte GA-MA790FXT-UD5P mounted in Antec P182
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The CPU cooler can only be installed on a socket AM3 motherboard in such a way that the fan either blows up (towards the top of the case) or down (towards the PCI-e slots). When the cooler is mounted in this way, it also means that the lowest fins on the heatsink extends over the two first RAM slots. This might not normally cause any problems, but because the Corsair memory modules have headspreaders attached, they are rather tall, preventing them from being placed below the fins. The solution is to place the modules in the last 2 slots. I choose to install the cooler so the fan blows air hot upwards and out of the case&amp;#8217;s top vents.&lt;/p&gt;
+
+&lt;div id=&#34;attachment_214&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
+  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/gigabyte_ga-ma790fxt-ud5p_2.jpg&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-214 &#34; title=&#34;gigabyte_ga-ma790fxt-ud5p_2&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/gigabyte_ga-ma790fxt-ud5p_2-150x150.jpg&#34; alt=&#34;gigabyte_ga-ma790fxt-ud5p_2&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    Xigmatek HDT-S1283 Cooler blocking first two RAM slots
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;bios:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;BIOS&lt;/h2&gt;
+
+&lt;p&gt;The default version shipped with the motherboard does not have legacy USB keyboard support enabled, which means there is no keyboard in GRUB (when Linux is booted there is no problem). I didn&amp;#8217;t notice if there was a option to enabled it, I just updated to the newest version at the time (version F5c) which fixed it. Updating the BIOS just require a USB thumbdrive formattet with FAT32, and the extracted BIOS file (use unrar to extract it from the .exe file). While tweaking the BIOS I switched all SATA drives to AHCI, to get the most from the drives in Linux, and set the memory frequency to 1333MHz.&lt;/p&gt;
+
+&lt;h2 id=&#34;os:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;OS&lt;/h2&gt;
+
+&lt;p&gt;To match the new hardware I also switched from Arch Linux x686 to Arch Linux x86_64. I have not experienced any crashes or trouble after switching to the new hardware, so the hardware is 100% Linux compatible. There might be problems with older kernels, but I can confirm that it works with 2.6.28 or newer.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update the 01-Aug-2009: attached [dmesg][5]&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;fancontrol-and-sensors:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;Fancontrol and sensors&lt;/h2&gt;
+
+&lt;p&gt;I installed lm_sensors and used pwmconfig to create a /etc/fancontrol file:&lt;/p&gt;
+
+&lt;pre&gt;# Configuration file generated by pwmconfig, changes will be lost
+# cpu : temp2, pwm1, min:35, max:50
+# sys1: temp1, pwm2, min:45, max:50
+INTERVAL=10
+FCTEMPS=hwmon0/device/pwm1=hwmon0/device/temp2_input hwmon0/device/pwm2=hwmon0/device/temp1_input
+FCFANS=hwmon0/device/pwm1=hwmon0/device/fan1_input hwmon0/device/pwm2=hwmon0/device/fan2_input
+MINTEMP=hwmon0/device/pwm1=35 hwmon0/device/pwm2=45
+MAXTEMP=hwmon0/device/pwm1=45 hwmon0/device/pwm2=50
+MINSTART=hwmon0/device/pwm1=150 hwmon0/device/pwm2=150
+MINSTOP=hwmon0/device/pwm1=100 hwmon0/device/pwm2=100&lt;/pre&gt;
+
+&lt;p&gt;On a hot summerday the sensors command outputs:&lt;/p&gt;
+
+&lt;pre&gt;it8720-isa-0228
+Adapter: ISA adapter
+in0:         +1.04 V  (min =  +0.00 V, max =  +4.08 V)
+in1:         +1.62 V  (min =  +0.00 V, max =  +4.08 V)
+in2:         +3.28 V  (min =  +0.00 V, max =  +4.08 V)
+in3:         +2.96 V  (min =  +0.00 V, max =  +4.08 V)
+in4:         +3.07 V  (min =  +0.00 V, max =  +4.08 V)
+in5:         +1.97 V  (min =  +0.00 V, max =  +4.08 V)
+in6:         +4.08 V  (min =  +0.00 V, max =  +4.08 V)
+in7:         +2.16 V  (min =  +0.00 V, max =  +4.08 V)
+Vbat:        +3.25 V
+fan1:        198 RPM  (min =    0 RPM)
+fan2:        941 RPM  (min =    0 RPM)
+fan3:          0 RPM  (min =    0 RPM)
+fan4:          0 RPM  (min =    0 RPM)
+fan5:        521 RPM  (min =    0 RPM)
+temp1:       +48.0°C  (low  = +127.0°C, high = +127.0°C)  sensor = thermistor
+temp2:       +40.0°C  (low  = +127.0°C, high = +60.0°C)  sensor = thermal diode
+temp3:       +45.0°C  (low  = +127.0°C, high = +127.0°C)  sensor = thermistor
+cpu0_vid:   +1.550 V&lt;/pre&gt;
+
+&lt;h2 id=&#34;other-applications:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;Other applications&lt;/h2&gt;
+
+&lt;p&gt;To get the most from a multicore CPU some appliations needs to be configured to use all cores.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Blender: works out of the box, if not check render settings (F10) for &amp;#8220;Threads: 4&amp;#8221;&lt;/li&gt;
+&lt;li&gt;The GIMP: should also use all four cores, else check enviroment settings&lt;/li&gt;
+&lt;li&gt;OGMRip: go to profiles, edit a profile and in the &amp;#8220;Video&amp;#8221; tab increase the number of threads to 4&lt;/li&gt;
+&lt;li&gt;Makepkg: edit /etc/makepkg.conf and set MAKEFLAGS=&amp;#8221;-j5&amp;#8243; (Yes 5, one pr core + 1)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;cpu-frequency-scaling:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;CPU frequency scaling&lt;/h2&gt;
+
+&lt;p&gt;I use the ondemand CPU frequceny scaling governor, so most of the time all four cores run at 800MHz and only switch to 2.6GHz when it is needed. I have put the following in my /etc/rc.local:&lt;/p&gt;
+
+&lt;pre&gt;for i in 0 1 2 3; do
+echo ondemand &amp;gt; /sys/devices/system/cpu/cpu${i}/cpufreq/scaling_governor
+echo 1 &amp;gt;/sys/devices/system/cpu/cpu${i}/cpufreq/ondemand/ignore_nice_load
+done&lt;/pre&gt;
+
+&lt;p&gt;[5]: &lt;a href=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/dmesg.txt&#34;&gt;https://rockhopper.dk/wp-content/uploads/2009/07/dmesg.txt&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

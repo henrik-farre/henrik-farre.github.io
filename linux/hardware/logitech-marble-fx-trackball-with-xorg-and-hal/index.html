@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.15" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans|Marcellus+SC'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://hugo.rockhopper.hf//index.xml">
+
+    
+    <title>Logitech Marble FX trackball with Xorg and Hal - Rockhopper.dk</title>
+    <meta property='og:title' content="Logitech Marble FX trackball with Xorg and Hal - Rockhopper.dk">
+    <meta property="og:type" content="article">
+    
+
+    <meta property="og:url" content="http://hugo.rockhopper.hf/linux/hardware/logitech-marble-fx-trackball-with-xorg-and-hal/">
+    
+    
+
+  </head>
+
+  <body>
+
+    <header class="site">
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://hugo.rockhopper.hf/">Rockhopper.dk</a>
+          </div>
+
+          <div id="navbar" class="collapse navbar-collapse">
+            
+          </div>
+
+        </div>
+      </nav>
+    </header>
+
+    <div class="site">
+      <div class="container">
+
+
+
+<div class="single">
+
+  <div class="row">
+    <div class="col-md-8">
+
+      <article class="single" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+        <meta itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" content="http://hugo.rockhopper.hf/"/>
+        <meta itemprop="dateModified" content="2008-12-06T00:00:00&#43;00:00">
+        <meta itemprop="headline" content="Logitech Marble FX trackball with Xorg and Hal">
+        <meta itemprop="description" content="After the recent upgrade in ArchLinux of xorg-server from 1.4.x to 1.5.x my thrusty Logitech Marble FX trackball did not work entirely. The trackball does not have a dedicated scroll wheel, but by pressing a button, and using the trackball, you can scroll both vertical and horizontal. In order to get the emulated scroll working again you first have to update the evdev driver (the xf86-input-evdev package), as version 2.0.7 doesn&#8217;t support the needed options.">
+        <meta itemprop="url" content="http://hugo.rockhopper.hf/linux/hardware/logitech-marble-fx-trackball-with-xorg-and-hal/">
+        <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+          <meta itemprop="url" content="http://hugo.rockhopper.hf/images/default.jpg" />
+          <meta itemprop="width" content="800">
+          <meta itemprop="height" content="800">
+        </div>
+        <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+          <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+            <meta itemprop="url" content="http://hugo.rockhopper.hf/images/logo.jpg">
+            <meta itemprop="width" content="100">
+            <meta itemprop="height" content="100">
+          </div>
+          <meta itemprop="name" content="Rockhopper.dk">
+        </div>
+        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <meta itemprop="name" content="">
+        </div>
+
+        <header class="article-header">
+          <time itemprop="datePublished" pubdate="pubdate" datetime="2008-12-06T00:00:00&#43;00:00">Sat, Dec 6, 2008</time>
+          <h1 class="article-title">Logitech Marble FX trackball with Xorg and Hal</h1>
+        </header>
+
+        <div class="article-body" itemprop="articleBody">
+          <p>After the recent upgrade in ArchLinux of xorg-server from 1.4.x to 1.5.x my thrusty Logitech Marble FX trackball did not work entirely. The trackball does not have a dedicated scroll wheel, but by pressing a button, and using the trackball, you can scroll both vertical and horizontal.</p>
+
+<p>In order to get the emulated scroll working again you first have to update the evdev driver (the xf86-input-evdev package), as version 2.0.7 doesn&#8217;t support the needed options.</p>
+
+<p>I use the <a href="http://aur.archlinux.org/packages.php?do_Details=1&amp;ID=19593&amp;O=&amp;L=&amp;C=&amp;K=&amp;SB=&amp;SO=&amp;PP=&amp;do_Orphans=&amp;SeB=">xf86-input-evdev-git PKGBUILD from aur</a> (which depends on [xkeyboard-config-git][2]) which works fine.</p>
+
+<p>Once you have build the packages and installed them (remove the conflicting packages by using pacman -Rd packagename) you will have to create a Hal fdi file, I created &#8220;/etc/hal/fdi/policy/11-x11-mouse.fdi&#8221; containing:</p>
+
+<pre>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+&lt;deviceinfo version="0.2"&gt;
+  &lt;device&gt;
+    &lt;match key="info.capabilities" contains="input.mouse"&gt;
+      &lt;match key="info.product" contains="PS2++ Logitech Mouse"&gt;
+        &lt;merge key="input.x11.Protocol" type="string"&gt;ExplorerPS/2&lt;/merge&gt;
+        &lt;merge key="input.x11_options.Buttons" type="string"&gt;7&lt;/merge&gt;
+        &lt;merge key="input.x11_options.XAxisMapping" type="string"&gt;6 7&lt;/merge&gt;
+        &lt;merge key="input.x11_options.YAxisMapping" type="string"&gt;4 5&lt;/merge&gt;
+        &lt;merge key="input.x11_options.EmulateWheel" type="string"&gt;True&lt;/merge&gt;
+        &lt;merge key="input.x11_options.EmulateWheelButton" type="string"&gt;8&lt;/merge&gt;
+        &lt;merge key="input.x11_options.EmulateWheelInertia" type="string"&gt;30&lt;/merge&gt;
+        &lt;merge key="input.x11_options.Emulate3Buttons" type="string"&gt;False&lt;/merge&gt;
+      &lt;/match&gt;
+    &lt;/match&gt;
+  &lt;/device&gt;
+&lt;/deviceinfo&gt;
+</pre>
+
+<p>Now shutdown X, restart hal and X and the emulated scroll whell should work just fine. I have the following output in my &#8220;/var/log/Xorg.0.log&#8221;:</p>
+
+<pre>(II) config/hal: Adding input device PS2++ Logitech Mouse
+(**) PS2++ Logitech Mouse: always reports core events
+(**) PS2++ Logitech Mouse: Device: "/dev/input/event3"
+(II) PS2++ Logitech Mouse: Found 4 mouse buttons
+(II) PS2++ Logitech Mouse: Found x and y relative axes
+(II) PS2++ Logitech Mouse: Configuring as mouse
+(**) Option "Emulate3Buttons" "False"
+(II) PS2++ Logitech Mouse: Forcing middle mouse button emulation off.
+(**) Option "EmulateWheel" "True"
+(**) Option "EmulateWheelButton" "8"
+(**) Option "EmulateWheelInertia" "30"
+(**) Option "YAxisMapping" "4 5"
+(**) PS2++ Logitech Mouse: YAxisMapping: buttons 4 and 5
+(**) Option "XAxisMapping" "6 7"
+(**) PS2++ Logitech Mouse: XAxisMapping: buttons 6 and 7
+(**) PS2++ Logitech Mouse: EmulateWheelButton: 8, EmulateWheelInertia: 30, EmulateWheelTimeout: 200
+(II) XINPUT: Adding extended input device "PS2++ Logitech Mouse" (type: MOUSE)</pre>
+
+<p>[2]: <a href="http://aur.archlinux.org/packages.php?do_Details=1&amp;ID=19592&amp;O=&amp;L=&amp;C=&amp;K=&amp;SB=&amp;SO=&amp;PP=&amp;do_Orphans=&amp;SeB=">http://aur.archlinux.org/packages.php?do_Details=1&amp;ID=19592&amp;O=&amp;L=&amp;C=&amp;K=&amp;SB=&amp;SO=&amp;PP=&amp;do_Orphans=&amp;SeB=</a></p>
+
+        </div>
+
+
+        <aside>
+          <div class="section"><a href="http://hugo.rockhopper.hf/tags/archlinux" class="tag">archlinux</a> </div>
+
+          <div class="section share">
+            <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fhardware%2flogitech-marble-fx-trackball-with-xorg-and-hal%2f&t=Logitech%20Marble%20FX%20trackball%20with%20Xorg%20and%20Hal" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+            <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fhardware%2flogitech-marble-fx-trackball-with-xorg-and-hal%2f&text=Logitech%20Marble%20FX%20trackball%20with%20Xorg%20and%20Hal&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+            <a href="https://plus.google.com/share?url=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fhardware%2flogitech-marble-fx-trackball-with-xorg-and-hal%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+            <a href="http://getpocket.com/edit?url=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fhardware%2flogitech-marble-fx-trackball-with-xorg-and-hal%2f&title=Logitech%20Marble%20FX%20trackball%20with%20Xorg%20and%20Hal" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+          </div>
+
+          
+          
+          
+        </aside>
+
+      </article>
+
+    </div>
+    <div class="col-md-4">
+      
+<aside class="site">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">LatestPosts</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://hugo.rockhopper.hf/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/" class="list-group-item">Mouse hover not working in Chrome/Chromium? Solution: stop synergy</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/multiple-profiles-in-firefox-tips-and-tricks/" class="list-group-item">Multiple profiles in Firefox: tips and tricks</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/zsh-promptwindow-title-trim-middle-of-path/" class="list-group-item">zsh prompt/window title: trim middle of path</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/docker-and-php-xdebug/" class="list-group-item">Docker and PHP xdebug</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/" class="list-group-item">HTPC/NAS for watching Netflix on Linux part 1: the hardware</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/" class="list-group-item">UEFI booting Arch Linux on a HP ProBook 6360b</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/" class="list-group-item">Installing CyanogenMod 7.1 on a Sony Ericsson Xperia Arc (LT15i)</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/" class="list-group-item">Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1)</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/software/mythtv/anysee-e30-c-plus-mythtv/" class="list-group-item">AnySee E30 C Plus &#43; MythTV</a>
+      
+      <a href="http://hugo.rockhopper.hf/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/" class="list-group-item">Xfce: auto rotate wallpaper without cron</a>
+      
+    </div>
+  </div>
+
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">category</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://hugo.rockhopper.hf/categories/software" class="list-group-item">software</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/hardware" class="list-group-item">hardware</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/linux" class="list-group-item">linux</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/mythtv" class="list-group-item">mythtv</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/xfce" class="list-group-item">xfce</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/development" class="list-group-item">development</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/php" class="list-group-item">php</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/vim" class="list-group-item">vim</a>
+      
+      <a href="http://hugo.rockhopper.hf/categories/xorg" class="list-group-item">xorg</a>
+      
+    </div>
+  </div>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">tag</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://hugo.rockhopper.hf/tags/android" class="list-group-item">android</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/mythbackend" class="list-group-item">mythbackend</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/archlinux" class="list-group-item">archlinux</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/motherboard" class="list-group-item">motherboard</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/mythfrontend" class="list-group-item">mythfrontend</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/dvb-c" class="list-group-item">dvb-c</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/zsh" class="list-group-item">zsh</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/chrome" class="list-group-item">chrome</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/chromium" class="list-group-item">chromium</a>
+      
+      <a href="http://hugo.rockhopper.hf/tags/booting" class="list-group-item">booting</a>
+      
+    </div>
+  </div>
+  
+
+</aside>
+
+
+    </div>
+  </div>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site">
+      <div class="container">
+        <p>&copy; 2014 Rockhopper.dk</p>
+        <p>Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>,</p>
+        <p>Theme <a href="https://github.com/dim0627/hugo_theme_beg" target="_blank">Beg</a> designed by <a href="http://yet.unresolved.xyz" target="_blank">Daisuke Tsuji</a></p>
+      </div>
+    </footer>
+
+    <script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+  </body>
+</html>
+

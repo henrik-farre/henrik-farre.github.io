@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wol on Rockhopper.dk</title>
+    <link>http://hugo.rockhopper.hf/tags/wol/</link>
+    <description>Recent content in Wol on Rockhopper.dk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Apr 2008 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://hugo.rockhopper.hf/tags/wol/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Check if MythTV backend is up</title>
+      <link>http://hugo.rockhopper.hf/linux/software/mythtv/check-if-mythtv-backend-is-up/</link>
+      <pubDate>Sat, 12 Apr 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/software/mythtv/check-if-mythtv-backend-is-up/</guid>
+      <description>&lt;p&gt;My MythTV frontend depends on the masterbackend to be up and running, mainly because some partitions are nfs mounted. So I created a simple script to check if the backend is responding to ping:&lt;/p&gt;
+
+&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;co0&#34;&gt;#!/bin/bash&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&#34;kw1&#34;&gt;function&lt;/span&gt; isup&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;
+ &lt;span class=&#34;kw2&#34;&gt;ping&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-q&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-n&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-c1&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-w2&lt;/span&gt; BACKEND_IP &lt;span class=&#34;sy0&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;dev&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;null
+ &lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt; &lt;span class=&#34;re4&#34;&gt;$?&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;!&lt;/span&gt;= &lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;; &lt;span class=&#34;kw1&#34;&gt;then&lt;/span&gt;
+   &lt;span class=&#34;kw2&#34;&gt;sleep&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;5&lt;/span&gt;
+   isup
+ &lt;span class=&#34;kw1&#34;&gt;else&lt;/span&gt;
+   &lt;span class=&#34;kw3&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;is up&#34;&lt;/span&gt;
+ &lt;span class=&#34;kw1&#34;&gt;fi&lt;/span&gt;
+&lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;
+&amp;nbsp;
+isup&lt;/pre&gt;
+
+&lt;p&gt;But there is a small problem with this approach: the backend starts replying to ping long before nfsd and mythbackend are ready.&lt;/p&gt;
+
+&lt;p&gt;So instead of using ping, I created a script that checks if mythbackend&amp;#8217;s status page (port 6544) is ready, using wget:&lt;/p&gt;
+
+&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;co0&#34;&gt;#!/bin/bash&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&#34;kw1&#34;&gt;function&lt;/span&gt; isbackendup &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;
+  &lt;span class=&#34;kw2&#34;&gt;wget&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-q&lt;/span&gt; http:&lt;span class=&#34;sy0&#34;&gt;//&lt;/span&gt;BACKEND_IP:&lt;span class=&#34;nu0&#34;&gt;6544&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-O&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;dev&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;null
+  &lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt; &lt;span class=&#34;re4&#34;&gt;$?&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;!&lt;/span&gt;= &lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;; &lt;span class=&#34;kw1&#34;&gt;then&lt;/span&gt;
+    &lt;span class=&#34;kw2&#34;&gt;sleep&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;5&lt;/span&gt;
+    isbackendup
+  &lt;span class=&#34;kw1&#34;&gt;else&lt;/span&gt;
+    stat_done
+  &lt;span class=&#34;kw1&#34;&gt;fi&lt;/span&gt;
+&lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;
+&amp;nbsp;
+isbackendup&lt;/pre&gt;
+
+&lt;p&gt;Finally I wrapped it all up in an ArchLinux rc script, and use WOL to wake the backend:&lt;/p&gt;
+
+&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;co0&#34;&gt;#!/bin/bash&lt;/span&gt;
+&amp;nbsp;
+. &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;etc&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;rc.conf
+. &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;etc&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;rc.d&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;functions
+&amp;nbsp;
+&lt;span class=&#34;kw1&#34;&gt;function&lt;/span&gt; isbackendup &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;
+  &lt;span class=&#34;kw2&#34;&gt;wget&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-q&lt;/span&gt; http:&lt;span class=&#34;sy0&#34;&gt;//&lt;/span&gt;BACKEND_IP:&lt;span class=&#34;nu0&#34;&gt;6544&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-O&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;dev&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;null
+  &lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt; &lt;span class=&#34;re4&#34;&gt;$?&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;!&lt;/span&gt;= &lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;; &lt;span class=&#34;kw1&#34;&gt;then&lt;/span&gt;
+    &lt;span class=&#34;kw2&#34;&gt;sleep&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;5&lt;/span&gt;
+    isbackendup
+  &lt;span class=&#34;kw1&#34;&gt;else&lt;/span&gt;
+    stat_done
+  &lt;span class=&#34;kw1&#34;&gt;fi&lt;/span&gt;
+&lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&#34;kw1&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;$1&#34;&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;in&lt;/span&gt;
+  start&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+    stat_busy &lt;span class=&#34;st0&#34;&gt;&#34;Checking if backend is up...&#34;&lt;/span&gt;
+    wol BACKEND_MACADDR &lt;span class=&#34;sy0&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;dev&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;null
+    isbackendup
+    &lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
+  stop&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;bin&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;kw2&#34;&gt;true&lt;/span&gt;
+    &lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
+  restart&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+    $&lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt; stop
+    &lt;span class=&#34;kw2&#34;&gt;sleep&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;1&lt;/span&gt;
+    $&lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt; start
+    &lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
+  &lt;span class=&#34;sy0&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&#34;kw3&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;usage: $0 {start|stop|restart}&#34;&lt;/span&gt;  
+&lt;span class=&#34;kw1&#34;&gt;esac&lt;/span&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you run ArchLinux just added it to /etc/rc.conf in the DAEMONS array.&lt;/p&gt;
+
+&lt;p&gt;Remember to replace &lt;strong&gt;BACKEND_IP&lt;/strong&gt; and &lt;strong&gt;BACKEND_MACADDR&lt;/strong&gt; with your own values.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

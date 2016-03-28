@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Synergy on Rockhopper.dk</title>
+    <link>http://hugo.rockhopper.hf/tags/synergy/</link>
+    <description>Recent content in Synergy on Rockhopper.dk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Jun 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://hugo.rockhopper.hf/tags/synergy/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Mouse hover not working in Chrome/Chromium? Solution: stop synergy</title>
+      <link>http://hugo.rockhopper.hf/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/</link>
+      <pubDate>Thu, 12 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://hugo.rockhopper.hf/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/</guid>
+      <description>&lt;p&gt;I had a strange problem: when I was using Chromium (Open source version of Chrome): mouse hover was not working. Click, scroll and so on worked fine, but when the mouse hovered above an element on a webpage nothing happend.&lt;/p&gt;
+
+&lt;p&gt;After googling I found that &lt;a href=&#34;http://synergy-project.org/&#34;&gt;synergy&lt;/a&gt; is the [cause][2], so now I only start synergy when I need it.&lt;/p&gt;
+
+&lt;p&gt;[2]: &lt;a href=&#34;https://www.google.dk/search?q=chrome+hover+synergy&#34;&gt;https://www.google.dk/search?q=chrome+hover+synergy&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -2,123 +2,129 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mythfrontend on Rockhopper.dk</title>
-    <link>http://hugo.rockhopper.hf/tags/mythfrontend/</link>
+    <link>https://henrik-farre.github.io/tags/mythfrontend/</link>
     <description>Recent content in Mythfrontend on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 28 Jun 2008 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://hugo.rockhopper.hf/tags/mythfrontend/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://henrik-farre.github.io/tags/mythfrontend/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Check video encoding script for MythTV</title>
-      <link>http://hugo.rockhopper.hf/linux/software/mythtv/check-video-encoding-script-for-mythtv/</link>
+      <link>https://henrik-farre.github.io/linux/software/mythtv/check-video-encoding-script-for-mythtv/</link>
       <pubDate>Sat, 28 Jun 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/software/mythtv/check-video-encoding-script-for-mythtv/</guid>
+      <guid>https://henrik-farre.github.io/linux/software/mythtv/check-video-encoding-script-for-mythtv/</guid>
       <description>&lt;p&gt;I&amp;#8217;m using Xine as the preferred video player on my MythTV frontend, because it has a nice video output driver called &amp;#8220;xxmc&amp;#8221;. This driver enables hardware accelerated playback of mpeg1/2 streams (e.g. ivtv recordings or DVDs) on Geforce 7xxx and other Geforce chips. The driver should fall back to the xv driver if the stream is in another format than mpeg1/2, but somehow the xxmc drives screws up playback of videos encoded with Xvid as playback gets really jerky.&lt;/p&gt;
 
 &lt;p&gt;I order to work around this, I created a script to check which video encoding is used, and if it&amp;#8217;s Xvid, Xine uses xv output. The script just requires MPlayer. Dump the script somewhere MythTV can find it, and set it as the preferred video player in MythTV.&lt;/p&gt;
 
 &lt;p&gt;You can of cause adapt it if you would like to use MPlayer instead of Xine, or want the script to check for something else than Xvid, or want the script to check for something entirely different then encoding (size maybe?), just check the output of: mplayer -identify &amp;#8220;file&amp;#8221;&lt;/p&gt;
 
-&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;co0&#34;&gt;#!/bin/bash&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;co0&#34;&gt;# Don&#39;t check encoding if MythTV is trying to playback a DVD&lt;/span&gt;
-&lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt; &lt;span class=&#34;co1&#34;&gt;${1}&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;!&lt;/span&gt;= &lt;span class=&#34;st_h&#34;&gt;&#39;dvd://&#39;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;; &lt;span class=&#34;kw1&#34;&gt;then&lt;/span&gt;
-  &lt;span class=&#34;re2&#34;&gt;VIDEO_FORMAT&lt;/span&gt;=&lt;span class=&#34;sy0&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;kw2&#34;&gt;mplayer&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-really-quiet&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-identify&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-frames&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-vc&lt;/span&gt; null &lt;span class=&#34;re5&#34;&gt;-vo&lt;/span&gt; null &lt;span class=&#34;re5&#34;&gt;-ao&lt;/span&gt; null &lt;span class=&#34;co1&#34;&gt;${1}&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;&amp;&lt;/span&gt;lt;&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;dev&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;null &lt;span class=&#34;sy0&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;awk&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-F&lt;/span&gt;= &lt;span class=&#34;st_h&#34;&gt;&#39;/^ID_VIDEO_FORMAT/ {print $2}&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;`&lt;/span&gt; &lt;span class=&#34;co0&#34;&gt;# ID_VIDEO_FORMAT contains the encoding&lt;/span&gt;
-&lt;span class=&#34;kw1&#34;&gt;else&lt;/span&gt;
-  &lt;span class=&#34;re2&#34;&gt;VIDEO_FORMAT&lt;/span&gt;=&lt;span class=&#34;st_h&#34;&gt;&#39;dvd&#39;&lt;/span&gt;
-&lt;span class=&#34;kw1&#34;&gt;fi&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt; &lt;span class=&#34;co1&#34;&gt;${VIDEO_FORMAT}&lt;/span&gt; = &lt;span class=&#34;st_h&#34;&gt;&#39;XVID&#39;&lt;/span&gt;  &lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;; &lt;span class=&#34;kw1&#34;&gt;then&lt;/span&gt;
-  &lt;span class=&#34;re2&#34;&gt;VIDEO_DRIVER&lt;/span&gt;=&lt;span class=&#34;st0&#34;&gt;&#34;-V xv&#34;&lt;/span&gt; &lt;span class=&#34;co0&#34;&gt;# Use xv output for Xvid, xxmc for everything else&lt;/span&gt;
-&lt;span class=&#34;kw1&#34;&gt;else&lt;/span&gt;
-  &lt;span class=&#34;re2&#34;&gt;VIDEO_DRIVER&lt;/span&gt;=&lt;span class=&#34;st0&#34;&gt;&#34;-V xxmc&#34;&lt;/span&gt;
-&lt;span class=&#34;kw1&#34;&gt;fi&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;co0&#34;&gt;# Xine options&lt;/span&gt;
-&lt;span class=&#34;re2&#34;&gt;AUDIO_DRIVER&lt;/span&gt;=&lt;span class=&#34;st0&#34;&gt;&#34;-A alsa&#34;&lt;/span&gt;
-&lt;span class=&#34;re2&#34;&gt;EXTRA_OPTIONS&lt;/span&gt;=&lt;span class=&#34;st0&#34;&gt;&#34;-pfhq --no-splash&#34;&lt;/span&gt;
-&lt;span class=&#34;re2&#34;&gt;DEBUG_OPTIONS&lt;/span&gt;=&lt;span class=&#34;st0&#34;&gt;&#34;--verbose=5 &amp;lt; /shared/mythtv/xine.log&#34;&lt;/span&gt;
-&amp;nbsp;
-xine &lt;span class=&#34;co1&#34;&gt;${VIDEO_DRIVER}&lt;/span&gt; &lt;span class=&#34;co1&#34;&gt;${AUDIO_DRIVER}&lt;/span&gt; &lt;span class=&#34;co1&#34;&gt;${EXTRA_OPTIONS}&lt;/span&gt; &lt;span class=&#34;co1&#34;&gt;${1}&lt;/span&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;ch&#34;&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# Don&amp;#39;t check encoding if MythTV is trying to playback a DVD&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; !&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;dvd://&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+  &lt;span class=&#34;nv&#34;&gt;VIDEO_FORMAT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;mplayer -really-quiet -identify -frames  -vc null -vo null -ao null &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; 2&amp;lt;/dev/null &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; awk -F&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;/^ID_VIDEO_FORMAT/ {print $2}&amp;#39;&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# ID_VIDEO_FORMAT contains the encoding&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
+  &lt;span class=&#34;nv&#34;&gt;VIDEO_FORMAT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;dvd&amp;#39;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;VIDEO_FORMAT&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;XVID&amp;#39;&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+  &lt;span class=&#34;nv&#34;&gt;VIDEO_DRIVER&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;-V xv&amp;quot;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# Use xv output for Xvid, xxmc for everything else&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
+  &lt;span class=&#34;nv&#34;&gt;VIDEO_DRIVER&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;-V xxmc&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# Xine options&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;AUDIO_DRIVER&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;-A alsa&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;EXTRA_OPTIONS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;-pfhq --no-splash&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;DEBUG_OPTIONS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;--verbose=5 &amp;lt; /shared/mythtv/xine.log&amp;quot;&lt;/span&gt;
+
+xine &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;VIDEO_DRIVER&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;AUDIO_DRIVER&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;EXTRA_OPTIONS&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 </description>
     </item>
     
     <item>
       <title>Check if MythTV backend is up</title>
-      <link>http://hugo.rockhopper.hf/linux/software/mythtv/check-if-mythtv-backend-is-up/</link>
+      <link>https://henrik-farre.github.io/linux/software/mythtv/check-if-mythtv-backend-is-up/</link>
       <pubDate>Sat, 12 Apr 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/software/mythtv/check-if-mythtv-backend-is-up/</guid>
+      <guid>https://henrik-farre.github.io/linux/software/mythtv/check-if-mythtv-backend-is-up/</guid>
       <description>&lt;p&gt;My MythTV frontend depends on the masterbackend to be up and running, mainly because some partitions are nfs mounted. So I created a simple script to check if the backend is responding to ping:&lt;/p&gt;
 
-&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;co0&#34;&gt;#!/bin/bash&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;kw1&#34;&gt;function&lt;/span&gt; isup&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;
- &lt;span class=&#34;kw2&#34;&gt;ping&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-q&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-n&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-c1&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-w2&lt;/span&gt; BACKEND_IP &lt;span class=&#34;sy0&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;dev&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;null
- &lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt; &lt;span class=&#34;re4&#34;&gt;$?&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;!&lt;/span&gt;= &lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;; &lt;span class=&#34;kw1&#34;&gt;then&lt;/span&gt;
-   &lt;span class=&#34;kw2&#34;&gt;sleep&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;5&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;ch&#34;&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; isup&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+ ping -q -n -c1 -w2 BACKEND_IP &amp;gt; /dev/null
+ &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$?&lt;/span&gt; !&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+   sleep 5
    isup
- &lt;span class=&#34;kw1&#34;&gt;else&lt;/span&gt;
-   &lt;span class=&#34;kw3&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;is up&#34;&lt;/span&gt;
- &lt;span class=&#34;kw1&#34;&gt;fi&lt;/span&gt;
-&lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;
-&amp;nbsp;
-isup&lt;/pre&gt;
+ &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
+   &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;is up&amp;quot;&lt;/span&gt;
+ &lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+isup
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;p&gt;But there is a small problem with this approach: the backend starts replying to ping long before nfsd and mythbackend are ready.&lt;/p&gt;
 
 &lt;p&gt;So instead of using ping, I created a script that checks if mythbackend&amp;#8217;s status page (port 6544) is ready, using wget:&lt;/p&gt;
 
-&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;co0&#34;&gt;#!/bin/bash&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;kw1&#34;&gt;function&lt;/span&gt; isbackendup &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;
-  &lt;span class=&#34;kw2&#34;&gt;wget&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-q&lt;/span&gt; http:&lt;span class=&#34;sy0&#34;&gt;//&lt;/span&gt;BACKEND_IP:&lt;span class=&#34;nu0&#34;&gt;6544&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-O&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;dev&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;null
-  &lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt; &lt;span class=&#34;re4&#34;&gt;$?&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;!&lt;/span&gt;= &lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;; &lt;span class=&#34;kw1&#34;&gt;then&lt;/span&gt;
-    &lt;span class=&#34;kw2&#34;&gt;sleep&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;5&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;ch&#34;&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; isbackendup &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+  wget -q http://BACKEND_IP:6544 -O /dev/null
+  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$?&lt;/span&gt; !&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+    sleep 5
     isbackendup
-  &lt;span class=&#34;kw1&#34;&gt;else&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
     stat_done
-  &lt;span class=&#34;kw1&#34;&gt;fi&lt;/span&gt;
-&lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;
-&amp;nbsp;
-isbackendup&lt;/pre&gt;
+  &lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;Finally I wrapped it all up in an ArchLinux rc script, and use WOL to wake the backend:&lt;/p&gt;
 
-&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;co0&#34;&gt;#!/bin/bash&lt;/span&gt;
-&amp;nbsp;
-. &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;etc&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;rc.conf
-. &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;etc&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;rc.d&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;functions
-&amp;nbsp;
-&lt;span class=&#34;kw1&#34;&gt;function&lt;/span&gt; isbackendup &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;
-  &lt;span class=&#34;kw2&#34;&gt;wget&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-q&lt;/span&gt; http:&lt;span class=&#34;sy0&#34;&gt;//&lt;/span&gt;BACKEND_IP:&lt;span class=&#34;nu0&#34;&gt;6544&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-O&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;dev&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;null
-  &lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt; &lt;span class=&#34;re4&#34;&gt;$?&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;!&lt;/span&gt;= &lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;; &lt;span class=&#34;kw1&#34;&gt;then&lt;/span&gt;
-    &lt;span class=&#34;kw2&#34;&gt;sleep&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;5&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;ch&#34;&gt;#!/bin/bash&lt;/span&gt;
+
+. /etc/rc.conf
+. /etc/rc.d/functions
+
+&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; isbackendup &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+  wget -q http://BACKEND_IP:6544 -O /dev/null
+  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$?&lt;/span&gt; !&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+    sleep 5
     isbackendup
-  &lt;span class=&#34;kw1&#34;&gt;else&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
     stat_done
-  &lt;span class=&#34;kw1&#34;&gt;fi&lt;/span&gt;
-&lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;kw1&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;$1&#34;&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;in&lt;/span&gt;
-  start&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
-    stat_busy &lt;span class=&#34;st0&#34;&gt;&#34;Checking if backend is up...&#34;&lt;/span&gt;
-    wol BACKEND_MACADDR &lt;span class=&#34;sy0&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;dev&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;null
+  &lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt; in
+  start&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+    stat_busy &lt;span class=&#34;s2&#34;&gt;&amp;quot;Checking if backend is up...&amp;quot;&lt;/span&gt;
+    wol BACKEND_MACADDR &amp;gt; /dev/null
     isbackendup
-    &lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
-  stop&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
-    &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;bin&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;kw2&#34;&gt;true&lt;/span&gt;
-    &lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
-  restart&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
-    $&lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt; stop
-    &lt;span class=&#34;kw2&#34;&gt;sleep&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;1&lt;/span&gt;
-    $&lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt; start
-    &lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
-  &lt;span class=&#34;sy0&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
-    &lt;span class=&#34;kw3&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;usage: $0 {start|stop|restart}&#34;&lt;/span&gt;  
-&lt;span class=&#34;kw1&#34;&gt;esac&lt;/span&gt;&lt;/pre&gt;
+    &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+  stop&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+    /bin/true
+    &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+  restart&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+    $ stop
+    sleep 1
+    $ start
+    &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+  *&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;usage: &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$0&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; {start|stop|restart}&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;esac&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;If you run ArchLinux just added it to /etc/rc.conf in the DAEMONS array.&lt;/p&gt;
 

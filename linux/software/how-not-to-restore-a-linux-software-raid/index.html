@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/magnific-popup/magnific-popup.css">
     <link rel="stylesheet" href="/css/custom.css">
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://hugo.rockhopper.hf//index.xml">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://henrik-farre.github.io//index.xml">
 
     
     <title>How not to restore a Linux software raid - Rockhopper.dk</title>
@@ -19,7 +20,7 @@
     <meta property="og:type" content="article">
     
 
-    <meta property="og:url" content="http://hugo.rockhopper.hf/linux/software/how-not-to-restore-a-linux-software-raid/">
+    <meta property="og:url" content="https://henrik-farre.github.io/linux/software/how-not-to-restore-a-linux-software-raid/">
     
     
 
@@ -37,7 +38,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="http://hugo.rockhopper.hf/">Rockhopper.dk</a>
+            <a class="navbar-brand" href="https://henrik-farre.github.io/">Rockhopper.dk</a>
           </div>
 
           <div id="navbar" class="collapse navbar-collapse">
@@ -60,19 +61,19 @@
 
       <article class="single" itemscope="itemscope" itemtype="http://schema.org/Article">
 
-        <meta itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" content="http://hugo.rockhopper.hf/"/>
+        <meta itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" content="https://henrik-farre.github.io/"/>
         <meta itemprop="dateModified" content="2009-04-19T00:00:00&#43;00:00">
         <meta itemprop="headline" content="How not to restore a Linux software raid">
         <meta itemprop="description" content="We had a disk failure on one of our Xen servers at work last week, and what we thought would be a quick disk replace, turned into a small nightmare. Our setup is fairly &#8220;simple&#8221;: 2 x raid1&#8217;s consisting of sda1/sdb1 (/dev/md0 mounted at /) and sda3/sdb3 (/dev/md1 with LVM on top of it). mdadm reported that sdb1 and sdb3 had failed, so we just had to identify which disk was sdb in the server and replace it.">
-        <meta itemprop="url" content="http://hugo.rockhopper.hf/linux/software/how-not-to-restore-a-linux-software-raid/">
+        <meta itemprop="url" content="https://henrik-farre.github.io/linux/software/how-not-to-restore-a-linux-software-raid/">
         <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-          <meta itemprop="url" content="http://hugo.rockhopper.hf/images/default.jpg" />
+          <meta itemprop="url" content="https://henrik-farre.github.io/images/default.jpg" />
           <meta itemprop="width" content="800">
           <meta itemprop="height" content="800">
         </div>
         <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
           <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-            <meta itemprop="url" content="http://hugo.rockhopper.hf/images/logo.jpg">
+            <meta itemprop="url" content="https://henrik-farre.github.io/images/logo.jpg">
             <meta itemprop="width" content="100">
             <meta itemprop="height" content="100">
           </div>
@@ -88,7 +89,7 @@
         </header>
 
         <div class="article-body" itemprop="articleBody">
-          <p>We had a disk failure on one of our Xen servers at <a href="http://www.bellcom.dk" title="Bellcom Open Source ApS">work</a> last week, and what we thought would be a quick disk replace, turned into a small nightmare.</p>
+          <p>We had a disk failure on one of our Xen servers at <a href="http://www.bellcom.dk">work</a> last week, and what we thought would be a quick disk replace, turned into a small nightmare.</p>
 
 <p>Our setup is fairly &#8220;simple&#8221;: 2 x raid1&#8217;s consisting of sda1/sdb1 (/dev/md0 mounted at /) and sda3/sdb3 (/dev/md1 with LVM on top of it).</p>
 
@@ -109,7 +110,7 @@ unused devices: &lt;none&gt;</pre>
 
 <p>While the raid was syncing there was a lot of disk errors on sda1 and sda3, so we identified sda using its serial number, shutdown the server, replaced the disk, booted and everything looked fine.</p>
 
-<p>Fast forward to the next day: we started receiving e-mails from customers saying data was missing from their sites, and they where missing data from the day the drive failed&#8230; then it dawned on us: when we readded sda3 it was overridden with the old data from sdb3  <img src="http://rockhopper.hf/wp-includes/images/smilies/frownie.png" alt=":(" class="wp-smiley" style="height: 1em; max-height: 1em;" />. Only one thing to do: restore from backup.</p>
+<p>Fast forward to the next day: we started receiving e-mails from customers saying data was missing from their sites, and they where missing data from the day the drive failed&#8230; then it dawned on us: when we readded sda3 it was overridden with the old data from sdb3 :(. Only one thing to do: restore from backup.</p>
 
 <p>Now the question is: why the hell was sda3 marked as failed after the reboot? It was on the good drive&#8230;</p>
 
@@ -117,13 +118,13 @@ unused devices: &lt;none&gt;</pre>
 
 
         <aside>
-          <div class="section"><a href="http://hugo.rockhopper.hf/tags/raid" class="tag">raid</a> </div>
+          <div class="section"><a href="https://henrik-farre.github.io/tags/raid" class="tag">raid</a> </div>
 
           <div class="section share">
-            <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fsoftware%2fhow-not-to-restore-a-linux-software-raid%2f&t=How%20not%20to%20restore%20a%20Linux%20software%20raid" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-            <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fsoftware%2fhow-not-to-restore-a-linux-software-raid%2f&text=How%20not%20to%20restore%20a%20Linux%20software%20raid&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-            <a href="https://plus.google.com/share?url=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fsoftware%2fhow-not-to-restore-a-linux-software-raid%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-            <a href="http://getpocket.com/edit?url=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fsoftware%2fhow-not-to-restore-a-linux-software-raid%2f&title=How%20not%20to%20restore%20a%20Linux%20software%20raid" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+            <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fhenrik-farre.github.io%2flinux%2fsoftware%2fhow-not-to-restore-a-linux-software-raid%2f&t=How%20not%20to%20restore%20a%20Linux%20software%20raid" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+            <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fhenrik-farre.github.io%2flinux%2fsoftware%2fhow-not-to-restore-a-linux-software-raid%2f&text=How%20not%20to%20restore%20a%20Linux%20software%20raid&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+            <a href="https://plus.google.com/share?url=https%3a%2f%2fhenrik-farre.github.io%2flinux%2fsoftware%2fhow-not-to-restore-a-linux-software-raid%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+            <a href="http://getpocket.com/edit?url=https%3a%2f%2fhenrik-farre.github.io%2flinux%2fsoftware%2fhow-not-to-restore-a-linux-software-raid%2f&title=How%20not%20to%20restore%20a%20Linux%20software%20raid" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
           </div>
 
           
@@ -144,25 +145,25 @@ unused devices: &lt;none&gt;</pre>
     </div>
     <div class="list-group">
       
-      <a href="http://hugo.rockhopper.hf/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/" class="list-group-item">Mouse hover not working in Chrome/Chromium? Solution: stop synergy</a>
+      <a href="https://henrik-farre.github.io/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/" class="list-group-item">Mouse hover not working in Chrome/Chromium? Solution: stop synergy</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/multiple-profiles-in-firefox-tips-and-tricks/" class="list-group-item">Multiple profiles in Firefox: tips and tricks</a>
+      <a href="https://henrik-farre.github.io/linux/multiple-profiles-in-firefox-tips-and-tricks/" class="list-group-item">Multiple profiles in Firefox: tips and tricks</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/zsh-promptwindow-title-trim-middle-of-path/" class="list-group-item">zsh prompt/window title: trim middle of path</a>
+      <a href="https://henrik-farre.github.io/linux/zsh-promptwindow-title-trim-middle-of-path/" class="list-group-item">zsh prompt/window title: trim middle of path</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/docker-and-php-xdebug/" class="list-group-item">Docker and PHP xdebug</a>
+      <a href="https://henrik-farre.github.io/linux/docker-and-php-xdebug/" class="list-group-item">Docker and PHP xdebug</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/" class="list-group-item">HTPC/NAS for watching Netflix on Linux part 1: the hardware</a>
+      <a href="https://henrik-farre.github.io/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/" class="list-group-item">HTPC/NAS for watching Netflix on Linux part 1: the hardware</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/" class="list-group-item">UEFI booting Arch Linux on a HP ProBook 6360b</a>
+      <a href="https://henrik-farre.github.io/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/" class="list-group-item">UEFI booting Arch Linux on a HP ProBook 6360b</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/" class="list-group-item">Installing CyanogenMod 7.1 on a Sony Ericsson Xperia Arc (LT15i)</a>
+      <a href="https://henrik-farre.github.io/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/" class="list-group-item">Installing CyanogenMod 7.1 on a Sony Ericsson Xperia Arc (LT15i)</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/" class="list-group-item">Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1)</a>
+      <a href="https://henrik-farre.github.io/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/" class="list-group-item">Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1)</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/software/mythtv/anysee-e30-c-plus-mythtv/" class="list-group-item">AnySee E30 C Plus &#43; MythTV</a>
+      <a href="https://henrik-farre.github.io/linux/software/mythtv/anysee-e30-c-plus-mythtv/" class="list-group-item">AnySee E30 C Plus &#43; MythTV</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/" class="list-group-item">Xfce: auto rotate wallpaper without cron</a>
+      <a href="https://henrik-farre.github.io/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/" class="list-group-item">Xfce: auto rotate wallpaper without cron</a>
       
     </div>
   </div>
@@ -174,25 +175,25 @@ unused devices: &lt;none&gt;</pre>
     </div>
     <div class="list-group">
       
-      <a href="http://hugo.rockhopper.hf/categories/hardware" class="list-group-item">hardware</a>
+      <a href="https://henrik-farre.github.io/categories/software" class="list-group-item">software</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/software" class="list-group-item">software</a>
+      <a href="https://henrik-farre.github.io/categories/hardware" class="list-group-item">hardware</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
+      <a href="https://henrik-farre.github.io/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/mythtv" class="list-group-item">mythtv</a>
+      <a href="https://henrik-farre.github.io/categories/linux" class="list-group-item">linux</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/linux" class="list-group-item">linux</a>
+      <a href="https://henrik-farre.github.io/categories/mythtv" class="list-group-item">mythtv</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/xfce" class="list-group-item">xfce</a>
+      <a href="https://henrik-farre.github.io/categories/xfce" class="list-group-item">xfce</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/vim" class="list-group-item">vim</a>
+      <a href="https://henrik-farre.github.io/categories/development" class="list-group-item">development</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/xorg" class="list-group-item">xorg</a>
+      <a href="https://henrik-farre.github.io/categories/php" class="list-group-item">php</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/development" class="list-group-item">development</a>
+      <a href="https://henrik-farre.github.io/categories/vim" class="list-group-item">vim</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/php" class="list-group-item">php</a>
+      <a href="https://henrik-farre.github.io/categories/xorg" class="list-group-item">xorg</a>
       
     </div>
   </div>
@@ -203,25 +204,25 @@ unused devices: &lt;none&gt;</pre>
     </div>
     <div class="list-group">
       
-      <a href="http://hugo.rockhopper.hf/tags/android" class="list-group-item">android</a>
+      <a href="https://henrik-farre.github.io/tags/android" class="list-group-item">android</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/archlinux" class="list-group-item">archlinux</a>
+      <a href="https://henrik-farre.github.io/tags/mythbackend" class="list-group-item">mythbackend</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/mythbackend" class="list-group-item">mythbackend</a>
+      <a href="https://henrik-farre.github.io/tags/archlinux" class="list-group-item">archlinux</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/motherboard" class="list-group-item">motherboard</a>
+      <a href="https://henrik-farre.github.io/tags/zsh" class="list-group-item">zsh</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/dvb-c" class="list-group-item">dvb-c</a>
+      <a href="https://henrik-farre.github.io/tags/motherboard" class="list-group-item">motherboard</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/mythfrontend" class="list-group-item">mythfrontend</a>
+      <a href="https://henrik-farre.github.io/tags/mythfrontend" class="list-group-item">mythfrontend</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/zsh" class="list-group-item">zsh</a>
+      <a href="https://henrik-farre.github.io/tags/dvb-c" class="list-group-item">dvb-c</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/tmux" class="list-group-item">tmux</a>
+      <a href="https://henrik-farre.github.io/tags/chromium" class="list-group-item">chromium</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/powerbook" class="list-group-item">powerbook</a>
+      <a href="https://henrik-farre.github.io/tags/firefox" class="list-group-item">firefox</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/urxvt" class="list-group-item">urxvt</a>
+      <a href="https://henrik-farre.github.io/tags/xbmc" class="list-group-item">xbmc</a>
       
     </div>
   </div>
@@ -250,7 +251,18 @@ unused devices: &lt;none&gt;</pre>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/magnific-popup/jquery.magnific-popup.js"></script>
+    <script src="/js/rockhopper.js"></script>
 
+    
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-4186065-1', 'auto');
+    ga('send', 'pageview');
+    </script>
     
 
   </body>

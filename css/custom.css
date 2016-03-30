@@ -1,1 +1,7 @@
-/* Please override here. */
+.article-body a {
+  text-decoration: underline;
+}
+
+.article-body .thumbnail {
+  text-decoration: none;
+}

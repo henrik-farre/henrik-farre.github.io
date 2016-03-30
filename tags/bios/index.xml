@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bios on Rockhopper.dk</title>
-    <link>http://hugo.rockhopper.hf/tags/bios/</link>
+    <link>https://henrik-farre.github.io/tags/bios/</link>
     <description>Recent content in Bios on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 17 Mar 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://hugo.rockhopper.hf/tags/bios/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://henrik-farre.github.io/tags/bios/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>UEFI booting Arch Linux on a HP ProBook 6360b</title>
-      <link>http://hugo.rockhopper.hf/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</link>
+      <link>https://henrik-farre.github.io/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</link>
       <pubDate>Sun, 17 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</guid>
+      <guid>https://henrik-farre.github.io/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</guid>
       <description>
 
 &lt;p&gt;As I&amp;#8217;ve just got a new Samsung 840 Pro Series 256GB SSD for my work laptop (HP ProBook 6360b), I wanted to try switching from BIOS booting to UEFI.&lt;/p&gt;
@@ -52,7 +52,7 @@
 
 &lt;h2 id=&#34;installing-the-bootloader:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Installing the bootloader&lt;/h2&gt;
 
-&lt;p&gt;I tried rEFInd, gummiboot, grub2 and just using the kernel EFI stub support. Nothing worked. After reading [UEFI Booting 64-bit Redhat Enterprise Linux 6][3] I figured out that HPs firmware only allows you to boot from &amp;#8220;OS bootloader&amp;#8221;, which means that it will only boot from \EFI\BOOT\BOOTX64.EFI. So I installed grub2 using these commands (/dev/sda1 is mounted at /boot/efi):&lt;/p&gt;
+&lt;p&gt;I tried rEFInd, gummiboot, grub2 and just using the kernel EFI stub support. Nothing worked. After reading &lt;a href=&#34;http://blog.fpmurphy.com/2010/09/uefi-booting-64-bit-redhat-enterprise-linux-6.html&#34;&gt;UEFI Booting 64-bit Redhat Enterprise Linux 6&lt;/a&gt; I figured out that HPs firmware only allows you to boot from &amp;#8220;OS bootloader&amp;#8221;, which means that it will only boot from \EFI\BOOT\BOOTX64.EFI. So I installed grub2 using these commands (/dev/sda1 is mounted at /boot/efi):&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;grub-install &amp;#8211;target=x86_64-efi &amp;#8211;efi-directory=/boot/efi &amp;#8211;bootloader-id=arch_grub &amp;#8211;recheck&lt;/li&gt;
@@ -63,11 +63,7 @@
 
 &lt;h1 id=&#34;conclusion:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Conclusion&lt;/h1&gt;
 
-&lt;p&gt;I can&amp;#8217;t say that that the time I used to get UEFI booting working was time well spend, nothing magic happens when booting using UEFI compared to legacy BIOS, but at least I&amp;#8217;m not using anything that is labelled &amp;#8220;legacy&amp;#8221; &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:-)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
-&lt;p&gt;[3]: &lt;a href=&#34;http://blog.fpmurphy.com/2010/09/uefi-booting-64-bit-redhat-enterprise-linux-6.html&#34;&gt;http://blog.fpmurphy.com/2010/09/uefi-booting-64-bit-redhat-enterprise-linux-6.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I can&amp;#8217;t say that that the time I used to get UEFI booting working was time well spend, nothing magic happens when booting using UEFI compared to legacy BIOS, but at least I&amp;#8217;m not using anything that is labelled &amp;#8220;legacy&amp;#8221; :)&lt;/p&gt;
 </description>
     </item>
     

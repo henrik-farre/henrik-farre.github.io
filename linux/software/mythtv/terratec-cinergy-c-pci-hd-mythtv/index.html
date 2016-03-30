@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/magnific-popup/magnific-popup.css">
     <link rel="stylesheet" href="/css/custom.css">
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://hugo.rockhopper.hf//index.xml">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://henrik-farre.github.io//index.xml">
 
     
     <title>Terratec Cinergy C PCI HD &#43; MythTV - Rockhopper.dk</title>
@@ -19,7 +20,7 @@
     <meta property="og:type" content="article">
     
 
-    <meta property="og:url" content="http://hugo.rockhopper.hf/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/">
+    <meta property="og:url" content="https://henrik-farre.github.io/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/">
     
     
 
@@ -37,7 +38,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="http://hugo.rockhopper.hf/">Rockhopper.dk</a>
+            <a class="navbar-brand" href="https://henrik-farre.github.io/">Rockhopper.dk</a>
           </div>
 
           <div id="navbar" class="collapse navbar-collapse">
@@ -60,19 +61,20 @@
 
       <article class="single" itemscope="itemscope" itemtype="http://schema.org/Article">
 
-        <meta itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" content="http://hugo.rockhopper.hf/"/>
+        <meta itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" content="https://henrik-farre.github.io/"/>
         <meta itemprop="dateModified" content="2010-02-09T00:00:00&#43;00:00">
         <meta itemprop="headline" content="Terratec Cinergy C PCI HD &#43; MythTV">
-        <meta itemprop="description" content="In the middle of December 2009 danish cable TV providor Stofa made most of the channels in its DVB-C network available unencoded. This prompted me to replace my analogue Hauppauge WinTV-PVR-500 TV tuner card (yes the links goes to my old PVR-150 page) with something that could record the digital signal from DVB-C. I looked for a card that had the following characteristic: Have stable Open Source Linux drivers It should work with MythTV Fit in a PCI slot (My Asus AT3N7A-I motherboard only has one PCI slot) Be able to record HD TV Not be to expensive I spend a lot of time looking for information on different sites like LinuxTV wiki (direct link to TerraTec Cinergy C DVB-C) and MythTV wiki, and ended up with the TerraTec card.">
-        <meta itemprop="url" content="http://hugo.rockhopper.hf/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/">
+        <meta itemprop="description" content="In the middle of December 2009 danish cable TV providor Stofa made most of the channels in its DVB-C network available unencoded. This prompted me to replace my analogue Hauppauge WinTV-PVR-500 TV tuner card (yes the links goes to my old PVR-150 page) with something that could record the digital signal from DVB-C. I looked for a card that had the following characteristic:
+">
+        <meta itemprop="url" content="https://henrik-farre.github.io/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/">
         <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-          <meta itemprop="url" content="http://hugo.rockhopper.hf/images/default.jpg" />
+          <meta itemprop="url" content="https://henrik-farre.github.io/images/default.jpg" />
           <meta itemprop="width" content="800">
           <meta itemprop="height" content="800">
         </div>
         <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
           <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-            <meta itemprop="url" content="http://hugo.rockhopper.hf/images/logo.jpg">
+            <meta itemprop="url" content="https://henrik-farre.github.io/images/logo.jpg">
             <meta itemprop="width" content="100">
             <meta itemprop="height" content="100">
           </div>
@@ -168,13 +170,32 @@ C 346000000 6900000 NONE QAM64</pre>
 
 <p>In mythtv-setup enter &#8220;Capture cards&#8221; and select &#8220;New capture card&#8221;.</p>
 
-<div id="attachment_230" style="width: 160px" class="wp-caption alignnone">
-  <a rel="facebox" href="https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_capture_card_add_new.png"><img class="size-thumbnail wp-image-230 " title="mythtv_capture_card_add_new" src="https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_capture_card_add_new-150x150.png" alt="MythTV setup: adding new capture card" width="150" height="150" /></a>
-  
-  <p class="wp-caption-text">
-    MythTV setup: adding new capture card
-  </p>
+
+
+<div class="row">
+  <div class="col-sm-4">
+    <a href="/uploads/mythtv_capture_card_add_new.png"
+        title="MythTV setup: adding new capture card"
+        class="image-link thumbnail"
+        
+    >
+        
+            
+            <img src="/uploads/mythtv_capture_card_add_new-150x150.png"
+                class="
+                    "
+                
+                
+                
+                
+            />
+        
+        
+        <div class="caption">MythTV setup: adding new capture card</div>
+    </a>
+  </div>
 </div>
+
 
 <ul>
 <li>Card type: &#8220;DVB DTV capture card (v3.x)&#8221; (DVB Device Number should change to &#8220;/dev/dvb/adapter0/frontend0&#8221; and Frontend ID should change to Philips TDA10023 DVB-C)</li>
@@ -193,13 +214,32 @@ C 346000000 6900000 NONE QAM64</pre>
 
 <p>In mythtv-setup enter &#8220;Video sources&#8221; and select &#8220;New video source&#8221;.</p>
 
-<div id="attachment_234" style="width: 160px" class="wp-caption alignnone">
-  <a rel="facebox" href="https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_video_source_add_new.png"><img class="size-thumbnail wp-image-234 " title="mythtv_video_source_add_new" src="https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_video_source_add_new-150x150.png" alt="MythTV setup: adding new video source" width="150" height="150" /></a>
-  
-  <p class="wp-caption-text">
-    MythTV setup: adding new video source
-  </p>
+
+
+<div class="row">
+  <div class="col-sm-4">
+    <a href="/uploads/mythtv_video_source_add_new.png"
+        title="MythTV setup: adding new video source"
+        class="image-link thumbnail"
+        
+    >
+        
+            
+            <img src="/uploads/mythtv_video_source_add_new-150x150.png"
+                class="
+                    "
+                
+                
+                
+                
+            />
+        
+        
+        <div class="caption">MythTV setup: adding new video source</div>
+    </a>
+  </div>
 </div>
+
 
 <ul>
 <li>Video source name: &#8220;TV Guide&#8221; (whatever you want)</li>
@@ -212,13 +252,32 @@ C 346000000 6900000 NONE QAM64</pre>
 
 <p>In mythtv-setup enter &#8220;Input connections&#8221; and select the one that matches the DVB device number you got from capture cards.</p>
 
-<div id="attachment_237" style="width: 160px" class="wp-caption alignnone">
-  <a rel="facebox" href="https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_input_connections.png"><img class="size-thumbnail wp-image-237 " title="mythtv_input_connections" src="https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_input_connections-150x150.png" alt="MythTV setup: input connections" width="150" height="150" /></a>
-  
-  <p class="wp-caption-text">
-    MythTV setup: input connections
-  </p>
+
+
+<div class="row">
+  <div class="col-sm-4">
+    <a href="/uploads/mythtv_input_connections.png"
+        title="MythTV setup: input connections"
+        class="image-link thumbnail"
+        
+    >
+        
+            
+            <img src="/uploads/mythtv_input_connections-150x150.png"
+                class="
+                    "
+                
+                
+                
+                
+            />
+        
+        
+        <div class="caption">MythTV setup: input connections</div>
+    </a>
+  </div>
 </div>
+
 
 <ul>
 <li>Display Name: TV</li>
@@ -229,13 +288,32 @@ C 346000000 6900000 NONE QAM64</pre>
 
 <h3 id="scanning-for-channels:0c6998ea031b046b392950a185a01db3">Scanning for channels</h3>
 
-<div id="attachment_239" style="width: 160px" class="wp-caption alignnone">
-  <a rel="facebox" href="https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels.png"><img class="size-thumbnail wp-image-239 " title="mythtv_scanning_for_channels" src="https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels-150x150.png" alt="MythTV setup: scanning for channels" width="150" height="150" /></a>
-  
-  <p class="wp-caption-text">
-    MythTV setup: scanning for channels
-  </p>
+
+
+<div class="row">
+  <div class="col-sm-4">
+    <a href="/uploads/mythtv_scanning_for_channels.png"
+        title="MythTV setup: scanning for channels"
+        class="image-link thumbnail"
+        
+    >
+        
+            
+            <img src="/uploads/mythtv_scanning_for_channels-150x150.png"
+                class="
+                    "
+                
+                
+                
+                
+            />
+        
+        
+        <div class="caption">MythTV setup: scanning for channels</div>
+    </a>
+  </div>
 </div>
+
 
 <ul>
 <li>Desired Services: TV</li>
@@ -247,23 +325,61 @@ C 346000000 6900000 NONE QAM64</pre>
 
 <p>When you press next MythTV should start scanning:</p>
 
-<div id="attachment_244" style="width: 160px" class="wp-caption alignnone">
-  <a rel="facebox" href="https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels2.png"><img class="size-thumbnail wp-image-244 " title="mythtv_scanning_for_channels2" src="https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels2-150x150.png" alt="MythTV setup: performing the scan" width="150" height="150" /></a>
-  
-  <p class="wp-caption-text">
-    MythTV setup: performing the scan
-  </p>
+
+
+<div class="row">
+  <div class="col-sm-4">
+    <a href="/uploads/mythtv_scanning_for_channels2.png"
+        title="MythTV setup: performing the scan"
+        class="image-link thumbnail"
+        
+    >
+        
+            
+            <img src="/uploads/mythtv_scanning_for_channels2-150x150.png"
+                class="
+                    "
+                
+                
+                
+                
+            />
+        
+        
+        <div class="caption">MythTV setup: performing the scan</div>
+    </a>
+  </div>
 </div>
+
 
 <p>This takes a while, and then you should get:</p>
 
-<div id="attachment_245" style="width: 160px" class="wp-caption alignnone">
-  <a rel="facebox" href="https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels_done.png"><img class="size-thumbnail wp-image-245 " title="mythtv_scanning_for_channels_done" src="https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels_done-150x150.png" alt="MythTV setup: channel scanning completed" width="150" height="150" /></a>
-  
-  <p class="wp-caption-text">
-    MythTV setup: channel scanning completed
-  </p>
+
+
+<div class="row">
+  <div class="col-sm-4">
+    <a href="/uploads/mythtv_scanning_for_channels_done.png"
+        title="MythTV setup: channel scanning completed"
+        class="image-link thumbnail"
+        
+    >
+        
+            
+            <img src="/uploads/mythtv_scanning_for_channels_done-150x150.png"
+                class="
+                    "
+                
+                
+                
+                
+            />
+        
+        
+        <div class="caption">MythTV setup: channel scanning completed</div>
+    </a>
+  </div>
 </div>
+
 
 <p>Select &#8220;Insert all&#8221; which brings you back to the input connection screen.</p>
 
@@ -273,7 +389,7 @@ C 346000000 6900000 NONE QAM64</pre>
 
 <p>Here you can see all the found channels and change their names, channel number, and so on. I did not change anything using the channel editor, but went to phpMyAdmin and changed settings like &#8220;Use on air guide&#8221; in one SQL.</p>
 
-<p>This should be it, you should be able to record now <img src="http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p>This should be it, you should be able to record now :)</p>
 
 <h2 id="eit-tv-guide:0c6998ea031b046b392950a185a01db3">EIT (TV guide)</h2>
 
@@ -320,24 +436,26 @@ Program Association Table
 
 <p>The first issue I fixed with a small PHP script:</p>
 
-<pre class="php codesnip" style="font-family:monospace;"><span class="kw2">&lt;?php</span> <span class="re0">$mysqli</span> <span class="sy0">=</span> <span class="kw2">new</span> mysqli<span class="br0">&#40;</span><span class="st0">"localhost"</span><span class="sy0">,</span> <span class="st0">"YOUR DB USER"</span><span class="sy0">,</span> <span class="st0">"YOUR DB PASSWORD"</span><span class="sy0">,</span> <span class="st0">"mythconverg"</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">connect_error</span><span class="br0">&#41;</span>
-<span class="br0">&#123;</span>
-<a href="http://www.php.net/printf"><span class="kw3">printf</span></a><span class="br0">&#40;</span><span class="st0">"Connect failed: <span class="es6">%s</span><span class="es1">\n</span>"</span><span class="sy0">,</span> mysqli_connect_error<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span>
-<a href="http://www.php.net/exit"><span class="kw3">exit</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
-<span class="br0">&#125;</span>
-&nbsp;
-<span class="re0">$result</span> <span class="sy0">=</span> <span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="st0">"SELECT chanid, serviceid FROM channel"</span><span class="br0">&#41;</span><span class="sy0">;</span>
-&nbsp;
-<span class="kw1">while</span> <span class="br0">&#40;</span> <span class="re0">$row</span> <span class="sy0">=</span> <span class="re0">$result</span><span class="sy0">-&gt;</span><span class="me1">fetch_assoc</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span>
-<span class="br0">&#123;</span>
-<span class="re0">$sql</span> <span class="sy0">=</span> <a href="http://www.php.net/sprintf"><span class="kw3">sprintf</span></a><span class="br0">&#40;</span><span class="st0">"UPDATE channel SET xmltvid = '<span class="es6">%s</span>' WHERE chanid = <span class="es6">%d</span>"</span><span class="sy0">,</span> <span class="re0">$row</span><span class="br0">&#091;</span><span class="st_h">'serviceid'</span><span class="br0">&#093;</span><span class="sy0">.</span><span class="st_h">'.dvb.guide'</span><span class="sy0">,</span> <span class="br0">&#40;</span>int<span class="br0">&#41;</span> <span class="re0">$row</span><span class="br0">&#091;</span><span class="st_h">'chanid'</span><span class="br0">&#093;</span><span class="br0">&#41;</span><span class="sy0">;</span>
-&nbsp;
-<span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">&#40;</span><span class="re0">$sql</span><span class="br0">&#41;</span><span class="sy0">;</span>
-<span class="br0">&#125;</span>
-&nbsp;
-<span class="re0">$mysqli</span><span class="sy0">-&gt;</span><span class="me1">close</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
-&nbsp;
-<span class="kw2">?&gt;</span></pre>
+<p><div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span> <span class="nv">$mysqli</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mysqli</span><span class="p">(</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="s2">&quot;YOUR DB USER&quot;</span><span class="p">,</span> <span class="s2">&quot;YOUR DB PASSWORD&quot;</span><span class="p">,</span> <span class="s2">&quot;mythconverg&quot;</span><span class="p">);</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$mysqli</span><span class="o">-&gt;</span><span class="na">connect_error</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="nb">printf</span><span class="p">(</span><span class="s2">&quot;Connect failed: %s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nx">mysqli_connect_error</span><span class="p">());</span>
+<span class="k">exit</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$mysqli</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s2">&quot;SELECT chanid, serviceid FROM channel&quot;</span><span class="p">);</span>
+
+<span class="k">while</span> <span class="p">(</span> <span class="nv">$row</span> <span class="o">=</span> <span class="nv">$result</span><span class="o">-&gt;</span><span class="na">fetch_assoc</span><span class="p">()</span> <span class="p">)</span>
+<span class="p">{</span>
+<span class="nv">$sql</span> <span class="o">=</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s2">&quot;UPDATE channel SET xmltvid = &#39;%s&#39; WHERE chanid = %d&quot;</span><span class="p">,</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;serviceid&#39;</span><span class="p">]</span><span class="o">.</span><span class="s1">&#39;.dvb.guide&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">int</span><span class="p">)</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;chanid&#39;</span><span class="p">]);</span>
+
+<span class="nv">$mysqli</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nv">$mysqli</span><span class="o">-&gt;</span><span class="na">close</span><span class="p">();</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+</p>
 
 <p>Remember to replace &#8220;YOUR DB USER&#8221; and &#8220;YOUR DB PASSWORD&#8221; with real values.</p>
 
@@ -365,21 +483,19 @@ mantis_ack_wait (0): Slave RACK Fail !</pre>
 
 <p>I hope this problem is fixed when the 2.6.33 Linux kernel hits my machine.</p>
 
-<p>To view the recorded shows I strongly recommend a [Nvidia graphics card that support VDPAU][13].</p>
-
-<p>[13]: <a href="http://en.wikipedia.org/wiki/VDPAU">http://en.wikipedia.org/wiki/VDPAU</a></p>
+<p>To view the recorded shows I strongly recommend a <a href="http://en.wikipedia.org/wiki/VDPAU">Nvidia graphics card that support VDPAU</a>.</p>
 
         </div>
 
 
         <aside>
-          <div class="section"><a href="http://hugo.rockhopper.hf/tags/dvb-c" class="tag">dvb-c</a> <a href="http://hugo.rockhopper.hf/tags/mythbackend" class="tag">mythbackend</a> </div>
+          <div class="section"><a href="https://henrik-farre.github.io/tags/dvb-c" class="tag">dvb-c</a> <a href="https://henrik-farre.github.io/tags/mythbackend" class="tag">mythbackend</a> </div>
 
           <div class="section share">
-            <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fsoftware%2fmythtv%2fterratec-cinergy-c-pci-hd-mythtv%2f&t=Terratec%20Cinergy%20C%20PCI%20HD%20%2b%20MythTV" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-            <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fsoftware%2fmythtv%2fterratec-cinergy-c-pci-hd-mythtv%2f&text=Terratec%20Cinergy%20C%20PCI%20HD%20%2b%20MythTV&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-            <a href="https://plus.google.com/share?url=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fsoftware%2fmythtv%2fterratec-cinergy-c-pci-hd-mythtv%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-            <a href="http://getpocket.com/edit?url=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fsoftware%2fmythtv%2fterratec-cinergy-c-pci-hd-mythtv%2f&title=Terratec%20Cinergy%20C%20PCI%20HD%20%2b%20MythTV" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+            <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fhenrik-farre.github.io%2flinux%2fsoftware%2fmythtv%2fterratec-cinergy-c-pci-hd-mythtv%2f&t=Terratec%20Cinergy%20C%20PCI%20HD%20%2b%20MythTV" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+            <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fhenrik-farre.github.io%2flinux%2fsoftware%2fmythtv%2fterratec-cinergy-c-pci-hd-mythtv%2f&text=Terratec%20Cinergy%20C%20PCI%20HD%20%2b%20MythTV&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+            <a href="https://plus.google.com/share?url=https%3a%2f%2fhenrik-farre.github.io%2flinux%2fsoftware%2fmythtv%2fterratec-cinergy-c-pci-hd-mythtv%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+            <a href="http://getpocket.com/edit?url=https%3a%2f%2fhenrik-farre.github.io%2flinux%2fsoftware%2fmythtv%2fterratec-cinergy-c-pci-hd-mythtv%2f&title=Terratec%20Cinergy%20C%20PCI%20HD%20%2b%20MythTV" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
           </div>
 
           
@@ -400,25 +516,25 @@ mantis_ack_wait (0): Slave RACK Fail !</pre>
     </div>
     <div class="list-group">
       
-      <a href="http://hugo.rockhopper.hf/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/" class="list-group-item">Mouse hover not working in Chrome/Chromium? Solution: stop synergy</a>
+      <a href="https://henrik-farre.github.io/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/" class="list-group-item">Mouse hover not working in Chrome/Chromium? Solution: stop synergy</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/multiple-profiles-in-firefox-tips-and-tricks/" class="list-group-item">Multiple profiles in Firefox: tips and tricks</a>
+      <a href="https://henrik-farre.github.io/linux/multiple-profiles-in-firefox-tips-and-tricks/" class="list-group-item">Multiple profiles in Firefox: tips and tricks</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/zsh-promptwindow-title-trim-middle-of-path/" class="list-group-item">zsh prompt/window title: trim middle of path</a>
+      <a href="https://henrik-farre.github.io/linux/zsh-promptwindow-title-trim-middle-of-path/" class="list-group-item">zsh prompt/window title: trim middle of path</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/docker-and-php-xdebug/" class="list-group-item">Docker and PHP xdebug</a>
+      <a href="https://henrik-farre.github.io/linux/docker-and-php-xdebug/" class="list-group-item">Docker and PHP xdebug</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/" class="list-group-item">HTPC/NAS for watching Netflix on Linux part 1: the hardware</a>
+      <a href="https://henrik-farre.github.io/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/" class="list-group-item">HTPC/NAS for watching Netflix on Linux part 1: the hardware</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/" class="list-group-item">UEFI booting Arch Linux on a HP ProBook 6360b</a>
+      <a href="https://henrik-farre.github.io/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/" class="list-group-item">UEFI booting Arch Linux on a HP ProBook 6360b</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/" class="list-group-item">Installing CyanogenMod 7.1 on a Sony Ericsson Xperia Arc (LT15i)</a>
+      <a href="https://henrik-farre.github.io/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/" class="list-group-item">Installing CyanogenMod 7.1 on a Sony Ericsson Xperia Arc (LT15i)</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/" class="list-group-item">Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1)</a>
+      <a href="https://henrik-farre.github.io/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/" class="list-group-item">Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1)</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/software/mythtv/anysee-e30-c-plus-mythtv/" class="list-group-item">AnySee E30 C Plus &#43; MythTV</a>
+      <a href="https://henrik-farre.github.io/linux/software/mythtv/anysee-e30-c-plus-mythtv/" class="list-group-item">AnySee E30 C Plus &#43; MythTV</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/" class="list-group-item">Xfce: auto rotate wallpaper without cron</a>
+      <a href="https://henrik-farre.github.io/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/" class="list-group-item">Xfce: auto rotate wallpaper without cron</a>
       
     </div>
   </div>
@@ -430,25 +546,25 @@ mantis_ack_wait (0): Slave RACK Fail !</pre>
     </div>
     <div class="list-group">
       
-      <a href="http://hugo.rockhopper.hf/categories/hardware" class="list-group-item">hardware</a>
+      <a href="https://henrik-farre.github.io/categories/hardware" class="list-group-item">hardware</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/software" class="list-group-item">software</a>
+      <a href="https://henrik-farre.github.io/categories/software" class="list-group-item">software</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
+      <a href="https://henrik-farre.github.io/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/mythtv" class="list-group-item">mythtv</a>
+      <a href="https://henrik-farre.github.io/categories/mythtv" class="list-group-item">mythtv</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/linux" class="list-group-item">linux</a>
+      <a href="https://henrik-farre.github.io/categories/linux" class="list-group-item">linux</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/xfce" class="list-group-item">xfce</a>
+      <a href="https://henrik-farre.github.io/categories/xfce" class="list-group-item">xfce</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/xorg" class="list-group-item">xorg</a>
+      <a href="https://henrik-farre.github.io/categories/xorg" class="list-group-item">xorg</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/development" class="list-group-item">development</a>
+      <a href="https://henrik-farre.github.io/categories/development" class="list-group-item">development</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/php" class="list-group-item">php</a>
+      <a href="https://henrik-farre.github.io/categories/php" class="list-group-item">php</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/vim" class="list-group-item">vim</a>
+      <a href="https://henrik-farre.github.io/categories/vim" class="list-group-item">vim</a>
       
     </div>
   </div>
@@ -459,25 +575,25 @@ mantis_ack_wait (0): Slave RACK Fail !</pre>
     </div>
     <div class="list-group">
       
-      <a href="http://hugo.rockhopper.hf/tags/android" class="list-group-item">android</a>
+      <a href="https://henrik-farre.github.io/tags/android" class="list-group-item">android</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/archlinux" class="list-group-item">archlinux</a>
+      <a href="https://henrik-farre.github.io/tags/mythbackend" class="list-group-item">mythbackend</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/mythbackend" class="list-group-item">mythbackend</a>
+      <a href="https://henrik-farre.github.io/tags/archlinux" class="list-group-item">archlinux</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/dvb-c" class="list-group-item">dvb-c</a>
+      <a href="https://henrik-farre.github.io/tags/mythfrontend" class="list-group-item">mythfrontend</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/mythfrontend" class="list-group-item">mythfrontend</a>
+      <a href="https://henrik-farre.github.io/tags/dvb-c" class="list-group-item">dvb-c</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/zsh" class="list-group-item">zsh</a>
+      <a href="https://henrik-farre.github.io/tags/zsh" class="list-group-item">zsh</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/motherboard" class="list-group-item">motherboard</a>
+      <a href="https://henrik-farre.github.io/tags/motherboard" class="list-group-item">motherboard</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/htpc" class="list-group-item">htpc</a>
+      <a href="https://henrik-farre.github.io/tags/bash" class="list-group-item">bash</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/uefi" class="list-group-item">uefi</a>
+      <a href="https://henrik-farre.github.io/tags/urxvt" class="list-group-item">urxvt</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/review" class="list-group-item">review</a>
+      <a href="https://henrik-farre.github.io/tags/cmd-line" class="list-group-item">cmd-line</a>
       
     </div>
   </div>
@@ -506,7 +622,18 @@ mantis_ack_wait (0): Slave RACK Fail !</pre>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/magnific-popup/jquery.magnific-popup.js"></script>
+    <script src="/js/rockhopper.js"></script>
 
+    
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-4186065-1', 'auto');
+    ga('send', 'pageview');
+    </script>
     
 
   </body>

@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Raid on Rockhopper.dk</title>
-    <link>http://hugo.rockhopper.hf/tags/raid/</link>
+    <link>https://henrik-farre.github.io/tags/raid/</link>
     <description>Recent content in Raid on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 19 Apr 2009 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://hugo.rockhopper.hf/tags/raid/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://henrik-farre.github.io/tags/raid/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>How not to restore a Linux software raid</title>
-      <link>http://hugo.rockhopper.hf/linux/software/how-not-to-restore-a-linux-software-raid/</link>
+      <link>https://henrik-farre.github.io/linux/software/how-not-to-restore-a-linux-software-raid/</link>
       <pubDate>Sun, 19 Apr 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/software/how-not-to-restore-a-linux-software-raid/</guid>
-      <description>&lt;p&gt;We had a disk failure on one of our Xen servers at &lt;a href=&#34;http://www.bellcom.dk&#34; title=&#34;Bellcom Open Source ApS&#34;&gt;work&lt;/a&gt; last week, and what we thought would be a quick disk replace, turned into a small nightmare.&lt;/p&gt;
+      <guid>https://henrik-farre.github.io/linux/software/how-not-to-restore-a-linux-software-raid/</guid>
+      <description>&lt;p&gt;We had a disk failure on one of our Xen servers at &lt;a href=&#34;http://www.bellcom.dk&#34;&gt;work&lt;/a&gt; last week, and what we thought would be a quick disk replace, turned into a small nightmare.&lt;/p&gt;
 
 &lt;p&gt;Our setup is fairly &amp;#8220;simple&amp;#8221;: 2 x raid1&amp;#8217;s consisting of sda1/sdb1 (/dev/md0 mounted at /) and sda3/sdb3 (/dev/md1 with LVM on top of it).&lt;/p&gt;
 
@@ -36,7 +36,7 @@ unused devices: &amp;lt;none&amp;gt;&lt;/pre&gt;
 
 &lt;p&gt;While the raid was syncing there was a lot of disk errors on sda1 and sda3, so we identified sda using its serial number, shutdown the server, replaced the disk, booted and everything looked fine.&lt;/p&gt;
 
-&lt;p&gt;Fast forward to the next day: we started receiving e-mails from customers saying data was missing from their sites, and they where missing data from the day the drive failed&amp;#8230; then it dawned on us: when we readded sda3 it was overridden with the old data from sdb3  &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/frownie.png&#34; alt=&#34;:(&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;. Only one thing to do: restore from backup.&lt;/p&gt;
+&lt;p&gt;Fast forward to the next day: we started receiving e-mails from customers saying data was missing from their sites, and they where missing data from the day the drive failed&amp;#8230; then it dawned on us: when we readded sda3 it was overridden with the old data from sdb3 :(. Only one thing to do: restore from backup.&lt;/p&gt;
 
 &lt;p&gt;Now the question is: why the hell was sda3 marked as failed after the reboot? It was on the good drive&amp;#8230;&lt;/p&gt;
 </description>

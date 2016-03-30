@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Htpc on Rockhopper.dk</title>
-    <link>http://hugo.rockhopper.hf/tags/htpc/</link>
+    <link>https://henrik-farre.github.io/tags/htpc/</link>
     <description>Recent content in Htpc on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Nov 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://hugo.rockhopper.hf/tags/htpc/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://henrik-farre.github.io/tags/htpc/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>HTPC/NAS for watching Netflix on Linux part 1: the hardware</title>
-      <link>http://hugo.rockhopper.hf/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</link>
+      <link>https://henrik-farre.github.io/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</link>
       <pubDate>Wed, 13 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</guid>
+      <guid>https://henrik-farre.github.io/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</guid>
       <description>
 
 &lt;p&gt;I decided to build a new HTPC/NAS in order to watch &lt;a href=&#34;http://www.netflix.com&#34;&gt;Netflix&lt;/a&gt; (using &lt;a href=&#34;https://wiki.archlinux.org/index.php/Pipelight&#34;&gt;pipelight&lt;/a&gt;) on Linux, and combine two older machines into one.&lt;/p&gt;
 
-&lt;p&gt;My old HTPC was based on a 1.6GHz AMD Sempron from 2007 and a Nvidia GeForce N210. While it played Full HD content fine using &lt;a href=&#34;https://wiki.archlinux.org/index.php/VDPAU&#34;&gt;vdpau&lt;/a&gt;, it was not able to handle Netflix using pipelight. A second machine with a Intel Atom CPU was used to store all the multimedia and host MythTV.&lt;/p&gt;
+&lt;p&gt;My old HTPC was based on a 1.6GHz AMD Sempron from 2007 and a Nvidia GeForce N210. While it played Full HD content fine using &lt;a href=&#34;https://wiki.archlinux.org/index.php/VDPAU&#34;&gt;vdpau&lt;/a&gt;, it was not able to handle Netflix using pipelight. A second machine with a Intel Atom CPU was used to store all the multimedia and host MythTV.&lt;/p&gt;
 
 &lt;p&gt;Specifications of the new machine are:&lt;/p&gt;
 
@@ -90,9 +90,7 @@
 
 &lt;h2 id=&#34;case:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Case&lt;/h2&gt;
 
-&lt;p&gt;First revision [Antec Sonata]&lt;a href=&#34;does not even exist on Antec&amp;amp;#8217;s page any more&#34;&gt;12&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;[12]: &lt;a href=&#34;http://techreport.com/review/6247/antec-sonata-atx-case&#34;&gt;http://techreport.com/review/6247/antec-sonata-atx-case&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;First revision &lt;a href=&#34;http://techreport.com/review/6247/antec-sonata-atx-case&#34;&gt;Antec Sonata&lt;/a&gt; (does not even exist on Antec&amp;#8217;s page any more)&lt;/p&gt;
 </description>
     </item>
     

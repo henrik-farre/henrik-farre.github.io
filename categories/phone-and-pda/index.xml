@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Phone And Pda on Rockhopper.dk</title>
-    <link>http://hugo.rockhopper.hf/categories/phone-and-pda/</link>
+    <link>https://henrik-farre.github.io/categories/phone-and-pda/</link>
     <description>Recent content in Phone And Pda on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 03 Apr 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://hugo.rockhopper.hf/categories/phone-and-pda/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://henrik-farre.github.io/categories/phone-and-pda/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Installing CyanogenMod 7.1 on a Sony Ericsson Xperia Arc (LT15i)</title>
-      <link>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/</link>
+      <link>https://henrik-farre.github.io/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/</link>
       <pubDate>Tue, 03 Apr 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/</guid>
-      <description>&lt;p&gt;Although the instructions for upgrading the Sony Ericsson Xperia Arc (not the new S version) are &lt;a title=&#34;Sony Ericsson Xperia Arc: Full Update Guide&#34; href=&#34;http://wiki.cyanogenmod.com/wiki/Sony_Ericsson_Xperia_Arc:_Full_Update_Guide&#34; target=&#34;_blank&#34;&gt;pretty detailed&lt;/a&gt; there are some twists that are not documented:&lt;/p&gt;
+      <guid>https://henrik-farre.github.io/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/</guid>
+      <description>&lt;p&gt;Although the instructions for upgrading the Sony Ericsson Xperia Arc (not the new S version) are &lt;a title=&#34;Sony Ericsson Xperia Arc: Full Update Guide&#34; href=&#34;http://wiki.cyanogenmod.com/wiki/Sony_Ericsson_Xperia_Arc:_Full_Update_Guide&#34; target=&#34;_blank&#34;&gt;pretty detailed&lt;/a&gt; there are some twists that are not documented:&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;You need to upgrade to the latests official Sony Ericsson rom (currently &amp;#8220;4.0.2.A.0.62 Generic Global World&amp;#8221; ), you can find links in this &lt;a title=&#34;ARC/ARC S (ROOT.FTF&amp;.IMG)4.0.2.A.0.62 Generic Global World+Flashtool+Ringtones+Other&#34; href=&#34;http://forum.xda-developers.com/showthread.php?t=1330314&#34; target=&#34;_blank&#34;&gt;xda developers thread&lt;/a&gt;, else the phone will not be able to unlock the SIM card&lt;/li&gt;
@@ -29,13 +29,13 @@
     
     <item>
       <title>Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1)</title>
-      <link>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/</link>
+      <link>https://henrik-farre.github.io/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/</link>
       <pubDate>Sat, 19 Jun 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/</guid>
+      <guid>https://henrik-farre.github.io/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/</guid>
       <description>
 
-&lt;p&gt;My ADP1 has been running Android 1.6 (Cyanogenmod 4.2.x) for quite a while now, and I was exited to see that it would be possible to run Android 2.1 on it thanks to Cyanogen   &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;This guide is a digest of information found on Cyanogen&amp;#8217;s wiki, like: &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Full_Update_Guide_-_ADP1_Firmware_to_CyanogenMod&#34;&gt;ADP1 Firmware to CyanogenMod&lt;/a&gt;, please consult the wiki for up todate information and warnings &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;My ADP1 has been running Android 1.6 (Cyanogenmod 4.2.x) for quite a while now, and I was exited to see that it would be possible to run Android 2.1 on it thanks to Cyanogen :). This guide is a digest of information found on Cyanogen&amp;#8217;s wiki, like: &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Full_Update_Guide_-_ADP1_Firmware_to_CyanogenMod&#34;&gt;ADP1 Firmware to CyanogenMod&lt;/a&gt;, please consult the wiki for up todate information and warnings :)&lt;/p&gt;
 
 &lt;h2 id=&#34;prerequisite:8dd91434cb3dabb8ad3f5975fe4ac3b3&#34;&gt;Prerequisite&lt;/h2&gt;
 
@@ -45,7 +45,7 @@
 &lt;li&gt;&lt;a href=&#34;http://forum.xda-developers.com/showpost.php?p=4647751&amp;amp;postcount=1&#34;&gt;RA recovery for dream&lt;/a&gt; I use version 1.7.0&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/DangerSPL_and_CM_5_for_Dream&#34;&gt;DangerSPL&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Latest_version#ERE36B_Google_addon_for_G1.2FDream.2FSapphire&#34;&gt;Google apps for Cyanogen&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;[Lateste Cyanogen 5.0.x for dream][5]&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Latest_version#Current_Stable_Version_2&#34;&gt;Lateste Cyanogen 5.0.x for dream&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;install-recovery-image:8dd91434cb3dabb8ad3f5975fe4ac3b3&#34;&gt;Install recovery image&lt;/h2&gt;
@@ -53,19 +53,19 @@
 &lt;p&gt;Based on &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Full_Update_Guide_-_ADP1_Firmware_to_CyanogenMod&#34;&gt;Full Update Guide &amp;#8211; ADP1 Firmware to CyanogenMod&lt;/a&gt;&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Boot the phone into fastboot mode by holding the BACK  button while pressing the power button&lt;/li&gt;
+&lt;li&gt;Boot the phone into fastboot mode by holding the BACK button while pressing the power button&lt;/li&gt;
 &lt;li&gt;On your computer run the following commands:&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;pre&gt;./fastboot device #check if the phone is available
 ./fastboot flash recovery recovery-RA-dream-v1.7.0.img
-./fastboot reboot
+./fastboot reboot&lt;/pre&gt;
 
-&lt;a href=&#34;http://android-dls.com/wiki/index.php?title=Fastboot&#34;&gt;More information about fastboot&lt;/a&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;http://android-dls.com/wiki/index.php?title=Fastboot&#34;&gt;More information about fastboot&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;install-bootloader:8dd91434cb3dabb8ad3f5975fe4ac3b3&#34;&gt;Install bootloader&lt;/h2&gt;
 
-&lt;p&gt;In order to run Android 2.1 you need to replace the bootloader with one called &amp;#8220;DangerSPL&amp;#8221;, and there is a reason it is called &amp;#8220;Danger&amp;#8221;  &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;please read &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/DangerSPL_and_CM_5_for_Dream&#34;&gt;DangerSPL and CM 5 for Dream&lt;/a&gt; and read the warnings and prerequisites.&lt;/p&gt;
+&lt;p&gt;In order to run Android 2.1 you need to replace the bootloader with one called &amp;#8220;DangerSPL&amp;#8221;, and there is a reason it is called &amp;#8220;Danger&amp;#8221; :) please read &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/DangerSPL_and_CM_5_for_Dream&#34;&gt;DangerSPL and CM 5 for Dream&lt;/a&gt; and read the warnings and prerequisites.&lt;/p&gt;
 
 &lt;p&gt;Copy the files to the root of your SD card:&lt;/p&gt;
 
@@ -97,24 +97,22 @@
 &lt;li&gt;Reboot (takes awhile to boot)&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;If all went well, you should be able to enter your PIN number and enjoy Android 2.1 &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;If all went well, you should be able to enter your PIN number and enjoy Android 2.1 :)&lt;/p&gt;
 
 &lt;div id=&#34;_mcePaste&#34; style=&#34;position: absolute; left: -10000px; top: 202px; width: 1px; height: 1px; overflow: hidden;&#34;&gt;
   &lt;h1 id=&#34;firstHeading&#34; class=&#34;firstHeading&#34;&gt;
     DangerSPL and CM 5 for Dream
   &lt;/h1&gt;
 &lt;/div&gt;
-
-&lt;p&gt;[5]: &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Latest_version#Current_Stable_Version_2&#34;&gt;http://wiki.cyanogenmod.com/index.php/Latest_version#Current_Stable_Version_2&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Updating the Android Developer Phone1 to v1.1</title>
-      <link>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/</link>
+      <link>https://henrik-farre.github.io/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/</link>
       <pubDate>Tue, 10 Feb 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/</guid>
+      <guid>https://henrik-farre.github.io/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/</guid>
       <description>
 
 &lt;p&gt;I&amp;#8217;ve been putting off upgrading my ADP1 in fear of that I would brick it, but after reading that there now are official update images available I decided to give it a try.&lt;/p&gt;
@@ -211,7 +209,7 @@ Press home+back to reboot&lt;/pre&gt;
 
 &lt;h2 id=&#34;new-things-after-the-update:a7d24fea433cc3a9c2cce45be1a10207&#34;&gt;New things after the update&lt;/h2&gt;
 
-&lt;p&gt;2 new applications are installed; &amp;#8220;Voice Dialer&amp;#8221; and &amp;#8220;Voice Search&amp;#8221;. I have not played with them yet so I can&amp;#8217;t really say anything about them &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;2 new applications are installed; &amp;#8220;Voice Dialer&amp;#8221; and &amp;#8220;Voice Search&amp;#8221;. I have not played with them yet so I can&amp;#8217;t really say anything about them :)&lt;/p&gt;
 
 &lt;p&gt;There are a couple of new settings here and there, but I have not noticed anything fancy, so I guess we still have to wait the the mysterious &amp;#8220;cupcake&amp;#8221; update, if such a thing even exists.&lt;/p&gt;
 
@@ -235,10 +233,10 @@ Press home+back to reboot&lt;/pre&gt;
     
     <item>
       <title>Android Developer Phone: Mini review</title>
-      <link>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/android-developer-phone-mini-review/</link>
+      <link>https://henrik-farre.github.io/linux/hardware/phone-and-pda/android-developer-phone-mini-review/</link>
       <pubDate>Sat, 24 Jan 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/android-developer-phone-mini-review/</guid>
+      <guid>https://henrik-farre.github.io/linux/hardware/phone-and-pda/android-developer-phone-mini-review/</guid>
       <description>
 
 &lt;p&gt;I have been playing around with my Android Developer Phone (ADP) for about 2 weeks now, and this are my thoughts on it so far.&lt;/p&gt;
@@ -275,7 +273,7 @@ Press home+back to reboot&lt;/pre&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://code.google.com/p/connectbot/&#34;&gt;Connectbot&lt;/a&gt;: establish ssh connections to servers, supports ssh keys&lt;/li&gt;
-&lt;li&gt;[AndFTP][4]: upload/download files via ftp/sftp&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.lysesoft.com/products/andftp/&#34;&gt;AndFTP&lt;/a&gt;: upload/download files via ftp/sftp&lt;/li&gt;
 &lt;li&gt;Terminal: gives access to the ADP&amp;#8217;s Linux shell&lt;/li&gt;
 &lt;li&gt;Anycut: create shortcuts to applications or activities like text a specific contact&lt;/li&gt;
 &lt;/ul&gt;
@@ -302,17 +300,15 @@ Press home+back to reboot&lt;/pre&gt;
 &lt;h2 id=&#34;overall:e34d9999eee4760eb56defff6b973d08&#34;&gt;Overall&lt;/h2&gt;
 
 &lt;p&gt;Although I have limited experience with smart phones, I really prefer the ADP when I compare it to my friends iPhones or HTC phones running Windows Mobile. My girlfriend also really likes it and is defently going to buy the regular HTC G1 when it hits Denmark.&lt;/p&gt;
-
-&lt;p&gt;[4]: &lt;a href=&#34;http://www.lysesoft.com/products/andftp/&#34;&gt;http://www.lysesoft.com/products/andftp/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Android G1 Dev Phone has landed in Denmark</title>
-      <link>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/android-g1-dev-phone-has-landed-in-denmark/</link>
+      <link>https://henrik-farre.github.io/linux/hardware/phone-and-pda/android-g1-dev-phone-has-landed-in-denmark/</link>
       <pubDate>Sun, 11 Jan 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/android-g1-dev-phone-has-landed-in-denmark/</guid>
+      <guid>https://henrik-farre.github.io/linux/hardware/phone-and-pda/android-g1-dev-phone-has-landed-in-denmark/</guid>
       <description>
 
 &lt;p&gt;Finally, my HTC G1 Dev Phone running Android OS has arrived!&lt;/p&gt;
@@ -347,45 +343,140 @@ Press home+back to reboot&lt;/pre&gt;
 
 &lt;h2 id=&#34;photos:12f6248c67b226d44f139d9565d024ce&#34;&gt;Photos&lt;/h2&gt;
 
-&lt;div id=&#34;attachment_123&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2009/01/g1_box_with_contents.jpg&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-123&#34; title=&#34;g1_box_with_contents&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2009/01/g1_box_with_contents-150x150.jpg&#34; alt=&#34;Contents of box&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    Contents of box. Note the power adaptor
-  &lt;/p&gt;
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/g1_box_with_contents.jpg&#34;
+        title=&#34;Contents of box. Note the power adaptor&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/g1_box_with_contents-150x150.jpg&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;Contents of box. Note the power adaptor&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id=&#34;attachment_124&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2009/01/g1_front.jpg&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-124&#34; title=&#34;g1_front&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2009/01/g1_front-150x150.jpg&#34; alt=&#34;Front of G1&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    Front of G1
-  &lt;/p&gt;
-&lt;/div&gt;
 
-&lt;div id=&#34;attachment_122&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2009/01/g1_back.jpg&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-122&#34; title=&#34;g1_back&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2009/01/g1_back-150x150.jpg&#34; alt=&#34;Backside of G1&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    Backside of G1
-  &lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;
 
-&lt;div id=&#34;attachment_131&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2009/01/g1_treo600_side_by_side.jpg&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-131&#34; title=&#34;g1_treo600_side_by_side&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2009/01/g1_treo600_side_by_side-150x150.jpg&#34; alt=&#34;HTC G1 side by side with PalmOne Treo 600&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    HTC G1 side by side with my old PalmOne Treo 600
-  &lt;/p&gt;
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/g1_front.jpg&#34;
+        title=&#34;Front of G1&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/g1_front-150x150.jpg&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;Front of G1&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+&lt;/p&gt;
 
-&lt;div id=&#34;attachment_125&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2009/01/g1_headphones.jpg&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-125&#34; title=&#34;g1_headphones&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2009/01/g1_headphones-150x150.jpg&#34; alt=&#34;Head phones with micro usb connector&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    Head phones with micro usb connector
-  &lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/g1_back.jpg&#34;
+        title=&#34;Backside of G1&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/g1_back-150x150.jpg&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;Backside of G1&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/g1_treo600_side_by_side.jpg&#34;
+        title=&#34;HTC G1 side by side with my old PalmOne Treo 600&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/g1_treo600_side_by_side-150x150.jpg&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;HTC G1 side by side with my old PalmOne Treo 600&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/g1_headphones.jpg&#34;
+        title=&#34;Head phones with micro usb connector&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/g1_headphones-150x150.jpg&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;Head phones with micro usb connector&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/p&gt;
 </description>
     </item>
     

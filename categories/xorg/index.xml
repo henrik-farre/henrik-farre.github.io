@@ -2,45 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Xorg on Rockhopper.dk</title>
-    <link>http://hugo.rockhopper.hf/categories/xorg/</link>
+    <link>https://henrik-farre.github.io/categories/xorg/</link>
     <description>Recent content in Xorg on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 06 Dec 2008 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://hugo.rockhopper.hf/categories/xorg/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://henrik-farre.github.io/categories/xorg/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Logitech Marble FX trackball with Xorg and Hal</title>
-      <link>http://hugo.rockhopper.hf/linux/hardware/logitech-marble-fx-trackball-with-xorg-and-hal/</link>
+      <link>https://henrik-farre.github.io/linux/hardware/logitech-marble-fx-trackball-with-xorg-and-hal/</link>
       <pubDate>Sat, 06 Dec 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/hardware/logitech-marble-fx-trackball-with-xorg-and-hal/</guid>
+      <guid>https://henrik-farre.github.io/linux/hardware/logitech-marble-fx-trackball-with-xorg-and-hal/</guid>
       <description>&lt;p&gt;After the recent upgrade in ArchLinux of xorg-server from 1.4.x to 1.5.x my thrusty Logitech Marble FX trackball did not work entirely. The trackball does not have a dedicated scroll wheel, but by pressing a button, and using the trackball, you can scroll both vertical and horizontal.&lt;/p&gt;
 
 &lt;p&gt;In order to get the emulated scroll working again you first have to update the evdev driver (the xf86-input-evdev package), as version 2.0.7 doesn&amp;#8217;t support the needed options.&lt;/p&gt;
 
-&lt;p&gt;I use the &lt;a href=&#34;http://aur.archlinux.org/packages.php?do_Details=1&amp;amp;ID=19593&amp;amp;O=&amp;amp;L=&amp;amp;C=&amp;amp;K=&amp;amp;SB=&amp;amp;SO=&amp;amp;PP=&amp;amp;do_Orphans=&amp;amp;SeB=&#34;&gt;xf86-input-evdev-git PKGBUILD from aur&lt;/a&gt; (which depends on [xkeyboard-config-git][2]) which works fine.&lt;/p&gt;
+&lt;p&gt;I use the &lt;a href=&#34;http://aur.archlinux.org/packages.php?do_Details=1&amp;amp;ID=19593&amp;amp;O=&amp;amp;L=&amp;amp;C=&amp;amp;K=&amp;amp;SB=&amp;amp;SO=&amp;amp;PP=&amp;amp;do_Orphans=&amp;amp;SeB=&#34;&gt;xf86-input-evdev-git PKGBUILD from aur&lt;/a&gt; (which depends on &lt;a href=&#34;http://aur.archlinux.org/packages.php?do_Details=1&amp;amp;ID=19592&amp;amp;O=&amp;amp;L=&amp;amp;C=&amp;amp;K=&amp;amp;SB=&amp;amp;SO=&amp;amp;PP=&amp;amp;do_Orphans=&amp;amp;SeB=&#34;&gt;xkeyboard-config-git&lt;/a&gt;) which works fine.&lt;/p&gt;
 
 &lt;p&gt;Once you have build the packages and installed them (remove the conflicting packages by using pacman -Rd packagename) you will have to create a Hal fdi file, I created &amp;#8220;/etc/hal/fdi/policy/11-x11-mouse.fdi&amp;#8221; containing:&lt;/p&gt;
 
-&lt;pre&gt;&amp;lt;?xml version=&#34;1.0&#34; encoding=&#34;ISO-8859-1&#34;?&amp;gt;
-&amp;lt;deviceinfo version=&#34;0.2&#34;&amp;gt;
-  &amp;lt;device&amp;gt;
-    &amp;lt;match key=&#34;info.capabilities&#34; contains=&#34;input.mouse&#34;&amp;gt;
-      &amp;lt;match key=&#34;info.product&#34; contains=&#34;PS2++ Logitech Mouse&#34;&amp;gt;
-        &amp;lt;merge key=&#34;input.x11.Protocol&#34; type=&#34;string&#34;&amp;gt;ExplorerPS/2&amp;lt;/merge&amp;gt;
-        &amp;lt;merge key=&#34;input.x11_options.Buttons&#34; type=&#34;string&#34;&amp;gt;7&amp;lt;/merge&amp;gt;
-        &amp;lt;merge key=&#34;input.x11_options.XAxisMapping&#34; type=&#34;string&#34;&amp;gt;6 7&amp;lt;/merge&amp;gt;
-        &amp;lt;merge key=&#34;input.x11_options.YAxisMapping&#34; type=&#34;string&#34;&amp;gt;4 5&amp;lt;/merge&amp;gt;
-        &amp;lt;merge key=&#34;input.x11_options.EmulateWheel&#34; type=&#34;string&#34;&amp;gt;True&amp;lt;/merge&amp;gt;
-        &amp;lt;merge key=&#34;input.x11_options.EmulateWheelButton&#34; type=&#34;string&#34;&amp;gt;8&amp;lt;/merge&amp;gt;
-        &amp;lt;merge key=&#34;input.x11_options.EmulateWheelInertia&#34; type=&#34;string&#34;&amp;gt;30&amp;lt;/merge&amp;gt;
-        &amp;lt;merge key=&#34;input.x11_options.Emulate3Buttons&#34; type=&#34;string&#34;&amp;gt;False&amp;lt;/merge&amp;gt;
-      &amp;lt;/match&amp;gt;
-    &amp;lt;/match&amp;gt;
-  &amp;lt;/device&amp;gt;
-&amp;lt;/deviceinfo&amp;gt;
-&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;ISO-8859-1&amp;quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;deviceinfo&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;version=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;0.2&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;nt&#34;&gt;&amp;lt;device&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;match&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;info.capabilities&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;contains=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.mouse&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&#34;nt&#34;&gt;&amp;lt;match&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;info.product&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;contains=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;PS2++ Logitech Mouse&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11.Protocol&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;ExplorerPS/2&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11_options.Buttons&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;7&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11_options.XAxisMapping&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;6 7&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11_options.YAxisMapping&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;4 5&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11_options.EmulateWheel&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;True&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11_options.EmulateWheelButton&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;8&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11_options.EmulateWheelInertia&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;30&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11_options.Emulate3Buttons&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;False&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
+      &lt;span class=&#34;nt&#34;&gt;&amp;lt;/match&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/match&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;nt&#34;&gt;&amp;lt;/device&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/deviceinfo&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;p&gt;Now shutdown X, restart hal and X and the emulated scroll whell should work just fine. I have the following output in my &amp;#8220;/var/log/Xorg.0.log&amp;#8221;:&lt;/p&gt;
 
@@ -61,8 +62,6 @@
 (**) PS2++ Logitech Mouse: XAxisMapping: buttons 6 and 7
 (**) PS2++ Logitech Mouse: EmulateWheelButton: 8, EmulateWheelInertia: 30, EmulateWheelTimeout: 200
 (II) XINPUT: Adding extended input device &#34;PS2++ Logitech Mouse&#34; (type: MOUSE)&lt;/pre&gt;
-
-&lt;p&gt;[2]: &lt;a href=&#34;http://aur.archlinux.org/packages.php?do_Details=1&amp;amp;ID=19592&amp;amp;O=&amp;amp;L=&amp;amp;C=&amp;amp;K=&amp;amp;SB=&amp;amp;SO=&amp;amp;PP=&amp;amp;do_Orphans=&amp;amp;SeB=&#34;&gt;http://aur.archlinux.org/packages.php?do_Details=1&amp;amp;ID=19592&amp;amp;O=&amp;amp;L=&amp;amp;C=&amp;amp;K=&amp;amp;SB=&amp;amp;SO=&amp;amp;PP=&amp;amp;do_Orphans=&amp;amp;SeB=&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

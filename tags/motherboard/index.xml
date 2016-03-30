@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Motherboard on Rockhopper.dk</title>
-    <link>http://hugo.rockhopper.hf/tags/motherboard/</link>
+    <link>https://henrik-farre.github.io/tags/motherboard/</link>
     <description>Recent content in Motherboard on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Nov 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://hugo.rockhopper.hf/tags/motherboard/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://henrik-farre.github.io/tags/motherboard/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>HTPC/NAS for watching Netflix on Linux part 1: the hardware</title>
-      <link>http://hugo.rockhopper.hf/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</link>
+      <link>https://henrik-farre.github.io/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</link>
       <pubDate>Wed, 13 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</guid>
+      <guid>https://henrik-farre.github.io/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</guid>
       <description>
 
 &lt;p&gt;I decided to build a new HTPC/NAS in order to watch &lt;a href=&#34;http://www.netflix.com&#34;&gt;Netflix&lt;/a&gt; (using &lt;a href=&#34;https://wiki.archlinux.org/index.php/Pipelight&#34;&gt;pipelight&lt;/a&gt;) on Linux, and combine two older machines into one.&lt;/p&gt;
 
-&lt;p&gt;My old HTPC was based on a 1.6GHz AMD Sempron from 2007 and a Nvidia GeForce N210. While it played Full HD content fine using &lt;a href=&#34;https://wiki.archlinux.org/index.php/VDPAU&#34;&gt;vdpau&lt;/a&gt;, it was not able to handle Netflix using pipelight. A second machine with a Intel Atom CPU was used to store all the multimedia and host MythTV.&lt;/p&gt;
+&lt;p&gt;My old HTPC was based on a 1.6GHz AMD Sempron from 2007 and a Nvidia GeForce N210. While it played Full HD content fine using &lt;a href=&#34;https://wiki.archlinux.org/index.php/VDPAU&#34;&gt;vdpau&lt;/a&gt;, it was not able to handle Netflix using pipelight. A second machine with a Intel Atom CPU was used to store all the multimedia and host MythTV.&lt;/p&gt;
 
 &lt;p&gt;Specifications of the new machine are:&lt;/p&gt;
 
@@ -90,18 +90,16 @@
 
 &lt;h2 id=&#34;case:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Case&lt;/h2&gt;
 
-&lt;p&gt;First revision [Antec Sonata]&lt;a href=&#34;does not even exist on Antec&amp;amp;#8217;s page any more&#34;&gt;12&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;[12]: &lt;a href=&#34;http://techreport.com/review/6247/antec-sonata-atx-case&#34;&gt;http://techreport.com/review/6247/antec-sonata-atx-case&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;First revision &lt;a href=&#34;http://techreport.com/review/6247/antec-sonata-atx-case&#34;&gt;Antec Sonata&lt;/a&gt; (does not even exist on Antec&amp;#8217;s page any more)&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Gigabyte GA-MA790FXT-UD5P and Linux</title>
-      <link>http://hugo.rockhopper.hf/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</link>
+      <link>https://henrik-farre.github.io/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</link>
       <pubDate>Sat, 18 Jul 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</guid>
+      <guid>https://henrik-farre.github.io/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</guid>
       <description>
 
 &lt;p&gt;I recently upgraded the hardware of my desktop and here is my experience with the new hardware. The upgrade consists of:&lt;/p&gt;
@@ -119,23 +117,61 @@
 
 &lt;p&gt;The motherboard with attached CPU cooler fits nicely into my Antec P182.&lt;/p&gt;
 
-&lt;div id=&#34;attachment_213&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/gigabyte_ga-ma790fxt-ud5p_1.jpg&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-213 &#34; title=&#34;gigabyte_ga-ma790fxt-ud5p_1&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/gigabyte_ga-ma790fxt-ud5p_1-150x150.jpg&#34; alt=&#34;gigabyte_ga-ma790fxt-ud5p_1&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    Gigabyte GA-MA790FXT-UD5P mounted in Antec P182
-  &lt;/p&gt;
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/gigabyte_ga-ma790fxt-ud5p_1.jpg&#34;
+        title=&#34;Gigabyte GA-MA790FXT-UD5P mounted in Antec P182&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/gigabyte_ga-ma790fxt-ud5p_1-150x150.jpg&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;Gigabyte GA-MA790FXT-UD5P mounted in Antec P182&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+
 
 &lt;p&gt;The CPU cooler can only be installed on a socket AM3 motherboard in such a way that the fan either blows up (towards the top of the case) or down (towards the PCI-e slots). When the cooler is mounted in this way, it also means that the lowest fins on the heatsink extends over the two first RAM slots. This might not normally cause any problems, but because the Corsair memory modules have headspreaders attached, they are rather tall, preventing them from being placed below the fins. The solution is to place the modules in the last 2 slots. I choose to install the cooler so the fan blows air hot upwards and out of the case&amp;#8217;s top vents.&lt;/p&gt;
 
-&lt;div id=&#34;attachment_214&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/gigabyte_ga-ma790fxt-ud5p_2.jpg&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-214 &#34; title=&#34;gigabyte_ga-ma790fxt-ud5p_2&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/gigabyte_ga-ma790fxt-ud5p_2-150x150.jpg&#34; alt=&#34;gigabyte_ga-ma790fxt-ud5p_2&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    Xigmatek HDT-S1283 Cooler blocking first two RAM slots
-  &lt;/p&gt;
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/gigabyte_ga-ma790fxt-ud5p_2.jpg&#34;
+        title=&#34;Xigmatek HDT-S1283 Cooler blocking first two RAM slots&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/gigabyte_ga-ma790fxt-ud5p_2-150x150.jpg&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;Xigmatek HDT-S1283 Cooler blocking first two RAM slots&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+
 
 &lt;h2 id=&#34;bios:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;BIOS&lt;/h2&gt;
 
@@ -145,22 +181,24 @@
 
 &lt;p&gt;To match the new hardware I also switched from Arch Linux x686 to Arch Linux x86_64. I have not experienced any crashes or trouble after switching to the new hardware, so the hardware is 100% Linux compatible. There might be problems with older kernels, but I can confirm that it works with 2.6.28 or newer.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Update the 01-Aug-2009: attached [dmesg][5]&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update the 01-Aug-2009: attached &lt;a href=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/dmesg.txt&#34;&gt;dmesg&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;fancontrol-and-sensors:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;Fancontrol and sensors&lt;/h2&gt;
 
 &lt;p&gt;I installed lm_sensors and used pwmconfig to create a /etc/fancontrol file:&lt;/p&gt;
 
-&lt;pre&gt;# Configuration file generated by pwmconfig, changes will be lost
-# cpu : temp2, pwm1, min:35, max:50
-# sys1: temp1, pwm2, min:45, max:50
-INTERVAL=10
-FCTEMPS=hwmon0/device/pwm1=hwmon0/device/temp2_input hwmon0/device/pwm2=hwmon0/device/temp1_input
-FCFANS=hwmon0/device/pwm1=hwmon0/device/fan1_input hwmon0/device/pwm2=hwmon0/device/fan2_input
-MINTEMP=hwmon0/device/pwm1=35 hwmon0/device/pwm2=45
-MAXTEMP=hwmon0/device/pwm1=45 hwmon0/device/pwm2=50
-MINSTART=hwmon0/device/pwm1=150 hwmon0/device/pwm2=150
-MINSTOP=hwmon0/device/pwm1=100 hwmon0/device/pwm2=100&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# Configuration file generated by pwmconfig, changes will be lost&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# cpu : temp2, pwm1, min:35, max:50&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# sys1: temp1, pwm2, min:45, max:50&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;INTERVAL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;10
+&lt;span class=&#34;nv&#34;&gt;FCTEMPS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/temp2_input hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/temp1_input
+&lt;span class=&#34;nv&#34;&gt;FCFANS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/fan1_input hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/fan2_input
+&lt;span class=&#34;nv&#34;&gt;MINTEMP&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;35&lt;/span&gt; hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;45
+&lt;span class=&#34;nv&#34;&gt;MAXTEMP&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;45&lt;/span&gt; hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;50
+&lt;span class=&#34;nv&#34;&gt;MINSTART&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;150&lt;/span&gt; hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;150
+&lt;span class=&#34;nv&#34;&gt;MINSTOP&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;100&lt;/span&gt; hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;100
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;p&gt;On a hot summerday the sensors command outputs:&lt;/p&gt;
 
@@ -200,12 +238,12 @@ cpu0_vid:   +1.550 V&lt;/pre&gt;
 
 &lt;p&gt;I use the ondemand CPU frequceny scaling governor, so most of the time all four cores run at 800MHz and only switch to 2.6GHz when it is needed. I have put the following in my /etc/rc.local:&lt;/p&gt;
 
-&lt;pre&gt;for i in 0 1 2 3; do
-echo ondemand &amp;gt; /sys/devices/system/cpu/cpu${i}/cpufreq/scaling_governor
-echo 1 &amp;gt;/sys/devices/system/cpu/cpu${i}/cpufreq/ondemand/ignore_nice_load
-done&lt;/pre&gt;
-
-&lt;p&gt;[5]: &lt;a href=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/dmesg.txt&#34;&gt;https://rockhopper.dk/wp-content/uploads/2009/07/dmesg.txt&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; i in &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; 3&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt;
+  &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; ondemand &amp;gt; /sys/devices/system/cpu/cpu&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;/cpufreq/scaling_governor
+  &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &amp;gt;/sys/devices/system/cpu/cpu&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;/cpufreq/ondemand/ignore_nice_load
+&lt;span class=&#34;k&#34;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 </description>
     </item>
     

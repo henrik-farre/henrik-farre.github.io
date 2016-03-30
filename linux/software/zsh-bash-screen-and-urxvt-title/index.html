@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/magnific-popup/magnific-popup.css">
     <link rel="stylesheet" href="/css/custom.css">
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://hugo.rockhopper.hf//index.xml">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://henrik-farre.github.io//index.xml">
 
     
     <title>zsh, bash, screen and urxvt title - Rockhopper.dk</title>
@@ -19,7 +20,7 @@
     <meta property="og:type" content="article">
     
 
-    <meta property="og:url" content="http://hugo.rockhopper.hf/linux/software/zsh-bash-screen-and-urxvt-title/">
+    <meta property="og:url" content="https://henrik-farre.github.io/linux/software/zsh-bash-screen-and-urxvt-title/">
     
     
 
@@ -37,7 +38,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="http://hugo.rockhopper.hf/">Rockhopper.dk</a>
+            <a class="navbar-brand" href="https://henrik-farre.github.io/">Rockhopper.dk</a>
           </div>
 
           <div id="navbar" class="collapse navbar-collapse">
@@ -60,19 +61,20 @@
 
       <article class="single" itemscope="itemscope" itemtype="http://schema.org/Article">
 
-        <meta itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" content="http://hugo.rockhopper.hf/"/>
+        <meta itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" content="https://henrik-farre.github.io/"/>
         <meta itemprop="dateModified" content="2008-11-05T00:00:00&#43;00:00">
         <meta itemprop="headline" content="zsh, bash, screen and urxvt title">
-        <meta itemprop="description" content="I use both the zsh and bash shell, and most of the time I run them in screen. This happens in my favourite terminal: urxvt (aka rxvt-unicode). I have a pretty consistence terminal title in both shells. I use hostname[last part of current path]: [][1] I have the following in my ~/.zsh: if &#91;&#91; ${TERM} == &#34;screen-bce&#34; || ${TERM} == &#34;screen&#34; &#93;&#93;; then precmd &#40;&#41; &#123; print -Pn &#34;\033k\033\134\033k%m[%1d]\033\134&#34; &#125;">
-        <meta itemprop="url" content="http://hugo.rockhopper.hf/linux/software/zsh-bash-screen-and-urxvt-title/">
+        <meta itemprop="description" content="I use both the zsh and bash shell, and most of the time I run them in screen. This happens in my favourite terminal: urxvt (aka rxvt-unicode).
+">
+        <meta itemprop="url" content="https://henrik-farre.github.io/linux/software/zsh-bash-screen-and-urxvt-title/">
         <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-          <meta itemprop="url" content="http://hugo.rockhopper.hf/images/default.jpg" />
+          <meta itemprop="url" content="https://henrik-farre.github.io/images/default.jpg" />
           <meta itemprop="width" content="800">
           <meta itemprop="height" content="800">
         </div>
         <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
           <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-            <meta itemprop="url" content="http://hugo.rockhopper.hf/images/logo.jpg">
+            <meta itemprop="url" content="https://henrik-farre.github.io/images/logo.jpg">
             <meta itemprop="width" content="100">
             <meta itemprop="height" content="100">
           </div>
@@ -92,44 +94,73 @@
 
 <p>I have a pretty consistence terminal title in both shells. I use hostname[last part of current path]:</p>
 
-<p>[<img src="https://rockhopper.dk/wp-content/uploads/2008/11/zsh_screen_urxvt-300x178.jpg" alt="" title="Zsh in screen in urxvt" width="300" height="178" class="alignnone size-medium wp-image-100" srcset="http://rockhopper.hf/wp-content/uploads/2008/11/zsh_screen_urxvt-300x178.jpg 300w, http://rockhopper.hf/wp-content/uploads/2008/11/zsh_screen_urxvt.jpg 654w" sizes="(max-width: 300px) 100vw, 300px" />][1]</p>
+
+
+<div class="row">
+  <div class="col-sm-4">
+    <a href="/uploads/zsh_screen_urxvt-300x178.jpg"
+        title="Zsh in screen in urxvt"
+        class="image-link thumbnail"
+        
+    >
+        
+            
+            <img src="/uploads/zsh_screen_urxvt-300x178.jpg"
+                class="
+                    "
+                
+                
+                
+                
+            />
+        
+        
+        <div class="caption">Zsh in screen in urxvt</div>
+    </a>
+  </div>
+</div>
+
 
 <p>I have the following in my ~/.zsh:</p>
 
-<pre class="bash codesnip" style="font-family:monospace;"><span class="kw1">if</span> <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="co1">${TERM}</span> == <span class="st0">"screen-bce"</span> <span class="sy0">||</span> <span class="co1">${TERM}</span> == <span class="st0">"screen"</span> <span class="br0">&#93;</span><span class="br0">&#93;</span>; <span class="kw1">then</span>
-  precmd <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> print <span class="re5">-Pn</span> <span class="st0">"\033k\033\134\033k%m[%1d]\033\134"</span> <span class="br0">&#125;</span>
-  preexec <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> print <span class="re5">-Pn</span> <span class="st0">"\033k\033\134\033k%m[$1]\033\134"</span> <span class="br0">&#125;</span>
-<span class="kw1">else</span>
-  precmd <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> print <span class="re5">-Pn</span> <span class="st0">"\e]0;%n@%m: %~\a"</span> <span class="br0">&#125;</span>
-  preexec <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> print <span class="re5">-Pn</span> <span class="st0">"\e]0;%n@%m: $1\a"</span> <span class="br0">&#125;</span>
-<span class="kw1">fi</span>
-<span class="re2">PS1</span>=$<span class="st_h">'%{\e[0;32m%}%m%{\e[0m%}:%~&gt; '</span>
-<span class="kw3">export</span> PS1</pre>
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">TERM</span><span class="si">}</span> <span class="o">==</span> <span class="s2">&quot;screen-bce&quot;</span> <span class="o">||</span> <span class="si">${</span><span class="nv">TERM</span><span class="si">}</span> <span class="o">==</span> <span class="s2">&quot;screen&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+  precmd <span class="o">()</span> <span class="o">{</span> print -Pn <span class="s2">&quot;\033k\033\134\033k%m[%1d]\033\134&quot;</span> <span class="o">}</span>
+  preexec <span class="o">()</span> <span class="o">{</span> print -Pn <span class="s2">&quot;\033k\033\134\033k%m[</span><span class="nv">$1</span><span class="s2">]\033\134&quot;</span> <span class="o">}</span>
+<span class="k">else</span>
+  precmd <span class="o">()</span> <span class="o">{</span> print -Pn <span class="s2">&quot;\e]0;%n@%m: %~\a&quot;</span> <span class="o">}</span>
+  preexec <span class="o">()</span> <span class="o">{</span> print -Pn <span class="s2">&quot;\e]0;%n@%m: </span><span class="nv">$1</span><span class="s2">\a&quot;</span> <span class="o">}</span>
+<span class="k">fi</span>
+<span class="nv">PS1</span><span class="o">=</span><span class="s1">$&#39;%{\e[0;32m%}%m%{\e[0m%}:%~&gt; &#39;</span>
+<span class="nb">export</span> PS1
+</code></pre></div>
+</p>
 
 <p>My ~/.bashrc:</p>
 
-<pre class="bash codesnip" style="font-family:monospace;"><span class="re2">PROMPT_COMMAND</span>=<span class="st_h">'echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'</span>
-<span class="re2">PS1</span>=<span class="st_h">'\[\033[0;32m\]\h\[\033[00m\]:\w&gt; '</span>
-<span class="kw3">export</span> PS1 PROMPT_COMMAND</pre>
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nv">PROMPT_COMMAND</span><span class="o">=</span><span class="s1">&#39;echo -ne &quot;\033]0;${USER}@${HOSTNAME}: ${PWD}\007&quot;&#39;</span>
+<span class="nv">PS1</span><span class="o">=</span><span class="s1">&#39;\[\033[0;32m\]\h\[\033[00m\]:\w&gt; &#39;</span>
+<span class="nb">export</span> PS1 PROMPT_COMMAND
+</code></pre></div>
+</p>
 
 <p>And finally my ~/.screenrc</p>
 
-<pre class="bash codesnip" style="font-family:monospace;">hardstatus string <span class="st0">"%h"</span>
-caption always <span class="st0">"%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw} %=%d %M %0c %{g}%H%{-}"</span></pre>
-
-<p>[1]: <a href="https://rockhopper.dk/wp-content/uploads/2008/11/zsh_screen_urxvt.jpg">https://rockhopper.dk/wp-content/uploads/2008/11/zsh_screen_urxvt.jpg</a></p>
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>hardstatus string <span class="s2">&quot;%h&quot;</span>
+caption always <span class="s2">&quot;%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw} %=%d %M %0c %{g}%H%{-}&quot;</span>
+</code></pre></div>
+</p>
 
         </div>
 
 
         <aside>
-          <div class="section"><a href="http://hugo.rockhopper.hf/tags/bash" class="tag">bash</a> <a href="http://hugo.rockhopper.hf/tags/screen" class="tag">screen</a> <a href="http://hugo.rockhopper.hf/tags/urxvt" class="tag">urxvt</a> <a href="http://hugo.rockhopper.hf/tags/zsh" class="tag">zsh</a> </div>
+          <div class="section"><a href="https://henrik-farre.github.io/tags/bash" class="tag">bash</a> <a href="https://henrik-farre.github.io/tags/screen" class="tag">screen</a> <a href="https://henrik-farre.github.io/tags/urxvt" class="tag">urxvt</a> <a href="https://henrik-farre.github.io/tags/zsh" class="tag">zsh</a> </div>
 
           <div class="section share">
-            <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fsoftware%2fzsh-bash-screen-and-urxvt-title%2f&t=zsh%2c%20bash%2c%20screen%20and%20urxvt%20title" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-            <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fsoftware%2fzsh-bash-screen-and-urxvt-title%2f&text=zsh%2c%20bash%2c%20screen%20and%20urxvt%20title&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-            <a href="https://plus.google.com/share?url=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fsoftware%2fzsh-bash-screen-and-urxvt-title%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-            <a href="http://getpocket.com/edit?url=http%3a%2f%2fhugo.rockhopper.hf%2flinux%2fsoftware%2fzsh-bash-screen-and-urxvt-title%2f&title=zsh%2c%20bash%2c%20screen%20and%20urxvt%20title" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+            <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fhenrik-farre.github.io%2flinux%2fsoftware%2fzsh-bash-screen-and-urxvt-title%2f&t=zsh%2c%20bash%2c%20screen%20and%20urxvt%20title" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+            <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fhenrik-farre.github.io%2flinux%2fsoftware%2fzsh-bash-screen-and-urxvt-title%2f&text=zsh%2c%20bash%2c%20screen%20and%20urxvt%20title&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+            <a href="https://plus.google.com/share?url=https%3a%2f%2fhenrik-farre.github.io%2flinux%2fsoftware%2fzsh-bash-screen-and-urxvt-title%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+            <a href="http://getpocket.com/edit?url=https%3a%2f%2fhenrik-farre.github.io%2flinux%2fsoftware%2fzsh-bash-screen-and-urxvt-title%2f&title=zsh%2c%20bash%2c%20screen%20and%20urxvt%20title" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
           </div>
 
           
@@ -150,25 +181,25 @@ caption always <span class="st0">"%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw} %=%d %M 
     </div>
     <div class="list-group">
       
-      <a href="http://hugo.rockhopper.hf/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/" class="list-group-item">Mouse hover not working in Chrome/Chromium? Solution: stop synergy</a>
+      <a href="https://henrik-farre.github.io/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/" class="list-group-item">Mouse hover not working in Chrome/Chromium? Solution: stop synergy</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/multiple-profiles-in-firefox-tips-and-tricks/" class="list-group-item">Multiple profiles in Firefox: tips and tricks</a>
+      <a href="https://henrik-farre.github.io/linux/multiple-profiles-in-firefox-tips-and-tricks/" class="list-group-item">Multiple profiles in Firefox: tips and tricks</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/zsh-promptwindow-title-trim-middle-of-path/" class="list-group-item">zsh prompt/window title: trim middle of path</a>
+      <a href="https://henrik-farre.github.io/linux/zsh-promptwindow-title-trim-middle-of-path/" class="list-group-item">zsh prompt/window title: trim middle of path</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/docker-and-php-xdebug/" class="list-group-item">Docker and PHP xdebug</a>
+      <a href="https://henrik-farre.github.io/linux/docker-and-php-xdebug/" class="list-group-item">Docker and PHP xdebug</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/" class="list-group-item">HTPC/NAS for watching Netflix on Linux part 1: the hardware</a>
+      <a href="https://henrik-farre.github.io/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/" class="list-group-item">HTPC/NAS for watching Netflix on Linux part 1: the hardware</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/" class="list-group-item">UEFI booting Arch Linux on a HP ProBook 6360b</a>
+      <a href="https://henrik-farre.github.io/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/" class="list-group-item">UEFI booting Arch Linux on a HP ProBook 6360b</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/" class="list-group-item">Installing CyanogenMod 7.1 on a Sony Ericsson Xperia Arc (LT15i)</a>
+      <a href="https://henrik-farre.github.io/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/" class="list-group-item">Installing CyanogenMod 7.1 on a Sony Ericsson Xperia Arc (LT15i)</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/" class="list-group-item">Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1)</a>
+      <a href="https://henrik-farre.github.io/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/" class="list-group-item">Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1)</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/software/mythtv/anysee-e30-c-plus-mythtv/" class="list-group-item">AnySee E30 C Plus &#43; MythTV</a>
+      <a href="https://henrik-farre.github.io/linux/software/mythtv/anysee-e30-c-plus-mythtv/" class="list-group-item">AnySee E30 C Plus &#43; MythTV</a>
       
-      <a href="http://hugo.rockhopper.hf/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/" class="list-group-item">Xfce: auto rotate wallpaper without cron</a>
+      <a href="https://henrik-farre.github.io/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/" class="list-group-item">Xfce: auto rotate wallpaper without cron</a>
       
     </div>
   </div>
@@ -180,25 +211,25 @@ caption always <span class="st0">"%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw} %=%d %M 
     </div>
     <div class="list-group">
       
-      <a href="http://hugo.rockhopper.hf/categories/hardware" class="list-group-item">hardware</a>
+      <a href="https://henrik-farre.github.io/categories/software" class="list-group-item">software</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/software" class="list-group-item">software</a>
+      <a href="https://henrik-farre.github.io/categories/hardware" class="list-group-item">hardware</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
+      <a href="https://henrik-farre.github.io/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/linux" class="list-group-item">linux</a>
+      <a href="https://henrik-farre.github.io/categories/mythtv" class="list-group-item">mythtv</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/mythtv" class="list-group-item">mythtv</a>
+      <a href="https://henrik-farre.github.io/categories/linux" class="list-group-item">linux</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/xfce" class="list-group-item">xfce</a>
+      <a href="https://henrik-farre.github.io/categories/xfce" class="list-group-item">xfce</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/php" class="list-group-item">php</a>
+      <a href="https://henrik-farre.github.io/categories/xorg" class="list-group-item">xorg</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/vim" class="list-group-item">vim</a>
+      <a href="https://henrik-farre.github.io/categories/development" class="list-group-item">development</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/xorg" class="list-group-item">xorg</a>
+      <a href="https://henrik-farre.github.io/categories/php" class="list-group-item">php</a>
       
-      <a href="http://hugo.rockhopper.hf/categories/development" class="list-group-item">development</a>
+      <a href="https://henrik-farre.github.io/categories/vim" class="list-group-item">vim</a>
       
     </div>
   </div>
@@ -209,25 +240,25 @@ caption always <span class="st0">"%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw} %=%d %M 
     </div>
     <div class="list-group">
       
-      <a href="http://hugo.rockhopper.hf/tags/android" class="list-group-item">android</a>
+      <a href="https://henrik-farre.github.io/tags/android" class="list-group-item">android</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/archlinux" class="list-group-item">archlinux</a>
+      <a href="https://henrik-farre.github.io/tags/mythbackend" class="list-group-item">mythbackend</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/mythbackend" class="list-group-item">mythbackend</a>
+      <a href="https://henrik-farre.github.io/tags/archlinux" class="list-group-item">archlinux</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/motherboard" class="list-group-item">motherboard</a>
+      <a href="https://henrik-farre.github.io/tags/mythfrontend" class="list-group-item">mythfrontend</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/dvb-c" class="list-group-item">dvb-c</a>
+      <a href="https://henrik-farre.github.io/tags/dvb-c" class="list-group-item">dvb-c</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/mythfrontend" class="list-group-item">mythfrontend</a>
+      <a href="https://henrik-farre.github.io/tags/zsh" class="list-group-item">zsh</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/zsh" class="list-group-item">zsh</a>
+      <a href="https://henrik-farre.github.io/tags/motherboard" class="list-group-item">motherboard</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/firefox" class="list-group-item">firefox</a>
+      <a href="https://henrik-farre.github.io/tags/uefi" class="list-group-item">uefi</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/bash" class="list-group-item">bash</a>
+      <a href="https://henrik-farre.github.io/tags/screen" class="list-group-item">screen</a>
       
-      <a href="http://hugo.rockhopper.hf/tags/urxvt" class="list-group-item">urxvt</a>
+      <a href="https://henrik-farre.github.io/tags/cmd-line" class="list-group-item">cmd-line</a>
       
     </div>
   </div>
@@ -256,7 +287,18 @@ caption always <span class="st0">"%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw} %=%d %M 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/magnific-popup/jquery.magnific-popup.js"></script>
+    <script src="/js/rockhopper.js"></script>
 
+    
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-4186065-1', 'auto');
+    ga('send', 'pageview');
+    </script>
     
 
   </body>

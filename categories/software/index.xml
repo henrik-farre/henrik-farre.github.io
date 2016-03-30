@@ -2,79 +2,81 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Software on Rockhopper.dk</title>
-    <link>http://hugo.rockhopper.hf/categories/software/</link>
+    <link>https://henrik-farre.github.io/categories/software/</link>
     <description>Recent content in Software on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 12 Jun 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://hugo.rockhopper.hf/categories/software/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://henrik-farre.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Mouse hover not working in Chrome/Chromium? Solution: stop synergy</title>
-      <link>http://hugo.rockhopper.hf/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/</link>
+      <link>https://henrik-farre.github.io/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/</link>
       <pubDate>Thu, 12 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/</guid>
+      <guid>https://henrik-farre.github.io/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/</guid>
       <description>&lt;p&gt;I had a strange problem: when I was using Chromium (Open source version of Chrome): mouse hover was not working. Click, scroll and so on worked fine, but when the mouse hovered above an element on a webpage nothing happend.&lt;/p&gt;
 
-&lt;p&gt;After googling I found that &lt;a href=&#34;http://synergy-project.org/&#34;&gt;synergy&lt;/a&gt; is the [cause][2], so now I only start synergy when I need it.&lt;/p&gt;
-
-&lt;p&gt;[2]: &lt;a href=&#34;https://www.google.dk/search?q=chrome+hover+synergy&#34;&gt;https://www.google.dk/search?q=chrome+hover+synergy&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After googling I found that &lt;a href=&#34;http://synergy-project.org/&#34;&gt;synergy&lt;/a&gt; is the &lt;a href=&#34;https://www.google.dk/search?q=chrome+hover+synergy&#34;&gt;cause&lt;/a&gt;, so now I only start synergy when I need it.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Multiple profiles in Firefox: tips and tricks</title>
-      <link>http://hugo.rockhopper.hf/linux/multiple-profiles-in-firefox-tips-and-tricks/</link>
+      <link>https://henrik-farre.github.io/linux/multiple-profiles-in-firefox-tips-and-tricks/</link>
       <pubDate>Sun, 08 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/multiple-profiles-in-firefox-tips-and-tricks/</guid>
+      <guid>https://henrik-farre.github.io/linux/multiple-profiles-in-firefox-tips-and-tricks/</guid>
       <description>&lt;p&gt;I have two different profiles for Firefox, one for work, and one for everything else.&lt;/p&gt;
 
 &lt;p&gt;To start Firefox with the correct profile, I have created two different application launchers (.desktop files) in ~/.local/share/applications, one called firefox-work.desktop and the other firefox-home.desktop&lt;/p&gt;
 
 &lt;p&gt;The files contain:&lt;/p&gt;
 
-&lt;pre&gt;[Desktop Entry]
-Name=Firefox Home
-GenericName=Web Browser
-Comment=Browse the World Wide Web
-Exec=/usr/lib/firefox/firefox -P Home -no-remote %u
-Icon=firefox
-Terminal=false
-Type=Application
-MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
-StartupNotify=true
-Categories=Network;WebBrowser;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;[Desktop Entry]&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Firefox Home&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;GenericName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Web Browser&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Comment&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Browse the World Wide Web&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Exec&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;/usr/lib/firefox/firefox -P Home -no-remote %u&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Icon&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;firefox&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Terminal&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;false&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Application&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;MimeType&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;StartupNotify&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;true&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Categories&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Network;WebBrowser;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;p&gt;Replace &amp;#8220;Home&amp;#8221; with the name of your profile.&lt;/p&gt;
 
 &lt;p&gt;In order to open links in the correct profile, I made a small shell script that used xdotool and zenity:&lt;/p&gt;
 
-&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;co0&#34;&gt;#!/bin/sh&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;re2&#34;&gt;PROFILE&lt;/span&gt;=$&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;zenity &lt;span class=&#34;re5&#34;&gt;--list&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--text&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;Open $1 in which profile?&#34;&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--column&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;Profile&#34;&lt;/span&gt; Work Home&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;;
-&amp;nbsp;
-&lt;span class=&#34;kw1&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$PROFILE&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;in&lt;/span&gt;
-  Home&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
-    &lt;span class=&#34;re2&#34;&gt;PID&lt;/span&gt;=$&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;pgrep &lt;span class=&#34;re5&#34;&gt;-f&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;-P Home&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
-    &lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
-  Work&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
-    &lt;span class=&#34;re2&#34;&gt;PID&lt;/span&gt;=$&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;pgrep &lt;span class=&#34;re5&#34;&gt;-f&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;-P Work&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
-    &lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
-  &lt;span class=&#34;sy0&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
-    &lt;span class=&#34;kw3&#34;&gt;exit&lt;/span&gt;
-    &lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
-&lt;span class=&#34;kw1&#34;&gt;esac&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;co0&#34;&gt;# Avoid &#34;Can&#39;t consume 1 args; are only 0 available. This is a bug.&#34; message: https://github.com/jordansissel/xdotool/issues/14&lt;/span&gt;
-&lt;span class=&#34;co0&#34;&gt;# Pick the last id, as it seems to be the one needed&lt;/span&gt;
-&lt;span class=&#34;re2&#34;&gt;WID&lt;/span&gt;=$&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;xdotool search &lt;span class=&#34;re5&#34;&gt;--any&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--pid&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$PID&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--name&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;random_random_random&#34;&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;tail&lt;/span&gt; -n1&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
-&amp;nbsp;
-xdotool windowactivate &lt;span class=&#34;re5&#34;&gt;--sync&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$WID&lt;/span&gt;
-xdotool key &lt;span class=&#34;re5&#34;&gt;--window&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$WID&lt;/span&gt; ctrl+t
-xdotool key &lt;span class=&#34;re5&#34;&gt;--window&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$WID&lt;/span&gt; ctrl+l
-xdotool &lt;span class=&#34;kw3&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--window&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$WID&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;$1&#34;&lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;ch&#34;&gt;#!/bin/sh&lt;/span&gt;
+
+&lt;span class=&#34;nv&#34;&gt;PROFILE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;zenity --list --text &lt;span class=&#34;s2&#34;&gt;&amp;quot;Open &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; in which profile?&amp;quot;&lt;/span&gt; --column &lt;span class=&#34;s2&#34;&gt;&amp;quot;Profile&amp;quot;&lt;/span&gt; Work Home&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$PROFILE&lt;/span&gt; in
+  Home&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;nv&#34;&gt;PID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;pgrep -f -- &lt;span class=&#34;s1&#34;&gt;&amp;#39;-P Home&amp;#39;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+  Work&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;nv&#34;&gt;PID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;pgrep -f -- &lt;span class=&#34;s1&#34;&gt;&amp;#39;-P Work&amp;#39;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+  *&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;esac&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# Avoid &amp;quot;Can&amp;#39;t consume 1 args; are only 0 available. This is a bug.&amp;quot; message: https://github.com/jordansissel/xdotool/issues/14&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# Pick the last id, as it seems to be the one needed&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;WID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;xdotool search --any --pid &lt;span class=&#34;nv&#34;&gt;$PID&lt;/span&gt; --name &lt;span class=&#34;s2&#34;&gt;&amp;quot;random_random_random&amp;quot;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; tail -n1&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;
+
+xdotool windowactivate --sync &lt;span class=&#34;nv&#34;&gt;$WID&lt;/span&gt;
+xdotool key --window &lt;span class=&#34;nv&#34;&gt;$WID&lt;/span&gt; ctrl+t
+xdotool key --window &lt;span class=&#34;nv&#34;&gt;$WID&lt;/span&gt; ctrl+l
+xdotool &lt;span class=&#34;nb&#34;&gt;type&lt;/span&gt; --window &lt;span class=&#34;nv&#34;&gt;$WID&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;The last thing to to is to open exo-preferred-applications and select the script as the preferred &amp;#8220;web-browser&amp;#8221; (remember &amp;#8220;%s&amp;#8221;).&lt;/p&gt;
 </description>
@@ -82,11 +84,11 @@ xdotool &lt;span class=&#34;kw3&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;re
     
     <item>
       <title>How not to restore a Linux software raid</title>
-      <link>http://hugo.rockhopper.hf/linux/software/how-not-to-restore-a-linux-software-raid/</link>
+      <link>https://henrik-farre.github.io/linux/software/how-not-to-restore-a-linux-software-raid/</link>
       <pubDate>Sun, 19 Apr 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/software/how-not-to-restore-a-linux-software-raid/</guid>
-      <description>&lt;p&gt;We had a disk failure on one of our Xen servers at &lt;a href=&#34;http://www.bellcom.dk&#34; title=&#34;Bellcom Open Source ApS&#34;&gt;work&lt;/a&gt; last week, and what we thought would be a quick disk replace, turned into a small nightmare.&lt;/p&gt;
+      <guid>https://henrik-farre.github.io/linux/software/how-not-to-restore-a-linux-software-raid/</guid>
+      <description>&lt;p&gt;We had a disk failure on one of our Xen servers at &lt;a href=&#34;http://www.bellcom.dk&#34;&gt;work&lt;/a&gt; last week, and what we thought would be a quick disk replace, turned into a small nightmare.&lt;/p&gt;
 
 &lt;p&gt;Our setup is fairly &amp;#8220;simple&amp;#8221;: 2 x raid1&amp;#8217;s consisting of sda1/sdb1 (/dev/md0 mounted at /) and sda3/sdb3 (/dev/md1 with LVM on top of it).&lt;/p&gt;
 
@@ -107,7 +109,7 @@ unused devices: &amp;lt;none&amp;gt;&lt;/pre&gt;
 
 &lt;p&gt;While the raid was syncing there was a lot of disk errors on sda1 and sda3, so we identified sda using its serial number, shutdown the server, replaced the disk, booted and everything looked fine.&lt;/p&gt;
 
-&lt;p&gt;Fast forward to the next day: we started receiving e-mails from customers saying data was missing from their sites, and they where missing data from the day the drive failed&amp;#8230; then it dawned on us: when we readded sda3 it was overridden with the old data from sdb3  &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/frownie.png&#34; alt=&#34;:(&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;. Only one thing to do: restore from backup.&lt;/p&gt;
+&lt;p&gt;Fast forward to the next day: we started receiving e-mails from customers saying data was missing from their sites, and they where missing data from the day the drive failed&amp;#8230; then it dawned on us: when we readded sda3 it was overridden with the old data from sdb3 :(. Only one thing to do: restore from backup.&lt;/p&gt;
 
 &lt;p&gt;Now the question is: why the hell was sda3 marked as failed after the reboot? It was on the good drive&amp;#8230;&lt;/p&gt;
 </description>
@@ -115,10 +117,10 @@ unused devices: &amp;lt;none&amp;gt;&lt;/pre&gt;
     
     <item>
       <title>CD/DVD burning, and working with .iso files</title>
-      <link>http://hugo.rockhopper.hf/linux/software/cddvd-burning-and-working-with-iso-files/</link>
+      <link>https://henrik-farre.github.io/linux/software/cddvd-burning-and-working-with-iso-files/</link>
       <pubDate>Thu, 13 Nov 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/software/cddvd-burning-and-working-with-iso-files/</guid>
+      <guid>https://henrik-farre.github.io/linux/software/cddvd-burning-and-working-with-iso-files/</guid>
       <description>
 
 &lt;p&gt;Some handy command line tools to burn CDs/DVDs and work with .iso files:&lt;/p&gt;
@@ -165,86 +167,115 @@ unused devices: &amp;lt;none&amp;gt;&lt;/pre&gt;
     
     <item>
       <title>zsh, bash, screen and urxvt title</title>
-      <link>http://hugo.rockhopper.hf/linux/software/zsh-bash-screen-and-urxvt-title/</link>
+      <link>https://henrik-farre.github.io/linux/software/zsh-bash-screen-and-urxvt-title/</link>
       <pubDate>Wed, 05 Nov 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/software/zsh-bash-screen-and-urxvt-title/</guid>
+      <guid>https://henrik-farre.github.io/linux/software/zsh-bash-screen-and-urxvt-title/</guid>
       <description>&lt;p&gt;I use both the zsh and bash shell, and most of the time I run them in screen. This happens in my favourite terminal: urxvt (aka rxvt-unicode).&lt;/p&gt;
 
 &lt;p&gt;I have a pretty consistence terminal title in both shells. I use hostname[last part of current path]:&lt;/p&gt;
 
-&lt;p&gt;[&lt;img src=&#34;https://rockhopper.dk/wp-content/uploads/2008/11/zsh_screen_urxvt-300x178.jpg&#34; alt=&#34;&#34; title=&#34;Zsh in screen in urxvt&#34; width=&#34;300&#34; height=&#34;178&#34; class=&#34;alignnone size-medium wp-image-100&#34; srcset=&#34;http://rockhopper.hf/wp-content/uploads/2008/11/zsh_screen_urxvt-300x178.jpg 300w, http://rockhopper.hf/wp-content/uploads/2008/11/zsh_screen_urxvt.jpg 654w&#34; sizes=&#34;(max-width: 300px) 100vw, 300px&#34; /&gt;][1]&lt;/p&gt;
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/zsh_screen_urxvt-300x178.jpg&#34;
+        title=&#34;Zsh in screen in urxvt&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/zsh_screen_urxvt-300x178.jpg&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;Zsh in screen in urxvt&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
 
 &lt;p&gt;I have the following in my ~/.zsh:&lt;/p&gt;
 
-&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt; &lt;span class=&#34;co1&#34;&gt;${TERM}&lt;/span&gt; == &lt;span class=&#34;st0&#34;&gt;&#34;screen-bce&#34;&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;||&lt;/span&gt; &lt;span class=&#34;co1&#34;&gt;${TERM}&lt;/span&gt; == &lt;span class=&#34;st0&#34;&gt;&#34;screen&#34;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;; &lt;span class=&#34;kw1&#34;&gt;then&lt;/span&gt;
-  precmd &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt; print &lt;span class=&#34;re5&#34;&gt;-Pn&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;\033k\033\134\033k%m[%1d]\033\134&#34;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;
-  preexec &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt; print &lt;span class=&#34;re5&#34;&gt;-Pn&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;\033k\033\134\033k%m[$1]\033\134&#34;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;
-&lt;span class=&#34;kw1&#34;&gt;else&lt;/span&gt;
-  precmd &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt; print &lt;span class=&#34;re5&#34;&gt;-Pn&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;\e]0;%n@%m: %~\a&#34;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;
-  preexec &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt; print &lt;span class=&#34;re5&#34;&gt;-Pn&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;\e]0;%n@%m: $1\a&#34;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;
-&lt;span class=&#34;kw1&#34;&gt;fi&lt;/span&gt;
-&lt;span class=&#34;re2&#34;&gt;PS1&lt;/span&gt;=$&lt;span class=&#34;st_h&#34;&gt;&#39;%{\e[0;32m%}%m%{\e[0m%}:%~&amp;gt; &#39;&lt;/span&gt;
-&lt;span class=&#34;kw3&#34;&gt;export&lt;/span&gt; PS1&lt;/pre&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;TERM&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;screen-bce&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;||&lt;/span&gt; &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;TERM&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;screen&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+  precmd &lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\033k\033\134\033k%m[%1d]\033\134&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+  preexec &lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\033k\033\134\033k%m[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;]\033\134&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
+  precmd &lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\e]0;%n@%m: %~\a&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+  preexec &lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\e]0;%n@%m: &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;\a&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;PS1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;$&amp;#39;%{\e[0;32m%}%m%{\e[0m%}:%~&amp;gt; &amp;#39;&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; PS1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;My ~/.bashrc:&lt;/p&gt;
 
-&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;re2&#34;&gt;PROMPT_COMMAND&lt;/span&gt;=&lt;span class=&#34;st_h&#34;&gt;&#39;echo -ne &#34;\033]0;${USER}@${HOSTNAME}: ${PWD}\007&#34;&#39;&lt;/span&gt;
-&lt;span class=&#34;re2&#34;&gt;PS1&lt;/span&gt;=&lt;span class=&#34;st_h&#34;&gt;&#39;\[\033[0;32m\]\h\[\033[00m\]:\w&amp;gt; &#39;&lt;/span&gt;
-&lt;span class=&#34;kw3&#34;&gt;export&lt;/span&gt; PS1 PROMPT_COMMAND&lt;/pre&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;PROMPT_COMMAND&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;echo -ne &amp;quot;\033]0;${USER}@${HOSTNAME}: ${PWD}\007&amp;quot;&amp;#39;&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;PS1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;\[\033[0;32m\]\h\[\033[00m\]:\w&amp;gt; &amp;#39;&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; PS1 PROMPT_COMMAND
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;And finally my ~/.screenrc&lt;/p&gt;
 
-&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;hardstatus string &lt;span class=&#34;st0&#34;&gt;&#34;%h&#34;&lt;/span&gt;
-caption always &lt;span class=&#34;st0&#34;&gt;&#34;%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw} %=%d %M %0c %{g}%H%{-}&#34;&lt;/span&gt;&lt;/pre&gt;
-
-&lt;p&gt;[1]: &lt;a href=&#34;https://rockhopper.dk/wp-content/uploads/2008/11/zsh_screen_urxvt.jpg&#34;&gt;https://rockhopper.dk/wp-content/uploads/2008/11/zsh_screen_urxvt.jpg&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;hardstatus string &lt;span class=&#34;s2&#34;&gt;&amp;quot;%h&amp;quot;&lt;/span&gt;
+caption always &lt;span class=&#34;s2&#34;&gt;&amp;quot;%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw} %=%d %M %0c %{g}%H%{-}&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Fast nagios exim mail queue plugin replacement</title>
-      <link>http://hugo.rockhopper.hf/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/</link>
+      <link>https://henrik-farre.github.io/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/</link>
       <pubDate>Sat, 26 Jul 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/</guid>
-      <description>&lt;p&gt;We had a problem with the nagios check_mailq plugin at [work][1], it kept timing out. So I wrote a simple bash script (instead of 610 lines of perl) which is &amp;#8220;compatible&amp;#8221; with check_mailq (supports the same arguments) which uses &amp;#8220;exim4&amp;#8221; and is very quick. Just drop it in /usr/local/bin/check_mailq_simple.sh and adjust your nagios conf to use that instead of check_mailq&lt;/p&gt;
+      <guid>https://henrik-farre.github.io/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/</guid>
+      <description>&lt;p&gt;We had a problem with the nagios check_mailq plugin at &lt;a href=&#34;http://www.bellcom.dk&#34;&gt;work&lt;/a&gt;, it kept timing out. So I wrote a simple bash script (instead of 610 lines of perl) which is &amp;#8220;compatible&amp;#8221; with check_mailq (supports the same arguments) which uses &amp;#8220;exim4&amp;#8221; and is very quick. Just drop it in /usr/local/bin/check_mailq_simple.sh and adjust your nagios conf to use that instead of check_mailq&lt;/p&gt;
 
-&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;co0&#34;&gt;#!/bin/bash&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;re2&#34;&gt;WARNING&lt;/span&gt;=&lt;span class=&#34;st0&#34;&gt;&#34;&#34;&lt;/span&gt;
-&lt;span class=&#34;re2&#34;&gt;CRITICAL&lt;/span&gt;=&lt;span class=&#34;st0&#34;&gt;&#34;&#34;&lt;/span&gt;
-&lt;span class=&#34;re2&#34;&gt;MAILER&lt;/span&gt;=&lt;span class=&#34;st0&#34;&gt;&#34;&#34;&lt;/span&gt;
-&lt;span class=&#34;re2&#34;&gt;TIMER&lt;/span&gt;=&lt;span class=&#34;st0&#34;&gt;&#34;&#34;&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;kw1&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kw3&#34;&gt;getopts&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;w:c:M:t&#34;&lt;/span&gt; optionName; &lt;span class=&#34;kw1&#34;&gt;do&lt;/span&gt;
-  &lt;span class=&#34;kw1&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;&lt;span class=&#34;es3&#34;&gt;${optionName}&lt;/span&gt;&#34;&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;in&lt;/span&gt;
-    &lt;span class=&#34;kw2&#34;&gt;w&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;re2&#34;&gt;WARNING&lt;/span&gt;=&lt;span class=&#34;st0&#34;&gt;&#34;&lt;span class=&#34;es3&#34;&gt;${OPTARG}&lt;/span&gt;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
-    c&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;re2&#34;&gt;CRITICAL&lt;/span&gt;=&lt;span class=&#34;st0&#34;&gt;&#34;&lt;span class=&#34;es3&#34;&gt;${OPTARG}&lt;/span&gt;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
-    M&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;re2&#34;&gt;MAILER&lt;/span&gt;=&lt;span class=&#34;st0&#34;&gt;&#34;&lt;span class=&#34;es3&#34;&gt;${OPTARG}&lt;/span&gt;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
-    t&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;re2&#34;&gt;TIMER&lt;/span&gt;=&lt;span class=&#34;st0&#34;&gt;&#34;&lt;span class=&#34;es3&#34;&gt;${OPTARG}&lt;/span&gt;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
-  &lt;span class=&#34;kw1&#34;&gt;esac&lt;/span&gt;
-&lt;span class=&#34;kw1&#34;&gt;done&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;re2&#34;&gt;MAILS_IN_QUEUE&lt;/span&gt;=&lt;span class=&#34;sy0&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;kw2&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;usr&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;sbin&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;exim4 -bpc&lt;span class=&#34;sy0&#34;&gt;`&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt; &lt;span class=&#34;co1&#34;&gt;${MAILS_IN_QUEUE}&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-gt&lt;/span&gt; &lt;span class=&#34;co1&#34;&gt;${CRITICAL}&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;; &lt;span class=&#34;kw1&#34;&gt;then&lt;/span&gt;
-  &lt;span class=&#34;kw3&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;CRITICAL: mailq is &lt;span class=&#34;es3&#34;&gt;${MAILS_IN_QUEUE}&lt;/span&gt; (threshold w = &lt;span class=&#34;es3&#34;&gt;${CRITICAL}&lt;/span&gt;)|unsent=&lt;span class=&#34;es3&#34;&gt;${MAILS_IN_QUEUE}&lt;/span&gt;;&lt;span class=&#34;es3&#34;&gt;${WARNING}&lt;/span&gt;;&lt;span class=&#34;es3&#34;&gt;${CRITICAL}&lt;/span&gt;;0&#34;&lt;/span&gt;
-  &lt;span class=&#34;kw3&#34;&gt;exit&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;2&lt;/span&gt;
-&lt;span class=&#34;kw1&#34;&gt;elif&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt; &lt;span class=&#34;co1&#34;&gt;${MAILS_IN_QUEUE}&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-gt&lt;/span&gt; &lt;span class=&#34;co1&#34;&gt;${WARNING}&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;; &lt;span class=&#34;kw1&#34;&gt;then&lt;/span&gt;
-  &lt;span class=&#34;kw3&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;WARNING: mailq is &lt;span class=&#34;es3&#34;&gt;${MAILS_IN_QUEUE}&lt;/span&gt; (threshold w = &lt;span class=&#34;es3&#34;&gt;${WARNING}&lt;/span&gt;)|unsent=&lt;span class=&#34;es3&#34;&gt;${MAILS_IN_QUEUE}&lt;/span&gt;;&lt;span class=&#34;es3&#34;&gt;${WARNING}&lt;/span&gt;;&lt;span class=&#34;es3&#34;&gt;${CRITICAL}&lt;/span&gt;;0&#34;&lt;/span&gt;
-  &lt;span class=&#34;kw3&#34;&gt;exit&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;1&lt;/span&gt;
-&lt;span class=&#34;kw1&#34;&gt;elif&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt; &lt;span class=&#34;co1&#34;&gt;${MAILS_IN_QUEUE}&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-lt&lt;/span&gt; &lt;span class=&#34;co1&#34;&gt;${WARNING}&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;; &lt;span class=&#34;kw1&#34;&gt;then&lt;/span&gt;
-  &lt;span class=&#34;kw3&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;OK: mailq is &lt;span class=&#34;es3&#34;&gt;${MAILS_IN_QUEUE}&lt;/span&gt; (threshold w = &lt;span class=&#34;es3&#34;&gt;${WARNING}&lt;/span&gt;)|unsent=&lt;span class=&#34;es3&#34;&gt;${MAILS_IN_QUEUE}&lt;/span&gt;;&lt;span class=&#34;es3&#34;&gt;${WARNING}&lt;/span&gt;;&lt;span class=&#34;es3&#34;&gt;${CRITICAL}&lt;/span&gt;;0&#34;&lt;/span&gt;
-  &lt;span class=&#34;kw3&#34;&gt;exit&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt;
-&lt;span class=&#34;kw1&#34;&gt;else&lt;/span&gt;
-  &lt;span class=&#34;kw3&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;ERROR: something did not go right&#34;&lt;/span&gt;
-  &lt;span class=&#34;kw3&#34;&gt;exit&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;2&lt;/span&gt;
-&lt;span class=&#34;kw1&#34;&gt;fi&lt;/span&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;ch&#34;&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span class=&#34;nv&#34;&gt;WARNING&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;CRITICAL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;MAILER&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;TIMER&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;getopts&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;w:c:M:t&amp;quot;&lt;/span&gt; optionName&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;optionName&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt; in
+    w&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;WARNING&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;OPTARG&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+    c&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;CRITICAL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;OPTARG&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+    M&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;MAILER&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;OPTARG&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+    t&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;TIMER&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;OPTARG&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;esac&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;done&lt;/span&gt;
+
+&lt;span class=&#34;nv&#34;&gt;MAILS_IN_QUEUE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;sudo /usr/sbin/exim4 -bpc&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;MAILS_IN_QUEUE&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; -gt &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;CRITICAL&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+  &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;CRITICAL: mailq is &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;MAILS_IN_QUEUE&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; (threshold w = &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;CRITICAL&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;)|unsent=&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;MAILS_IN_QUEUE&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;WARNING&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;CRITICAL&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;;0&amp;quot;&lt;/span&gt;
+  &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt; 2
+&lt;span class=&#34;k&#34;&gt;elif&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;MAILS_IN_QUEUE&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; -gt &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;WARNING&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+  &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;WARNING: mailq is &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;MAILS_IN_QUEUE&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; (threshold w = &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;WARNING&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;)|unsent=&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;MAILS_IN_QUEUE&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;WARNING&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;CRITICAL&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;;0&amp;quot;&lt;/span&gt;
+  &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt; 1
+&lt;span class=&#34;k&#34;&gt;elif&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;MAILS_IN_QUEUE&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; -lt &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;WARNING&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+  &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;OK: mailq is &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;MAILS_IN_QUEUE&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; (threshold w = &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;WARNING&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;)|unsent=&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;MAILS_IN_QUEUE&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;WARNING&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;CRITICAL&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;;0&amp;quot;&lt;/span&gt;
+  &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
+  &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;ERROR: something did not go right&amp;quot;&lt;/span&gt;
+  &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt; 2
+&lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;p&gt;This has been tested on Debian sarge.&lt;/p&gt;
-
-&lt;p&gt;[1]: &lt;a href=&#34;http://www.bellcom.dk&#34;&gt;http://www.bellcom.dk&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

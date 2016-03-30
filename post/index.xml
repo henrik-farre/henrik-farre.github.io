@@ -2,79 +2,81 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Rockhopper.dk</title>
-    <link>http://hugo.rockhopper.hf/post/</link>
+    <link>https://henrik-farre.github.io/post/</link>
     <description>Recent content in Posts on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 12 Jun 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://hugo.rockhopper.hf/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://henrik-farre.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Mouse hover not working in Chrome/Chromium? Solution: stop synergy</title>
-      <link>http://hugo.rockhopper.hf/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/</link>
+      <link>https://henrik-farre.github.io/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/</link>
       <pubDate>Thu, 12 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/</guid>
+      <guid>https://henrik-farre.github.io/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/</guid>
       <description>&lt;p&gt;I had a strange problem: when I was using Chromium (Open source version of Chrome): mouse hover was not working. Click, scroll and so on worked fine, but when the mouse hovered above an element on a webpage nothing happend.&lt;/p&gt;
 
-&lt;p&gt;After googling I found that &lt;a href=&#34;http://synergy-project.org/&#34;&gt;synergy&lt;/a&gt; is the [cause][2], so now I only start synergy when I need it.&lt;/p&gt;
-
-&lt;p&gt;[2]: &lt;a href=&#34;https://www.google.dk/search?q=chrome+hover+synergy&#34;&gt;https://www.google.dk/search?q=chrome+hover+synergy&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After googling I found that &lt;a href=&#34;http://synergy-project.org/&#34;&gt;synergy&lt;/a&gt; is the &lt;a href=&#34;https://www.google.dk/search?q=chrome+hover+synergy&#34;&gt;cause&lt;/a&gt;, so now I only start synergy when I need it.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Multiple profiles in Firefox: tips and tricks</title>
-      <link>http://hugo.rockhopper.hf/linux/multiple-profiles-in-firefox-tips-and-tricks/</link>
+      <link>https://henrik-farre.github.io/linux/multiple-profiles-in-firefox-tips-and-tricks/</link>
       <pubDate>Sun, 08 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/multiple-profiles-in-firefox-tips-and-tricks/</guid>
+      <guid>https://henrik-farre.github.io/linux/multiple-profiles-in-firefox-tips-and-tricks/</guid>
       <description>&lt;p&gt;I have two different profiles for Firefox, one for work, and one for everything else.&lt;/p&gt;
 
 &lt;p&gt;To start Firefox with the correct profile, I have created two different application launchers (.desktop files) in ~/.local/share/applications, one called firefox-work.desktop and the other firefox-home.desktop&lt;/p&gt;
 
 &lt;p&gt;The files contain:&lt;/p&gt;
 
-&lt;pre&gt;[Desktop Entry]
-Name=Firefox Home
-GenericName=Web Browser
-Comment=Browse the World Wide Web
-Exec=/usr/lib/firefox/firefox -P Home -no-remote %u
-Icon=firefox
-Terminal=false
-Type=Application
-MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
-StartupNotify=true
-Categories=Network;WebBrowser;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;[Desktop Entry]&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Firefox Home&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;GenericName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Web Browser&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Comment&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Browse the World Wide Web&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Exec&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;/usr/lib/firefox/firefox -P Home -no-remote %u&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Icon&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;firefox&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Terminal&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;false&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Application&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;MimeType&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;StartupNotify&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;true&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Categories&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Network;WebBrowser;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;p&gt;Replace &amp;#8220;Home&amp;#8221; with the name of your profile.&lt;/p&gt;
 
 &lt;p&gt;In order to open links in the correct profile, I made a small shell script that used xdotool and zenity:&lt;/p&gt;
 
-&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;co0&#34;&gt;#!/bin/sh&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;re2&#34;&gt;PROFILE&lt;/span&gt;=$&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;zenity &lt;span class=&#34;re5&#34;&gt;--list&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--text&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;Open $1 in which profile?&#34;&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--column&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;Profile&#34;&lt;/span&gt; Work Home&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;;
-&amp;nbsp;
-&lt;span class=&#34;kw1&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$PROFILE&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;in&lt;/span&gt;
-  Home&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
-    &lt;span class=&#34;re2&#34;&gt;PID&lt;/span&gt;=$&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;pgrep &lt;span class=&#34;re5&#34;&gt;-f&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;-P Home&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
-    &lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
-  Work&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
-    &lt;span class=&#34;re2&#34;&gt;PID&lt;/span&gt;=$&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;pgrep &lt;span class=&#34;re5&#34;&gt;-f&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;-P Work&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
-    &lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
-  &lt;span class=&#34;sy0&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
-    &lt;span class=&#34;kw3&#34;&gt;exit&lt;/span&gt;
-    &lt;span class=&#34;sy0&#34;&gt;;;&lt;/span&gt;
-&lt;span class=&#34;kw1&#34;&gt;esac&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;co0&#34;&gt;# Avoid &#34;Can&#39;t consume 1 args; are only 0 available. This is a bug.&#34; message: https://github.com/jordansissel/xdotool/issues/14&lt;/span&gt;
-&lt;span class=&#34;co0&#34;&gt;# Pick the last id, as it seems to be the one needed&lt;/span&gt;
-&lt;span class=&#34;re2&#34;&gt;WID&lt;/span&gt;=$&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;xdotool search &lt;span class=&#34;re5&#34;&gt;--any&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--pid&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$PID&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--name&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;random_random_random&#34;&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;tail&lt;/span&gt; -n1&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
-&amp;nbsp;
-xdotool windowactivate &lt;span class=&#34;re5&#34;&gt;--sync&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$WID&lt;/span&gt;
-xdotool key &lt;span class=&#34;re5&#34;&gt;--window&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$WID&lt;/span&gt; ctrl+t
-xdotool key &lt;span class=&#34;re5&#34;&gt;--window&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$WID&lt;/span&gt; ctrl+l
-xdotool &lt;span class=&#34;kw3&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--window&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$WID&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;$1&#34;&lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;ch&#34;&gt;#!/bin/sh&lt;/span&gt;
+
+&lt;span class=&#34;nv&#34;&gt;PROFILE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;zenity --list --text &lt;span class=&#34;s2&#34;&gt;&amp;quot;Open &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; in which profile?&amp;quot;&lt;/span&gt; --column &lt;span class=&#34;s2&#34;&gt;&amp;quot;Profile&amp;quot;&lt;/span&gt; Work Home&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$PROFILE&lt;/span&gt; in
+  Home&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;nv&#34;&gt;PID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;pgrep -f -- &lt;span class=&#34;s1&#34;&gt;&amp;#39;-P Home&amp;#39;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+  Work&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;nv&#34;&gt;PID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;pgrep -f -- &lt;span class=&#34;s1&#34;&gt;&amp;#39;-P Work&amp;#39;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+  *&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;esac&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# Avoid &amp;quot;Can&amp;#39;t consume 1 args; are only 0 available. This is a bug.&amp;quot; message: https://github.com/jordansissel/xdotool/issues/14&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# Pick the last id, as it seems to be the one needed&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;WID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;xdotool search --any --pid &lt;span class=&#34;nv&#34;&gt;$PID&lt;/span&gt; --name &lt;span class=&#34;s2&#34;&gt;&amp;quot;random_random_random&amp;quot;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; tail -n1&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;
+
+xdotool windowactivate --sync &lt;span class=&#34;nv&#34;&gt;$WID&lt;/span&gt;
+xdotool key --window &lt;span class=&#34;nv&#34;&gt;$WID&lt;/span&gt; ctrl+t
+xdotool key --window &lt;span class=&#34;nv&#34;&gt;$WID&lt;/span&gt; ctrl+l
+xdotool &lt;span class=&#34;nb&#34;&gt;type&lt;/span&gt; --window &lt;span class=&#34;nv&#34;&gt;$WID&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;The last thing to to is to open exo-preferred-applications and select the script as the preferred &amp;#8220;web-browser&amp;#8221; (remember &amp;#8220;%s&amp;#8221;).&lt;/p&gt;
 </description>
@@ -82,68 +84,69 @@ xdotool &lt;span class=&#34;kw3&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;re
     
     <item>
       <title>zsh prompt/window title: trim middle of path</title>
-      <link>http://hugo.rockhopper.hf/linux/zsh-promptwindow-title-trim-middle-of-path/</link>
+      <link>https://henrik-farre.github.io/linux/zsh-promptwindow-title-trim-middle-of-path/</link>
       <pubDate>Tue, 07 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/zsh-promptwindow-title-trim-middle-of-path/</guid>
+      <guid>https://henrik-farre.github.io/linux/zsh-promptwindow-title-trim-middle-of-path/</guid>
       <description>&lt;p&gt;I run zsh in tmux, and sometimes I end up in a deep directory where the path matches that of another window in tmux (for example in my local docker development environment and on the testing/production server). When this happens just seeing the last part of the path as the window title is not enough, like this: &amp;#8230;/sites/all/modules/somemodule.&lt;/p&gt;
 
 &lt;p&gt;So I changed my ~/.zshrc to contain this:&lt;/p&gt;
 
-&lt;pre&gt;####################################################
-# Set title function
-# Used in precmd
-function title() {
-  # escape &#39;%&#39; chars in $1, make nonprintables visible
-  local cmd=${(V)1//\%/\%\%}
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;####################################################&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# Set title function&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# Used in precmd&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; title&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;# escape &amp;#39;%&amp;#39; chars in $1, make nonprintables visible&lt;/span&gt;
+  &lt;span class=&#34;nb&#34;&gt;local&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;cmd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(V)1//&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\%&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\%\%&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;
 
-  # See &#34;Conditional Substrings in Prompts&#34;
-  # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
-  # %X&amp;gt;...&amp;gt;                     : truncate to 40 chars followed by ...
-  # %X(c:true-text:false-text)  : if c &amp;gt; %X show true text, else false text
+  &lt;span class=&#34;c1&#34;&gt;# See &amp;quot;Conditional Substrings in Prompts&amp;quot;&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;# http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;# %X&amp;gt;...&amp;gt;                     : truncate to 40 chars followed by ...&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;# %X(c:true-text:false-text)  : if c &amp;gt; %X show true text, else false text&lt;/span&gt;
 
-  # Truncate cmd to 40
-  cmd=$(print -Pn &#34;%40&amp;gt;...&amp;gt;$cmd&#34; | tr -d &#34;\n&#34;)
+  &lt;span class=&#34;c1&#34;&gt;# Truncate cmd to 40&lt;/span&gt;
+  &lt;span class=&#34;nv&#34;&gt;cmd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;%40&amp;gt;...&amp;gt;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$cmd&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; tr -d &lt;span class=&#34;s2&#34;&gt;&amp;quot;\n&amp;quot;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;
 
-  case $TERM in
-    screen|screen-bce|screen-256color|screen-256color-bce)
-      if [[ -z $SSH_TTY ]]; then
-        #print -Pn &#34;\ek%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\e\\&#34;
-        # if c (current path with prefix replace, aka ~) is larger than 7, 
-        # show first 3 parts, then ... and then last 3 parts, else just %~
-        print -Pn &#34;\ek%7(c:%-3~/.../%3~:%~) $cmd\e\\&#34;
-      else
-        # With user/hostname
-        print -Pn &#34;\ek%m:%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\e\\&#34;
-      fi
-      ;;
-    xterm*|rxvt*)
-      # plain xterm title
-      if [[ -z $SSH_TTY ]]; then
-        print -Pn &#34;\e]2;%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\a&#34;
-      else
-        # With user/hostname
-        print -Pn &#34;\e]2;%n@%m:%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\a&#34;
-      fi
-      ;;
-  esac
-}
+  &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$TERM&lt;/span&gt; in
+    screen&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;screen-bce&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;screen-256color&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;screen-256color-bce&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; -z &lt;span class=&#34;nv&#34;&gt;$SSH_TTY&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;#print -Pn &amp;quot;\ek%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\e\\&amp;quot;&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;# if c (current path with prefix replace, aka ~) is larger than 7,&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;# show first 3 parts, then ... and then last 3 parts, else just %~&lt;/span&gt;
+        print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\ek%7(c:%-3~/.../%3~:%~) &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$cmd&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;\e\\&amp;quot;&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;# With user/hostname&lt;/span&gt;
+        print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\ek%m:%40&amp;lt;...&amp;lt;%~&amp;gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$cmd&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;\e\\&amp;quot;&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+      &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+    xterm*&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;rxvt*&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+      &lt;span class=&#34;c1&#34;&gt;# plain xterm title&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; -z &lt;span class=&#34;nv&#34;&gt;$SSH_TTY&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+        print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\e]2;%40&amp;lt;...&amp;lt;%~&amp;gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$cmd&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;\a&amp;quot;&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;# With user/hostname&lt;/span&gt;
+        print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\e]2;%n@%m:%40&amp;lt;...&amp;lt;%~&amp;gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$cmd&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;\a&amp;quot;&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+      &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;esac&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 
-####################################################
-# Window title
-# precmd is called just before the prompt is printed
-function precmd() { 
-  title &#34;&#34; 
-  # Don&#39;t run vcs_info if remote shell
-  if [[ -z $SSH_TTY ]]; then
-    vcs_info
-  fi
-}
-# preexec is called just before any command line is executed
-function preexec() { 
-  title &#34;$1&#34;
-}
-&lt;/pre&gt;
+&lt;span class=&#34;c1&#34;&gt;####################################################&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# Window title&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# precmd is called just before the prompt is printed&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; precmd&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+  title &lt;span class=&#34;s2&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;# Don&amp;#39;t run vcs_info if remote shell&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; -z &lt;span class=&#34;nv&#34;&gt;$SSH_TTY&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+    vcs_info
+  &lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# preexec is called just before any command line is executed&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; preexec&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+  title &lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;p&gt;This creates the following window title: ~/Work/docker/&amp;#8230;/all/modules/somemodule. The magic happens by saying %7(c:%-3~/&amp;#8230;/%3~:%~) which means: if &amp;#8220;c&amp;#8221;, which contains the entire path after prefix has been replaced -&amp;gt; /home/username to ~, is larger than 7, show the 3 first directories, then &amp;#8230; and finally the last 3 directories.&lt;/p&gt;
 
@@ -153,47 +156,49 @@ function preexec() {
     
     <item>
       <title>Docker and PHP xdebug</title>
-      <link>http://hugo.rockhopper.hf/linux/docker-and-php-xdebug/</link>
+      <link>https://henrik-farre.github.io/linux/docker-and-php-xdebug/</link>
       <pubDate>Sat, 04 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/docker-and-php-xdebug/</guid>
-      <description>&lt;p&gt;I have switched from using Vagrant to Docker as my local development environment, and I&amp;#8217;m still mentally trying to switch &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
+      <guid>https://henrik-farre.github.io/linux/docker-and-php-xdebug/</guid>
+      <description>&lt;p&gt;I have switched from using Vagrant to Docker as my local development environment, and I&amp;#8217;m still mentally trying to switch :)&lt;/p&gt;
 
 &lt;p&gt;To use the &lt;a href=&#34;https://github.com/joonty/vdebug&#34;&gt;vdebug plugin&lt;/a&gt; in Vim I have set xdebug up inside the container as follows:&lt;/p&gt;
 
 &lt;p&gt;/etc/php5/conf.d/20-xdebug.ini (Debian wheezy)&lt;/p&gt;
 
-&lt;pre&gt;zend_extension=/usr/lib/php5/20100525/xdebug.so
-xdebug.remote_enable=1
-xdebug.remote_autostart=0
-xdebug.remote_connect_back=1
-xdebug.remote_port=9000&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;zend_extension&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;/usr/lib/php5/20100525/xdebug.so&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;xdebug.remote_enable&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;xdebug.remote_autostart&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;0&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;xdebug.remote_connect_back&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;xdebug.remote_port&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;9000&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;p&gt;And in my ~/.vimrc I have these vdebug settings:&lt;/p&gt;
 
-&lt;pre&gt;let g:vdebug_options = {&#34;path_maps&#34;: {&#34;/var/www&#34;: &#34;/home/username/Localdev&#34;}, \
-&#34;break_on_open&#34;: 0, &#34;watch_window_style&#34;: &#34;compact&#34;, \
-&#34;server&#34; : &#34;172.17.42.1&#34;}&lt;/pre&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-vim&#34; data-lang=&#34;vim&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;g&lt;/span&gt;:vdebug_options &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; {&lt;span class=&#34;s2&#34;&gt;&amp;quot;path_maps&amp;quot;&lt;/span&gt;: {&lt;span class=&#34;s2&#34;&gt;&amp;quot;/var/www&amp;quot;&lt;/span&gt;: &lt;span class=&#34;s2&#34;&gt;&amp;quot;/home/username/Localdev&amp;quot;&lt;/span&gt;}&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; \
+&lt;span class=&#34;c&#34;&gt;&amp;quot;break_on_open&amp;quot;: 0, &amp;quot;watch_window_style&amp;quot;: &amp;quot;compact&amp;quot;, \&lt;/span&gt;
+&lt;span class=&#34;c&#34;&gt;&amp;quot;server&amp;quot; : &amp;quot;172.17.42.1&amp;quot;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;172.17.42.1 is the ip of the bridge created by docker, it can be found by using ip addr and looking for the &amp;#8220;docker0&amp;#8221; interface.&lt;/p&gt;
 
-&lt;p&gt;I create the xdebug ini file in my Dockerfile, see my [Docker repository][2]&lt;/p&gt;
-
-&lt;p&gt;[2]: &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;https://github.com/henrik-farre/docker&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I create the xdebug ini file in my Dockerfile, see my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;Docker repository&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>HTPC/NAS for watching Netflix on Linux part 1: the hardware</title>
-      <link>http://hugo.rockhopper.hf/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</link>
+      <link>https://henrik-farre.github.io/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</link>
       <pubDate>Wed, 13 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</guid>
+      <guid>https://henrik-farre.github.io/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</guid>
       <description>
 
 &lt;p&gt;I decided to build a new HTPC/NAS in order to watch &lt;a href=&#34;http://www.netflix.com&#34;&gt;Netflix&lt;/a&gt; (using &lt;a href=&#34;https://wiki.archlinux.org/index.php/Pipelight&#34;&gt;pipelight&lt;/a&gt;) on Linux, and combine two older machines into one.&lt;/p&gt;
 
-&lt;p&gt;My old HTPC was based on a 1.6GHz AMD Sempron from 2007 and a Nvidia GeForce N210. While it played Full HD content fine using &lt;a href=&#34;https://wiki.archlinux.org/index.php/VDPAU&#34;&gt;vdpau&lt;/a&gt;, it was not able to handle Netflix using pipelight. A second machine with a Intel Atom CPU was used to store all the multimedia and host MythTV.&lt;/p&gt;
+&lt;p&gt;My old HTPC was based on a 1.6GHz AMD Sempron from 2007 and a Nvidia GeForce N210. While it played Full HD content fine using &lt;a href=&#34;https://wiki.archlinux.org/index.php/VDPAU&#34;&gt;vdpau&lt;/a&gt;, it was not able to handle Netflix using pipelight. A second machine with a Intel Atom CPU was used to store all the multimedia and host MythTV.&lt;/p&gt;
 
 &lt;p&gt;Specifications of the new machine are:&lt;/p&gt;
 
@@ -264,18 +269,16 @@ xdebug.remote_port=9000&lt;/pre&gt;
 
 &lt;h2 id=&#34;case:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Case&lt;/h2&gt;
 
-&lt;p&gt;First revision [Antec Sonata]&lt;a href=&#34;does not even exist on Antec&amp;amp;#8217;s page any more&#34;&gt;12&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;[12]: &lt;a href=&#34;http://techreport.com/review/6247/antec-sonata-atx-case&#34;&gt;http://techreport.com/review/6247/antec-sonata-atx-case&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;First revision &lt;a href=&#34;http://techreport.com/review/6247/antec-sonata-atx-case&#34;&gt;Antec Sonata&lt;/a&gt; (does not even exist on Antec&amp;#8217;s page any more)&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>UEFI booting Arch Linux on a HP ProBook 6360b</title>
-      <link>http://hugo.rockhopper.hf/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</link>
+      <link>https://henrik-farre.github.io/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</link>
       <pubDate>Sun, 17 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</guid>
+      <guid>https://henrik-farre.github.io/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</guid>
       <description>
 
 &lt;p&gt;As I&amp;#8217;ve just got a new Samsung 840 Pro Series 256GB SSD for my work laptop (HP ProBook 6360b), I wanted to try switching from BIOS booting to UEFI.&lt;/p&gt;
@@ -313,7 +316,7 @@ xdebug.remote_port=9000&lt;/pre&gt;
 
 &lt;h2 id=&#34;installing-the-bootloader:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Installing the bootloader&lt;/h2&gt;
 
-&lt;p&gt;I tried rEFInd, gummiboot, grub2 and just using the kernel EFI stub support. Nothing worked. After reading [UEFI Booting 64-bit Redhat Enterprise Linux 6][3] I figured out that HPs firmware only allows you to boot from &amp;#8220;OS bootloader&amp;#8221;, which means that it will only boot from \EFI\BOOT\BOOTX64.EFI. So I installed grub2 using these commands (/dev/sda1 is mounted at /boot/efi):&lt;/p&gt;
+&lt;p&gt;I tried rEFInd, gummiboot, grub2 and just using the kernel EFI stub support. Nothing worked. After reading &lt;a href=&#34;http://blog.fpmurphy.com/2010/09/uefi-booting-64-bit-redhat-enterprise-linux-6.html&#34;&gt;UEFI Booting 64-bit Redhat Enterprise Linux 6&lt;/a&gt; I figured out that HPs firmware only allows you to boot from &amp;#8220;OS bootloader&amp;#8221;, which means that it will only boot from \EFI\BOOT\BOOTX64.EFI. So I installed grub2 using these commands (/dev/sda1 is mounted at /boot/efi):&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;grub-install &amp;#8211;target=x86_64-efi &amp;#8211;efi-directory=/boot/efi &amp;#8211;bootloader-id=arch_grub &amp;#8211;recheck&lt;/li&gt;
@@ -324,21 +327,17 @@ xdebug.remote_port=9000&lt;/pre&gt;
 
 &lt;h1 id=&#34;conclusion:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Conclusion&lt;/h1&gt;
 
-&lt;p&gt;I can&amp;#8217;t say that that the time I used to get UEFI booting working was time well spend, nothing magic happens when booting using UEFI compared to legacy BIOS, but at least I&amp;#8217;m not using anything that is labelled &amp;#8220;legacy&amp;#8221; &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:-)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
-&lt;p&gt;[3]: &lt;a href=&#34;http://blog.fpmurphy.com/2010/09/uefi-booting-64-bit-redhat-enterprise-linux-6.html&#34;&gt;http://blog.fpmurphy.com/2010/09/uefi-booting-64-bit-redhat-enterprise-linux-6.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I can&amp;#8217;t say that that the time I used to get UEFI booting working was time well spend, nothing magic happens when booting using UEFI compared to legacy BIOS, but at least I&amp;#8217;m not using anything that is labelled &amp;#8220;legacy&amp;#8221; :)&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Installing CyanogenMod 7.1 on a Sony Ericsson Xperia Arc (LT15i)</title>
-      <link>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/</link>
+      <link>https://henrik-farre.github.io/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/</link>
       <pubDate>Tue, 03 Apr 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/</guid>
-      <description>&lt;p&gt;Although the instructions for upgrading the Sony Ericsson Xperia Arc (not the new S version) are &lt;a title=&#34;Sony Ericsson Xperia Arc: Full Update Guide&#34; href=&#34;http://wiki.cyanogenmod.com/wiki/Sony_Ericsson_Xperia_Arc:_Full_Update_Guide&#34; target=&#34;_blank&#34;&gt;pretty detailed&lt;/a&gt; there are some twists that are not documented:&lt;/p&gt;
+      <guid>https://henrik-farre.github.io/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/</guid>
+      <description>&lt;p&gt;Although the instructions for upgrading the Sony Ericsson Xperia Arc (not the new S version) are &lt;a title=&#34;Sony Ericsson Xperia Arc: Full Update Guide&#34; href=&#34;http://wiki.cyanogenmod.com/wiki/Sony_Ericsson_Xperia_Arc:_Full_Update_Guide&#34; target=&#34;_blank&#34;&gt;pretty detailed&lt;/a&gt; there are some twists that are not documented:&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;You need to upgrade to the latests official Sony Ericsson rom (currently &amp;#8220;4.0.2.A.0.62 Generic Global World&amp;#8221; ), you can find links in this &lt;a title=&#34;ARC/ARC S (ROOT.FTF&amp;.IMG)4.0.2.A.0.62 Generic Global World+Flashtool+Ringtones+Other&#34; href=&#34;http://forum.xda-developers.com/showthread.php?t=1330314&#34; target=&#34;_blank&#34;&gt;xda developers thread&lt;/a&gt;, else the phone will not be able to unlock the SIM card&lt;/li&gt;
@@ -352,13 +351,13 @@ xdebug.remote_port=9000&lt;/pre&gt;
     
     <item>
       <title>Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1)</title>
-      <link>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/</link>
+      <link>https://henrik-farre.github.io/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/</link>
       <pubDate>Sat, 19 Jun 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/</guid>
+      <guid>https://henrik-farre.github.io/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/</guid>
       <description>
 
-&lt;p&gt;My ADP1 has been running Android 1.6 (Cyanogenmod 4.2.x) for quite a while now, and I was exited to see that it would be possible to run Android 2.1 on it thanks to Cyanogen   &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;This guide is a digest of information found on Cyanogen&amp;#8217;s wiki, like: &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Full_Update_Guide_-_ADP1_Firmware_to_CyanogenMod&#34;&gt;ADP1 Firmware to CyanogenMod&lt;/a&gt;, please consult the wiki for up todate information and warnings &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;My ADP1 has been running Android 1.6 (Cyanogenmod 4.2.x) for quite a while now, and I was exited to see that it would be possible to run Android 2.1 on it thanks to Cyanogen :). This guide is a digest of information found on Cyanogen&amp;#8217;s wiki, like: &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Full_Update_Guide_-_ADP1_Firmware_to_CyanogenMod&#34;&gt;ADP1 Firmware to CyanogenMod&lt;/a&gt;, please consult the wiki for up todate information and warnings :)&lt;/p&gt;
 
 &lt;h2 id=&#34;prerequisite:8dd91434cb3dabb8ad3f5975fe4ac3b3&#34;&gt;Prerequisite&lt;/h2&gt;
 
@@ -368,7 +367,7 @@ xdebug.remote_port=9000&lt;/pre&gt;
 &lt;li&gt;&lt;a href=&#34;http://forum.xda-developers.com/showpost.php?p=4647751&amp;amp;postcount=1&#34;&gt;RA recovery for dream&lt;/a&gt; I use version 1.7.0&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/DangerSPL_and_CM_5_for_Dream&#34;&gt;DangerSPL&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Latest_version#ERE36B_Google_addon_for_G1.2FDream.2FSapphire&#34;&gt;Google apps for Cyanogen&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;[Lateste Cyanogen 5.0.x for dream][5]&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Latest_version#Current_Stable_Version_2&#34;&gt;Lateste Cyanogen 5.0.x for dream&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;install-recovery-image:8dd91434cb3dabb8ad3f5975fe4ac3b3&#34;&gt;Install recovery image&lt;/h2&gt;
@@ -376,19 +375,19 @@ xdebug.remote_port=9000&lt;/pre&gt;
 &lt;p&gt;Based on &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Full_Update_Guide_-_ADP1_Firmware_to_CyanogenMod&#34;&gt;Full Update Guide &amp;#8211; ADP1 Firmware to CyanogenMod&lt;/a&gt;&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Boot the phone into fastboot mode by holding the BACK  button while pressing the power button&lt;/li&gt;
+&lt;li&gt;Boot the phone into fastboot mode by holding the BACK button while pressing the power button&lt;/li&gt;
 &lt;li&gt;On your computer run the following commands:&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;pre&gt;./fastboot device #check if the phone is available
 ./fastboot flash recovery recovery-RA-dream-v1.7.0.img
-./fastboot reboot
+./fastboot reboot&lt;/pre&gt;
 
-&lt;a href=&#34;http://android-dls.com/wiki/index.php?title=Fastboot&#34;&gt;More information about fastboot&lt;/a&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;http://android-dls.com/wiki/index.php?title=Fastboot&#34;&gt;More information about fastboot&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;install-bootloader:8dd91434cb3dabb8ad3f5975fe4ac3b3&#34;&gt;Install bootloader&lt;/h2&gt;
 
-&lt;p&gt;In order to run Android 2.1 you need to replace the bootloader with one called &amp;#8220;DangerSPL&amp;#8221;, and there is a reason it is called &amp;#8220;Danger&amp;#8221;  &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;please read &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/DangerSPL_and_CM_5_for_Dream&#34;&gt;DangerSPL and CM 5 for Dream&lt;/a&gt; and read the warnings and prerequisites.&lt;/p&gt;
+&lt;p&gt;In order to run Android 2.1 you need to replace the bootloader with one called &amp;#8220;DangerSPL&amp;#8221;, and there is a reason it is called &amp;#8220;Danger&amp;#8221; :) please read &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/DangerSPL_and_CM_5_for_Dream&#34;&gt;DangerSPL and CM 5 for Dream&lt;/a&gt; and read the warnings and prerequisites.&lt;/p&gt;
 
 &lt;p&gt;Copy the files to the root of your SD card:&lt;/p&gt;
 
@@ -420,27 +419,25 @@ xdebug.remote_port=9000&lt;/pre&gt;
 &lt;li&gt;Reboot (takes awhile to boot)&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;If all went well, you should be able to enter your PIN number and enjoy Android 2.1 &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;If all went well, you should be able to enter your PIN number and enjoy Android 2.1 :)&lt;/p&gt;
 
 &lt;div id=&#34;_mcePaste&#34; style=&#34;position: absolute; left: -10000px; top: 202px; width: 1px; height: 1px; overflow: hidden;&#34;&gt;
   &lt;h1 id=&#34;firstHeading&#34; class=&#34;firstHeading&#34;&gt;
     DangerSPL and CM 5 for Dream
   &lt;/h1&gt;
 &lt;/div&gt;
-
-&lt;p&gt;[5]: &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Latest_version#Current_Stable_Version_2&#34;&gt;http://wiki.cyanogenmod.com/index.php/Latest_version#Current_Stable_Version_2&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>AnySee E30 C Plus &#43; MythTV</title>
-      <link>http://hugo.rockhopper.hf/linux/software/mythtv/anysee-e30-c-plus-mythtv/</link>
+      <link>https://henrik-farre.github.io/linux/software/mythtv/anysee-e30-c-plus-mythtv/</link>
       <pubDate>Sat, 29 May 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/software/mythtv/anysee-e30-c-plus-mythtv/</guid>
+      <guid>https://henrik-farre.github.io/linux/software/mythtv/anysee-e30-c-plus-mythtv/</guid>
       <description>&lt;p&gt;I had the chance to test &lt;a href=&#34;http://www.anysee.dk/products.html&#34;&gt;AnySee&amp;#8217;s USB based DVB-C tuner&lt;/a&gt; with MythTV, and I can confirm it &amp;#8220;just works&amp;#8221;.&lt;/p&gt;
 
-&lt;p&gt;To setup the AnySee E30 C Plus just follow my [Terratec Cinergy C PCI HD + MythTV guide][2], the setup is exactly the same. The only thing I noticed is that the signal strength is not as high as it is with the Terratec card, it hovers around 40-50% vs 90-95%.&lt;/p&gt;
+&lt;p&gt;To setup the AnySee E30 C Plus just follow my &lt;a href=&#34;https://rockhopper.dk/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/&#34;&gt;Terratec Cinergy C PCI HD + MythTV guide&lt;/a&gt;, the setup is exactly the same. The only thing I noticed is that the signal strength is not as high as it is with the Terratec card, it hovers around 40-50% vs 90-95%.&lt;/p&gt;
 
 &lt;p&gt;Dmesg output:&lt;/p&gt;
 
@@ -462,44 +459,46 @@ DVB: registering adapter 0 frontend 0 (Philips TDA10023 DVB-C)...
 input: IR-receiver inside an USB DVB receiver as /devices/pci0000:00/0000:00:1d.7/usb2/2-6/input/input10
 dvb-usb: schedule remote query interval to 200 msecs.
 dvb-usb: Anysee DVB USB2.0 successfully initialized and connected.&lt;/pre&gt;
-
-&lt;p&gt;[2]: &lt;a href=&#34;https://rockhopper.dk/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/&#34;&gt;https://rockhopper.dk/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Xfce: auto rotate wallpaper without cron</title>
-      <link>http://hugo.rockhopper.hf/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/</link>
+      <link>https://henrik-farre.github.io/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/</link>
       <pubDate>Sun, 14 Feb 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/</guid>
+      <guid>https://henrik-farre.github.io/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/</guid>
       <description>&lt;p&gt;Since Xfce 4.6 I&amp;#8217;ve had the wallpaper autorotated on my Xfce desktop with the help of a small script and cron. But after an update of some component (probably libxfconf / xfconf) my script did not work anymore and I got this error if I tried to run the script from a console or via ssh:&lt;/p&gt;
 
 &lt;pre&gt;** (process:4150): CRITICAL **: Failed to init libxfconf: Failed to connect to socket /tmp/dbus-xrIvHB4Jas: Connection refused&lt;/pre&gt;
 
 &lt;p&gt;So I made a workaround that did not require cron, and it runs in the current session. I created a .desktop file in ~/.config/autostart with this content:&lt;/p&gt;
 
-&lt;pre&gt;[Desktop Entry]
-Encoding=UTF-8
-Version=0.9.4
-Type=Application
-Name=Rotate bg
-Comment=
-Exec=/home/enrique/bin/xfce-rotatebg.sh &amp;
-StartupNotify=false
-Terminal=false
-Hidden=false&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;[Desktop Entry]&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Encoding&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;UTF-8&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Version&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;0.9.4&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Application&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Rotate bg&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Comment&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Exec&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;/home/enrique/bin/xfce-rotatebg.sh &amp;amp;&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;StartupNotify&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;false&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Terminal&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;false&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;Hidden&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;false&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;p&gt;And the content of the xfce-rotatebg.sh is:&lt;/p&gt;
 
-&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;co0&#34;&gt;#!/bin/sh&lt;/span&gt;
-&lt;span class=&#34;kw1&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;true&lt;/span&gt;; &lt;span class=&#34;kw1&#34;&gt;do&lt;/span&gt;
-&lt;span class=&#34;re2&#34;&gt;PROPERTY&lt;/span&gt;=&lt;span class=&#34;st0&#34;&gt;&#34;/backdrop/screen0/monitor0/image-path&#34;&lt;/span&gt;
-&lt;span class=&#34;re2&#34;&gt;IMAGE_PATH&lt;/span&gt;=&lt;span class=&#34;sy0&#34;&gt;`&lt;/span&gt;xfconf-query &lt;span class=&#34;re5&#34;&gt;-c&lt;/span&gt; xfce4-desktop &lt;span class=&#34;re5&#34;&gt;-p&lt;/span&gt; &lt;span class=&#34;co1&#34;&gt;${PROPERTY}&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;`&lt;/span&gt;
-xfconf-query &lt;span class=&#34;re5&#34;&gt;-c&lt;/span&gt; xfce4-desktop &lt;span class=&#34;re5&#34;&gt;-p&lt;/span&gt; &lt;span class=&#34;co1&#34;&gt;${PROPERTY}&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-s&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;&#34;&lt;/span&gt;
-xfconf-query &lt;span class=&#34;re5&#34;&gt;-c&lt;/span&gt; xfce4-desktop &lt;span class=&#34;re5&#34;&gt;-p&lt;/span&gt; &lt;span class=&#34;co1&#34;&gt;${PROPERTY}&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-s&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;&lt;span class=&#34;es3&#34;&gt;${IMAGE_PATH}&lt;/span&gt;&#34;&lt;/span&gt;
-&lt;span class=&#34;kw2&#34;&gt;sleep&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;600&lt;/span&gt;
-&lt;span class=&#34;kw1&#34;&gt;done&lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;ch&#34;&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; true&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt;
+  &lt;span class=&#34;nv&#34;&gt;PROPERTY&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;/backdrop/screen0/monitor0/image-path&amp;quot;&lt;/span&gt;
+  &lt;span class=&#34;nv&#34;&gt;IMAGE_PATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;xfconf-query -c xfce4-desktop -p &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;PROPERTY&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;
+  xfconf-query -c xfce4-desktop -p &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;PROPERTY&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; -s &lt;span class=&#34;s2&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+  xfconf-query -c xfce4-desktop -p &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;PROPERTY&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; -s &lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;IMAGE_PATH&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;
+  sleep 600
+&lt;span class=&#34;k&#34;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;The sleep command controls the delay between wallpaper changes.&lt;/p&gt;
 
@@ -509,17 +508,17 @@ xfconf-query &lt;span class=&#34;re5&#34;&gt;-c&lt;/span&gt; xfce4-desktop &lt;s
     
     <item>
       <title>Terratec Cinergy C PCI HD &#43; MythTV</title>
-      <link>http://hugo.rockhopper.hf/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/</link>
+      <link>https://henrik-farre.github.io/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/</link>
       <pubDate>Tue, 09 Feb 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/</guid>
+      <guid>https://henrik-farre.github.io/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/</guid>
       <description>
 
 &lt;p&gt;In the middle of December 2009 danish cable TV providor &lt;a href=&#34;http://stofa.dk&#34;&gt;Stofa&lt;/a&gt; made most of the channels in its DVB-C network &lt;a href=&#34;http://www.stofa.dk/showpage.php?mid=368&#34;&gt;available unencoded&lt;/a&gt;. This prompted me to replace my analogue &lt;a href=&#34;https://rockhopper.dk/old/linux/hardware/pvr_cards.html&#34;&gt;Hauppauge WinTV-PVR-500 TV tuner card&lt;/a&gt; (yes the links goes to my old PVR-150 page) with something that could record the digital signal from DVB-C. I looked for a card that had the following characteristic:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Have stable Open Source Linux drivers&lt;/li&gt;
-&lt;li&gt;It should work with &lt;a href=&#34;http://hugo.rockhopper.hf/category/linux/software/mythtv/&#34;&gt;MythTV&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;It should work with &lt;a href=&#34;https://henrik-farre.github.io/category/linux/software/mythtv/&#34;&gt;MythTV&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Fit in a PCI slot (My Asus AT3N7A-I motherboard only has one PCI slot)&lt;/li&gt;
 &lt;li&gt;Be able to record HD TV&lt;/li&gt;
 &lt;li&gt;Not be to expensive&lt;/li&gt;
@@ -593,13 +592,32 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;p&gt;In mythtv-setup enter &amp;#8220;Capture cards&amp;#8221; and select &amp;#8220;New capture card&amp;#8221;.&lt;/p&gt;
 
-&lt;div id=&#34;attachment_230&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_capture_card_add_new.png&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-230 &#34; title=&#34;mythtv_capture_card_add_new&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_capture_card_add_new-150x150.png&#34; alt=&#34;MythTV setup: adding new capture card&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    MythTV setup: adding new capture card
-  &lt;/p&gt;
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/mythtv_capture_card_add_new.png&#34;
+        title=&#34;MythTV setup: adding new capture card&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/mythtv_capture_card_add_new-150x150.png&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;MythTV setup: adding new capture card&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+
 
 &lt;ul&gt;
 &lt;li&gt;Card type: &amp;#8220;DVB DTV capture card (v3.x)&amp;#8221; (DVB Device Number should change to &amp;#8220;/dev/dvb/adapter0/frontend0&amp;#8221; and Frontend ID should change to Philips TDA10023 DVB-C)&lt;/li&gt;
@@ -618,13 +636,32 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;p&gt;In mythtv-setup enter &amp;#8220;Video sources&amp;#8221; and select &amp;#8220;New video source&amp;#8221;.&lt;/p&gt;
 
-&lt;div id=&#34;attachment_234&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_video_source_add_new.png&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-234 &#34; title=&#34;mythtv_video_source_add_new&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_video_source_add_new-150x150.png&#34; alt=&#34;MythTV setup: adding new video source&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    MythTV setup: adding new video source
-  &lt;/p&gt;
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/mythtv_video_source_add_new.png&#34;
+        title=&#34;MythTV setup: adding new video source&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/mythtv_video_source_add_new-150x150.png&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;MythTV setup: adding new video source&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+
 
 &lt;ul&gt;
 &lt;li&gt;Video source name: &amp;#8220;TV Guide&amp;#8221; (whatever you want)&lt;/li&gt;
@@ -637,13 +674,32 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;p&gt;In mythtv-setup enter &amp;#8220;Input connections&amp;#8221; and select the one that matches the DVB device number you got from capture cards.&lt;/p&gt;
 
-&lt;div id=&#34;attachment_237&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_input_connections.png&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-237 &#34; title=&#34;mythtv_input_connections&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_input_connections-150x150.png&#34; alt=&#34;MythTV setup: input connections&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    MythTV setup: input connections
-  &lt;/p&gt;
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/mythtv_input_connections.png&#34;
+        title=&#34;MythTV setup: input connections&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/mythtv_input_connections-150x150.png&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;MythTV setup: input connections&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+
 
 &lt;ul&gt;
 &lt;li&gt;Display Name: TV&lt;/li&gt;
@@ -654,13 +710,32 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;h3 id=&#34;scanning-for-channels:0c6998ea031b046b392950a185a01db3&#34;&gt;Scanning for channels&lt;/h3&gt;
 
-&lt;div id=&#34;attachment_239&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels.png&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-239 &#34; title=&#34;mythtv_scanning_for_channels&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels-150x150.png&#34; alt=&#34;MythTV setup: scanning for channels&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    MythTV setup: scanning for channels
-  &lt;/p&gt;
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/mythtv_scanning_for_channels.png&#34;
+        title=&#34;MythTV setup: scanning for channels&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/mythtv_scanning_for_channels-150x150.png&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;MythTV setup: scanning for channels&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+
 
 &lt;ul&gt;
 &lt;li&gt;Desired Services: TV&lt;/li&gt;
@@ -672,23 +747,61 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;p&gt;When you press next MythTV should start scanning:&lt;/p&gt;
 
-&lt;div id=&#34;attachment_244&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels2.png&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-244 &#34; title=&#34;mythtv_scanning_for_channels2&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels2-150x150.png&#34; alt=&#34;MythTV setup: performing the scan&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    MythTV setup: performing the scan
-  &lt;/p&gt;
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/mythtv_scanning_for_channels2.png&#34;
+        title=&#34;MythTV setup: performing the scan&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/mythtv_scanning_for_channels2-150x150.png&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;MythTV setup: performing the scan&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+
 
 &lt;p&gt;This takes a while, and then you should get:&lt;/p&gt;
 
-&lt;div id=&#34;attachment_245&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels_done.png&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-245 &#34; title=&#34;mythtv_scanning_for_channels_done&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels_done-150x150.png&#34; alt=&#34;MythTV setup: channel scanning completed&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    MythTV setup: channel scanning completed
-  &lt;/p&gt;
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/mythtv_scanning_for_channels_done.png&#34;
+        title=&#34;MythTV setup: channel scanning completed&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/mythtv_scanning_for_channels_done-150x150.png&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;MythTV setup: channel scanning completed&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+
 
 &lt;p&gt;Select &amp;#8220;Insert all&amp;#8221; which brings you back to the input connection screen.&lt;/p&gt;
 
@@ -698,7 +811,7 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;p&gt;Here you can see all the found channels and change their names, channel number, and so on. I did not change anything using the channel editor, but went to phpMyAdmin and changed settings like &amp;#8220;Use on air guide&amp;#8221; in one SQL.&lt;/p&gt;
 
-&lt;p&gt;This should be it, you should be able to record now &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This should be it, you should be able to record now :)&lt;/p&gt;
 
 &lt;h2 id=&#34;eit-tv-guide:0c6998ea031b046b392950a185a01db3&#34;&gt;EIT (TV guide)&lt;/h2&gt;
 
@@ -745,24 +858,26 @@ Program Association Table
 
 &lt;p&gt;The first issue I fixed with a small PHP script:&lt;/p&gt;
 
-&lt;pre class=&#34;php codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$mysqli&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;new&lt;/span&gt; mysqli&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;localhost&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;YOUR DB USER&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;YOUR DB PASSWORD&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;mythconverg&#34;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;connect_error&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
-&lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;
-&lt;a href=&#34;http://www.php.net/printf&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;printf&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;Connect failed: &lt;span class=&#34;es6&#34;&gt;%s&lt;/span&gt;&lt;span class=&#34;es1&#34;&gt;\n&lt;/span&gt;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; mysqli_connect_error&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
-&lt;a href=&#34;http://www.php.net/exit&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;exit&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
-&lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;re0&#34;&gt;$result&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;SELECT chanid, serviceid FROM channel&#34;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;kw1&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$row&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$result&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;fetch_assoc&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
-&lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;
-&lt;span class=&#34;re0&#34;&gt;$sql&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/sprintf&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;sprintf&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;UPDATE channel SET xmltvid = &#39;&lt;span class=&#34;es6&#34;&gt;%s&lt;/span&gt;&#39; WHERE chanid = &lt;span class=&#34;es6&#34;&gt;%d&lt;/span&gt;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$row&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#091;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;serviceid&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#093;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;.dvb.guide&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;int&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$row&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#091;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;chanid&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#093;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;re0&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$sql&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
-&lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;re0&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;close&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;kw2&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$mysqli&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;mysqli&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;localhost&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;YOUR DB USER&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;YOUR DB PASSWORD&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;mythconverg&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;connect_error&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;Connect failed: %s&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;mysqli_connect_error&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;exit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;nv&#34;&gt;$result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;SELECT chanid, serviceid FROM channel&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$row&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$result&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;fetch_assoc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;$sql&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;sprintf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;UPDATE channel SET xmltvid = &amp;#39;%s&amp;#39; WHERE chanid = %d&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$row&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;serviceid&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;.dvb.guide&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$row&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;chanid&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
+
+&lt;span class=&#34;nv&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$sql&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;nv&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;close&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+
+&lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;Remember to replace &amp;#8220;YOUR DB USER&amp;#8221; and &amp;#8220;YOUR DB PASSWORD&amp;#8221; with real values.&lt;/p&gt;
 
@@ -790,18 +905,16 @@ mantis_ack_wait (0): Slave RACK Fail !&lt;/pre&gt;
 
 &lt;p&gt;I hope this problem is fixed when the 2.6.33 Linux kernel hits my machine.&lt;/p&gt;
 
-&lt;p&gt;To view the recorded shows I strongly recommend a [Nvidia graphics card that support VDPAU][13].&lt;/p&gt;
-
-&lt;p&gt;[13]: &lt;a href=&#34;http://en.wikipedia.org/wiki/VDPAU&#34;&gt;http://en.wikipedia.org/wiki/VDPAU&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To view the recorded shows I strongly recommend a &lt;a href=&#34;http://en.wikipedia.org/wiki/VDPAU&#34;&gt;Nvidia graphics card that support VDPAU&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Gigabyte GA-MA790FXT-UD5P and Linux</title>
-      <link>http://hugo.rockhopper.hf/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</link>
+      <link>https://henrik-farre.github.io/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</link>
       <pubDate>Sat, 18 Jul 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</guid>
+      <guid>https://henrik-farre.github.io/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</guid>
       <description>
 
 &lt;p&gt;I recently upgraded the hardware of my desktop and here is my experience with the new hardware. The upgrade consists of:&lt;/p&gt;
@@ -819,23 +932,61 @@ mantis_ack_wait (0): Slave RACK Fail !&lt;/pre&gt;
 
 &lt;p&gt;The motherboard with attached CPU cooler fits nicely into my Antec P182.&lt;/p&gt;
 
-&lt;div id=&#34;attachment_213&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/gigabyte_ga-ma790fxt-ud5p_1.jpg&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-213 &#34; title=&#34;gigabyte_ga-ma790fxt-ud5p_1&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/gigabyte_ga-ma790fxt-ud5p_1-150x150.jpg&#34; alt=&#34;gigabyte_ga-ma790fxt-ud5p_1&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    Gigabyte GA-MA790FXT-UD5P mounted in Antec P182
-  &lt;/p&gt;
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/gigabyte_ga-ma790fxt-ud5p_1.jpg&#34;
+        title=&#34;Gigabyte GA-MA790FXT-UD5P mounted in Antec P182&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/gigabyte_ga-ma790fxt-ud5p_1-150x150.jpg&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;Gigabyte GA-MA790FXT-UD5P mounted in Antec P182&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+
 
 &lt;p&gt;The CPU cooler can only be installed on a socket AM3 motherboard in such a way that the fan either blows up (towards the top of the case) or down (towards the PCI-e slots). When the cooler is mounted in this way, it also means that the lowest fins on the heatsink extends over the two first RAM slots. This might not normally cause any problems, but because the Corsair memory modules have headspreaders attached, they are rather tall, preventing them from being placed below the fins. The solution is to place the modules in the last 2 slots. I choose to install the cooler so the fan blows air hot upwards and out of the case&amp;#8217;s top vents.&lt;/p&gt;
 
-&lt;div id=&#34;attachment_214&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/gigabyte_ga-ma790fxt-ud5p_2.jpg&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-214 &#34; title=&#34;gigabyte_ga-ma790fxt-ud5p_2&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/gigabyte_ga-ma790fxt-ud5p_2-150x150.jpg&#34; alt=&#34;gigabyte_ga-ma790fxt-ud5p_2&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    Xigmatek HDT-S1283 Cooler blocking first two RAM slots
-  &lt;/p&gt;
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/gigabyte_ga-ma790fxt-ud5p_2.jpg&#34;
+        title=&#34;Xigmatek HDT-S1283 Cooler blocking first two RAM slots&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/gigabyte_ga-ma790fxt-ud5p_2-150x150.jpg&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;Xigmatek HDT-S1283 Cooler blocking first two RAM slots&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+
 
 &lt;h2 id=&#34;bios:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;BIOS&lt;/h2&gt;
 
@@ -845,22 +996,24 @@ mantis_ack_wait (0): Slave RACK Fail !&lt;/pre&gt;
 
 &lt;p&gt;To match the new hardware I also switched from Arch Linux x686 to Arch Linux x86_64. I have not experienced any crashes or trouble after switching to the new hardware, so the hardware is 100% Linux compatible. There might be problems with older kernels, but I can confirm that it works with 2.6.28 or newer.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Update the 01-Aug-2009: attached [dmesg][5]&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update the 01-Aug-2009: attached &lt;a href=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/dmesg.txt&#34;&gt;dmesg&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;fancontrol-and-sensors:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;Fancontrol and sensors&lt;/h2&gt;
 
 &lt;p&gt;I installed lm_sensors and used pwmconfig to create a /etc/fancontrol file:&lt;/p&gt;
 
-&lt;pre&gt;# Configuration file generated by pwmconfig, changes will be lost
-# cpu : temp2, pwm1, min:35, max:50
-# sys1: temp1, pwm2, min:45, max:50
-INTERVAL=10
-FCTEMPS=hwmon0/device/pwm1=hwmon0/device/temp2_input hwmon0/device/pwm2=hwmon0/device/temp1_input
-FCFANS=hwmon0/device/pwm1=hwmon0/device/fan1_input hwmon0/device/pwm2=hwmon0/device/fan2_input
-MINTEMP=hwmon0/device/pwm1=35 hwmon0/device/pwm2=45
-MAXTEMP=hwmon0/device/pwm1=45 hwmon0/device/pwm2=50
-MINSTART=hwmon0/device/pwm1=150 hwmon0/device/pwm2=150
-MINSTOP=hwmon0/device/pwm1=100 hwmon0/device/pwm2=100&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# Configuration file generated by pwmconfig, changes will be lost&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# cpu : temp2, pwm1, min:35, max:50&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# sys1: temp1, pwm2, min:45, max:50&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;INTERVAL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;10
+&lt;span class=&#34;nv&#34;&gt;FCTEMPS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/temp2_input hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/temp1_input
+&lt;span class=&#34;nv&#34;&gt;FCFANS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/fan1_input hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/fan2_input
+&lt;span class=&#34;nv&#34;&gt;MINTEMP&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;35&lt;/span&gt; hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;45
+&lt;span class=&#34;nv&#34;&gt;MAXTEMP&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;45&lt;/span&gt; hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;50
+&lt;span class=&#34;nv&#34;&gt;MINSTART&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;150&lt;/span&gt; hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;150
+&lt;span class=&#34;nv&#34;&gt;MINSTOP&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;100&lt;/span&gt; hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;100
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;p&gt;On a hot summerday the sensors command outputs:&lt;/p&gt;
 
@@ -900,22 +1053,22 @@ cpu0_vid:   +1.550 V&lt;/pre&gt;
 
 &lt;p&gt;I use the ondemand CPU frequceny scaling governor, so most of the time all four cores run at 800MHz and only switch to 2.6GHz when it is needed. I have put the following in my /etc/rc.local:&lt;/p&gt;
 
-&lt;pre&gt;for i in 0 1 2 3; do
-echo ondemand &amp;gt; /sys/devices/system/cpu/cpu${i}/cpufreq/scaling_governor
-echo 1 &amp;gt;/sys/devices/system/cpu/cpu${i}/cpufreq/ondemand/ignore_nice_load
-done&lt;/pre&gt;
-
-&lt;p&gt;[5]: &lt;a href=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/dmesg.txt&#34;&gt;https://rockhopper.dk/wp-content/uploads/2009/07/dmesg.txt&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; i in &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; 3&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt;
+  &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; ondemand &amp;gt; /sys/devices/system/cpu/cpu&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;/cpufreq/scaling_governor
+  &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &amp;gt;/sys/devices/system/cpu/cpu&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;/cpufreq/ondemand/ignore_nice_load
+&lt;span class=&#34;k&#34;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>How not to restore a Linux software raid</title>
-      <link>http://hugo.rockhopper.hf/linux/software/how-not-to-restore-a-linux-software-raid/</link>
+      <link>https://henrik-farre.github.io/linux/software/how-not-to-restore-a-linux-software-raid/</link>
       <pubDate>Sun, 19 Apr 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/software/how-not-to-restore-a-linux-software-raid/</guid>
-      <description>&lt;p&gt;We had a disk failure on one of our Xen servers at &lt;a href=&#34;http://www.bellcom.dk&#34; title=&#34;Bellcom Open Source ApS&#34;&gt;work&lt;/a&gt; last week, and what we thought would be a quick disk replace, turned into a small nightmare.&lt;/p&gt;
+      <guid>https://henrik-farre.github.io/linux/software/how-not-to-restore-a-linux-software-raid/</guid>
+      <description>&lt;p&gt;We had a disk failure on one of our Xen servers at &lt;a href=&#34;http://www.bellcom.dk&#34;&gt;work&lt;/a&gt; last week, and what we thought would be a quick disk replace, turned into a small nightmare.&lt;/p&gt;
 
 &lt;p&gt;Our setup is fairly &amp;#8220;simple&amp;#8221;: 2 x raid1&amp;#8217;s consisting of sda1/sdb1 (/dev/md0 mounted at /) and sda3/sdb3 (/dev/md1 with LVM on top of it).&lt;/p&gt;
 
@@ -936,7 +1089,7 @@ unused devices: &amp;lt;none&amp;gt;&lt;/pre&gt;
 
 &lt;p&gt;While the raid was syncing there was a lot of disk errors on sda1 and sda3, so we identified sda using its serial number, shutdown the server, replaced the disk, booted and everything looked fine.&lt;/p&gt;
 
-&lt;p&gt;Fast forward to the next day: we started receiving e-mails from customers saying data was missing from their sites, and they where missing data from the day the drive failed&amp;#8230; then it dawned on us: when we readded sda3 it was overridden with the old data from sdb3  &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/frownie.png&#34; alt=&#34;:(&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;. Only one thing to do: restore from backup.&lt;/p&gt;
+&lt;p&gt;Fast forward to the next day: we started receiving e-mails from customers saying data was missing from their sites, and they where missing data from the day the drive failed&amp;#8230; then it dawned on us: when we readded sda3 it was overridden with the old data from sdb3 :(. Only one thing to do: restore from backup.&lt;/p&gt;
 
 &lt;p&gt;Now the question is: why the hell was sda3 marked as failed after the reboot? It was on the good drive&amp;#8230;&lt;/p&gt;
 </description>
@@ -944,10 +1097,10 @@ unused devices: &amp;lt;none&amp;gt;&lt;/pre&gt;
     
     <item>
       <title>Updating the Android Developer Phone1 to v1.1</title>
-      <link>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/</link>
+      <link>https://henrik-farre.github.io/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/</link>
       <pubDate>Tue, 10 Feb 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/</guid>
+      <guid>https://henrik-farre.github.io/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/</guid>
       <description>
 
 &lt;p&gt;I&amp;#8217;ve been putting off upgrading my ADP1 in fear of that I would brick it, but after reading that there now are official update images available I decided to give it a try.&lt;/p&gt;
@@ -1044,7 +1197,7 @@ Press home+back to reboot&lt;/pre&gt;
 
 &lt;h2 id=&#34;new-things-after-the-update:a7d24fea433cc3a9c2cce45be1a10207&#34;&gt;New things after the update&lt;/h2&gt;
 
-&lt;p&gt;2 new applications are installed; &amp;#8220;Voice Dialer&amp;#8221; and &amp;#8220;Voice Search&amp;#8221;. I have not played with them yet so I can&amp;#8217;t really say anything about them &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;2 new applications are installed; &amp;#8220;Voice Dialer&amp;#8221; and &amp;#8220;Voice Search&amp;#8221;. I have not played with them yet so I can&amp;#8217;t really say anything about them :)&lt;/p&gt;
 
 &lt;p&gt;There are a couple of new settings here and there, but I have not noticed anything fancy, so I guess we still have to wait the the mysterious &amp;#8220;cupcake&amp;#8221; update, if such a thing even exists.&lt;/p&gt;
 
@@ -1068,10 +1221,10 @@ Press home+back to reboot&lt;/pre&gt;
     
     <item>
       <title>Android Developer Phone: Mini review</title>
-      <link>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/android-developer-phone-mini-review/</link>
+      <link>https://henrik-farre.github.io/linux/hardware/phone-and-pda/android-developer-phone-mini-review/</link>
       <pubDate>Sat, 24 Jan 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/hardware/phone-and-pda/android-developer-phone-mini-review/</guid>
+      <guid>https://henrik-farre.github.io/linux/hardware/phone-and-pda/android-developer-phone-mini-review/</guid>
       <description>
 
 &lt;p&gt;I have been playing around with my Android Developer Phone (ADP) for about 2 weeks now, and this are my thoughts on it so far.&lt;/p&gt;
@@ -1108,7 +1261,7 @@ Press home+back to reboot&lt;/pre&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://code.google.com/p/connectbot/&#34;&gt;Connectbot&lt;/a&gt;: establish ssh connections to servers, supports ssh keys&lt;/li&gt;
-&lt;li&gt;[AndFTP][4]: upload/download files via ftp/sftp&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.lysesoft.com/products/andftp/&#34;&gt;AndFTP&lt;/a&gt;: upload/download files via ftp/sftp&lt;/li&gt;
 &lt;li&gt;Terminal: gives access to the ADP&amp;#8217;s Linux shell&lt;/li&gt;
 &lt;li&gt;Anycut: create shortcuts to applications or activities like text a specific contact&lt;/li&gt;
 &lt;/ul&gt;
@@ -1135,8 +1288,6 @@ Press home+back to reboot&lt;/pre&gt;
 &lt;h2 id=&#34;overall:e34d9999eee4760eb56defff6b973d08&#34;&gt;Overall&lt;/h2&gt;
 
 &lt;p&gt;Although I have limited experience with smart phones, I really prefer the ADP when I compare it to my friends iPhones or HTC phones running Windows Mobile. My girlfriend also really likes it and is defently going to buy the regular HTC G1 when it hits Denmark.&lt;/p&gt;
-
-&lt;p&gt;[4]: &lt;a href=&#34;http://www.lysesoft.com/products/andftp/&#34;&gt;http://www.lysesoft.com/products/andftp/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

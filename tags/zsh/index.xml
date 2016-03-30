@@ -2,77 +2,78 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Zsh on Rockhopper.dk</title>
-    <link>http://hugo.rockhopper.hf/tags/zsh/</link>
+    <link>https://henrik-farre.github.io/tags/zsh/</link>
     <description>Recent content in Zsh on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 07 Jan 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://hugo.rockhopper.hf/tags/zsh/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://henrik-farre.github.io/tags/zsh/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>zsh prompt/window title: trim middle of path</title>
-      <link>http://hugo.rockhopper.hf/linux/zsh-promptwindow-title-trim-middle-of-path/</link>
+      <link>https://henrik-farre.github.io/linux/zsh-promptwindow-title-trim-middle-of-path/</link>
       <pubDate>Tue, 07 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/zsh-promptwindow-title-trim-middle-of-path/</guid>
+      <guid>https://henrik-farre.github.io/linux/zsh-promptwindow-title-trim-middle-of-path/</guid>
       <description>&lt;p&gt;I run zsh in tmux, and sometimes I end up in a deep directory where the path matches that of another window in tmux (for example in my local docker development environment and on the testing/production server). When this happens just seeing the last part of the path as the window title is not enough, like this: &amp;#8230;/sites/all/modules/somemodule.&lt;/p&gt;
 
 &lt;p&gt;So I changed my ~/.zshrc to contain this:&lt;/p&gt;
 
-&lt;pre&gt;####################################################
-# Set title function
-# Used in precmd
-function title() {
-  # escape &#39;%&#39; chars in $1, make nonprintables visible
-  local cmd=${(V)1//\%/\%\%}
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;####################################################&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# Set title function&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# Used in precmd&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; title&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;# escape &amp;#39;%&amp;#39; chars in $1, make nonprintables visible&lt;/span&gt;
+  &lt;span class=&#34;nb&#34;&gt;local&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;cmd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(V)1//&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\%&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\%\%&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;
 
-  # See &#34;Conditional Substrings in Prompts&#34;
-  # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
-  # %X&amp;gt;...&amp;gt;                     : truncate to 40 chars followed by ...
-  # %X(c:true-text:false-text)  : if c &amp;gt; %X show true text, else false text
+  &lt;span class=&#34;c1&#34;&gt;# See &amp;quot;Conditional Substrings in Prompts&amp;quot;&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;# http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;# %X&amp;gt;...&amp;gt;                     : truncate to 40 chars followed by ...&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;# %X(c:true-text:false-text)  : if c &amp;gt; %X show true text, else false text&lt;/span&gt;
 
-  # Truncate cmd to 40
-  cmd=$(print -Pn &#34;%40&amp;gt;...&amp;gt;$cmd&#34; | tr -d &#34;\n&#34;)
+  &lt;span class=&#34;c1&#34;&gt;# Truncate cmd to 40&lt;/span&gt;
+  &lt;span class=&#34;nv&#34;&gt;cmd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;%40&amp;gt;...&amp;gt;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$cmd&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; tr -d &lt;span class=&#34;s2&#34;&gt;&amp;quot;\n&amp;quot;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;
 
-  case $TERM in
-    screen|screen-bce|screen-256color|screen-256color-bce)
-      if [[ -z $SSH_TTY ]]; then
-        #print -Pn &#34;\ek%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\e\\&#34;
-        # if c (current path with prefix replace, aka ~) is larger than 7, 
-        # show first 3 parts, then ... and then last 3 parts, else just %~
-        print -Pn &#34;\ek%7(c:%-3~/.../%3~:%~) $cmd\e\\&#34;
-      else
-        # With user/hostname
-        print -Pn &#34;\ek%m:%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\e\\&#34;
-      fi
-      ;;
-    xterm*|rxvt*)
-      # plain xterm title
-      if [[ -z $SSH_TTY ]]; then
-        print -Pn &#34;\e]2;%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\a&#34;
-      else
-        # With user/hostname
-        print -Pn &#34;\e]2;%n@%m:%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\a&#34;
-      fi
-      ;;
-  esac
-}
+  &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$TERM&lt;/span&gt; in
+    screen&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;screen-bce&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;screen-256color&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;screen-256color-bce&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; -z &lt;span class=&#34;nv&#34;&gt;$SSH_TTY&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;#print -Pn &amp;quot;\ek%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\e\\&amp;quot;&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;# if c (current path with prefix replace, aka ~) is larger than 7,&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;# show first 3 parts, then ... and then last 3 parts, else just %~&lt;/span&gt;
+        print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\ek%7(c:%-3~/.../%3~:%~) &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$cmd&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;\e\\&amp;quot;&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;# With user/hostname&lt;/span&gt;
+        print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\ek%m:%40&amp;lt;...&amp;lt;%~&amp;gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$cmd&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;\e\\&amp;quot;&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+      &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+    xterm*&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;rxvt*&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+      &lt;span class=&#34;c1&#34;&gt;# plain xterm title&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; -z &lt;span class=&#34;nv&#34;&gt;$SSH_TTY&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+        print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\e]2;%40&amp;lt;...&amp;lt;%~&amp;gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$cmd&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;\a&amp;quot;&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;# With user/hostname&lt;/span&gt;
+        print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\e]2;%n@%m:%40&amp;lt;...&amp;lt;%~&amp;gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$cmd&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;\a&amp;quot;&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+      &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;esac&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 
-####################################################
-# Window title
-# precmd is called just before the prompt is printed
-function precmd() { 
-  title &#34;&#34; 
-  # Don&#39;t run vcs_info if remote shell
-  if [[ -z $SSH_TTY ]]; then
-    vcs_info
-  fi
-}
-# preexec is called just before any command line is executed
-function preexec() { 
-  title &#34;$1&#34;
-}
-&lt;/pre&gt;
+&lt;span class=&#34;c1&#34;&gt;####################################################&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# Window title&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# precmd is called just before the prompt is printed&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; precmd&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+  title &lt;span class=&#34;s2&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;# Don&amp;#39;t run vcs_info if remote shell&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; -z &lt;span class=&#34;nv&#34;&gt;$SSH_TTY&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+    vcs_info
+  &lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# preexec is called just before any command line is executed&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; preexec&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+  title &lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;p&gt;This creates the following window title: ~/Work/docker/&amp;#8230;/all/modules/somemodule. The magic happens by saying %7(c:%-3~/&amp;#8230;/%3~:%~) which means: if &amp;#8220;c&amp;#8221;, which contains the entire path after prefix has been replaced -&amp;gt; /home/username to ~, is larger than 7, show the 3 first directories, then &amp;#8230; and finally the last 3 directories.&lt;/p&gt;
 
@@ -82,40 +83,69 @@ function preexec() {
     
     <item>
       <title>zsh, bash, screen and urxvt title</title>
-      <link>http://hugo.rockhopper.hf/linux/software/zsh-bash-screen-and-urxvt-title/</link>
+      <link>https://henrik-farre.github.io/linux/software/zsh-bash-screen-and-urxvt-title/</link>
       <pubDate>Wed, 05 Nov 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/software/zsh-bash-screen-and-urxvt-title/</guid>
+      <guid>https://henrik-farre.github.io/linux/software/zsh-bash-screen-and-urxvt-title/</guid>
       <description>&lt;p&gt;I use both the zsh and bash shell, and most of the time I run them in screen. This happens in my favourite terminal: urxvt (aka rxvt-unicode).&lt;/p&gt;
 
 &lt;p&gt;I have a pretty consistence terminal title in both shells. I use hostname[last part of current path]:&lt;/p&gt;
 
-&lt;p&gt;[&lt;img src=&#34;https://rockhopper.dk/wp-content/uploads/2008/11/zsh_screen_urxvt-300x178.jpg&#34; alt=&#34;&#34; title=&#34;Zsh in screen in urxvt&#34; width=&#34;300&#34; height=&#34;178&#34; class=&#34;alignnone size-medium wp-image-100&#34; srcset=&#34;http://rockhopper.hf/wp-content/uploads/2008/11/zsh_screen_urxvt-300x178.jpg 300w, http://rockhopper.hf/wp-content/uploads/2008/11/zsh_screen_urxvt.jpg 654w&#34; sizes=&#34;(max-width: 300px) 100vw, 300px&#34; /&gt;][1]&lt;/p&gt;
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/zsh_screen_urxvt-300x178.jpg&#34;
+        title=&#34;Zsh in screen in urxvt&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/zsh_screen_urxvt-300x178.jpg&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;Zsh in screen in urxvt&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
 
 &lt;p&gt;I have the following in my ~/.zsh:&lt;/p&gt;
 
-&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt; &lt;span class=&#34;co1&#34;&gt;${TERM}&lt;/span&gt; == &lt;span class=&#34;st0&#34;&gt;&#34;screen-bce&#34;&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;||&lt;/span&gt; &lt;span class=&#34;co1&#34;&gt;${TERM}&lt;/span&gt; == &lt;span class=&#34;st0&#34;&gt;&#34;screen&#34;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;; &lt;span class=&#34;kw1&#34;&gt;then&lt;/span&gt;
-  precmd &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt; print &lt;span class=&#34;re5&#34;&gt;-Pn&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;\033k\033\134\033k%m[%1d]\033\134&#34;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;
-  preexec &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt; print &lt;span class=&#34;re5&#34;&gt;-Pn&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;\033k\033\134\033k%m[$1]\033\134&#34;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;
-&lt;span class=&#34;kw1&#34;&gt;else&lt;/span&gt;
-  precmd &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt; print &lt;span class=&#34;re5&#34;&gt;-Pn&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;\e]0;%n@%m: %~\a&#34;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;
-  preexec &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt; print &lt;span class=&#34;re5&#34;&gt;-Pn&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;\e]0;%n@%m: $1\a&#34;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;
-&lt;span class=&#34;kw1&#34;&gt;fi&lt;/span&gt;
-&lt;span class=&#34;re2&#34;&gt;PS1&lt;/span&gt;=$&lt;span class=&#34;st_h&#34;&gt;&#39;%{\e[0;32m%}%m%{\e[0m%}:%~&amp;gt; &#39;&lt;/span&gt;
-&lt;span class=&#34;kw3&#34;&gt;export&lt;/span&gt; PS1&lt;/pre&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;TERM&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;screen-bce&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;||&lt;/span&gt; &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;TERM&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;screen&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+  precmd &lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\033k\033\134\033k%m[%1d]\033\134&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+  preexec &lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\033k\033\134\033k%m[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;]\033\134&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
+  precmd &lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\e]0;%n@%m: %~\a&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+  preexec &lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\e]0;%n@%m: &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;\a&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;PS1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;$&amp;#39;%{\e[0;32m%}%m%{\e[0m%}:%~&amp;gt; &amp;#39;&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; PS1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;My ~/.bashrc:&lt;/p&gt;
 
-&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;re2&#34;&gt;PROMPT_COMMAND&lt;/span&gt;=&lt;span class=&#34;st_h&#34;&gt;&#39;echo -ne &#34;\033]0;${USER}@${HOSTNAME}: ${PWD}\007&#34;&#39;&lt;/span&gt;
-&lt;span class=&#34;re2&#34;&gt;PS1&lt;/span&gt;=&lt;span class=&#34;st_h&#34;&gt;&#39;\[\033[0;32m\]\h\[\033[00m\]:\w&amp;gt; &#39;&lt;/span&gt;
-&lt;span class=&#34;kw3&#34;&gt;export&lt;/span&gt; PS1 PROMPT_COMMAND&lt;/pre&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;PROMPT_COMMAND&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;echo -ne &amp;quot;\033]0;${USER}@${HOSTNAME}: ${PWD}\007&amp;quot;&amp;#39;&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;PS1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;\[\033[0;32m\]\h\[\033[00m\]:\w&amp;gt; &amp;#39;&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; PS1 PROMPT_COMMAND
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;And finally my ~/.screenrc&lt;/p&gt;
 
-&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;hardstatus string &lt;span class=&#34;st0&#34;&gt;&#34;%h&#34;&lt;/span&gt;
-caption always &lt;span class=&#34;st0&#34;&gt;&#34;%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw} %=%d %M %0c %{g}%H%{-}&#34;&lt;/span&gt;&lt;/pre&gt;
-
-&lt;p&gt;[1]: &lt;a href=&#34;https://rockhopper.dk/wp-content/uploads/2008/11/zsh_screen_urxvt.jpg&#34;&gt;https://rockhopper.dk/wp-content/uploads/2008/11/zsh_screen_urxvt.jpg&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;hardstatus string &lt;span class=&#34;s2&#34;&gt;&amp;quot;%h&amp;quot;&lt;/span&gt;
+caption always &lt;span class=&#34;s2&#34;&gt;&amp;quot;%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw} %=%d %M %0c %{g}%H%{-}&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 </description>
     </item>
     

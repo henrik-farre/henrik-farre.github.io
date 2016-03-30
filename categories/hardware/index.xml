@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hardware on Rockhopper.dk</title>
-    <link>http://hugo.rockhopper.hf/categories/hardware/</link>
+    <link>https://henrik-farre.github.io/categories/hardware/</link>
     <description>Recent content in Hardware on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Nov 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://hugo.rockhopper.hf/categories/hardware/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://henrik-farre.github.io/categories/hardware/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>HTPC/NAS for watching Netflix on Linux part 1: the hardware</title>
-      <link>http://hugo.rockhopper.hf/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</link>
+      <link>https://henrik-farre.github.io/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</link>
       <pubDate>Wed, 13 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</guid>
+      <guid>https://henrik-farre.github.io/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</guid>
       <description>
 
 &lt;p&gt;I decided to build a new HTPC/NAS in order to watch &lt;a href=&#34;http://www.netflix.com&#34;&gt;Netflix&lt;/a&gt; (using &lt;a href=&#34;https://wiki.archlinux.org/index.php/Pipelight&#34;&gt;pipelight&lt;/a&gt;) on Linux, and combine two older machines into one.&lt;/p&gt;
 
-&lt;p&gt;My old HTPC was based on a 1.6GHz AMD Sempron from 2007 and a Nvidia GeForce N210. While it played Full HD content fine using &lt;a href=&#34;https://wiki.archlinux.org/index.php/VDPAU&#34;&gt;vdpau&lt;/a&gt;, it was not able to handle Netflix using pipelight. A second machine with a Intel Atom CPU was used to store all the multimedia and host MythTV.&lt;/p&gt;
+&lt;p&gt;My old HTPC was based on a 1.6GHz AMD Sempron from 2007 and a Nvidia GeForce N210. While it played Full HD content fine using &lt;a href=&#34;https://wiki.archlinux.org/index.php/VDPAU&#34;&gt;vdpau&lt;/a&gt;, it was not able to handle Netflix using pipelight. A second machine with a Intel Atom CPU was used to store all the multimedia and host MythTV.&lt;/p&gt;
 
 &lt;p&gt;Specifications of the new machine are:&lt;/p&gt;
 
@@ -90,18 +90,16 @@
 
 &lt;h2 id=&#34;case:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Case&lt;/h2&gt;
 
-&lt;p&gt;First revision [Antec Sonata]&lt;a href=&#34;does not even exist on Antec&amp;amp;#8217;s page any more&#34;&gt;12&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;[12]: &lt;a href=&#34;http://techreport.com/review/6247/antec-sonata-atx-case&#34;&gt;http://techreport.com/review/6247/antec-sonata-atx-case&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;First revision &lt;a href=&#34;http://techreport.com/review/6247/antec-sonata-atx-case&#34;&gt;Antec Sonata&lt;/a&gt; (does not even exist on Antec&amp;#8217;s page any more)&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>UEFI booting Arch Linux on a HP ProBook 6360b</title>
-      <link>http://hugo.rockhopper.hf/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</link>
+      <link>https://henrik-farre.github.io/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</link>
       <pubDate>Sun, 17 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</guid>
+      <guid>https://henrik-farre.github.io/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</guid>
       <description>
 
 &lt;p&gt;As I&amp;#8217;ve just got a new Samsung 840 Pro Series 256GB SSD for my work laptop (HP ProBook 6360b), I wanted to try switching from BIOS booting to UEFI.&lt;/p&gt;
@@ -139,7 +137,7 @@
 
 &lt;h2 id=&#34;installing-the-bootloader:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Installing the bootloader&lt;/h2&gt;
 
-&lt;p&gt;I tried rEFInd, gummiboot, grub2 and just using the kernel EFI stub support. Nothing worked. After reading [UEFI Booting 64-bit Redhat Enterprise Linux 6][3] I figured out that HPs firmware only allows you to boot from &amp;#8220;OS bootloader&amp;#8221;, which means that it will only boot from \EFI\BOOT\BOOTX64.EFI. So I installed grub2 using these commands (/dev/sda1 is mounted at /boot/efi):&lt;/p&gt;
+&lt;p&gt;I tried rEFInd, gummiboot, grub2 and just using the kernel EFI stub support. Nothing worked. After reading &lt;a href=&#34;http://blog.fpmurphy.com/2010/09/uefi-booting-64-bit-redhat-enterprise-linux-6.html&#34;&gt;UEFI Booting 64-bit Redhat Enterprise Linux 6&lt;/a&gt; I figured out that HPs firmware only allows you to boot from &amp;#8220;OS bootloader&amp;#8221;, which means that it will only boot from \EFI\BOOT\BOOTX64.EFI. So I installed grub2 using these commands (/dev/sda1 is mounted at /boot/efi):&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;grub-install &amp;#8211;target=x86_64-efi &amp;#8211;efi-directory=/boot/efi &amp;#8211;bootloader-id=arch_grub &amp;#8211;recheck&lt;/li&gt;
@@ -150,27 +148,23 @@
 
 &lt;h1 id=&#34;conclusion:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Conclusion&lt;/h1&gt;
 
-&lt;p&gt;I can&amp;#8217;t say that that the time I used to get UEFI booting working was time well spend, nothing magic happens when booting using UEFI compared to legacy BIOS, but at least I&amp;#8217;m not using anything that is labelled &amp;#8220;legacy&amp;#8221; &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:-)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
-&lt;p&gt;[3]: &lt;a href=&#34;http://blog.fpmurphy.com/2010/09/uefi-booting-64-bit-redhat-enterprise-linux-6.html&#34;&gt;http://blog.fpmurphy.com/2010/09/uefi-booting-64-bit-redhat-enterprise-linux-6.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I can&amp;#8217;t say that that the time I used to get UEFI booting working was time well spend, nothing magic happens when booting using UEFI compared to legacy BIOS, but at least I&amp;#8217;m not using anything that is labelled &amp;#8220;legacy&amp;#8221; :)&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Terratec Cinergy C PCI HD &#43; MythTV</title>
-      <link>http://hugo.rockhopper.hf/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/</link>
+      <link>https://henrik-farre.github.io/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/</link>
       <pubDate>Tue, 09 Feb 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/</guid>
+      <guid>https://henrik-farre.github.io/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/</guid>
       <description>
 
 &lt;p&gt;In the middle of December 2009 danish cable TV providor &lt;a href=&#34;http://stofa.dk&#34;&gt;Stofa&lt;/a&gt; made most of the channels in its DVB-C network &lt;a href=&#34;http://www.stofa.dk/showpage.php?mid=368&#34;&gt;available unencoded&lt;/a&gt;. This prompted me to replace my analogue &lt;a href=&#34;https://rockhopper.dk/old/linux/hardware/pvr_cards.html&#34;&gt;Hauppauge WinTV-PVR-500 TV tuner card&lt;/a&gt; (yes the links goes to my old PVR-150 page) with something that could record the digital signal from DVB-C. I looked for a card that had the following characteristic:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Have stable Open Source Linux drivers&lt;/li&gt;
-&lt;li&gt;It should work with &lt;a href=&#34;http://hugo.rockhopper.hf/category/linux/software/mythtv/&#34;&gt;MythTV&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;It should work with &lt;a href=&#34;https://henrik-farre.github.io/category/linux/software/mythtv/&#34;&gt;MythTV&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Fit in a PCI slot (My Asus AT3N7A-I motherboard only has one PCI slot)&lt;/li&gt;
 &lt;li&gt;Be able to record HD TV&lt;/li&gt;
 &lt;li&gt;Not be to expensive&lt;/li&gt;
@@ -244,13 +238,32 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;p&gt;In mythtv-setup enter &amp;#8220;Capture cards&amp;#8221; and select &amp;#8220;New capture card&amp;#8221;.&lt;/p&gt;
 
-&lt;div id=&#34;attachment_230&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_capture_card_add_new.png&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-230 &#34; title=&#34;mythtv_capture_card_add_new&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_capture_card_add_new-150x150.png&#34; alt=&#34;MythTV setup: adding new capture card&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    MythTV setup: adding new capture card
-  &lt;/p&gt;
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/mythtv_capture_card_add_new.png&#34;
+        title=&#34;MythTV setup: adding new capture card&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/mythtv_capture_card_add_new-150x150.png&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;MythTV setup: adding new capture card&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+
 
 &lt;ul&gt;
 &lt;li&gt;Card type: &amp;#8220;DVB DTV capture card (v3.x)&amp;#8221; (DVB Device Number should change to &amp;#8220;/dev/dvb/adapter0/frontend0&amp;#8221; and Frontend ID should change to Philips TDA10023 DVB-C)&lt;/li&gt;
@@ -269,13 +282,32 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;p&gt;In mythtv-setup enter &amp;#8220;Video sources&amp;#8221; and select &amp;#8220;New video source&amp;#8221;.&lt;/p&gt;
 
-&lt;div id=&#34;attachment_234&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_video_source_add_new.png&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-234 &#34; title=&#34;mythtv_video_source_add_new&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_video_source_add_new-150x150.png&#34; alt=&#34;MythTV setup: adding new video source&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    MythTV setup: adding new video source
-  &lt;/p&gt;
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/mythtv_video_source_add_new.png&#34;
+        title=&#34;MythTV setup: adding new video source&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/mythtv_video_source_add_new-150x150.png&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;MythTV setup: adding new video source&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+
 
 &lt;ul&gt;
 &lt;li&gt;Video source name: &amp;#8220;TV Guide&amp;#8221; (whatever you want)&lt;/li&gt;
@@ -288,13 +320,32 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;p&gt;In mythtv-setup enter &amp;#8220;Input connections&amp;#8221; and select the one that matches the DVB device number you got from capture cards.&lt;/p&gt;
 
-&lt;div id=&#34;attachment_237&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_input_connections.png&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-237 &#34; title=&#34;mythtv_input_connections&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_input_connections-150x150.png&#34; alt=&#34;MythTV setup: input connections&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    MythTV setup: input connections
-  &lt;/p&gt;
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/mythtv_input_connections.png&#34;
+        title=&#34;MythTV setup: input connections&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/mythtv_input_connections-150x150.png&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;MythTV setup: input connections&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+
 
 &lt;ul&gt;
 &lt;li&gt;Display Name: TV&lt;/li&gt;
@@ -305,13 +356,32 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;h3 id=&#34;scanning-for-channels:0c6998ea031b046b392950a185a01db3&#34;&gt;Scanning for channels&lt;/h3&gt;
 
-&lt;div id=&#34;attachment_239&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels.png&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-239 &#34; title=&#34;mythtv_scanning_for_channels&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels-150x150.png&#34; alt=&#34;MythTV setup: scanning for channels&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    MythTV setup: scanning for channels
-  &lt;/p&gt;
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/mythtv_scanning_for_channels.png&#34;
+        title=&#34;MythTV setup: scanning for channels&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/mythtv_scanning_for_channels-150x150.png&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;MythTV setup: scanning for channels&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+
 
 &lt;ul&gt;
 &lt;li&gt;Desired Services: TV&lt;/li&gt;
@@ -323,23 +393,61 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;p&gt;When you press next MythTV should start scanning:&lt;/p&gt;
 
-&lt;div id=&#34;attachment_244&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels2.png&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-244 &#34; title=&#34;mythtv_scanning_for_channels2&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels2-150x150.png&#34; alt=&#34;MythTV setup: performing the scan&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    MythTV setup: performing the scan
-  &lt;/p&gt;
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/mythtv_scanning_for_channels2.png&#34;
+        title=&#34;MythTV setup: performing the scan&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/mythtv_scanning_for_channels2-150x150.png&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;MythTV setup: performing the scan&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+
 
 &lt;p&gt;This takes a while, and then you should get:&lt;/p&gt;
 
-&lt;div id=&#34;attachment_245&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels_done.png&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-245 &#34; title=&#34;mythtv_scanning_for_channels_done&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2010/02/mythtv_scanning_for_channels_done-150x150.png&#34; alt=&#34;MythTV setup: channel scanning completed&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    MythTV setup: channel scanning completed
-  &lt;/p&gt;
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/mythtv_scanning_for_channels_done.png&#34;
+        title=&#34;MythTV setup: channel scanning completed&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/mythtv_scanning_for_channels_done-150x150.png&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;MythTV setup: channel scanning completed&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+
 
 &lt;p&gt;Select &amp;#8220;Insert all&amp;#8221; which brings you back to the input connection screen.&lt;/p&gt;
 
@@ -349,7 +457,7 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;p&gt;Here you can see all the found channels and change their names, channel number, and so on. I did not change anything using the channel editor, but went to phpMyAdmin and changed settings like &amp;#8220;Use on air guide&amp;#8221; in one SQL.&lt;/p&gt;
 
-&lt;p&gt;This should be it, you should be able to record now &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This should be it, you should be able to record now :)&lt;/p&gt;
 
 &lt;h2 id=&#34;eit-tv-guide:0c6998ea031b046b392950a185a01db3&#34;&gt;EIT (TV guide)&lt;/h2&gt;
 
@@ -396,24 +504,26 @@ Program Association Table
 
 &lt;p&gt;The first issue I fixed with a small PHP script:&lt;/p&gt;
 
-&lt;pre class=&#34;php codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$mysqli&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;new&lt;/span&gt; mysqli&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;localhost&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;YOUR DB USER&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;YOUR DB PASSWORD&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;mythconverg&#34;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;connect_error&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
-&lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;
-&lt;a href=&#34;http://www.php.net/printf&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;printf&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;Connect failed: &lt;span class=&#34;es6&#34;&gt;%s&lt;/span&gt;&lt;span class=&#34;es1&#34;&gt;\n&lt;/span&gt;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; mysqli_connect_error&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
-&lt;a href=&#34;http://www.php.net/exit&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;exit&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
-&lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;re0&#34;&gt;$result&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;SELECT chanid, serviceid FROM channel&#34;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;kw1&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$row&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$result&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;fetch_assoc&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
-&lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;
-&lt;span class=&#34;re0&#34;&gt;$sql&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/sprintf&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;sprintf&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;UPDATE channel SET xmltvid = &#39;&lt;span class=&#34;es6&#34;&gt;%s&lt;/span&gt;&#39; WHERE chanid = &lt;span class=&#34;es6&#34;&gt;%d&lt;/span&gt;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$row&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#091;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;serviceid&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#093;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;.dvb.guide&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;int&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$row&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#091;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;chanid&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#093;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;re0&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$sql&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
-&lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;re0&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;close&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
-&amp;nbsp;
-&lt;span class=&#34;kw2&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$mysqli&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;mysqli&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;localhost&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;YOUR DB USER&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;YOUR DB PASSWORD&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;mythconverg&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;connect_error&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;Connect failed: %s&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;mysqli_connect_error&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;exit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;nv&#34;&gt;$result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;SELECT chanid, serviceid FROM channel&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$row&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$result&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;fetch_assoc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;$sql&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;sprintf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;UPDATE channel SET xmltvid = &amp;#39;%s&amp;#39; WHERE chanid = %d&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$row&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;serviceid&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;.dvb.guide&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$row&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;chanid&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
+
+&lt;span class=&#34;nv&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$sql&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;nv&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;close&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+
+&lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;Remember to replace &amp;#8220;YOUR DB USER&amp;#8221; and &amp;#8220;YOUR DB PASSWORD&amp;#8221; with real values.&lt;/p&gt;
 
@@ -441,18 +551,16 @@ mantis_ack_wait (0): Slave RACK Fail !&lt;/pre&gt;
 
 &lt;p&gt;I hope this problem is fixed when the 2.6.33 Linux kernel hits my machine.&lt;/p&gt;
 
-&lt;p&gt;To view the recorded shows I strongly recommend a [Nvidia graphics card that support VDPAU][13].&lt;/p&gt;
-
-&lt;p&gt;[13]: &lt;a href=&#34;http://en.wikipedia.org/wiki/VDPAU&#34;&gt;http://en.wikipedia.org/wiki/VDPAU&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To view the recorded shows I strongly recommend a &lt;a href=&#34;http://en.wikipedia.org/wiki/VDPAU&#34;&gt;Nvidia graphics card that support VDPAU&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Gigabyte GA-MA790FXT-UD5P and Linux</title>
-      <link>http://hugo.rockhopper.hf/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</link>
+      <link>https://henrik-farre.github.io/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</link>
       <pubDate>Sat, 18 Jul 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</guid>
+      <guid>https://henrik-farre.github.io/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</guid>
       <description>
 
 &lt;p&gt;I recently upgraded the hardware of my desktop and here is my experience with the new hardware. The upgrade consists of:&lt;/p&gt;
@@ -470,23 +578,61 @@ mantis_ack_wait (0): Slave RACK Fail !&lt;/pre&gt;
 
 &lt;p&gt;The motherboard with attached CPU cooler fits nicely into my Antec P182.&lt;/p&gt;
 
-&lt;div id=&#34;attachment_213&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/gigabyte_ga-ma790fxt-ud5p_1.jpg&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-213 &#34; title=&#34;gigabyte_ga-ma790fxt-ud5p_1&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/gigabyte_ga-ma790fxt-ud5p_1-150x150.jpg&#34; alt=&#34;gigabyte_ga-ma790fxt-ud5p_1&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    Gigabyte GA-MA790FXT-UD5P mounted in Antec P182
-  &lt;/p&gt;
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/gigabyte_ga-ma790fxt-ud5p_1.jpg&#34;
+        title=&#34;Gigabyte GA-MA790FXT-UD5P mounted in Antec P182&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/gigabyte_ga-ma790fxt-ud5p_1-150x150.jpg&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;Gigabyte GA-MA790FXT-UD5P mounted in Antec P182&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+
 
 &lt;p&gt;The CPU cooler can only be installed on a socket AM3 motherboard in such a way that the fan either blows up (towards the top of the case) or down (towards the PCI-e slots). When the cooler is mounted in this way, it also means that the lowest fins on the heatsink extends over the two first RAM slots. This might not normally cause any problems, but because the Corsair memory modules have headspreaders attached, they are rather tall, preventing them from being placed below the fins. The solution is to place the modules in the last 2 slots. I choose to install the cooler so the fan blows air hot upwards and out of the case&amp;#8217;s top vents.&lt;/p&gt;
 
-&lt;div id=&#34;attachment_214&#34; style=&#34;width: 160px&#34; class=&#34;wp-caption alignnone&#34;&gt;
-  &lt;a rel=&#34;facebox&#34; href=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/gigabyte_ga-ma790fxt-ud5p_2.jpg&#34;&gt;&lt;img class=&#34;size-thumbnail wp-image-214 &#34; title=&#34;gigabyte_ga-ma790fxt-ud5p_2&#34; src=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/gigabyte_ga-ma790fxt-ud5p_2-150x150.jpg&#34; alt=&#34;gigabyte_ga-ma790fxt-ud5p_2&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    Xigmatek HDT-S1283 Cooler blocking first two RAM slots
-  &lt;/p&gt;
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/gigabyte_ga-ma790fxt-ud5p_2.jpg&#34;
+        title=&#34;Xigmatek HDT-S1283 Cooler blocking first two RAM slots&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/gigabyte_ga-ma790fxt-ud5p_2-150x150.jpg&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;Xigmatek HDT-S1283 Cooler blocking first two RAM slots&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+
 
 &lt;h2 id=&#34;bios:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;BIOS&lt;/h2&gt;
 
@@ -496,22 +642,24 @@ mantis_ack_wait (0): Slave RACK Fail !&lt;/pre&gt;
 
 &lt;p&gt;To match the new hardware I also switched from Arch Linux x686 to Arch Linux x86_64. I have not experienced any crashes or trouble after switching to the new hardware, so the hardware is 100% Linux compatible. There might be problems with older kernels, but I can confirm that it works with 2.6.28 or newer.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Update the 01-Aug-2009: attached [dmesg][5]&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update the 01-Aug-2009: attached &lt;a href=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/dmesg.txt&#34;&gt;dmesg&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;fancontrol-and-sensors:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;Fancontrol and sensors&lt;/h2&gt;
 
 &lt;p&gt;I installed lm_sensors and used pwmconfig to create a /etc/fancontrol file:&lt;/p&gt;
 
-&lt;pre&gt;# Configuration file generated by pwmconfig, changes will be lost
-# cpu : temp2, pwm1, min:35, max:50
-# sys1: temp1, pwm2, min:45, max:50
-INTERVAL=10
-FCTEMPS=hwmon0/device/pwm1=hwmon0/device/temp2_input hwmon0/device/pwm2=hwmon0/device/temp1_input
-FCFANS=hwmon0/device/pwm1=hwmon0/device/fan1_input hwmon0/device/pwm2=hwmon0/device/fan2_input
-MINTEMP=hwmon0/device/pwm1=35 hwmon0/device/pwm2=45
-MAXTEMP=hwmon0/device/pwm1=45 hwmon0/device/pwm2=50
-MINSTART=hwmon0/device/pwm1=150 hwmon0/device/pwm2=150
-MINSTOP=hwmon0/device/pwm1=100 hwmon0/device/pwm2=100&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# Configuration file generated by pwmconfig, changes will be lost&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# cpu : temp2, pwm1, min:35, max:50&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# sys1: temp1, pwm2, min:45, max:50&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;INTERVAL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;10
+&lt;span class=&#34;nv&#34;&gt;FCTEMPS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/temp2_input hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/temp1_input
+&lt;span class=&#34;nv&#34;&gt;FCFANS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/fan1_input hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/fan2_input
+&lt;span class=&#34;nv&#34;&gt;MINTEMP&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;35&lt;/span&gt; hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;45
+&lt;span class=&#34;nv&#34;&gt;MAXTEMP&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;45&lt;/span&gt; hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;50
+&lt;span class=&#34;nv&#34;&gt;MINSTART&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;150&lt;/span&gt; hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;150
+&lt;span class=&#34;nv&#34;&gt;MINSTOP&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;100&lt;/span&gt; hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;100
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;p&gt;On a hot summerday the sensors command outputs:&lt;/p&gt;
 
@@ -551,47 +699,48 @@ cpu0_vid:   +1.550 V&lt;/pre&gt;
 
 &lt;p&gt;I use the ondemand CPU frequceny scaling governor, so most of the time all four cores run at 800MHz and only switch to 2.6GHz when it is needed. I have put the following in my /etc/rc.local:&lt;/p&gt;
 
-&lt;pre&gt;for i in 0 1 2 3; do
-echo ondemand &amp;gt; /sys/devices/system/cpu/cpu${i}/cpufreq/scaling_governor
-echo 1 &amp;gt;/sys/devices/system/cpu/cpu${i}/cpufreq/ondemand/ignore_nice_load
-done&lt;/pre&gt;
-
-&lt;p&gt;[5]: &lt;a href=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/dmesg.txt&#34;&gt;https://rockhopper.dk/wp-content/uploads/2009/07/dmesg.txt&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; i in &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; 3&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt;
+  &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; ondemand &amp;gt; /sys/devices/system/cpu/cpu&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;/cpufreq/scaling_governor
+  &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &amp;gt;/sys/devices/system/cpu/cpu&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;/cpufreq/ondemand/ignore_nice_load
+&lt;span class=&#34;k&#34;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Logitech Marble FX trackball with Xorg and Hal</title>
-      <link>http://hugo.rockhopper.hf/linux/hardware/logitech-marble-fx-trackball-with-xorg-and-hal/</link>
+      <link>https://henrik-farre.github.io/linux/hardware/logitech-marble-fx-trackball-with-xorg-and-hal/</link>
       <pubDate>Sat, 06 Dec 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/hardware/logitech-marble-fx-trackball-with-xorg-and-hal/</guid>
+      <guid>https://henrik-farre.github.io/linux/hardware/logitech-marble-fx-trackball-with-xorg-and-hal/</guid>
       <description>&lt;p&gt;After the recent upgrade in ArchLinux of xorg-server from 1.4.x to 1.5.x my thrusty Logitech Marble FX trackball did not work entirely. The trackball does not have a dedicated scroll wheel, but by pressing a button, and using the trackball, you can scroll both vertical and horizontal.&lt;/p&gt;
 
 &lt;p&gt;In order to get the emulated scroll working again you first have to update the evdev driver (the xf86-input-evdev package), as version 2.0.7 doesn&amp;#8217;t support the needed options.&lt;/p&gt;
 
-&lt;p&gt;I use the &lt;a href=&#34;http://aur.archlinux.org/packages.php?do_Details=1&amp;amp;ID=19593&amp;amp;O=&amp;amp;L=&amp;amp;C=&amp;amp;K=&amp;amp;SB=&amp;amp;SO=&amp;amp;PP=&amp;amp;do_Orphans=&amp;amp;SeB=&#34;&gt;xf86-input-evdev-git PKGBUILD from aur&lt;/a&gt; (which depends on [xkeyboard-config-git][2]) which works fine.&lt;/p&gt;
+&lt;p&gt;I use the &lt;a href=&#34;http://aur.archlinux.org/packages.php?do_Details=1&amp;amp;ID=19593&amp;amp;O=&amp;amp;L=&amp;amp;C=&amp;amp;K=&amp;amp;SB=&amp;amp;SO=&amp;amp;PP=&amp;amp;do_Orphans=&amp;amp;SeB=&#34;&gt;xf86-input-evdev-git PKGBUILD from aur&lt;/a&gt; (which depends on &lt;a href=&#34;http://aur.archlinux.org/packages.php?do_Details=1&amp;amp;ID=19592&amp;amp;O=&amp;amp;L=&amp;amp;C=&amp;amp;K=&amp;amp;SB=&amp;amp;SO=&amp;amp;PP=&amp;amp;do_Orphans=&amp;amp;SeB=&#34;&gt;xkeyboard-config-git&lt;/a&gt;) which works fine.&lt;/p&gt;
 
 &lt;p&gt;Once you have build the packages and installed them (remove the conflicting packages by using pacman -Rd packagename) you will have to create a Hal fdi file, I created &amp;#8220;/etc/hal/fdi/policy/11-x11-mouse.fdi&amp;#8221; containing:&lt;/p&gt;
 
-&lt;pre&gt;&amp;lt;?xml version=&#34;1.0&#34; encoding=&#34;ISO-8859-1&#34;?&amp;gt;
-&amp;lt;deviceinfo version=&#34;0.2&#34;&amp;gt;
-  &amp;lt;device&amp;gt;
-    &amp;lt;match key=&#34;info.capabilities&#34; contains=&#34;input.mouse&#34;&amp;gt;
-      &amp;lt;match key=&#34;info.product&#34; contains=&#34;PS2++ Logitech Mouse&#34;&amp;gt;
-        &amp;lt;merge key=&#34;input.x11.Protocol&#34; type=&#34;string&#34;&amp;gt;ExplorerPS/2&amp;lt;/merge&amp;gt;
-        &amp;lt;merge key=&#34;input.x11_options.Buttons&#34; type=&#34;string&#34;&amp;gt;7&amp;lt;/merge&amp;gt;
-        &amp;lt;merge key=&#34;input.x11_options.XAxisMapping&#34; type=&#34;string&#34;&amp;gt;6 7&amp;lt;/merge&amp;gt;
-        &amp;lt;merge key=&#34;input.x11_options.YAxisMapping&#34; type=&#34;string&#34;&amp;gt;4 5&amp;lt;/merge&amp;gt;
-        &amp;lt;merge key=&#34;input.x11_options.EmulateWheel&#34; type=&#34;string&#34;&amp;gt;True&amp;lt;/merge&amp;gt;
-        &amp;lt;merge key=&#34;input.x11_options.EmulateWheelButton&#34; type=&#34;string&#34;&amp;gt;8&amp;lt;/merge&amp;gt;
-        &amp;lt;merge key=&#34;input.x11_options.EmulateWheelInertia&#34; type=&#34;string&#34;&amp;gt;30&amp;lt;/merge&amp;gt;
-        &amp;lt;merge key=&#34;input.x11_options.Emulate3Buttons&#34; type=&#34;string&#34;&amp;gt;False&amp;lt;/merge&amp;gt;
-      &amp;lt;/match&amp;gt;
-    &amp;lt;/match&amp;gt;
-  &amp;lt;/device&amp;gt;
-&amp;lt;/deviceinfo&amp;gt;
-&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;ISO-8859-1&amp;quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;deviceinfo&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;version=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;0.2&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;nt&#34;&gt;&amp;lt;device&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;match&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;info.capabilities&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;contains=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.mouse&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&#34;nt&#34;&gt;&amp;lt;match&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;info.product&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;contains=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;PS2++ Logitech Mouse&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11.Protocol&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;ExplorerPS/2&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11_options.Buttons&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;7&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11_options.XAxisMapping&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;6 7&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11_options.YAxisMapping&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;4 5&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11_options.EmulateWheel&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;True&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11_options.EmulateWheelButton&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;8&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11_options.EmulateWheelInertia&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;30&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11_options.Emulate3Buttons&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;False&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
+      &lt;span class=&#34;nt&#34;&gt;&amp;lt;/match&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/match&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;nt&#34;&gt;&amp;lt;/device&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/deviceinfo&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;p&gt;Now shutdown X, restart hal and X and the emulated scroll whell should work just fine. I have the following output in my &amp;#8220;/var/log/Xorg.0.log&amp;#8221;:&lt;/p&gt;
 
@@ -612,17 +761,15 @@ done&lt;/pre&gt;
 (**) PS2++ Logitech Mouse: XAxisMapping: buttons 6 and 7
 (**) PS2++ Logitech Mouse: EmulateWheelButton: 8, EmulateWheelInertia: 30, EmulateWheelTimeout: 200
 (II) XINPUT: Adding extended input device &#34;PS2++ Logitech Mouse&#34; (type: MOUSE)&lt;/pre&gt;
-
-&lt;p&gt;[2]: &lt;a href=&#34;http://aur.archlinux.org/packages.php?do_Details=1&amp;amp;ID=19592&amp;amp;O=&amp;amp;L=&amp;amp;C=&amp;amp;K=&amp;amp;SB=&amp;amp;SO=&amp;amp;PP=&amp;amp;do_Orphans=&amp;amp;SeB=&#34;&gt;http://aur.archlinux.org/packages.php?do_Details=1&amp;amp;ID=19592&amp;amp;O=&amp;amp;L=&amp;amp;C=&amp;amp;K=&amp;amp;SB=&amp;amp;SO=&amp;amp;PP=&amp;amp;do_Orphans=&amp;amp;SeB=&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Installing ArchLinux PPC on my Powerbook Titanium</title>
-      <link>http://hugo.rockhopper.hf/linux/hardware/installing-archlinux-ppc-on-my-powerbook-titanium/</link>
+      <link>https://henrik-farre.github.io/linux/hardware/installing-archlinux-ppc-on-my-powerbook-titanium/</link>
       <pubDate>Sat, 26 Jul 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://hugo.rockhopper.hf/linux/hardware/installing-archlinux-ppc-on-my-powerbook-titanium/</guid>
+      <guid>https://henrik-farre.github.io/linux/hardware/installing-archlinux-ppc-on-my-powerbook-titanium/</guid>
       <description>
 
 &lt;p&gt;I decided to bring my &lt;a href=&#34;https://rockhopper.dk/old/linux/hardware/powerbook-titanium.html&#34;&gt;Powerbook Titanium&lt;/a&gt; back into service as a server/torrent fetcher. So I downloaded &lt;a href=&#34;http://www.archlinuxppc.org/&#34;&gt;ArchLinux PPC&lt;/a&gt; and installed it.&lt;/p&gt;
@@ -671,7 +818,7 @@ useradd: PAM authentication failed&lt;/pre&gt;
 &lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;:: Loading udev...&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;etc&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;start_udev: &lt;span class=&#34;nu0&#34;&gt;110&lt;/span&gt;: &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;sbin&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;udevtrigger: not found
 &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;etc&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;start_udev: &lt;span class=&#34;nu0&#34;&gt;110&lt;/span&gt;: &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;sbin&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;udevsettle: not found done.&lt;/pre&gt;
 
-&lt;p&gt;I tried a [couple of solutions][7] I found in ArchLinux&amp;#8217;s forum but they did not help, so I&amp;#8217;m just ignoring it &lt;img src=&#34;http://rockhopper.hf/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;I tried a &lt;a href=&#34;http://bbs.archlinux.org/viewtopic.php?id=49285&#34;&gt;couple of solutions&lt;/a&gt; I found in ArchLinux&amp;#8217;s forum but they did not help, so I&amp;#8217;m just ignoring it :)&lt;/p&gt;
 
 &lt;p&gt;Another error that comes at each boot is this clock error:&lt;/p&gt;
 
@@ -682,8 +829,6 @@ useradd: PAM authentication failed&lt;/pre&gt;
 &lt;h2 id=&#34;status:ee78b04dbd8e2687e8423cd7c5e4eff0&#34;&gt;Status&lt;/h2&gt;
 
 &lt;p&gt;The machine has been running stable in a couple of weeks, and ArchLinux PPC feels as stable as the x86 edition.&lt;/p&gt;
-
-&lt;p&gt;[7]: &lt;a href=&#34;http://bbs.archlinux.org/viewtopic.php?id=49285&#34;&gt;http://bbs.archlinux.org/viewtopic.php?id=49285&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

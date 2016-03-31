@@ -33,50 +33,52 @@
 
 &lt;p&gt;The files contain:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;[Desktop Entry]&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;Name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Firefox Home&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;GenericName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Web Browser&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;Comment&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Browse the World Wide Web&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;Exec&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;/usr/lib/firefox/firefox -P Home -no-remote %u&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;Icon&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;firefox&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;Terminal&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;false&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;Type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Application&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;MimeType&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;StartupNotify&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;true&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;Categories&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Network;WebBrowser;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
+&lt;pre&gt;
+&lt;code class=&#34;language-ini&#34;&gt;[Desktop Entry]
+Name=Firefox Home
+GenericName=Web Browser
+Comment=Browse the World Wide Web
+Exec=/usr/lib/firefox/firefox -P Home -no-remote %u
+Icon=firefox
+Terminal=false
+Type=Application
+MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true
+Categories=Network;WebBrowser;
+&lt;/code&gt;
+&lt;/pre&gt;
 
 &lt;p&gt;Replace &amp;#8220;Home&amp;#8221; with the name of your profile.&lt;/p&gt;
 
 &lt;p&gt;In order to open links in the correct profile, I made a small shell script that used xdotool and zenity:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;ch&#34;&gt;#!/bin/sh&lt;/span&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;#!/bin/sh
 
-&lt;span class=&#34;nv&#34;&gt;PROFILE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;zenity --list --text &lt;span class=&#34;s2&#34;&gt;&amp;quot;Open &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; in which profile?&amp;quot;&lt;/span&gt; --column &lt;span class=&#34;s2&#34;&gt;&amp;quot;Profile&amp;quot;&lt;/span&gt; Work Home&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+PROFILE=$(zenity --list --text &#34;Open $1 in which profile?&#34; --column &#34;Profile&#34; Work Home);
 
-&lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$PROFILE&lt;/span&gt; in
-  Home&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-    &lt;span class=&#34;nv&#34;&gt;PID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;pgrep -f -- &lt;span class=&#34;s1&#34;&gt;&amp;#39;-P Home&amp;#39;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;
-    &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
-  Work&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-    &lt;span class=&#34;nv&#34;&gt;PID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;pgrep -f -- &lt;span class=&#34;s1&#34;&gt;&amp;#39;-P Work&amp;#39;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;
-    &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
-  *&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-    &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt;
-    &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;esac&lt;/span&gt;
+case $PROFILE in
+  Home)
+    PID=$(pgrep -f -- &#39;-P Home&#39;)
+    ;;
+  Work)
+    PID=$(pgrep -f -- &#39;-P Work&#39;)
+    ;;
+  *)
+    exit
+    ;;
+esac
 
-&lt;span class=&#34;c1&#34;&gt;# Avoid &amp;quot;Can&amp;#39;t consume 1 args; are only 0 available. This is a bug.&amp;quot; message: https://github.com/jordansissel/xdotool/issues/14&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;# Pick the last id, as it seems to be the one needed&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;WID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;xdotool search --any --pid &lt;span class=&#34;nv&#34;&gt;$PID&lt;/span&gt; --name &lt;span class=&#34;s2&#34;&gt;&amp;quot;random_random_random&amp;quot;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; tail -n1&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;
+# Avoid &#34;Can&#39;t consume 1 args; are only 0 available. This is a bug.&#34; message: https://github.com/jordansissel/xdotool/issues/14
+# Pick the last id, as it seems to be the one needed
+WID=$(xdotool search --any --pid $PID --name &#34;random_random_random&#34; | tail -n1)
 
-xdotool windowactivate --sync &lt;span class=&#34;nv&#34;&gt;$WID&lt;/span&gt;
-xdotool key --window &lt;span class=&#34;nv&#34;&gt;$WID&lt;/span&gt; ctrl+t
-xdotool key --window &lt;span class=&#34;nv&#34;&gt;$WID&lt;/span&gt; ctrl+l
-xdotool &lt;span class=&#34;nb&#34;&gt;type&lt;/span&gt; --window &lt;span class=&#34;nv&#34;&gt;$WID&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+xdotool windowactivate --sync $WID
+xdotool key --window $WID ctrl+t
+xdotool key --window $WID ctrl+l
+xdotool type --window $WID &#34;$1&#34;
+&lt;/code&gt;
+&lt;/pre&gt;
 
 &lt;p&gt;The last thing to to is to open exo-preferred-applications and select the script as the preferred &amp;#8220;web-browser&amp;#8221; (remember &amp;#8220;%s&amp;#8221;).&lt;/p&gt;
 </description>
@@ -92,61 +94,62 @@ xdotool &lt;span class=&#34;nb&#34;&gt;type&lt;/span&gt; --window &lt;span class
 
 &lt;p&gt;So I changed my ~/.zshrc to contain this:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;####################################################&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;# Set title function&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;# Used in precmd&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; title&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-  &lt;span class=&#34;c1&#34;&gt;# escape &amp;#39;%&amp;#39; chars in $1, make nonprintables visible&lt;/span&gt;
-  &lt;span class=&#34;nb&#34;&gt;local&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;cmd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(V)1//&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\%&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\%\%&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;####################################################
+# Set title function
+# Used in precmd
+function title() {
+  # escape &#39;%&#39; chars in $1, make nonprintables visible
+  local cmd=${(V)1//\%/\%\%}
 
-  &lt;span class=&#34;c1&#34;&gt;# See &amp;quot;Conditional Substrings in Prompts&amp;quot;&lt;/span&gt;
-  &lt;span class=&#34;c1&#34;&gt;# http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html&lt;/span&gt;
-  &lt;span class=&#34;c1&#34;&gt;# %X&amp;gt;...&amp;gt;                     : truncate to 40 chars followed by ...&lt;/span&gt;
-  &lt;span class=&#34;c1&#34;&gt;# %X(c:true-text:false-text)  : if c &amp;gt; %X show true text, else false text&lt;/span&gt;
+  # See &#34;Conditional Substrings in Prompts&#34;
+  # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+  # %X&amp;gt;...&amp;gt;                     : truncate to 40 chars followed by ...
+  # %X(c:true-text:false-text)  : if c &amp;gt; %X show true text, else false text
 
-  &lt;span class=&#34;c1&#34;&gt;# Truncate cmd to 40&lt;/span&gt;
-  &lt;span class=&#34;nv&#34;&gt;cmd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;%40&amp;gt;...&amp;gt;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$cmd&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; tr -d &lt;span class=&#34;s2&#34;&gt;&amp;quot;\n&amp;quot;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;
+  # Truncate cmd to 40
+  cmd=$(print -Pn &#34;%40&amp;gt;...&amp;gt;$cmd&#34; | tr -d &#34;\n&#34;)
 
-  &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$TERM&lt;/span&gt; in
-    screen&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;screen-bce&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;screen-256color&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;screen-256color-bce&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-      &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; -z &lt;span class=&#34;nv&#34;&gt;$SSH_TTY&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
-        &lt;span class=&#34;c1&#34;&gt;#print -Pn &amp;quot;\ek%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\e\\&amp;quot;&lt;/span&gt;
-        &lt;span class=&#34;c1&#34;&gt;# if c (current path with prefix replace, aka ~) is larger than 7,&lt;/span&gt;
-        &lt;span class=&#34;c1&#34;&gt;# show first 3 parts, then ... and then last 3 parts, else just %~&lt;/span&gt;
-        print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\ek%7(c:%-3~/.../%3~:%~) &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$cmd&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;\e\\&amp;quot;&lt;/span&gt;
-      &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
-        &lt;span class=&#34;c1&#34;&gt;# With user/hostname&lt;/span&gt;
-        print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\ek%m:%40&amp;lt;...&amp;lt;%~&amp;gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$cmd&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;\e\\&amp;quot;&lt;/span&gt;
-      &lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
-      &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
-    xterm*&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;rxvt*&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-      &lt;span class=&#34;c1&#34;&gt;# plain xterm title&lt;/span&gt;
-      &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; -z &lt;span class=&#34;nv&#34;&gt;$SSH_TTY&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
-        print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\e]2;%40&amp;lt;...&amp;lt;%~&amp;gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$cmd&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;\a&amp;quot;&lt;/span&gt;
-      &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
-        &lt;span class=&#34;c1&#34;&gt;# With user/hostname&lt;/span&gt;
-        print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\e]2;%n@%m:%40&amp;lt;...&amp;lt;%~&amp;gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$cmd&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;\a&amp;quot;&lt;/span&gt;
-      &lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
-      &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
-  &lt;span class=&#34;k&#34;&gt;esac&lt;/span&gt;
-&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+  case $TERM in
+    screen|screen-bce|screen-256color|screen-256color-bce)
+      if [[ -z $SSH_TTY ]]; then
+        #print -Pn &#34;\ek%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\e\\&#34;
+        # if c (current path with prefix replace, aka ~) is larger than 7,
+        # show first 3 parts, then ... and then last 3 parts, else just %~
+        print -Pn &#34;\ek%7(c:%-3~/.../%3~:%~) $cmd\e\\&#34;
+      else
+        # With user/hostname
+        print -Pn &#34;\ek%m:%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\e\\&#34;
+      fi
+      ;;
+    xterm*|rxvt*)
+      # plain xterm title
+      if [[ -z $SSH_TTY ]]; then
+        print -Pn &#34;\e]2;%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\a&#34;
+      else
+        # With user/hostname
+        print -Pn &#34;\e]2;%n@%m:%40&amp;lt;...&amp;lt;%~&amp;gt; $cmd\a&#34;
+      fi
+      ;;
+  esac
+}
 
-&lt;span class=&#34;c1&#34;&gt;####################################################&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;# Window title&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;# precmd is called just before the prompt is printed&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; precmd&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-  title &lt;span class=&#34;s2&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;
-  &lt;span class=&#34;c1&#34;&gt;# Don&amp;#39;t run vcs_info if remote shell&lt;/span&gt;
-  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; -z &lt;span class=&#34;nv&#34;&gt;$SSH_TTY&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+####################################################
+# Window title
+# precmd is called just before the prompt is printed
+function precmd() {
+  title &#34;&#34;
+  # Don&#39;t run vcs_info if remote shell
+  if [[ -z $SSH_TTY ]]; then
     vcs_info
-  &lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
-&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;# preexec is called just before any command line is executed&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; preexec&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-  title &lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
+  fi
+}
+# preexec is called just before any command line is executed
+function preexec() {
+  title &#34;$1&#34;
+}
+&lt;/code&gt;
+&lt;/pre&gt;
 
 &lt;p&gt;This creates the following window title: ~/Work/docker/&amp;#8230;/all/modules/somemodule. The magic happens by saying %7(c:%-3~/&amp;#8230;/%3~:%~) which means: if &amp;#8220;c&amp;#8221;, which contains the entire path after prefix has been replaced -&amp;gt; /home/username to ~, is larger than 7, show the 3 first directories, then &amp;#8230; and finally the last 3 directories.&lt;/p&gt;
 
@@ -166,21 +169,21 @@ xdotool &lt;span class=&#34;nb&#34;&gt;type&lt;/span&gt; --window &lt;span class
 
 &lt;p&gt;/etc/php5/conf.d/20-xdebug.ini (Debian wheezy)&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;zend_extension&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;/usr/lib/php5/20100525/xdebug.so&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;xdebug.remote_enable&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;1&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;xdebug.remote_autostart&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;0&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;xdebug.remote_connect_back&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;1&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;xdebug.remote_port&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;9000&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
+&lt;pre&gt;
+&lt;code class=&#34;language-ini&#34;&gt;zend_extension=/usr/lib/php5/20100525/xdebug.so
+xdebug.remote_enable=1
+xdebug.remote_autostart=0
+xdebug.remote_connect_back=1
+xdebug.remote_port=9000&lt;/code&gt;
+&lt;/pre&gt;
 
 &lt;p&gt;And in my ~/.vimrc I have these vdebug settings:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-vim&#34; data-lang=&#34;vim&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;g&lt;/span&gt;:vdebug_options &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; {&lt;span class=&#34;s2&#34;&gt;&amp;quot;path_maps&amp;quot;&lt;/span&gt;: {&lt;span class=&#34;s2&#34;&gt;&amp;quot;/var/www&amp;quot;&lt;/span&gt;: &lt;span class=&#34;s2&#34;&gt;&amp;quot;/home/username/Localdev&amp;quot;&lt;/span&gt;}&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; \
-&lt;span class=&#34;c&#34;&gt;&amp;quot;break_on_open&amp;quot;: 0, &amp;quot;watch_window_style&amp;quot;: &amp;quot;compact&amp;quot;, \&lt;/span&gt;
-&lt;span class=&#34;c&#34;&gt;&amp;quot;server&amp;quot; : &amp;quot;172.17.42.1&amp;quot;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-vim&#34;&gt;let g:vdebug_options = {&#34;path_maps&#34;: {&#34;/var/www&#34;: &#34;/home/username/Localdev&#34;}, \
+&#34;break_on_open&#34;: 0, &#34;watch_window_style&#34;: &#34;compact&#34;, \
+&#34;server&#34; : &#34;172.17.42.1&#34;}&lt;/code&gt;
+&lt;/pre&gt;
 
 &lt;p&gt;172.17.42.1 is the ip of the bridge created by docker, it can be found by using ip addr and looking for the &amp;#8220;docker0&amp;#8221; interface.&lt;/p&gt;
 

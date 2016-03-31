@@ -79,7 +79,7 @@
           <meta itemprop="name" content="Rockhopper.dk">
         </div>
         <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-          <meta itemprop="name" content="">
+          <meta itemprop="name" content="Henrik Farre">
         </div>
 
         <header class="article-header">
@@ -90,76 +90,78 @@
         <div class="article-body" itemprop="articleBody">
           <p>My MythTV frontend depends on the masterbackend to be up and running, mainly because some partitions are nfs mounted. So I created a simple script to check if the backend is responding to ping:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="ch">#!/bin/bash</span>
+<pre>
+<code class="language-bash">#!/bin/bash
 
-<span class="k">function</span> isup<span class="o">()</span> <span class="o">{</span>
+function isup() {
  ping -q -n -c1 -w2 BACKEND_IP &gt; /dev/null
- <span class="k">if</span> <span class="o">[[</span> <span class="nv">$?</span> !<span class="o">=</span>  <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+ if [[ $? !=  ]]; then
    sleep 5
    isup
- <span class="k">else</span>
-   <span class="nb">echo</span> <span class="s2">&quot;is up&quot;</span>
- <span class="k">fi</span>
-<span class="o">}</span>
+ else
+   echo "is up"
+ fi
+}
 
-isup
-</code></pre></div>
-
+isup</code>
+</pre>
 
 <p>But there is a small problem with this approach: the backend starts replying to ping long before nfsd and mythbackend are ready.</p>
 
 <p>So instead of using ping, I created a script that checks if mythbackend&#8217;s status page (port 6544) is ready, using wget:</p>
 
-<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="ch">#!/bin/bash</span>
+<pre>
+<code class="language-bash">#!/bin/bash
 
-<span class="k">function</span> isbackendup <span class="o">{</span>
+function isbackendup {
   wget -q http://BACKEND_IP:6544 -O /dev/null
-  <span class="k">if</span> <span class="o">[[</span> <span class="nv">$?</span> !<span class="o">=</span>  <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+  if [[ $? !=  ]]; then
     sleep 5
     isbackendup
-  <span class="k">else</span>
+  else
     stat_done
-  <span class="k">fi</span>
-<span class="o">}</span>
-</code></pre></div>
-</p>
+  fi
+}
+</code>
+</pre>
 
 <p>Finally I wrapped it all up in an ArchLinux rc script, and use WOL to wake the backend:</p>
 
-<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="ch">#!/bin/bash</span>
+<pre>
+<code class="language-bash">#!/bin/bash
 
 . /etc/rc.conf
 . /etc/rc.d/functions
 
-<span class="k">function</span> isbackendup <span class="o">{</span>
+function isbackendup {
   wget -q http://BACKEND_IP:6544 -O /dev/null
-  <span class="k">if</span> <span class="o">[[</span> <span class="nv">$?</span> !<span class="o">=</span>  <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+  if [[ $? !=  ]]; then
     sleep 5
     isbackendup
-  <span class="k">else</span>
+  else
     stat_done
-  <span class="k">fi</span>
-<span class="o">}</span>
+  fi
+}
 
-<span class="k">case</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> in
-  start<span class="o">)</span>
-    stat_busy <span class="s2">&quot;Checking if backend is up...&quot;</span>
+case "$1" in
+  start)
+    stat_busy "Checking if backend is up..."
     wol BACKEND_MACADDR &gt; /dev/null
     isbackendup
-    <span class="p">;;</span>
-  stop<span class="o">)</span>
+    ;;
+  stop)
     /bin/true
-    <span class="p">;;</span>
-  restart<span class="o">)</span>
+    ;;
+  restart)
     $ stop
     sleep 1
     $ start
-    <span class="p">;;</span>
-  *<span class="o">)</span>
-    <span class="nb">echo</span> <span class="s2">&quot;usage: </span><span class="nv">$0</span><span class="s2"> {start|stop|restart}&quot;</span>
-<span class="k">esac</span>
-</code></pre></div>
-</p>
+    ;;
+  *)
+    echo "usage: $0 {start|stop|restart}"
+esac
+</code>
+</pre>
 
 <p>If you run ArchLinux just added it to /etc/rc.conf in the DAEMONS array.</p>
 
@@ -238,13 +240,13 @@ isup
       
       <a href="https://henrik-farre.github.io/categories/xfce" class="list-group-item">xfce</a>
       
-      <a href="https://henrik-farre.github.io/categories/vim" class="list-group-item">vim</a>
-      
       <a href="https://henrik-farre.github.io/categories/xorg" class="list-group-item">xorg</a>
       
       <a href="https://henrik-farre.github.io/categories/development" class="list-group-item">development</a>
       
       <a href="https://henrik-farre.github.io/categories/php" class="list-group-item">php</a>
+      
+      <a href="https://henrik-farre.github.io/categories/vim" class="list-group-item">vim</a>
       
     </div>
   </div>
@@ -257,23 +259,23 @@ isup
       
       <a href="https://henrik-farre.github.io/tags/android" class="list-group-item">android</a>
       
-      <a href="https://henrik-farre.github.io/tags/archlinux" class="list-group-item">archlinux</a>
-      
       <a href="https://henrik-farre.github.io/tags/mythbackend" class="list-group-item">mythbackend</a>
       
-      <a href="https://henrik-farre.github.io/tags/motherboard" class="list-group-item">motherboard</a>
+      <a href="https://henrik-farre.github.io/tags/archlinux" class="list-group-item">archlinux</a>
       
       <a href="https://henrik-farre.github.io/tags/dvb-c" class="list-group-item">dvb-c</a>
       
+      <a href="https://henrik-farre.github.io/tags/mythfrontend" class="list-group-item">mythfrontend</a>
+      
       <a href="https://henrik-farre.github.io/tags/zsh" class="list-group-item">zsh</a>
       
-      <a href="https://henrik-farre.github.io/tags/mythfrontend" class="list-group-item">mythfrontend</a>
+      <a href="https://henrik-farre.github.io/tags/motherboard" class="list-group-item">motherboard</a>
+      
+      <a href="https://henrik-farre.github.io/tags/screen" class="list-group-item">screen</a>
       
       <a href="https://henrik-farre.github.io/tags/urxvt" class="list-group-item">urxvt</a>
       
-      <a href="https://henrik-farre.github.io/tags/bash" class="list-group-item">bash</a>
-      
-      <a href="https://henrik-farre.github.io/tags/powerbook" class="list-group-item">powerbook</a>
+      <a href="https://henrik-farre.github.io/tags/xbmc" class="list-group-item">xbmc</a>
       
     </div>
   </div>
@@ -292,7 +294,7 @@ isup
 
     <footer class="site">
       <div class="container">
-        <p>&copy; 2014 Rockhopper.dk</p>
+        <p>&copy; 2014 Henrik Farre</p>
         <p>Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>,</p>
         <p>Theme <a href="https://github.com/dim0627/hugo_theme_beg" target="_blank">Beg</a> designed by <a href="http://yet.unresolved.xyz" target="_blank">Daisuke Tsuji</a></p>
       </div>

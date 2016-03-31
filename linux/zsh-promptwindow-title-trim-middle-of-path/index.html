@@ -79,7 +79,7 @@
           <meta itemprop="name" content="Rockhopper.dk">
         </div>
         <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-          <meta itemprop="name" content="">
+          <meta itemprop="name" content="Henrik Farre">
         </div>
 
         <header class="article-header">
@@ -92,61 +92,62 @@
 
 <p>So I changed my ~/.zshrc to contain this:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="c1">####################################################</span>
-<span class="c1"># Set title function</span>
-<span class="c1"># Used in precmd</span>
-<span class="k">function</span> title<span class="o">()</span> <span class="o">{</span>
-  <span class="c1"># escape &#39;%&#39; chars in $1, make nonprintables visible</span>
-  <span class="nb">local</span> <span class="nv">cmd</span><span class="o">=</span><span class="si">${</span><span class="p">(V)1//</span><span class="se">\%</span><span class="p">/</span><span class="se">\%\%</span><span class="si">}</span>
+<pre>
+<code class="language-bash">####################################################
+# Set title function
+# Used in precmd
+function title() {
+  # escape '%' chars in $1, make nonprintables visible
+  local cmd=${(V)1//\%/\%\%}
 
-  <span class="c1"># See &quot;Conditional Substrings in Prompts&quot;</span>
-  <span class="c1"># http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html</span>
-  <span class="c1"># %X&gt;...&gt;                     : truncate to 40 chars followed by ...</span>
-  <span class="c1"># %X(c:true-text:false-text)  : if c &gt; %X show true text, else false text</span>
+  # See "Conditional Substrings in Prompts"
+  # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+  # %X&gt;...&gt;                     : truncate to 40 chars followed by ...
+  # %X(c:true-text:false-text)  : if c &gt; %X show true text, else false text
 
-  <span class="c1"># Truncate cmd to 40</span>
-  <span class="nv">cmd</span><span class="o">=</span><span class="k">$(</span>print -Pn <span class="s2">&quot;%40&gt;...&gt;</span><span class="nv">$cmd</span><span class="s2">&quot;</span> <span class="p">|</span> tr -d <span class="s2">&quot;\n&quot;</span><span class="k">)</span>
+  # Truncate cmd to 40
+  cmd=$(print -Pn "%40&gt;...&gt;$cmd" | tr -d "\n")
 
-  <span class="k">case</span> <span class="nv">$TERM</span> in
-    screen<span class="p">|</span>screen-bce<span class="p">|</span>screen-256color<span class="p">|</span>screen-256color-bce<span class="o">)</span>
-      <span class="k">if</span> <span class="o">[[</span> -z <span class="nv">$SSH_TTY</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-        <span class="c1">#print -Pn &quot;\ek%40&lt;...&lt;%~&gt; $cmd\e\\&quot;</span>
-        <span class="c1"># if c (current path with prefix replace, aka ~) is larger than 7,</span>
-        <span class="c1"># show first 3 parts, then ... and then last 3 parts, else just %~</span>
-        print -Pn <span class="s2">&quot;\ek%7(c:%-3~/.../%3~:%~) </span><span class="nv">$cmd</span><span class="s2">\e\\&quot;</span>
-      <span class="k">else</span>
-        <span class="c1"># With user/hostname</span>
-        print -Pn <span class="s2">&quot;\ek%m:%40&lt;...&lt;%~&gt; </span><span class="nv">$cmd</span><span class="s2">\e\\&quot;</span>
-      <span class="k">fi</span>
-      <span class="p">;;</span>
-    xterm*<span class="p">|</span>rxvt*<span class="o">)</span>
-      <span class="c1"># plain xterm title</span>
-      <span class="k">if</span> <span class="o">[[</span> -z <span class="nv">$SSH_TTY</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-        print -Pn <span class="s2">&quot;\e]2;%40&lt;...&lt;%~&gt; </span><span class="nv">$cmd</span><span class="s2">\a&quot;</span>
-      <span class="k">else</span>
-        <span class="c1"># With user/hostname</span>
-        print -Pn <span class="s2">&quot;\e]2;%n@%m:%40&lt;...&lt;%~&gt; </span><span class="nv">$cmd</span><span class="s2">\a&quot;</span>
-      <span class="k">fi</span>
-      <span class="p">;;</span>
-  <span class="k">esac</span>
-<span class="o">}</span>
+  case $TERM in
+    screen|screen-bce|screen-256color|screen-256color-bce)
+      if [[ -z $SSH_TTY ]]; then
+        #print -Pn "\ek%40&lt;...&lt;%~&gt; $cmd\e\\"
+        # if c (current path with prefix replace, aka ~) is larger than 7,
+        # show first 3 parts, then ... and then last 3 parts, else just %~
+        print -Pn "\ek%7(c:%-3~/.../%3~:%~) $cmd\e\\"
+      else
+        # With user/hostname
+        print -Pn "\ek%m:%40&lt;...&lt;%~&gt; $cmd\e\\"
+      fi
+      ;;
+    xterm*|rxvt*)
+      # plain xterm title
+      if [[ -z $SSH_TTY ]]; then
+        print -Pn "\e]2;%40&lt;...&lt;%~&gt; $cmd\a"
+      else
+        # With user/hostname
+        print -Pn "\e]2;%n@%m:%40&lt;...&lt;%~&gt; $cmd\a"
+      fi
+      ;;
+  esac
+}
 
-<span class="c1">####################################################</span>
-<span class="c1"># Window title</span>
-<span class="c1"># precmd is called just before the prompt is printed</span>
-<span class="k">function</span> precmd<span class="o">()</span> <span class="o">{</span>
-  title <span class="s2">&quot;&quot;</span>
-  <span class="c1"># Don&#39;t run vcs_info if remote shell</span>
-  <span class="k">if</span> <span class="o">[[</span> -z <span class="nv">$SSH_TTY</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+####################################################
+# Window title
+# precmd is called just before the prompt is printed
+function precmd() {
+  title ""
+  # Don't run vcs_info if remote shell
+  if [[ -z $SSH_TTY ]]; then
     vcs_info
-  <span class="k">fi</span>
-<span class="o">}</span>
-<span class="c1"># preexec is called just before any command line is executed</span>
-<span class="k">function</span> preexec<span class="o">()</span> <span class="o">{</span>
-  title <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
-<span class="o">}</span>
-</code></pre></div>
-
+  fi
+}
+# preexec is called just before any command line is executed
+function preexec() {
+  title "$1"
+}
+</code>
+</pre>
 
 <p>This creates the following window title: ~/Work/docker/&#8230;/all/modules/somemodule. The magic happens by saying %7(c:%-3~/&#8230;/%3~:%~) which means: if &#8220;c&#8221;, which contains the entire path after prefix has been replaced -&gt; /home/username to ~, is larger than 7, show the 3 first directories, then &#8230; and finally the last 3 directories.</p>
 
@@ -244,23 +245,23 @@
       
       <a href="https://henrik-farre.github.io/tags/android" class="list-group-item">android</a>
       
-      <a href="https://henrik-farre.github.io/tags/archlinux" class="list-group-item">archlinux</a>
-      
       <a href="https://henrik-farre.github.io/tags/mythbackend" class="list-group-item">mythbackend</a>
       
-      <a href="https://henrik-farre.github.io/tags/zsh" class="list-group-item">zsh</a>
+      <a href="https://henrik-farre.github.io/tags/archlinux" class="list-group-item">archlinux</a>
+      
+      <a href="https://henrik-farre.github.io/tags/motherboard" class="list-group-item">motherboard</a>
       
       <a href="https://henrik-farre.github.io/tags/dvb-c" class="list-group-item">dvb-c</a>
       
       <a href="https://henrik-farre.github.io/tags/mythfrontend" class="list-group-item">mythfrontend</a>
       
-      <a href="https://henrik-farre.github.io/tags/motherboard" class="list-group-item">motherboard</a>
+      <a href="https://henrik-farre.github.io/tags/zsh" class="list-group-item">zsh</a>
       
-      <a href="https://henrik-farre.github.io/tags/cmd-line" class="list-group-item">cmd-line</a>
+      <a href="https://henrik-farre.github.io/tags/powerbook" class="list-group-item">powerbook</a>
       
-      <a href="https://henrik-farre.github.io/tags/screen" class="list-group-item">screen</a>
+      <a href="https://henrik-farre.github.io/tags/docker" class="list-group-item">docker</a>
       
-      <a href="https://henrik-farre.github.io/tags/nagios" class="list-group-item">nagios</a>
+      <a href="https://henrik-farre.github.io/tags/probook-6360b" class="list-group-item">probook-6360b</a>
       
     </div>
   </div>
@@ -279,7 +280,7 @@
 
     <footer class="site">
       <div class="container">
-        <p>&copy; 2014 Rockhopper.dk</p>
+        <p>&copy; 2014 Henrik Farre</p>
         <p>Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>,</p>
         <p>Theme <a href="https://github.com/dim0627/hugo_theme_beg" target="_blank">Beg</a> designed by <a href="http://yet.unresolved.xyz" target="_blank">Daisuke Tsuji</a></p>
       </div>

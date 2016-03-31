@@ -79,7 +79,7 @@
           <meta itemprop="name" content="Rockhopper.dk">
         </div>
         <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-          <meta itemprop="name" content="">
+          <meta itemprop="name" content="Henrik Farre">
         </div>
 
         <header class="article-header">
@@ -94,21 +94,21 @@
 
 <p>/etc/php5/conf.d/20-xdebug.ini (Debian wheezy)</p>
 
-<div class="highlight"><pre><code class="language-ini" data-lang="ini"><span></span><span class="na">zend_extension</span><span class="o">=</span><span class="s">/usr/lib/php5/20100525/xdebug.so</span>
-<span class="na">xdebug.remote_enable</span><span class="o">=</span><span class="s">1</span>
-<span class="na">xdebug.remote_autostart</span><span class="o">=</span><span class="s">0</span>
-<span class="na">xdebug.remote_connect_back</span><span class="o">=</span><span class="s">1</span>
-<span class="na">xdebug.remote_port</span><span class="o">=</span><span class="s">9000</span>
-</code></pre></div>
-
+<pre>
+<code class="language-ini">zend_extension=/usr/lib/php5/20100525/xdebug.so
+xdebug.remote_enable=1
+xdebug.remote_autostart=0
+xdebug.remote_connect_back=1
+xdebug.remote_port=9000</code>
+</pre>
 
 <p>And in my ~/.vimrc I have these vdebug settings:</p>
 
-<p><div class="highlight"><pre><code class="language-vim" data-lang="vim"><span></span><span class="k">let</span> <span class="k">g</span>:vdebug_options <span class="p">=</span> {<span class="s2">&quot;path_maps&quot;</span>: {<span class="s2">&quot;/var/www&quot;</span>: <span class="s2">&quot;/home/username/Localdev&quot;</span>}<span class="p">,</span> \
-<span class="c">&quot;break_on_open&quot;: 0, &quot;watch_window_style&quot;: &quot;compact&quot;, \</span>
-<span class="c">&quot;server&quot; : &quot;172.17.42.1&quot;}</span>
-</code></pre></div>
-</p>
+<pre>
+<code class="language-vim">let g:vdebug_options = {"path_maps": {"/var/www": "/home/username/Localdev"}, \
+"break_on_open": 0, "watch_window_style": "compact", \
+"server" : "172.17.42.1"}</code>
+</pre>
 
 <p>172.17.42.1 is the ip of the bridge created by docker, it can be found by using ip addr and looking for the &#8220;docker0&#8221; interface.</p>
 
@@ -118,7 +118,7 @@
 
 
         <aside>
-          <div class="section"><a href="https://henrik-farre.github.io/tags/Docker" class="tag">Docker</a> </div>
+          <div class="section"><a href="https://henrik-farre.github.io/tags/docker" class="tag">Docker</a> </div>
 
           <div class="section share">
             <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fhenrik-farre.github.io%2flinux%2fdocker-and-php-xdebug%2f&t=Docker%20and%20PHP%20xdebug" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
@@ -181,19 +181,19 @@
       
       <a href="https://henrik-farre.github.io/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
       
-      <a href="https://henrik-farre.github.io/categories/linux" class="list-group-item">linux</a>
-      
       <a href="https://henrik-farre.github.io/categories/mythtv" class="list-group-item">mythtv</a>
       
+      <a href="https://henrik-farre.github.io/categories/linux" class="list-group-item">linux</a>
+      
       <a href="https://henrik-farre.github.io/categories/xfce" class="list-group-item">xfce</a>
-      
-      <a href="https://henrik-farre.github.io/categories/vim" class="list-group-item">vim</a>
-      
-      <a href="https://henrik-farre.github.io/categories/xorg" class="list-group-item">xorg</a>
       
       <a href="https://henrik-farre.github.io/categories/development" class="list-group-item">development</a>
       
       <a href="https://henrik-farre.github.io/categories/php" class="list-group-item">php</a>
+      
+      <a href="https://henrik-farre.github.io/categories/vim" class="list-group-item">vim</a>
+      
+      <a href="https://henrik-farre.github.io/categories/xorg" class="list-group-item">xorg</a>
       
     </div>
   </div>
@@ -206,23 +206,23 @@
       
       <a href="https://henrik-farre.github.io/tags/android" class="list-group-item">android</a>
       
-      <a href="https://henrik-farre.github.io/tags/mythbackend" class="list-group-item">mythbackend</a>
-      
       <a href="https://henrik-farre.github.io/tags/archlinux" class="list-group-item">archlinux</a>
       
-      <a href="https://henrik-farre.github.io/tags/motherboard" class="list-group-item">motherboard</a>
-      
-      <a href="https://henrik-farre.github.io/tags/zsh" class="list-group-item">zsh</a>
+      <a href="https://henrik-farre.github.io/tags/mythbackend" class="list-group-item">mythbackend</a>
       
       <a href="https://henrik-farre.github.io/tags/dvb-c" class="list-group-item">dvb-c</a>
       
       <a href="https://henrik-farre.github.io/tags/mythfrontend" class="list-group-item">mythfrontend</a>
       
-      <a href="https://henrik-farre.github.io/tags/tmux" class="list-group-item">tmux</a>
+      <a href="https://henrik-farre.github.io/tags/zsh" class="list-group-item">zsh</a>
+      
+      <a href="https://henrik-farre.github.io/tags/motherboard" class="list-group-item">motherboard</a>
       
       <a href="https://henrik-farre.github.io/tags/booting" class="list-group-item">booting</a>
       
-      <a href="https://henrik-farre.github.io/tags/exim" class="list-group-item">exim</a>
+      <a href="https://henrik-farre.github.io/tags/htpc" class="list-group-item">htpc</a>
+      
+      <a href="https://henrik-farre.github.io/tags/screen" class="list-group-item">screen</a>
       
     </div>
   </div>
@@ -241,7 +241,7 @@
 
     <footer class="site">
       <div class="container">
-        <p>&copy; 2014 Rockhopper.dk</p>
+        <p>&copy; 2014 Henrik Farre</p>
         <p>Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>,</p>
         <p>Theme <a href="https://github.com/dim0627/hugo_theme_beg" target="_blank">Beg</a> designed by <a href="http://yet.unresolved.xyz" target="_blank">Daisuke Tsuji</a></p>
       </div>

@@ -79,7 +79,7 @@
           <meta itemprop="name" content="Rockhopper.dk">
         </div>
         <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-          <meta itemprop="name" content="">
+          <meta itemprop="name" content="Henrik Farre">
         </div>
 
         <header class="article-header">
@@ -90,39 +90,40 @@
         <div class="article-body" itemprop="articleBody">
           <p>We had a problem with the nagios check_mailq plugin at <a href="http://www.bellcom.dk">work</a>, it kept timing out. So I wrote a simple bash script (instead of 610 lines of perl) which is &#8220;compatible&#8221; with check_mailq (supports the same arguments) which uses &#8220;exim4&#8221; and is very quick. Just drop it in /usr/local/bin/check_mailq_simple.sh and adjust your nagios conf to use that instead of check_mailq</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="ch">#!/bin/bash</span>
+<pre>
+<code class="language-bash">#!/bin/bash
 
-<span class="nv">WARNING</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-<span class="nv">CRITICAL</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-<span class="nv">MAILER</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-<span class="nv">TIMER</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+WARNING=""
+CRITICAL=""
+MAILER=""
+TIMER=""
 
-<span class="k">while</span> <span class="nb">getopts</span> <span class="s2">&quot;w:c:M:t&quot;</span> optionName<span class="p">;</span> <span class="k">do</span>
-  <span class="k">case</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">optionName</span><span class="si">}</span><span class="s2">&quot;</span> in
-    w<span class="o">)</span> <span class="nv">WARNING</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;;</span>
-    c<span class="o">)</span> <span class="nv">CRITICAL</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;;</span>
-    M<span class="o">)</span> <span class="nv">MAILER</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;;</span>
-    t<span class="o">)</span> <span class="nv">TIMER</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OPTARG</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;;</span>
-  <span class="k">esac</span>
-<span class="k">done</span>
+while getopts "w:c:M:t" optionName; do
+  case "${optionName}" in
+    w) WARNING="${OPTARG}";;
+    c) CRITICAL="${OPTARG}";;
+    M) MAILER="${OPTARG}";;
+    t) TIMER="${OPTARG}";;
+  esac
+done
 
-<span class="nv">MAILS_IN_QUEUE</span><span class="o">=</span><span class="sb">`</span>sudo /usr/sbin/exim4 -bpc<span class="sb">`</span>
+MAILS_IN_QUEUE=`sudo /usr/sbin/exim4 -bpc`
 
-<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">MAILS_IN_QUEUE</span><span class="si">}</span> -gt <span class="si">${</span><span class="nv">CRITICAL</span><span class="si">}</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-  <span class="nb">echo</span> <span class="s2">&quot;CRITICAL: mailq is </span><span class="si">${</span><span class="nv">MAILS_IN_QUEUE</span><span class="si">}</span><span class="s2"> (threshold w = </span><span class="si">${</span><span class="nv">CRITICAL</span><span class="si">}</span><span class="s2">)|unsent=</span><span class="si">${</span><span class="nv">MAILS_IN_QUEUE</span><span class="si">}</span><span class="s2">;</span><span class="si">${</span><span class="nv">WARNING</span><span class="si">}</span><span class="s2">;</span><span class="si">${</span><span class="nv">CRITICAL</span><span class="si">}</span><span class="s2">;0&quot;</span>
-  <span class="nb">exit</span> 2
-<span class="k">elif</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">MAILS_IN_QUEUE</span><span class="si">}</span> -gt <span class="si">${</span><span class="nv">WARNING</span><span class="si">}</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-  <span class="nb">echo</span> <span class="s2">&quot;WARNING: mailq is </span><span class="si">${</span><span class="nv">MAILS_IN_QUEUE</span><span class="si">}</span><span class="s2"> (threshold w = </span><span class="si">${</span><span class="nv">WARNING</span><span class="si">}</span><span class="s2">)|unsent=</span><span class="si">${</span><span class="nv">MAILS_IN_QUEUE</span><span class="si">}</span><span class="s2">;</span><span class="si">${</span><span class="nv">WARNING</span><span class="si">}</span><span class="s2">;</span><span class="si">${</span><span class="nv">CRITICAL</span><span class="si">}</span><span class="s2">;0&quot;</span>
-  <span class="nb">exit</span> 1
-<span class="k">elif</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">MAILS_IN_QUEUE</span><span class="si">}</span> -lt <span class="si">${</span><span class="nv">WARNING</span><span class="si">}</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-  <span class="nb">echo</span> <span class="s2">&quot;OK: mailq is </span><span class="si">${</span><span class="nv">MAILS_IN_QUEUE</span><span class="si">}</span><span class="s2"> (threshold w = </span><span class="si">${</span><span class="nv">WARNING</span><span class="si">}</span><span class="s2">)|unsent=</span><span class="si">${</span><span class="nv">MAILS_IN_QUEUE</span><span class="si">}</span><span class="s2">;</span><span class="si">${</span><span class="nv">WARNING</span><span class="si">}</span><span class="s2">;</span><span class="si">${</span><span class="nv">CRITICAL</span><span class="si">}</span><span class="s2">;0&quot;</span>
-  <span class="nb">exit</span>
-<span class="k">else</span>
-  <span class="nb">echo</span> <span class="s2">&quot;ERROR: something did not go right&quot;</span>
-  <span class="nb">exit</span> 2
-<span class="k">fi</span>
-</code></pre></div>
-
+if [[ ${MAILS_IN_QUEUE} -gt ${CRITICAL} ]]; then
+  echo "CRITICAL: mailq is ${MAILS_IN_QUEUE} (threshold w = ${CRITICAL})|unsent=${MAILS_IN_QUEUE};${WARNING};${CRITICAL};0"
+  exit 2
+elif [[ ${MAILS_IN_QUEUE} -gt ${WARNING} ]]; then
+  echo "WARNING: mailq is ${MAILS_IN_QUEUE} (threshold w = ${WARNING})|unsent=${MAILS_IN_QUEUE};${WARNING};${CRITICAL};0"
+  exit 1
+elif [[ ${MAILS_IN_QUEUE} -lt ${WARNING} ]]; then
+  echo "OK: mailq is ${MAILS_IN_QUEUE} (threshold w = ${WARNING})|unsent=${MAILS_IN_QUEUE};${WARNING};${CRITICAL};0"
+  exit
+else
+  echo "ERROR: something did not go right"
+  exit 2
+fi
+</code>
+</pre>
 
 <p>This has been tested on Debian sarge.</p>
 
@@ -187,15 +188,15 @@
     </div>
     <div class="list-group">
       
-      <a href="https://henrik-farre.github.io/categories/hardware" class="list-group-item">hardware</a>
-      
       <a href="https://henrik-farre.github.io/categories/software" class="list-group-item">software</a>
+      
+      <a href="https://henrik-farre.github.io/categories/hardware" class="list-group-item">hardware</a>
       
       <a href="https://henrik-farre.github.io/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
       
-      <a href="https://henrik-farre.github.io/categories/linux" class="list-group-item">linux</a>
-      
       <a href="https://henrik-farre.github.io/categories/mythtv" class="list-group-item">mythtv</a>
+      
+      <a href="https://henrik-farre.github.io/categories/linux" class="list-group-item">linux</a>
       
       <a href="https://henrik-farre.github.io/categories/xfce" class="list-group-item">xfce</a>
       
@@ -218,23 +219,23 @@
       
       <a href="https://henrik-farre.github.io/tags/android" class="list-group-item">android</a>
       
-      <a href="https://henrik-farre.github.io/tags/archlinux" class="list-group-item">archlinux</a>
-      
       <a href="https://henrik-farre.github.io/tags/mythbackend" class="list-group-item">mythbackend</a>
       
-      <a href="https://henrik-farre.github.io/tags/motherboard" class="list-group-item">motherboard</a>
-      
-      <a href="https://henrik-farre.github.io/tags/zsh" class="list-group-item">zsh</a>
-      
-      <a href="https://henrik-farre.github.io/tags/dvb-c" class="list-group-item">dvb-c</a>
+      <a href="https://henrik-farre.github.io/tags/archlinux" class="list-group-item">archlinux</a>
       
       <a href="https://henrik-farre.github.io/tags/mythfrontend" class="list-group-item">mythfrontend</a>
       
-      <a href="https://henrik-farre.github.io/tags/urxvt" class="list-group-item">urxvt</a>
+      <a href="https://henrik-farre.github.io/tags/zsh" class="list-group-item">zsh</a>
       
-      <a href="https://henrik-farre.github.io/tags/bash" class="list-group-item">bash</a>
+      <a href="https://henrik-farre.github.io/tags/motherboard" class="list-group-item">motherboard</a>
       
-      <a href="https://henrik-farre.github.io/tags/powerbook" class="list-group-item">powerbook</a>
+      <a href="https://henrik-farre.github.io/tags/dvb-c" class="list-group-item">dvb-c</a>
+      
+      <a href="https://henrik-farre.github.io/tags/review" class="list-group-item">review</a>
+      
+      <a href="https://henrik-farre.github.io/tags/cmd-line" class="list-group-item">cmd-line</a>
+      
+      <a href="https://henrik-farre.github.io/tags/nagios" class="list-group-item">nagios</a>
       
     </div>
   </div>
@@ -253,7 +254,7 @@
 
     <footer class="site">
       <div class="container">
-        <p>&copy; 2014 Rockhopper.dk</p>
+        <p>&copy; 2014 Henrik Farre</p>
         <p>Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>,</p>
         <p>Theme <a href="https://github.com/dim0627/hugo_theme_beg" target="_blank">Beg</a> designed by <a href="http://yet.unresolved.xyz" target="_blank">Daisuke Tsuji</a></p>
       </div>

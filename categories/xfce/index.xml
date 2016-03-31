@@ -21,31 +21,33 @@
 
 &lt;p&gt;So I made a workaround that did not require cron, and it runs in the current session. I created a .desktop file in ~/.config/autostart with this content:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;[Desktop Entry]&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;Encoding&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;UTF-8&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;Version&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;0.9.4&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;Type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Application&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;Name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Rotate bg&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;Comment&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;Exec&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;/home/enrique/bin/xfce-rotatebg.sh &amp;amp;&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;StartupNotify&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;false&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;Terminal&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;false&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;Hidden&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;false&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
+&lt;pre&gt;
+&lt;code class=&#34;language-ini&#34;&gt;[Desktop Entry]
+Encoding=UTF-8
+Version=0.9.4
+Type=Application
+Name=Rotate bg
+Comment=
+Exec=/home/enrique/bin/xfce-rotatebg.sh &amp;
+StartupNotify=false
+Terminal=false
+Hidden=false
+&lt;/code&gt;
+&lt;/pre&gt;
 
 &lt;p&gt;And the content of the xfce-rotatebg.sh is:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;ch&#34;&gt;#!/bin/sh&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; true&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt;
-  &lt;span class=&#34;nv&#34;&gt;PROPERTY&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;/backdrop/screen0/monitor0/image-path&amp;quot;&lt;/span&gt;
-  &lt;span class=&#34;nv&#34;&gt;IMAGE_PATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;xfconf-query -c xfce4-desktop -p &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;PROPERTY&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;
-  xfconf-query -c xfce4-desktop -p &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;PROPERTY&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; -s &lt;span class=&#34;s2&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;
-  xfconf-query -c xfce4-desktop -p &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;PROPERTY&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; -s &lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;IMAGE_PATH&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;#!/bin/sh
+while true; do
+  PROPERTY=&#34;/backdrop/screen0/monitor0/image-path&#34;
+  IMAGE_PATH=`xfconf-query -c xfce4-desktop -p ${PROPERTY}`
+  xfconf-query -c xfce4-desktop -p ${PROPERTY} -s &#34;&#34;
+  xfconf-query -c xfce4-desktop -p ${PROPERTY} -s &#34;${IMAGE_PATH}&#34;
   sleep 600
-&lt;span class=&#34;k&#34;&gt;done&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+done
+&lt;/code&gt;
+&lt;/pre&gt;
 
 &lt;p&gt;The sleep command controls the delay between wallpaper changes.&lt;/p&gt;
 

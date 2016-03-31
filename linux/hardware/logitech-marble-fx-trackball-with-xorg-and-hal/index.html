@@ -79,7 +79,7 @@
           <meta itemprop="name" content="Rockhopper.dk">
         </div>
         <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-          <meta itemprop="name" content="">
+          <meta itemprop="name" content="Henrik Farre">
         </div>
 
         <header class="article-header">
@@ -96,25 +96,26 @@
 
 <p>Once you have build the packages and installed them (remove the conflicting packages by using pacman -Rd packagename) you will have to create a Hal fdi file, I created &#8220;/etc/hal/fdi/policy/11-x11-mouse.fdi&#8221; containing:</p>
 
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;</span>
-<span class="nt">&lt;deviceinfo</span> <span class="na">version=</span><span class="s">&quot;0.2&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;device&gt;</span>
-    <span class="nt">&lt;match</span> <span class="na">key=</span><span class="s">&quot;info.capabilities&quot;</span> <span class="na">contains=</span><span class="s">&quot;input.mouse&quot;</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;match</span> <span class="na">key=</span><span class="s">&quot;info.product&quot;</span> <span class="na">contains=</span><span class="s">&quot;PS2++ Logitech Mouse&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;merge</span> <span class="na">key=</span><span class="s">&quot;input.x11.Protocol&quot;</span> <span class="na">type=</span><span class="s">&quot;string&quot;</span><span class="nt">&gt;</span>ExplorerPS/2<span class="nt">&lt;/merge&gt;</span>
-        <span class="nt">&lt;merge</span> <span class="na">key=</span><span class="s">&quot;input.x11_options.Buttons&quot;</span> <span class="na">type=</span><span class="s">&quot;string&quot;</span><span class="nt">&gt;</span>7<span class="nt">&lt;/merge&gt;</span>
-        <span class="nt">&lt;merge</span> <span class="na">key=</span><span class="s">&quot;input.x11_options.XAxisMapping&quot;</span> <span class="na">type=</span><span class="s">&quot;string&quot;</span><span class="nt">&gt;</span>6 7<span class="nt">&lt;/merge&gt;</span>
-        <span class="nt">&lt;merge</span> <span class="na">key=</span><span class="s">&quot;input.x11_options.YAxisMapping&quot;</span> <span class="na">type=</span><span class="s">&quot;string&quot;</span><span class="nt">&gt;</span>4 5<span class="nt">&lt;/merge&gt;</span>
-        <span class="nt">&lt;merge</span> <span class="na">key=</span><span class="s">&quot;input.x11_options.EmulateWheel&quot;</span> <span class="na">type=</span><span class="s">&quot;string&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/merge&gt;</span>
-        <span class="nt">&lt;merge</span> <span class="na">key=</span><span class="s">&quot;input.x11_options.EmulateWheelButton&quot;</span> <span class="na">type=</span><span class="s">&quot;string&quot;</span><span class="nt">&gt;</span>8<span class="nt">&lt;/merge&gt;</span>
-        <span class="nt">&lt;merge</span> <span class="na">key=</span><span class="s">&quot;input.x11_options.EmulateWheelInertia&quot;</span> <span class="na">type=</span><span class="s">&quot;string&quot;</span><span class="nt">&gt;</span>30<span class="nt">&lt;/merge&gt;</span>
-        <span class="nt">&lt;merge</span> <span class="na">key=</span><span class="s">&quot;input.x11_options.Emulate3Buttons&quot;</span> <span class="na">type=</span><span class="s">&quot;string&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/merge&gt;</span>
-      <span class="nt">&lt;/match&gt;</span>
-    <span class="nt">&lt;/match&gt;</span>
-  <span class="nt">&lt;/device&gt;</span>
-<span class="nt">&lt;/deviceinfo&gt;</span>
-</code></pre></div>
-
+<pre>
+<code class="language-xml">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+&lt;deviceinfo version="0.2"&gt;
+  &lt;device&gt;
+    &lt;match key="info.capabilities" contains="input.mouse"&gt;
+      &lt;match key="info.product" contains="PS2++ Logitech Mouse"&gt;
+        &lt;merge key="input.x11.Protocol" type="string"&gt;ExplorerPS/2&lt;/merge&gt;
+        &lt;merge key="input.x11_options.Buttons" type="string"&gt;7&lt;/merge&gt;
+        &lt;merge key="input.x11_options.XAxisMapping" type="string"&gt;6 7&lt;/merge&gt;
+        &lt;merge key="input.x11_options.YAxisMapping" type="string"&gt;4 5&lt;/merge&gt;
+        &lt;merge key="input.x11_options.EmulateWheel" type="string"&gt;True&lt;/merge&gt;
+        &lt;merge key="input.x11_options.EmulateWheelButton" type="string"&gt;8&lt;/merge&gt;
+        &lt;merge key="input.x11_options.EmulateWheelInertia" type="string"&gt;30&lt;/merge&gt;
+        &lt;merge key="input.x11_options.Emulate3Buttons" type="string"&gt;False&lt;/merge&gt;
+      &lt;/match&gt;
+    &lt;/match&gt;
+  &lt;/device&gt;
+&lt;/deviceinfo&gt;
+</code>
+</pre>
 
 <p>Now shutdown X, restart hal and X and the emulated scroll whell should work just fine. I have the following output in my &#8220;/var/log/Xorg.0.log&#8221;:</p>
 
@@ -232,17 +233,17 @@
       
       <a href="https://henrik-farre.github.io/tags/mythbackend" class="list-group-item">mythbackend</a>
       
-      <a href="https://henrik-farre.github.io/tags/motherboard" class="list-group-item">motherboard</a>
-      
       <a href="https://henrik-farre.github.io/tags/dvb-c" class="list-group-item">dvb-c</a>
-      
-      <a href="https://henrik-farre.github.io/tags/zsh" class="list-group-item">zsh</a>
       
       <a href="https://henrik-farre.github.io/tags/mythfrontend" class="list-group-item">mythfrontend</a>
       
-      <a href="https://henrik-farre.github.io/tags/synergy" class="list-group-item">synergy</a>
+      <a href="https://henrik-farre.github.io/tags/zsh" class="list-group-item">zsh</a>
       
-      <a href="https://henrik-farre.github.io/tags/docker" class="list-group-item">docker</a>
+      <a href="https://henrik-farre.github.io/tags/motherboard" class="list-group-item">motherboard</a>
+      
+      <a href="https://henrik-farre.github.io/tags/htpc" class="list-group-item">htpc</a>
+      
+      <a href="https://henrik-farre.github.io/tags/booting" class="list-group-item">booting</a>
       
       <a href="https://henrik-farre.github.io/tags/xbmc" class="list-group-item">xbmc</a>
       
@@ -263,7 +264,7 @@
 
     <footer class="site">
       <div class="container">
-        <p>&copy; 2014 Rockhopper.dk</p>
+        <p>&copy; 2014 Henrik Farre</p>
         <p>Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>,</p>
         <p>Theme <a href="https://github.com/dim0627/hugo_theme_beg" target="_blank">Beg</a> designed by <a href="http://yet.unresolved.xyz" target="_blank">Daisuke Tsuji</a></p>
       </div>

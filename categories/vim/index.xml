@@ -21,21 +21,21 @@
 
 &lt;p&gt;/etc/php5/conf.d/20-xdebug.ini (Debian wheezy)&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;zend_extension&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;/usr/lib/php5/20100525/xdebug.so&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;xdebug.remote_enable&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;1&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;xdebug.remote_autostart&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;0&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;xdebug.remote_connect_back&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;1&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;xdebug.remote_port&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;9000&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
+&lt;pre&gt;
+&lt;code class=&#34;language-ini&#34;&gt;zend_extension=/usr/lib/php5/20100525/xdebug.so
+xdebug.remote_enable=1
+xdebug.remote_autostart=0
+xdebug.remote_connect_back=1
+xdebug.remote_port=9000&lt;/code&gt;
+&lt;/pre&gt;
 
 &lt;p&gt;And in my ~/.vimrc I have these vdebug settings:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-vim&#34; data-lang=&#34;vim&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;g&lt;/span&gt;:vdebug_options &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; {&lt;span class=&#34;s2&#34;&gt;&amp;quot;path_maps&amp;quot;&lt;/span&gt;: {&lt;span class=&#34;s2&#34;&gt;&amp;quot;/var/www&amp;quot;&lt;/span&gt;: &lt;span class=&#34;s2&#34;&gt;&amp;quot;/home/username/Localdev&amp;quot;&lt;/span&gt;}&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; \
-&lt;span class=&#34;c&#34;&gt;&amp;quot;break_on_open&amp;quot;: 0, &amp;quot;watch_window_style&amp;quot;: &amp;quot;compact&amp;quot;, \&lt;/span&gt;
-&lt;span class=&#34;c&#34;&gt;&amp;quot;server&amp;quot; : &amp;quot;172.17.42.1&amp;quot;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-vim&#34;&gt;let g:vdebug_options = {&#34;path_maps&#34;: {&#34;/var/www&#34;: &#34;/home/username/Localdev&#34;}, \
+&#34;break_on_open&#34;: 0, &#34;watch_window_style&#34;: &#34;compact&#34;, \
+&#34;server&#34; : &#34;172.17.42.1&#34;}&lt;/code&gt;
+&lt;/pre&gt;
 
 &lt;p&gt;172.17.42.1 is the ip of the bridge created by docker, it can be found by using ip addr and looking for the &amp;#8220;docker0&amp;#8221; interface.&lt;/p&gt;
 

@@ -48,32 +48,35 @@
 
 &lt;p&gt;I have the following in my ~/.zsh:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;TERM&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;screen-bce&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;||&lt;/span&gt; &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;TERM&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;screen&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
-  precmd &lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\033k\033\134\033k%m[%1d]\033\134&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-  preexec &lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\033k\033\134\033k%m[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;]\033\134&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
-  precmd &lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\e]0;%n@%m: %~\a&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-  preexec &lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; print -Pn &lt;span class=&#34;s2&#34;&gt;&amp;quot;\e]0;%n@%m: &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;\a&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;PS1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;$&amp;#39;%{\e[0;32m%}%m%{\e[0m%}:%~&amp;gt; &amp;#39;&lt;/span&gt;
-&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; PS1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;if [[ ${TERM} == &#34;screen-bce&#34; || ${TERM} == &#34;screen&#34; ]]; then
+  precmd () { print -Pn &#34;\033k\033\134\033k%m[%1d]\033\134&#34; }
+  preexec () { print -Pn &#34;\033k\033\134\033k%m[$1]\033\134&#34; }
+else
+  precmd () { print -Pn &#34;\e]0;%n@%m: %~\a&#34; }
+  preexec () { print -Pn &#34;\e]0;%n@%m: $1\a&#34; }
+fi
+PS1=$&#39;%{\e[0;32m%}%m%{\e[0m%}:%~&amp;gt; &#39;
+export PS1
+&lt;/code&gt;
+&lt;/pre&gt;
 
 &lt;p&gt;My ~/.bashrc:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;PROMPT_COMMAND&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;echo -ne &amp;quot;\033]0;${USER}@${HOSTNAME}: ${PWD}\007&amp;quot;&amp;#39;&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;PS1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;\[\033[0;32m\]\h\[\033[00m\]:\w&amp;gt; &amp;#39;&lt;/span&gt;
-&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; PS1 PROMPT_COMMAND
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;PROMPT_COMMAND=&#39;echo -ne &#34;\033]0;${USER}@${HOSTNAME}: ${PWD}\007&#34;&#39;
+PS1=&#39;\[\033[0;32m\]\h\[\033[00m\]:\w&amp;gt; &#39;
+export PS1 PROMPT_COMMAND
+&lt;/code&gt;
+&lt;/pre&gt;
 
 &lt;p&gt;And finally my ~/.screenrc&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;hardstatus string &lt;span class=&#34;s2&#34;&gt;&amp;quot;%h&amp;quot;&lt;/span&gt;
-caption always &lt;span class=&#34;s2&#34;&gt;&amp;quot;%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw} %=%d %M %0c %{g}%H%{-}&amp;quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;hardstatus string &#34;%h&#34;
+caption always &#34;%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw} %=%d %M %0c %{g}%H%{-}&#34;
+&lt;/code&gt;
+&lt;/pre&gt;
 </description>
     </item>
     

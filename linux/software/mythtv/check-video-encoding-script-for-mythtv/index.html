@@ -79,7 +79,7 @@
           <meta itemprop="name" content="Rockhopper.dk">
         </div>
         <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-          <meta itemprop="name" content="">
+          <meta itemprop="name" content="Henrik Farre">
         </div>
 
         <header class="article-header">
@@ -94,29 +94,30 @@
 
 <p>You can of cause adapt it if you would like to use MPlayer instead of Xine, or want the script to check for something else than Xvid, or want the script to check for something entirely different then encoding (size maybe?), just check the output of: mplayer -identify &#8220;file&#8221;</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="ch">#!/bin/bash</span>
+<pre>
+<code class="language-bash">#!/bin/bash
 
-<span class="c1"># Don&#39;t check encoding if MythTV is trying to playback a DVD</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">1</span><span class="si">}</span> !<span class="o">=</span> <span class="s1">&#39;dvd://&#39;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-  <span class="nv">VIDEO_FORMAT</span><span class="o">=</span><span class="sb">`</span>mplayer -really-quiet -identify -frames  -vc null -vo null -ao null <span class="si">${</span><span class="nv">1</span><span class="si">}</span> 2&lt;/dev/null <span class="p">|</span> awk -F<span class="o">=</span> <span class="s1">&#39;/^ID_VIDEO_FORMAT/ {print $2}&#39;</span><span class="sb">`</span> <span class="c1"># ID_VIDEO_FORMAT contains the encoding</span>
-<span class="k">else</span>
-  <span class="nv">VIDEO_FORMAT</span><span class="o">=</span><span class="s1">&#39;dvd&#39;</span>
-<span class="k">fi</span>
+# Don't check encoding if MythTV is trying to playback a DVD
+if [[ ${1} != 'dvd://' ]]; then
+  VIDEO_FORMAT=`mplayer -really-quiet -identify -frames -vc null -vo null -ao null ${1} 2&lt;/dev/null | awk -F= '/^ID_VIDEO_FORMAT/ {print $2}'` # ID_VIDEO_FORMAT contains the encoding
+else
+  VIDEO_FORMAT='dvd'
+fi
 
-<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">VIDEO_FORMAT</span><span class="si">}</span> <span class="o">=</span> <span class="s1">&#39;XVID&#39;</span>  <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-  <span class="nv">VIDEO_DRIVER</span><span class="o">=</span><span class="s2">&quot;-V xv&quot;</span> <span class="c1"># Use xv output for Xvid, xxmc for everything else</span>
-<span class="k">else</span>
-  <span class="nv">VIDEO_DRIVER</span><span class="o">=</span><span class="s2">&quot;-V xxmc&quot;</span>
-<span class="k">fi</span>
+if [[ ${VIDEO_FORMAT} = 'XVID'  ]]; then
+  VIDEO_DRIVER="-V xv" # Use xv output for Xvid, xxmc for everything else
+else
+  VIDEO_DRIVER="-V xxmc"
+fi
 
-<span class="c1"># Xine options</span>
-<span class="nv">AUDIO_DRIVER</span><span class="o">=</span><span class="s2">&quot;-A alsa&quot;</span>
-<span class="nv">EXTRA_OPTIONS</span><span class="o">=</span><span class="s2">&quot;-pfhq --no-splash&quot;</span>
-<span class="nv">DEBUG_OPTIONS</span><span class="o">=</span><span class="s2">&quot;--verbose=5 &lt; /shared/mythtv/xine.log&quot;</span>
+# Xine options
+AUDIO_DRIVER="-A alsa"
+EXTRA_OPTIONS="-pfhq --no-splash"
+DEBUG_OPTIONS="--verbose=5 &gt; /shared/mythtv/xine.log"
 
-xine <span class="si">${</span><span class="nv">VIDEO_DRIVER</span><span class="si">}</span> <span class="si">${</span><span class="nv">AUDIO_DRIVER</span><span class="si">}</span> <span class="si">${</span><span class="nv">EXTRA_OPTIONS</span><span class="si">}</span> <span class="si">${</span><span class="nv">1</span><span class="si">}</span>
-</code></pre></div>
-
+xine ${VIDEO_DRIVER} ${AUDIO_DRIVER} ${EXTRA_OPTIONS} ${1}
+</code>
+</pre>
 
         </div>
 
@@ -179,25 +180,25 @@ xine <span class="si">${</span><span class="nv">VIDEO_DRIVER</span><span class="
     </div>
     <div class="list-group">
       
-      <a href="https://henrik-farre.github.io/categories/software" class="list-group-item">software</a>
-      
       <a href="https://henrik-farre.github.io/categories/hardware" class="list-group-item">hardware</a>
+      
+      <a href="https://henrik-farre.github.io/categories/software" class="list-group-item">software</a>
       
       <a href="https://henrik-farre.github.io/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
       
-      <a href="https://henrik-farre.github.io/categories/mythtv" class="list-group-item">mythtv</a>
-      
       <a href="https://henrik-farre.github.io/categories/linux" class="list-group-item">linux</a>
       
-      <a href="https://henrik-farre.github.io/categories/xfce" class="list-group-item">xfce</a>
+      <a href="https://henrik-farre.github.io/categories/mythtv" class="list-group-item">mythtv</a>
       
-      <a href="https://henrik-farre.github.io/categories/vim" class="list-group-item">vim</a>
+      <a href="https://henrik-farre.github.io/categories/xfce" class="list-group-item">xfce</a>
       
       <a href="https://henrik-farre.github.io/categories/xorg" class="list-group-item">xorg</a>
       
       <a href="https://henrik-farre.github.io/categories/development" class="list-group-item">development</a>
       
       <a href="https://henrik-farre.github.io/categories/php" class="list-group-item">php</a>
+      
+      <a href="https://henrik-farre.github.io/categories/vim" class="list-group-item">vim</a>
       
     </div>
   </div>
@@ -216,17 +217,17 @@ xine <span class="si">${</span><span class="nv">VIDEO_DRIVER</span><span class="
       
       <a href="https://henrik-farre.github.io/tags/motherboard" class="list-group-item">motherboard</a>
       
-      <a href="https://henrik-farre.github.io/tags/zsh" class="list-group-item">zsh</a>
-      
       <a href="https://henrik-farre.github.io/tags/dvb-c" class="list-group-item">dvb-c</a>
       
       <a href="https://henrik-farre.github.io/tags/mythfrontend" class="list-group-item">mythfrontend</a>
       
-      <a href="https://henrik-farre.github.io/tags/urxvt" class="list-group-item">urxvt</a>
+      <a href="https://henrik-farre.github.io/tags/zsh" class="list-group-item">zsh</a>
       
-      <a href="https://henrik-farre.github.io/tags/wol" class="list-group-item">wol</a>
+      <a href="https://henrik-farre.github.io/tags/raid" class="list-group-item">raid</a>
       
-      <a href="https://henrik-farre.github.io/tags/bash" class="list-group-item">bash</a>
+      <a href="https://henrik-farre.github.io/tags/powerbook" class="list-group-item">powerbook</a>
+      
+      <a href="https://henrik-farre.github.io/tags/docker" class="list-group-item">docker</a>
       
     </div>
   </div>
@@ -245,7 +246,7 @@ xine <span class="si">${</span><span class="nv">VIDEO_DRIVER</span><span class="
 
     <footer class="site">
       <div class="container">
-        <p>&copy; 2014 Rockhopper.dk</p>
+        <p>&copy; 2014 Henrik Farre</p>
         <p>Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>,</p>
         <p>Theme <a href="https://github.com/dim0627/hugo_theme_beg" target="_blank">Beg</a> designed by <a href="http://yet.unresolved.xyz" target="_blank">Daisuke Tsuji</a></p>
       </div>

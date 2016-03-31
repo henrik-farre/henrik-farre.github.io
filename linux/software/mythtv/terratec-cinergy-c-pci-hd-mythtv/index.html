@@ -79,7 +79,7 @@
           <meta itemprop="name" content="Rockhopper.dk">
         </div>
         <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-          <meta itemprop="name" content="">
+          <meta itemprop="name" content="Henrik Farre">
         </div>
 
         <header class="article-header">
@@ -434,26 +434,27 @@ Program Association Table
 
 <p>The first issue I fixed with a small PHP script:</p>
 
-<p><div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span> <span class="nv">$mysqli</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mysqli</span><span class="p">(</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="s2">&quot;YOUR DB USER&quot;</span><span class="p">,</span> <span class="s2">&quot;YOUR DB PASSWORD&quot;</span><span class="p">,</span> <span class="s2">&quot;mythconverg&quot;</span><span class="p">);</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$mysqli</span><span class="o">-&gt;</span><span class="na">connect_error</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="nb">printf</span><span class="p">(</span><span class="s2">&quot;Connect failed: %s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nx">mysqli_connect_error</span><span class="p">());</span>
-<span class="k">exit</span><span class="p">();</span>
-<span class="p">}</span>
+<pre>
+<code class="language-php">&lt;?php $mysqli = new mysqli("localhost", "YOUR DB USER", "YOUR DB PASSWORD", "mythconverg"); if ($mysqli-&gt;connect_error)
+{
+printf("Connect failed: %s\n", mysqli_connect_error());
+exit();
+}
 
-<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$mysqli</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s2">&quot;SELECT chanid, serviceid FROM channel&quot;</span><span class="p">);</span>
+$result = $mysqli-&gt;query("SELECT chanid, serviceid FROM channel");
 
-<span class="k">while</span> <span class="p">(</span> <span class="nv">$row</span> <span class="o">=</span> <span class="nv">$result</span><span class="o">-&gt;</span><span class="na">fetch_assoc</span><span class="p">()</span> <span class="p">)</span>
-<span class="p">{</span>
-<span class="nv">$sql</span> <span class="o">=</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s2">&quot;UPDATE channel SET xmltvid = &#39;%s&#39; WHERE chanid = %d&quot;</span><span class="p">,</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;serviceid&#39;</span><span class="p">]</span><span class="o">.</span><span class="s1">&#39;.dvb.guide&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">int</span><span class="p">)</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;chanid&#39;</span><span class="p">]);</span>
+while ( $row = $result-&gt;fetch_assoc() )
+{
+$sql = sprintf("UPDATE channel SET xmltvid = '%s' WHERE chanid = %d", $row['serviceid'].'.dvb.guide', (int) $row['chanid']);
 
-<span class="nv">$mysqli</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
-<span class="p">}</span>
+$mysqli-&gt;query($sql);
+}
 
-<span class="nv">$mysqli</span><span class="o">-&gt;</span><span class="na">close</span><span class="p">();</span>
+$mysqli-&gt;close();
 
-<span class="cp">?&gt;</span><span class="x"></span>
-</code></pre></div>
-</p>
+?&gt;
+</code>
+</pre>
 
 <p>Remember to replace &#8220;YOUR DB USER&#8221; and &#8220;YOUR DB PASSWORD&#8221; with real values.</p>
 
@@ -461,7 +462,9 @@ Program Association Table
 
 <p>The encoding issue was fixed by editing the source of tv_grab_dvb_plus. In the file &#8220;src/dvb_text.cpp&#8221; on line 133, I changed the encoding to &#8220;ISO-8859-1&#8221;:</p>
 
-<pre class="c codesnip" style="font-family:monospace;">cd <span class="sy0">=</span> iconv_open<span class="br0">&#40;</span><span class="st0">"ISO-8859-1"</span><span class="sy0">,</span> cs_new<span class="br0">&#41;</span><span class="sy0">;</span></pre>
+<pre>
+cd = iconv_open("ISO-8859-1", cs_new);
+</pre>
 
 <p>And now it works.</p>
 
@@ -550,9 +553,9 @@ mantis_ack_wait (0): Slave RACK Fail !</pre>
       
       <a href="https://henrik-farre.github.io/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
       
-      <a href="https://henrik-farre.github.io/categories/mythtv" class="list-group-item">mythtv</a>
-      
       <a href="https://henrik-farre.github.io/categories/linux" class="list-group-item">linux</a>
+      
+      <a href="https://henrik-farre.github.io/categories/mythtv" class="list-group-item">mythtv</a>
       
       <a href="https://henrik-farre.github.io/categories/xfce" class="list-group-item">xfce</a>
       
@@ -575,23 +578,23 @@ mantis_ack_wait (0): Slave RACK Fail !</pre>
       
       <a href="https://henrik-farre.github.io/tags/android" class="list-group-item">android</a>
       
-      <a href="https://henrik-farre.github.io/tags/archlinux" class="list-group-item">archlinux</a>
-      
       <a href="https://henrik-farre.github.io/tags/mythbackend" class="list-group-item">mythbackend</a>
+      
+      <a href="https://henrik-farre.github.io/tags/archlinux" class="list-group-item">archlinux</a>
       
       <a href="https://henrik-farre.github.io/tags/mythfrontend" class="list-group-item">mythfrontend</a>
       
-      <a href="https://henrik-farre.github.io/tags/motherboard" class="list-group-item">motherboard</a>
-      
       <a href="https://henrik-farre.github.io/tags/zsh" class="list-group-item">zsh</a>
+      
+      <a href="https://henrik-farre.github.io/tags/motherboard" class="list-group-item">motherboard</a>
       
       <a href="https://henrik-farre.github.io/tags/dvb-c" class="list-group-item">dvb-c</a>
       
-      <a href="https://henrik-farre.github.io/tags/chromium" class="list-group-item">chromium</a>
-      
       <a href="https://henrik-farre.github.io/tags/review" class="list-group-item">review</a>
       
-      <a href="https://henrik-farre.github.io/tags/firefox" class="list-group-item">firefox</a>
+      <a href="https://henrik-farre.github.io/tags/cmd-line" class="list-group-item">cmd-line</a>
+      
+      <a href="https://henrik-farre.github.io/tags/nagios" class="list-group-item">nagios</a>
       
     </div>
   </div>
@@ -610,7 +613,7 @@ mantis_ack_wait (0): Slave RACK Fail !</pre>
 
     <footer class="site">
       <div class="container">
-        <p>&copy; 2014 Rockhopper.dk</p>
+        <p>&copy; 2014 Henrik Farre</p>
         <p>Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>,</p>
         <p>Theme <a href="https://github.com/dim0627/hugo_theme_beg" target="_blank">Beg</a> designed by <a href="http://yet.unresolved.xyz" target="_blank">Daisuke Tsuji</a></p>
       </div>

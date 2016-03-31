@@ -21,50 +21,52 @@
 
 &lt;p&gt;The files contain:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;[Desktop Entry]&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;Name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Firefox Home&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;GenericName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Web Browser&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;Comment&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Browse the World Wide Web&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;Exec&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;/usr/lib/firefox/firefox -P Home -no-remote %u&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;Icon&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;firefox&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;Terminal&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;false&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;Type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Application&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;MimeType&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;StartupNotify&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;true&lt;/span&gt;
-&lt;span class=&#34;na&#34;&gt;Categories&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Network;WebBrowser;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
+&lt;pre&gt;
+&lt;code class=&#34;language-ini&#34;&gt;[Desktop Entry]
+Name=Firefox Home
+GenericName=Web Browser
+Comment=Browse the World Wide Web
+Exec=/usr/lib/firefox/firefox -P Home -no-remote %u
+Icon=firefox
+Terminal=false
+Type=Application
+MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true
+Categories=Network;WebBrowser;
+&lt;/code&gt;
+&lt;/pre&gt;
 
 &lt;p&gt;Replace &amp;#8220;Home&amp;#8221; with the name of your profile.&lt;/p&gt;
 
 &lt;p&gt;In order to open links in the correct profile, I made a small shell script that used xdotool and zenity:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;ch&#34;&gt;#!/bin/sh&lt;/span&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;#!/bin/sh
 
-&lt;span class=&#34;nv&#34;&gt;PROFILE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;zenity --list --text &lt;span class=&#34;s2&#34;&gt;&amp;quot;Open &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; in which profile?&amp;quot;&lt;/span&gt; --column &lt;span class=&#34;s2&#34;&gt;&amp;quot;Profile&amp;quot;&lt;/span&gt; Work Home&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+PROFILE=$(zenity --list --text &#34;Open $1 in which profile?&#34; --column &#34;Profile&#34; Work Home);
 
-&lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$PROFILE&lt;/span&gt; in
-  Home&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-    &lt;span class=&#34;nv&#34;&gt;PID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;pgrep -f -- &lt;span class=&#34;s1&#34;&gt;&amp;#39;-P Home&amp;#39;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;
-    &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
-  Work&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-    &lt;span class=&#34;nv&#34;&gt;PID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;pgrep -f -- &lt;span class=&#34;s1&#34;&gt;&amp;#39;-P Work&amp;#39;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;
-    &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
-  *&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-    &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt;
-    &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;esac&lt;/span&gt;
+case $PROFILE in
+  Home)
+    PID=$(pgrep -f -- &#39;-P Home&#39;)
+    ;;
+  Work)
+    PID=$(pgrep -f -- &#39;-P Work&#39;)
+    ;;
+  *)
+    exit
+    ;;
+esac
 
-&lt;span class=&#34;c1&#34;&gt;# Avoid &amp;quot;Can&amp;#39;t consume 1 args; are only 0 available. This is a bug.&amp;quot; message: https://github.com/jordansissel/xdotool/issues/14&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;# Pick the last id, as it seems to be the one needed&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;WID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;xdotool search --any --pid &lt;span class=&#34;nv&#34;&gt;$PID&lt;/span&gt; --name &lt;span class=&#34;s2&#34;&gt;&amp;quot;random_random_random&amp;quot;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; tail -n1&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;
+# Avoid &#34;Can&#39;t consume 1 args; are only 0 available. This is a bug.&#34; message: https://github.com/jordansissel/xdotool/issues/14
+# Pick the last id, as it seems to be the one needed
+WID=$(xdotool search --any --pid $PID --name &#34;random_random_random&#34; | tail -n1)
 
-xdotool windowactivate --sync &lt;span class=&#34;nv&#34;&gt;$WID&lt;/span&gt;
-xdotool key --window &lt;span class=&#34;nv&#34;&gt;$WID&lt;/span&gt; ctrl+t
-xdotool key --window &lt;span class=&#34;nv&#34;&gt;$WID&lt;/span&gt; ctrl+l
-xdotool &lt;span class=&#34;nb&#34;&gt;type&lt;/span&gt; --window &lt;span class=&#34;nv&#34;&gt;$WID&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+xdotool windowactivate --sync $WID
+xdotool key --window $WID ctrl+t
+xdotool key --window $WID ctrl+l
+xdotool type --window $WID &#34;$1&#34;
+&lt;/code&gt;
+&lt;/pre&gt;
 
 &lt;p&gt;The last thing to to is to open exo-preferred-applications and select the script as the preferred &amp;#8220;web-browser&amp;#8221; (remember &amp;#8220;%s&amp;#8221;).&lt;/p&gt;
 </description>

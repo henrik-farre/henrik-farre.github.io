@@ -79,7 +79,7 @@
           <meta itemprop="name" content="Rockhopper.dk">
         </div>
         <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-          <meta itemprop="name" content="">
+          <meta itemprop="name" content="Henrik Farre">
         </div>
 
         <header class="article-header">
@@ -94,31 +94,33 @@
 
 <p>So I made a workaround that did not require cron, and it runs in the current session. I created a .desktop file in ~/.config/autostart with this content:</p>
 
-<div class="highlight"><pre><code class="language-ini" data-lang="ini"><span></span><span class="k">[Desktop Entry]</span>
-<span class="na">Encoding</span><span class="o">=</span><span class="s">UTF-8</span>
-<span class="na">Version</span><span class="o">=</span><span class="s">0.9.4</span>
-<span class="na">Type</span><span class="o">=</span><span class="s">Application</span>
-<span class="na">Name</span><span class="o">=</span><span class="s">Rotate bg</span>
-<span class="na">Comment</span><span class="o">=</span>
-<span class="na">Exec</span><span class="o">=</span><span class="s">/home/enrique/bin/xfce-rotatebg.sh &amp;</span>
-<span class="na">StartupNotify</span><span class="o">=</span><span class="s">false</span>
-<span class="na">Terminal</span><span class="o">=</span><span class="s">false</span>
-<span class="na">Hidden</span><span class="o">=</span><span class="s">false</span>
-</code></pre></div>
-
+<pre>
+<code class="language-ini">[Desktop Entry]
+Encoding=UTF-8
+Version=0.9.4
+Type=Application
+Name=Rotate bg
+Comment=
+Exec=/home/enrique/bin/xfce-rotatebg.sh &
+StartupNotify=false
+Terminal=false
+Hidden=false
+</code>
+</pre>
 
 <p>And the content of the xfce-rotatebg.sh is:</p>
 
-<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="ch">#!/bin/sh</span>
-<span class="k">while</span> true<span class="p">;</span> <span class="k">do</span>
-  <span class="nv">PROPERTY</span><span class="o">=</span><span class="s2">&quot;/backdrop/screen0/monitor0/image-path&quot;</span>
-  <span class="nv">IMAGE_PATH</span><span class="o">=</span><span class="sb">`</span>xfconf-query -c xfce4-desktop -p <span class="si">${</span><span class="nv">PROPERTY</span><span class="si">}</span><span class="sb">`</span>
-  xfconf-query -c xfce4-desktop -p <span class="si">${</span><span class="nv">PROPERTY</span><span class="si">}</span> -s <span class="s2">&quot;&quot;</span>
-  xfconf-query -c xfce4-desktop -p <span class="si">${</span><span class="nv">PROPERTY</span><span class="si">}</span> -s <span class="s2">&quot;</span><span class="si">${</span><span class="nv">IMAGE_PATH</span><span class="si">}</span><span class="s2">&quot;</span>
+<pre>
+<code class="language-bash">#!/bin/sh
+while true; do
+  PROPERTY="/backdrop/screen0/monitor0/image-path"
+  IMAGE_PATH=`xfconf-query -c xfce4-desktop -p ${PROPERTY}`
+  xfconf-query -c xfce4-desktop -p ${PROPERTY} -s ""
+  xfconf-query -c xfce4-desktop -p ${PROPERTY} -s "${IMAGE_PATH}"
   sleep 600
-<span class="k">done</span>
-</code></pre></div>
-</p>
+done
+</code>
+</pre>
 
 <p>The sleep command controls the delay between wallpaper changes.</p>
 
@@ -185,25 +187,25 @@
     </div>
     <div class="list-group">
       
-      <a href="https://henrik-farre.github.io/categories/software" class="list-group-item">software</a>
-      
       <a href="https://henrik-farre.github.io/categories/hardware" class="list-group-item">hardware</a>
+      
+      <a href="https://henrik-farre.github.io/categories/software" class="list-group-item">software</a>
       
       <a href="https://henrik-farre.github.io/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
       
-      <a href="https://henrik-farre.github.io/categories/mythtv" class="list-group-item">mythtv</a>
-      
       <a href="https://henrik-farre.github.io/categories/linux" class="list-group-item">linux</a>
       
-      <a href="https://henrik-farre.github.io/categories/xfce" class="list-group-item">xfce</a>
+      <a href="https://henrik-farre.github.io/categories/mythtv" class="list-group-item">mythtv</a>
       
-      <a href="https://henrik-farre.github.io/categories/vim" class="list-group-item">vim</a>
+      <a href="https://henrik-farre.github.io/categories/xfce" class="list-group-item">xfce</a>
       
       <a href="https://henrik-farre.github.io/categories/xorg" class="list-group-item">xorg</a>
       
       <a href="https://henrik-farre.github.io/categories/development" class="list-group-item">development</a>
       
       <a href="https://henrik-farre.github.io/categories/php" class="list-group-item">php</a>
+      
+      <a href="https://henrik-farre.github.io/categories/vim" class="list-group-item">vim</a>
       
     </div>
   </div>
@@ -216,23 +218,23 @@
       
       <a href="https://henrik-farre.github.io/tags/android" class="list-group-item">android</a>
       
-      <a href="https://henrik-farre.github.io/tags/archlinux" class="list-group-item">archlinux</a>
-      
       <a href="https://henrik-farre.github.io/tags/mythbackend" class="list-group-item">mythbackend</a>
       
-      <a href="https://henrik-farre.github.io/tags/mythfrontend" class="list-group-item">mythfrontend</a>
-      
-      <a href="https://henrik-farre.github.io/tags/motherboard" class="list-group-item">motherboard</a>
+      <a href="https://henrik-farre.github.io/tags/archlinux" class="list-group-item">archlinux</a>
       
       <a href="https://henrik-farre.github.io/tags/dvb-c" class="list-group-item">dvb-c</a>
       
+      <a href="https://henrik-farre.github.io/tags/mythfrontend" class="list-group-item">mythfrontend</a>
+      
       <a href="https://henrik-farre.github.io/tags/zsh" class="list-group-item">zsh</a>
       
-      <a href="https://henrik-farre.github.io/tags/chromium" class="list-group-item">chromium</a>
+      <a href="https://henrik-farre.github.io/tags/motherboard" class="list-group-item">motherboard</a>
       
-      <a href="https://henrik-farre.github.io/tags/htpc" class="list-group-item">htpc</a>
+      <a href="https://henrik-farre.github.io/tags/xbmc" class="list-group-item">xbmc</a>
       
-      <a href="https://henrik-farre.github.io/tags/uefi" class="list-group-item">uefi</a>
+      <a href="https://henrik-farre.github.io/tags/screen" class="list-group-item">screen</a>
+      
+      <a href="https://henrik-farre.github.io/tags/urxvt" class="list-group-item">urxvt</a>
       
     </div>
   </div>
@@ -251,7 +253,7 @@
 
     <footer class="site">
       <div class="container">
-        <p>&copy; 2014 Rockhopper.dk</p>
+        <p>&copy; 2014 Henrik Farre</p>
         <p>Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>,</p>
         <p>Theme <a href="https://github.com/dim0627/hugo_theme_beg" target="_blank">Beg</a> designed by <a href="http://yet.unresolved.xyz" target="_blank">Daisuke Tsuji</a></p>
       </div>

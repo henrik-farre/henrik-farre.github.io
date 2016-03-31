@@ -504,26 +504,27 @@ Program Association Table
 
 &lt;p&gt;The first issue I fixed with a small PHP script:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$mysqli&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;mysqli&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;localhost&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;YOUR DB USER&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;YOUR DB PASSWORD&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;mythconverg&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;connect_error&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;span class=&#34;nb&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;Connect failed: %s&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;mysqli_connect_error&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;exit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php $mysqli = new mysqli(&#34;localhost&#34;, &#34;YOUR DB USER&#34;, &#34;YOUR DB PASSWORD&#34;, &#34;mythconverg&#34;); if ($mysqli-&amp;gt;connect_error)
+{
+printf(&#34;Connect failed: %s\n&#34;, mysqli_connect_error());
+exit();
+}
 
-&lt;span class=&#34;nv&#34;&gt;$result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;SELECT chanid, serviceid FROM channel&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+$result = $mysqli-&amp;gt;query(&#34;SELECT chanid, serviceid FROM channel&#34;);
 
-&lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$row&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$result&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;fetch_assoc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;$sql&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;sprintf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;UPDATE channel SET xmltvid = &amp;#39;%s&amp;#39; WHERE chanid = %d&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$row&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;serviceid&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;.dvb.guide&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$row&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;chanid&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
+while ( $row = $result-&amp;gt;fetch_assoc() )
+{
+$sql = sprintf(&#34;UPDATE channel SET xmltvid = &#39;%s&#39; WHERE chanid = %d&#34;, $row[&#39;serviceid&#39;].&#39;.dvb.guide&#39;, (int) $row[&#39;chanid&#39;]);
 
-&lt;span class=&#34;nv&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$sql&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+$mysqli-&amp;gt;query($sql);
+}
 
-&lt;span class=&#34;nv&#34;&gt;$mysqli&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;close&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+$mysqli-&amp;gt;close();
 
-&lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+?&amp;gt;
+&lt;/code&gt;
+&lt;/pre&gt;
 
 &lt;p&gt;Remember to replace &amp;#8220;YOUR DB USER&amp;#8221; and &amp;#8220;YOUR DB PASSWORD&amp;#8221; with real values.&lt;/p&gt;
 
@@ -531,7 +532,9 @@ Program Association Table
 
 &lt;p&gt;The encoding issue was fixed by editing the source of tv_grab_dvb_plus. In the file &amp;#8220;src/dvb_text.cpp&amp;#8221; on line 133, I changed the encoding to &amp;#8220;ISO-8859-1&amp;#8221;:&lt;/p&gt;
 
-&lt;pre class=&#34;c codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;cd &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; iconv_open&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;ISO-8859-1&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; cs_new&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;
+&lt;pre&gt;
+cd = iconv_open(&#34;ISO-8859-1&#34;, cs_new);
+&lt;/pre&gt;
 
 &lt;p&gt;And now it works.&lt;/p&gt;
 
@@ -642,24 +645,25 @@ mantis_ack_wait (0): Slave RACK Fail !&lt;/pre&gt;
 
 &lt;p&gt;To match the new hardware I also switched from Arch Linux x686 to Arch Linux x86_64. I have not experienced any crashes or trouble after switching to the new hardware, so the hardware is 100% Linux compatible. There might be problems with older kernels, but I can confirm that it works with 2.6.28 or newer.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Update the 01-Aug-2009: attached &lt;a href=&#34;https://rockhopper.dk/wp-content/uploads/2009/07/dmesg.txt&#34;&gt;dmesg&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update the 01-Aug-2009: attached &lt;a href=&#34;https://henrik-farre.github.io/uploads/gigabyte-ga-ma790fxt-ud5p-dmesg.txt&#34;&gt;dmesg&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;fancontrol-and-sensors:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;Fancontrol and sensors&lt;/h2&gt;
 
 &lt;p&gt;I installed lm_sensors and used pwmconfig to create a /etc/fancontrol file:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# Configuration file generated by pwmconfig, changes will be lost&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;# cpu : temp2, pwm1, min:35, max:50&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;# sys1: temp1, pwm2, min:45, max:50&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;INTERVAL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;10
-&lt;span class=&#34;nv&#34;&gt;FCTEMPS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/temp2_input hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/temp1_input
-&lt;span class=&#34;nv&#34;&gt;FCFANS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/fan1_input hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/fan2_input
-&lt;span class=&#34;nv&#34;&gt;MINTEMP&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;35&lt;/span&gt; hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;45
-&lt;span class=&#34;nv&#34;&gt;MAXTEMP&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;45&lt;/span&gt; hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;50
-&lt;span class=&#34;nv&#34;&gt;MINSTART&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;150&lt;/span&gt; hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;150
-&lt;span class=&#34;nv&#34;&gt;MINSTOP&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;hwmon0/device/pwm1&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;100&lt;/span&gt; hwmon0/device/pwm2&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;100
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;Configuration file generated by pwmconfig, changes will be lost
+# cpu : temp2, pwm1, min:35, max:50
+# sys1: temp1, pwm2, min:45, max:50
+INTERVAL=10
+FCTEMPS=hwmon0/device/pwm1=hwmon0/device/temp2_input hwmon0/device/pwm2=hwmon0/device/temp1_input
+FCFANS=hwmon0/device/pwm1=hwmon0/device/fan1_input hwmon0/device/pwm2=hwmon0/device/fan2_input
+MINTEMP=hwmon0/device/pwm1=35 hwmon0/device/pwm2=45
+MAXTEMP=hwmon0/device/pwm1=45 hwmon0/device/pwm2=50
+MINSTART=hwmon0/device/pwm1=150 hwmon0/device/pwm2=150
+MINSTOP=hwmon0/device/pwm1=100 hwmon0/device/pwm2=100
+&lt;/code&gt;
+&lt;/pre&gt;
 
 &lt;p&gt;On a hot summerday the sensors command outputs:&lt;/p&gt;
 
@@ -699,12 +703,13 @@ cpu0_vid:   +1.550 V&lt;/pre&gt;
 
 &lt;p&gt;I use the ondemand CPU frequceny scaling governor, so most of the time all four cores run at 800MHz and only switch to 2.6GHz when it is needed. I have put the following in my /etc/rc.local:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; i in &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; 3&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt;
-  &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; ondemand &amp;gt; /sys/devices/system/cpu/cpu&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;/cpufreq/scaling_governor
-  &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &amp;gt;/sys/devices/system/cpu/cpu&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;/cpufreq/ondemand/ignore_nice_load
-&lt;span class=&#34;k&#34;&gt;done&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;for i in 0 1 2 3; do
+  echo ondemand &amp;gt; /sys/devices/system/cpu/cpu${i}/cpufreq/scaling_governor
+  echo 1 &amp;gt;/sys/devices/system/cpu/cpu${i}/cpufreq/ondemand/ignore_nice_load
+done
+&lt;/code&gt;
+&lt;/pre&gt;
 </description>
     </item>
     
@@ -722,25 +727,26 @@ cpu0_vid:   +1.550 V&lt;/pre&gt;
 
 &lt;p&gt;Once you have build the packages and installed them (remove the conflicting packages by using pacman -Rd packagename) you will have to create a Hal fdi file, I created &amp;#8220;/etc/hal/fdi/policy/11-x11-mouse.fdi&amp;#8221; containing:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;ISO-8859-1&amp;quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;nt&#34;&gt;&amp;lt;deviceinfo&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;version=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;0.2&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&#34;nt&#34;&gt;&amp;lt;device&amp;gt;&lt;/span&gt;
-    &lt;span class=&#34;nt&#34;&gt;&amp;lt;match&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;info.capabilities&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;contains=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.mouse&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&#34;nt&#34;&gt;&amp;lt;match&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;info.product&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;contains=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;PS2++ Logitech Mouse&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11.Protocol&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;ExplorerPS/2&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
-        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11_options.Buttons&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;7&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
-        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11_options.XAxisMapping&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;6 7&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
-        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11_options.YAxisMapping&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;4 5&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
-        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11_options.EmulateWheel&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;True&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
-        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11_options.EmulateWheelButton&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;8&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
-        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11_options.EmulateWheelInertia&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;30&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
-        &lt;span class=&#34;nt&#34;&gt;&amp;lt;merge&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;key=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;input.x11_options.Emulate3Buttons&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;False&lt;span class=&#34;nt&#34;&gt;&amp;lt;/merge&amp;gt;&lt;/span&gt;
-      &lt;span class=&#34;nt&#34;&gt;&amp;lt;/match&amp;gt;&lt;/span&gt;
-    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/match&amp;gt;&lt;/span&gt;
-  &lt;span class=&#34;nt&#34;&gt;&amp;lt;/device&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;nt&#34;&gt;&amp;lt;/deviceinfo&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
+&lt;pre&gt;
+&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;?xml version=&#34;1.0&#34; encoding=&#34;ISO-8859-1&#34;?&amp;gt;
+&amp;lt;deviceinfo version=&#34;0.2&#34;&amp;gt;
+  &amp;lt;device&amp;gt;
+    &amp;lt;match key=&#34;info.capabilities&#34; contains=&#34;input.mouse&#34;&amp;gt;
+      &amp;lt;match key=&#34;info.product&#34; contains=&#34;PS2++ Logitech Mouse&#34;&amp;gt;
+        &amp;lt;merge key=&#34;input.x11.Protocol&#34; type=&#34;string&#34;&amp;gt;ExplorerPS/2&amp;lt;/merge&amp;gt;
+        &amp;lt;merge key=&#34;input.x11_options.Buttons&#34; type=&#34;string&#34;&amp;gt;7&amp;lt;/merge&amp;gt;
+        &amp;lt;merge key=&#34;input.x11_options.XAxisMapping&#34; type=&#34;string&#34;&amp;gt;6 7&amp;lt;/merge&amp;gt;
+        &amp;lt;merge key=&#34;input.x11_options.YAxisMapping&#34; type=&#34;string&#34;&amp;gt;4 5&amp;lt;/merge&amp;gt;
+        &amp;lt;merge key=&#34;input.x11_options.EmulateWheel&#34; type=&#34;string&#34;&amp;gt;True&amp;lt;/merge&amp;gt;
+        &amp;lt;merge key=&#34;input.x11_options.EmulateWheelButton&#34; type=&#34;string&#34;&amp;gt;8&amp;lt;/merge&amp;gt;
+        &amp;lt;merge key=&#34;input.x11_options.EmulateWheelInertia&#34; type=&#34;string&#34;&amp;gt;30&amp;lt;/merge&amp;gt;
+        &amp;lt;merge key=&#34;input.x11_options.Emulate3Buttons&#34; type=&#34;string&#34;&amp;gt;False&amp;lt;/merge&amp;gt;
+      &amp;lt;/match&amp;gt;
+    &amp;lt;/match&amp;gt;
+  &amp;lt;/device&amp;gt;
+&amp;lt;/deviceinfo&amp;gt;
+&lt;/code&gt;
+&lt;/pre&gt;
 
 &lt;p&gt;Now shutdown X, restart hal and X and the emulated scroll whell should work just fine. I have the following output in my &amp;#8220;/var/log/Xorg.0.log&amp;#8221;:&lt;/p&gt;
 

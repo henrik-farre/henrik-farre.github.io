@@ -81,7 +81,7 @@ To start Firefox with the correct profile, I have created two different applicat
           <meta itemprop="name" content="Rockhopper.dk">
         </div>
         <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-          <meta itemprop="name" content="">
+          <meta itemprop="name" content="Henrik Farre">
         </div>
 
         <header class="article-header">
@@ -96,50 +96,52 @@ To start Firefox with the correct profile, I have created two different applicat
 
 <p>The files contain:</p>
 
-<div class="highlight"><pre><code class="language-ini" data-lang="ini"><span></span><span class="k">[Desktop Entry]</span>
-<span class="na">Name</span><span class="o">=</span><span class="s">Firefox Home</span>
-<span class="na">GenericName</span><span class="o">=</span><span class="s">Web Browser</span>
-<span class="na">Comment</span><span class="o">=</span><span class="s">Browse the World Wide Web</span>
-<span class="na">Exec</span><span class="o">=</span><span class="s">/usr/lib/firefox/firefox -P Home -no-remote %u</span>
-<span class="na">Icon</span><span class="o">=</span><span class="s">firefox</span>
-<span class="na">Terminal</span><span class="o">=</span><span class="s">false</span>
-<span class="na">Type</span><span class="o">=</span><span class="s">Application</span>
-<span class="na">MimeType</span><span class="o">=</span><span class="s">text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;</span>
-<span class="na">StartupNotify</span><span class="o">=</span><span class="s">true</span>
-<span class="na">Categories</span><span class="o">=</span><span class="s">Network;WebBrowser;</span>
-</code></pre></div>
-
+<pre>
+<code class="language-ini">[Desktop Entry]
+Name=Firefox Home
+GenericName=Web Browser
+Comment=Browse the World Wide Web
+Exec=/usr/lib/firefox/firefox -P Home -no-remote %u
+Icon=firefox
+Terminal=false
+Type=Application
+MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true
+Categories=Network;WebBrowser;
+</code>
+</pre>
 
 <p>Replace &#8220;Home&#8221; with the name of your profile.</p>
 
 <p>In order to open links in the correct profile, I made a small shell script that used xdotool and zenity:</p>
 
-<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="ch">#!/bin/sh</span>
+<pre>
+<code class="language-bash">#!/bin/sh
 
-<span class="nv">PROFILE</span><span class="o">=</span><span class="k">$(</span>zenity --list --text <span class="s2">&quot;Open </span><span class="nv">$1</span><span class="s2"> in which profile?&quot;</span> --column <span class="s2">&quot;Profile&quot;</span> Work Home<span class="k">)</span><span class="p">;</span>
+PROFILE=$(zenity --list --text "Open $1 in which profile?" --column "Profile" Work Home);
 
-<span class="k">case</span> <span class="nv">$PROFILE</span> in
-  Home<span class="o">)</span>
-    <span class="nv">PID</span><span class="o">=</span><span class="k">$(</span>pgrep -f -- <span class="s1">&#39;-P Home&#39;</span><span class="k">)</span>
-    <span class="p">;;</span>
-  Work<span class="o">)</span>
-    <span class="nv">PID</span><span class="o">=</span><span class="k">$(</span>pgrep -f -- <span class="s1">&#39;-P Work&#39;</span><span class="k">)</span>
-    <span class="p">;;</span>
-  *<span class="o">)</span>
-    <span class="nb">exit</span>
-    <span class="p">;;</span>
-<span class="k">esac</span>
+case $PROFILE in
+  Home)
+    PID=$(pgrep -f -- '-P Home')
+    ;;
+  Work)
+    PID=$(pgrep -f -- '-P Work')
+    ;;
+  *)
+    exit
+    ;;
+esac
 
-<span class="c1"># Avoid &quot;Can&#39;t consume 1 args; are only 0 available. This is a bug.&quot; message: https://github.com/jordansissel/xdotool/issues/14</span>
-<span class="c1"># Pick the last id, as it seems to be the one needed</span>
-<span class="nv">WID</span><span class="o">=</span><span class="k">$(</span>xdotool search --any --pid <span class="nv">$PID</span> --name <span class="s2">&quot;random_random_random&quot;</span> <span class="p">|</span> tail -n1<span class="k">)</span>
+# Avoid "Can't consume 1 args; are only 0 available. This is a bug." message: https://github.com/jordansissel/xdotool/issues/14
+# Pick the last id, as it seems to be the one needed
+WID=$(xdotool search --any --pid $PID --name "random_random_random" | tail -n1)
 
-xdotool windowactivate --sync <span class="nv">$WID</span>
-xdotool key --window <span class="nv">$WID</span> ctrl+t
-xdotool key --window <span class="nv">$WID</span> ctrl+l
-xdotool <span class="nb">type</span> --window <span class="nv">$WID</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
-</code></pre></div>
-</p>
+xdotool windowactivate --sync $WID
+xdotool key --window $WID ctrl+t
+xdotool key --window $WID ctrl+l
+xdotool type --window $WID "$1"
+</code>
+</pre>
 
 <p>The last thing to to is to open exo-preferred-applications and select the script as the preferred &#8220;web-browser&#8221; (remember &#8220;%s&#8221;).</p>
 
@@ -241,15 +243,15 @@ xdotool <span class="nb">type</span> --window <span class="nv">$WID</span> <span
       
       <a href="https://henrik-farre.github.io/tags/motherboard" class="list-group-item">motherboard</a>
       
-      <a href="https://henrik-farre.github.io/tags/zsh" class="list-group-item">zsh</a>
-      
       <a href="https://henrik-farre.github.io/tags/dvb-c" class="list-group-item">dvb-c</a>
       
       <a href="https://henrik-farre.github.io/tags/mythfrontend" class="list-group-item">mythfrontend</a>
       
-      <a href="https://henrik-farre.github.io/tags/tmux" class="list-group-item">tmux</a>
+      <a href="https://henrik-farre.github.io/tags/zsh" class="list-group-item">zsh</a>
       
-      <a href="https://henrik-farre.github.io/tags/booting" class="list-group-item">booting</a>
+      <a href="https://henrik-farre.github.io/tags/chromium" class="list-group-item">chromium</a>
+      
+      <a href="https://henrik-farre.github.io/tags/tmux" class="list-group-item">tmux</a>
       
       <a href="https://henrik-farre.github.io/tags/exim" class="list-group-item">exim</a>
       
@@ -270,7 +272,7 @@ xdotool <span class="nb">type</span> --window <span class="nv">$WID</span> <span
 
     <footer class="site">
       <div class="container">
-        <p>&copy; 2014 Rockhopper.dk</p>
+        <p>&copy; 2014 Henrik Farre</p>
         <p>Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>,</p>
         <p>Theme <a href="https://github.com/dim0627/hugo_theme_beg" target="_blank">Beg</a> designed by <a href="http://yet.unresolved.xyz" target="_blank">Daisuke Tsuji</a></p>
       </div>

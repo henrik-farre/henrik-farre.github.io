@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hardware on Rockhopper.dk</title>
+    <link>https://henrik-farre.github.io/categories/hardware/</link>
+    <description>Recent content in Hardware on Rockhopper.dk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 13 Nov 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://henrik-farre.github.io/categories/hardware/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HTPC/NAS for watching Netflix on Linux part 1: the hardware</title>
+      <link>https://henrik-farre.github.io/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</link>
+      <pubDate>Wed, 13 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://henrik-farre.github.io/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</guid>
+      <description>
+
+&lt;p&gt;I decided to build a new HTPC/NAS in order to watch &lt;a href=&#34;http://www.netflix.com&#34;&gt;Netflix&lt;/a&gt; (using &lt;a href=&#34;https://wiki.archlinux.org/index.php/Pipelight&#34;&gt;pipelight&lt;/a&gt;) on Linux, and combine two older machines into one.&lt;/p&gt;
+
+&lt;p&gt;My old HTPC was based on a 1.6GHz AMD Sempron from 2007 and a Nvidia GeForce N210. While it played Full HD content fine using &lt;a href=&#34;https://wiki.archlinux.org/index.php/VDPAU&#34;&gt;vdpau&lt;/a&gt;, it was not able to handle Netflix using pipelight. A second machine with a Intel Atom CPU was used to store all the multimedia and host MythTV.&lt;/p&gt;
+
+&lt;p&gt;Specifications of the new machine are:&lt;/p&gt;
+
+&lt;h2 id=&#34;motherboard:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Motherboard&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.gigabyte.com/products/product-page.aspx?pid=4519&#34;&gt;Gigabyte GA-Z87-D3HP&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Nice motherboard, ok PWM fan controls, only thing I dislike is the UEFI bios. Some options change when I navigate using the keyboard arrows&amp;#8230; come on, do I &lt;em&gt;really&lt;/em&gt; need a mouse for changing bios options?&lt;/p&gt;
+
+&lt;p&gt;Everything I have tested works in Linux, also these things:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;lm-sensors: supports the it8728 chip&lt;/li&gt;
+&lt;li&gt;Wake-on-lan&lt;/li&gt;
+&lt;li&gt;Audio over HDMI&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I did not test:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;USB 3.0&lt;/li&gt;
+&lt;li&gt;Changing the &amp;#8220;Resume by Alarm&amp;#8221; time from Linux.&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Fancontrol in Linux&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;lspci reports:&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;00:00.0 Host bridge: Intel Corporation 4th Gen Core Processor DRAM Controller (rev 06)
+00:02.0 VGA compatible controller: Intel Corporation Device 041e (rev 06)
+00:03.0 Audio device: Intel Corporation Xeon E3-1200 v3/4th Gen Core Processor HD Audio Controller (rev 06)
+00:14.0 USB controller: Intel Corporation 8 Series/C220 Series Chipset Family USB xHCI (rev 04)
+00:16.0 Communication controller: Intel Corporation 8 Series/C220 Series Chipset Family MEI Controller #1 (rev 04)
+00:19.0 Ethernet controller: Intel Corporation Ethernet Connection I217-V (rev 04)
+00:1a.0 USB controller: Intel Corporation 8 Series/C220 Series Chipset Family USB EHCI #2 (rev 04)
+00:1b.0 Audio device: Intel Corporation 8 Series/C220 Series Chipset High Definition Audio Controller (rev 04)
+00:1c.0 PCI bridge: Intel Corporation 8 Series/C220 Series Chipset Family PCI Express Root Port #1 (rev d4)
+00:1c.3 PCI bridge: Intel Corporation 82801 PCI Bridge (rev d4)
+00:1d.0 USB controller: Intel Corporation 8 Series/C220 Series Chipset Family USB EHCI #1 (rev 04)
+00:1f.0 ISA bridge: Intel Corporation Z87 Express LPC Controller (rev 04)
+00:1f.2 SATA controller: Intel Corporation 8 Series/C220 Series Chipset Family 6-port SATA Controller 1 [AHCI mode] (rev 04)
+00:1f.3 SMBus: Intel Corporation 8 Series/C220 Series Chipset Family SMBus Controller (rev 04)
+02:00.0 PCI bridge: Intel Corporation 82801 PCI Bridge (rev 41)&lt;/pre&gt;
+
+&lt;h3 id=&#34;ram:6f5e50861940930885d16cc412b3fd7a&#34;&gt;RAM&lt;/h3&gt;
+
+&lt;p&gt;I went for some cheap &lt;a href=&#34;http://www.kingston.com/us/memory/hyperx/blu&#34;&gt;Kingston HyperX blu&lt;/a&gt; 2 x 2 GB memory. The motherboard supports faster memory which should boost graphics performance, but I&amp;#8217;m content with how it performs now.&lt;/p&gt;
+
+&lt;h2 id=&#34;cpu:6f5e50861940930885d16cc412b3fd7a&#34;&gt;CPU&lt;/h2&gt;
+
+&lt;p&gt;I really like the &lt;a href=&#34;http://ark.intel.com/products/77481/&#34;&gt;Intel i3-4130T&lt;/a&gt; (Haswell) CPU. It runs @ 2.9GHz with a TDP of just 35W, and it comes with integrated Intel HD graphics 4400.&lt;/p&gt;
+
+&lt;p&gt;It is possible to view Full HD content using &lt;a href=&#34;https://wiki.archlinux.org/index.php/VA-API&#34;&gt;va-api&lt;/a&gt; without using more than &amp;lt;20% CPU.&lt;/p&gt;
+
+&lt;h3 id=&#34;cpu-cooler:6f5e50861940930885d16cc412b3fd7a&#34;&gt;CPU cooler&lt;/h3&gt;
+
+&lt;p&gt;The &lt;a href=&#34;http://www.coolermaster.com/product/Detail/cooling/cpu-air-cooler/hyper-212-evo.html&#34;&gt;Cooler Master Hyper 212 Evo&lt;/a&gt; is a direct heatpipe touch CPU cooler, and its fan can run at the lowest speed all the time thanks to the CPU&amp;#8217;s low TDP. I use &lt;a href=&#34;http://www.arcticsilver.com/as5.htm&#34;&gt;Arctic Silver 5&lt;/a&gt; thermal compound.&lt;/p&gt;
+
+&lt;h2 id=&#34;control:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Control&lt;/h2&gt;
+
+&lt;p&gt;I picked the &lt;a href=&#34;http://www.chill-innovation.com/en/bluetooth-keyboards/12-chill-kb-1bt-wireless-bluetooth-micro-keyboard-nordic-5711045075841.html&#34;&gt;Chill KB-1BT Wireless Bluetooth Micro Keyboard&lt;/a&gt; because I was tired of my old infrared connected keyboard&amp;#8217;s poor range and it also had to be pointing directly at its receiver. And not only does the Chill KB-1BT have better range, it&amp;#8217;s also much easier to type on because it&amp;#8217;s much smaller so I can reach most keys with my thumbs.&lt;/p&gt;
+
+&lt;p&gt;While the keyboard is excellent for typing and controlling Netflix/Rdio, I also bought a &lt;a href=&#34;http://www.pulse-eight.com/store/products/104-usb-hdmi-cec-adapter.aspx&#34;&gt;Pulse Eight USB &amp;#8211; CEC Adapter&lt;/a&gt; which allows me to control XBMC 100% using my TV&amp;#8217;s (Sony KDL-40WE5) remote.&lt;/p&gt;
+
+&lt;h2 id=&#34;storage:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Storage&lt;/h2&gt;
+
+&lt;p&gt;I reused the 3 x 500Gb Seagate ST3500630AS discs from the Atom server running in a Raid 5 configuration.&lt;/p&gt;
+
+&lt;h2 id=&#34;case:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Case&lt;/h2&gt;
+
+&lt;p&gt;First revision &lt;a href=&#34;http://techreport.com/review/6247/antec-sonata-atx-case&#34;&gt;Antec Sonata&lt;/a&gt; (does not even exist on Antec&amp;#8217;s page any more)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>UEFI booting Arch Linux on a HP ProBook 6360b</title>
+      <link>https://henrik-farre.github.io/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</link>
+      <pubDate>Sun, 17 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://henrik-farre.github.io/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</guid>
+      <description>
+
+&lt;p&gt;As I&amp;#8217;ve just got a new Samsung 840 Pro Series 256GB SSD for my work laptop (HP ProBook 6360b), I wanted to try switching from BIOS booting to UEFI.&lt;/p&gt;
+
+&lt;h1 id=&#34;ssd-setup:769087bd4497991a049e43a8b2be2b7e&#34;&gt;SSD setup&lt;/h1&gt;
+
+&lt;p&gt;Using gdisk I created two partitions:&lt;/p&gt;
+
+&lt;pre&gt;Number  Start (sector)    End (sector)  Size       Code  Name
+   1            2048          206847   100.0 MiB   EF00  EFI System
+   2          206848       500118158   238.4 GiB   8300  Linux filesystem&lt;/pre&gt;
+
+&lt;p&gt;I left the default align to 2048-sector boundaries.&lt;/p&gt;
+
+&lt;p&gt;In gdisk I entered &amp;#8220;extra functionality (experts only)&amp;#8221; by pressing &amp;#8220;x&amp;#8221;, and then &amp;#8220;a&amp;#8221; ( &amp;#8220;set attributes&amp;#8221;), and selected &amp;#8220;0&amp;#8221; for &amp;#8220;system partition&amp;#8221; and &amp;#8220;2&amp;#8221; for &amp;#8220;legacy BIOS bootable&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;Next I formatted the two partitions using:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;mkfs.vfat -F32 /dev/sda1&lt;/li&gt;
+&lt;li&gt;mkfs.ext4 -m0 /dev/sda2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Finally I mounted the old disk (connected using the eSATA connector on the laptop) and the new disk, and used rsync to copy everything to the new disk.&lt;/p&gt;
+
+&lt;h1 id=&#34;bootloader-setup:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Bootloader setup&lt;/h1&gt;
+
+&lt;p&gt;This was the tricky part. First I updated the firmware on the laptop to the newest version (F.29 from &lt;a href=&#34;http://h20000.www2.hp.com/bizsupport/TechSupport/SoftwareIndex.jsp?lang=en&amp;amp;cc=dk&amp;amp;prodNameId=5045588&amp;amp;prodTypeId=321957&amp;amp;prodSeriesId=5045581&amp;amp;swLang=13&amp;amp;taskId=135&amp;amp;swEnvOID=4060&#34;&gt;HPs support site&lt;/a&gt;). I tried all the .exe files on a computer running Windows 7 until I found the one that could create an USB stick.&lt;/p&gt;
+
+&lt;h2 id=&#34;booting-in-uefi-mode:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Booting in UEFI mode&lt;/h2&gt;
+
+&lt;p&gt;Very importen bit: you can&amp;#8217;t install a UEFI bootloader unless you&amp;#8217;ve booted in UEFI mode.&lt;/p&gt;
+
+&lt;p&gt;I used the instructions in the Arch Linux wiki on how to &lt;a href=&#34;https://wiki.archlinux.org/index.php/UEFI#Create_UEFI_bootable_USB_from_ISO&#34;&gt;Create UEFI bootable USB from ISO&lt;/a&gt;. Sometimes UEFI refused to boot from the USB, but it worked each time I selected the EFI file on the USB stick. To do that press F9 while the computer is booting and select &amp;#8220;Boot from EFI file&amp;#8221;, then select the USB device and EFI/boot/bootx64.efi&lt;/p&gt;
+
+&lt;h2 id=&#34;installing-the-bootloader:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Installing the bootloader&lt;/h2&gt;
+
+&lt;p&gt;I tried rEFInd, gummiboot, grub2 and just using the kernel EFI stub support. Nothing worked. After reading &lt;a href=&#34;http://blog.fpmurphy.com/2010/09/uefi-booting-64-bit-redhat-enterprise-linux-6.html&#34;&gt;UEFI Booting 64-bit Redhat Enterprise Linux 6&lt;/a&gt; I figured out that HPs firmware only allows you to boot from &amp;#8220;OS bootloader&amp;#8221;, which means that it will only boot from \EFI\BOOT\BOOTX64.EFI. So I installed grub2 using these commands (/dev/sda1 is mounted at /boot/efi):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;grub-install &amp;#8211;target=x86_64-efi &amp;#8211;efi-directory=/boot/efi &amp;#8211;bootloader-id=arch_grub &amp;#8211;recheck&lt;/li&gt;
+&lt;li&gt;grub-mkconfig -o /boot/grub/grub.cfg&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This will put the EFI application in /boot/efi/EFI/arch_grub/grubx64.efi which does not work. So I just copied /boot/efi/EFI/arch_grub/grubx64.efi /boot/efi/EFI/BOOT/BOOTX64.EFI and everything works.&lt;/p&gt;
+
+&lt;h1 id=&#34;conclusion:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;I can&amp;#8217;t say that that the time I used to get UEFI booting working was time well spend, nothing magic happens when booting using UEFI compared to legacy BIOS, but at least I&amp;#8217;m not using anything that is labelled &amp;#8220;legacy&amp;#8221; :)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Gigabyte GA-MA790FXT-UD5P and Linux</title>
+      <link>https://henrik-farre.github.io/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</link>
+      <pubDate>Sat, 18 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://henrik-farre.github.io/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</guid>
+      <description>
+
+&lt;p&gt;I recently upgraded the hardware of my desktop and here is my experience with the new hardware. The upgrade consists of:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Motherboard: Gigabyte GA-MA790FXT-UD5P (&lt;a href=&#34;http://www.gigabyte.com.tw/Products/Motherboard/Products_Spec.aspx?ProductID=3005&#34;&gt;Product page&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;CPU: AMD Phenom II X4 810 Processor 2.6Ghz AM3 socket (&lt;a href=&#34;http://products.amd.com/en-us/DesktopCPUDetail.aspx?id=526&amp;amp;f1=AMD+Phenom%E2%84%A2+II+X4&amp;amp;f2=810&amp;amp;f3=2600&amp;amp;f4=512&amp;amp;f5=AM3&amp;amp;f6=C2&amp;amp;f7=45nm+SOI&amp;amp;f8=95+W&amp;amp;f9=4000&amp;amp;f10=False&amp;amp;f11=False&#34;&gt;Specs&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;CPU cooler: Xigmatek HDT-S1283 Cooler (&lt;a href=&#34;http://www.xigmatek.com/product/air-hdts1283.php&#34;&gt;Product page&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;RAM: Corsair 4Gb DDR3 XMS3 DHX PC10600 1333MHz (&lt;a href=&#34;http://www.corsair.com/products/xms3dhx/default.aspx&#34;&gt;Product page&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I reused my Hauppauge PVR-500, Nvidia GS-7300 and 3x500Gb Seagate harddrives (raid5+LVM).&lt;/p&gt;
+
+&lt;h2 id=&#34;installation:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;Installation&lt;/h2&gt;
+
+&lt;p&gt;The motherboard with attached CPU cooler fits nicely into my Antec P182.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/gigabyte_ga-ma790fxt-ud5p_1.jpg&#34;
+        title=&#34;Gigabyte GA-MA790FXT-UD5P mounted in Antec P182&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/gigabyte_ga-ma790fxt-ud5p_1-150x150.jpg&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;Gigabyte GA-MA790FXT-UD5P mounted in Antec P182&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;The CPU cooler can only be installed on a socket AM3 motherboard in such a way that the fan either blows up (towards the top of the case) or down (towards the PCI-e slots). When the cooler is mounted in this way, it also means that the lowest fins on the heatsink extends over the two first RAM slots. This might not normally cause any problems, but because the Corsair memory modules have headspreaders attached, they are rather tall, preventing them from being placed below the fins. The solution is to place the modules in the last 2 slots. I choose to install the cooler so the fan blows air hot upwards and out of the case&amp;#8217;s top vents.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;https://henrik-farre.github.io/uploads/gigabyte_ga-ma790fxt-ud5p_2.jpg&#34;
+        title=&#34;Xigmatek HDT-S1283 Cooler blocking first two RAM slots&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;https://henrik-farre.github.io/uploads/gigabyte_ga-ma790fxt-ud5p_2-150x150.jpg&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;Xigmatek HDT-S1283 Cooler blocking first two RAM slots&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;h2 id=&#34;bios:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;BIOS&lt;/h2&gt;
+
+&lt;p&gt;The default version shipped with the motherboard does not have legacy USB keyboard support enabled, which means there is no keyboard in GRUB (when Linux is booted there is no problem). I didn&amp;#8217;t notice if there was a option to enabled it, I just updated to the newest version at the time (version F5c) which fixed it. Updating the BIOS just require a USB thumbdrive formattet with FAT32, and the extracted BIOS file (use unrar to extract it from the .exe file). While tweaking the BIOS I switched all SATA drives to AHCI, to get the most from the drives in Linux, and set the memory frequency to 1333MHz.&lt;/p&gt;
+
+&lt;h2 id=&#34;os:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;OS&lt;/h2&gt;
+
+&lt;p&gt;To match the new hardware I also switched from Arch Linux x686 to Arch Linux x86_64. I have not experienced any crashes or trouble after switching to the new hardware, so the hardware is 100% Linux compatible. There might be problems with older kernels, but I can confirm that it works with 2.6.28 or newer.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update the 01-Aug-2009: attached &lt;a href=&#34;https://henrik-farre.github.io/uploads/gigabyte-ga-ma790fxt-ud5p-dmesg.txt&#34;&gt;dmesg&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;fancontrol-and-sensors:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;Fancontrol and sensors&lt;/h2&gt;
+
+&lt;p&gt;I installed lm_sensors and used pwmconfig to create a /etc/fancontrol file:&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;Configuration file generated by pwmconfig, changes will be lost
+# cpu : temp2, pwm1, min:35, max:50
+# sys1: temp1, pwm2, min:45, max:50
+INTERVAL=10
+FCTEMPS=hwmon0/device/pwm1=hwmon0/device/temp2_input hwmon0/device/pwm2=hwmon0/device/temp1_input
+FCFANS=hwmon0/device/pwm1=hwmon0/device/fan1_input hwmon0/device/pwm2=hwmon0/device/fan2_input
+MINTEMP=hwmon0/device/pwm1=35 hwmon0/device/pwm2=45
+MAXTEMP=hwmon0/device/pwm1=45 hwmon0/device/pwm2=50
+MINSTART=hwmon0/device/pwm1=150 hwmon0/device/pwm2=150
+MINSTOP=hwmon0/device/pwm1=100 hwmon0/device/pwm2=100
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;On a hot summerday the sensors command outputs:&lt;/p&gt;
+
+&lt;pre&gt;it8720-isa-0228
+Adapter: ISA adapter
+in0:         +1.04 V  (min =  +0.00 V, max =  +4.08 V)
+in1:         +1.62 V  (min =  +0.00 V, max =  +4.08 V)
+in2:         +3.28 V  (min =  +0.00 V, max =  +4.08 V)
+in3:         +2.96 V  (min =  +0.00 V, max =  +4.08 V)
+in4:         +3.07 V  (min =  +0.00 V, max =  +4.08 V)
+in5:         +1.97 V  (min =  +0.00 V, max =  +4.08 V)
+in6:         +4.08 V  (min =  +0.00 V, max =  +4.08 V)
+in7:         +2.16 V  (min =  +0.00 V, max =  +4.08 V)
+Vbat:        +3.25 V
+fan1:        198 RPM  (min =    0 RPM)
+fan2:        941 RPM  (min =    0 RPM)
+fan3:          0 RPM  (min =    0 RPM)
+fan4:          0 RPM  (min =    0 RPM)
+fan5:        521 RPM  (min =    0 RPM)
+temp1:       +48.0°C  (low  = +127.0°C, high = +127.0°C)  sensor = thermistor
+temp2:       +40.0°C  (low  = +127.0°C, high = +60.0°C)  sensor = thermal diode
+temp3:       +45.0°C  (low  = +127.0°C, high = +127.0°C)  sensor = thermistor
+cpu0_vid:   +1.550 V&lt;/pre&gt;
+
+&lt;h2 id=&#34;other-applications:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;Other applications&lt;/h2&gt;
+
+&lt;p&gt;To get the most from a multicore CPU some appliations needs to be configured to use all cores.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Blender: works out of the box, if not check render settings (F10) for &amp;#8220;Threads: 4&amp;#8221;&lt;/li&gt;
+&lt;li&gt;The GIMP: should also use all four cores, else check enviroment settings&lt;/li&gt;
+&lt;li&gt;OGMRip: go to profiles, edit a profile and in the &amp;#8220;Video&amp;#8221; tab increase the number of threads to 4&lt;/li&gt;
+&lt;li&gt;Makepkg: edit /etc/makepkg.conf and set MAKEFLAGS=&amp;#8221;-j5&amp;#8243; (Yes 5, one pr core + 1)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;cpu-frequency-scaling:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;CPU frequency scaling&lt;/h2&gt;
+
+&lt;p&gt;I use the ondemand CPU frequceny scaling governor, so most of the time all four cores run at 800MHz and only switch to 2.6GHz when it is needed. I have put the following in my /etc/rc.local:&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;for i in 0 1 2 3; do
+  echo ondemand &amp;gt; /sys/devices/system/cpu/cpu${i}/cpufreq/scaling_governor
+  echo 1 &amp;gt;/sys/devices/system/cpu/cpu${i}/cpufreq/ondemand/ignore_nice_load
+done
+&lt;/code&gt;
+&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Logitech Marble FX trackball with Xorg and Hal</title>
+      <link>https://henrik-farre.github.io/linux/hardware/logitech-marble-fx-trackball-with-xorg-and-hal/</link>
+      <pubDate>Sat, 06 Dec 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://henrik-farre.github.io/linux/hardware/logitech-marble-fx-trackball-with-xorg-and-hal/</guid>
+      <description>&lt;p&gt;After the recent upgrade in ArchLinux of xorg-server from 1.4.x to 1.5.x my thrusty Logitech Marble FX trackball did not work entirely. The trackball does not have a dedicated scroll wheel, but by pressing a button, and using the trackball, you can scroll both vertical and horizontal.&lt;/p&gt;
+
+&lt;p&gt;In order to get the emulated scroll working again you first have to update the evdev driver (the xf86-input-evdev package), as version 2.0.7 doesn&amp;#8217;t support the needed options.&lt;/p&gt;
+
+&lt;p&gt;I use the &lt;a href=&#34;http://aur.archlinux.org/packages.php?do_Details=1&amp;amp;ID=19593&amp;amp;O=&amp;amp;L=&amp;amp;C=&amp;amp;K=&amp;amp;SB=&amp;amp;SO=&amp;amp;PP=&amp;amp;do_Orphans=&amp;amp;SeB=&#34;&gt;xf86-input-evdev-git PKGBUILD from aur&lt;/a&gt; (which depends on &lt;a href=&#34;http://aur.archlinux.org/packages.php?do_Details=1&amp;amp;ID=19592&amp;amp;O=&amp;amp;L=&amp;amp;C=&amp;amp;K=&amp;amp;SB=&amp;amp;SO=&amp;amp;PP=&amp;amp;do_Orphans=&amp;amp;SeB=&#34;&gt;xkeyboard-config-git&lt;/a&gt;) which works fine.&lt;/p&gt;
+
+&lt;p&gt;Once you have build the packages and installed them (remove the conflicting packages by using pacman -Rd packagename) you will have to create a Hal fdi file, I created &amp;#8220;/etc/hal/fdi/policy/11-x11-mouse.fdi&amp;#8221; containing:&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;?xml version=&#34;1.0&#34; encoding=&#34;ISO-8859-1&#34;?&amp;gt;
+&amp;lt;deviceinfo version=&#34;0.2&#34;&amp;gt;
+  &amp;lt;device&amp;gt;
+    &amp;lt;match key=&#34;info.capabilities&#34; contains=&#34;input.mouse&#34;&amp;gt;
+      &amp;lt;match key=&#34;info.product&#34; contains=&#34;PS2++ Logitech Mouse&#34;&amp;gt;
+        &amp;lt;merge key=&#34;input.x11.Protocol&#34; type=&#34;string&#34;&amp;gt;ExplorerPS/2&amp;lt;/merge&amp;gt;
+        &amp;lt;merge key=&#34;input.x11_options.Buttons&#34; type=&#34;string&#34;&amp;gt;7&amp;lt;/merge&amp;gt;
+        &amp;lt;merge key=&#34;input.x11_options.XAxisMapping&#34; type=&#34;string&#34;&amp;gt;6 7&amp;lt;/merge&amp;gt;
+        &amp;lt;merge key=&#34;input.x11_options.YAxisMapping&#34; type=&#34;string&#34;&amp;gt;4 5&amp;lt;/merge&amp;gt;
+        &amp;lt;merge key=&#34;input.x11_options.EmulateWheel&#34; type=&#34;string&#34;&amp;gt;True&amp;lt;/merge&amp;gt;
+        &amp;lt;merge key=&#34;input.x11_options.EmulateWheelButton&#34; type=&#34;string&#34;&amp;gt;8&amp;lt;/merge&amp;gt;
+        &amp;lt;merge key=&#34;input.x11_options.EmulateWheelInertia&#34; type=&#34;string&#34;&amp;gt;30&amp;lt;/merge&amp;gt;
+        &amp;lt;merge key=&#34;input.x11_options.Emulate3Buttons&#34; type=&#34;string&#34;&amp;gt;False&amp;lt;/merge&amp;gt;
+      &amp;lt;/match&amp;gt;
+    &amp;lt;/match&amp;gt;
+  &amp;lt;/device&amp;gt;
+&amp;lt;/deviceinfo&amp;gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;Now shutdown X, restart hal and X and the emulated scroll whell should work just fine. I have the following output in my &amp;#8220;/var/log/Xorg.0.log&amp;#8221;:&lt;/p&gt;
+
+&lt;pre&gt;(II) config/hal: Adding input device PS2++ Logitech Mouse
+(**) PS2++ Logitech Mouse: always reports core events
+(**) PS2++ Logitech Mouse: Device: &#34;/dev/input/event3&#34;
+(II) PS2++ Logitech Mouse: Found 4 mouse buttons
+(II) PS2++ Logitech Mouse: Found x and y relative axes
+(II) PS2++ Logitech Mouse: Configuring as mouse
+(**) Option &#34;Emulate3Buttons&#34; &#34;False&#34;
+(II) PS2++ Logitech Mouse: Forcing middle mouse button emulation off.
+(**) Option &#34;EmulateWheel&#34; &#34;True&#34;
+(**) Option &#34;EmulateWheelButton&#34; &#34;8&#34;
+(**) Option &#34;EmulateWheelInertia&#34; &#34;30&#34;
+(**) Option &#34;YAxisMapping&#34; &#34;4 5&#34;
+(**) PS2++ Logitech Mouse: YAxisMapping: buttons 4 and 5
+(**) Option &#34;XAxisMapping&#34; &#34;6 7&#34;
+(**) PS2++ Logitech Mouse: XAxisMapping: buttons 6 and 7
+(**) PS2++ Logitech Mouse: EmulateWheelButton: 8, EmulateWheelInertia: 30, EmulateWheelTimeout: 200
+(II) XINPUT: Adding extended input device &#34;PS2++ Logitech Mouse&#34; (type: MOUSE)&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Installing ArchLinux PPC on my Powerbook Titanium</title>
+      <link>https://henrik-farre.github.io/linux/hardware/installing-archlinux-ppc-on-my-powerbook-titanium/</link>
+      <pubDate>Sat, 26 Jul 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://henrik-farre.github.io/linux/hardware/installing-archlinux-ppc-on-my-powerbook-titanium/</guid>
+      <description>
+
+&lt;p&gt;I decided to bring my &lt;a href=&#34;https://rockhopper.dk/old/linux/hardware/powerbook-titanium.html&#34;&gt;Powerbook Titanium&lt;/a&gt; back into service as a server/torrent fetcher. So I downloaded &lt;a href=&#34;http://www.archlinuxppc.org/&#34;&gt;ArchLinux PPC&lt;/a&gt; and installed it.&lt;/p&gt;
+
+&lt;p&gt;I just followed the &lt;a href=&#34;http://wiki.archlinux.org/index.php/Install_Arch_Linux_PPC&#34;&gt;instructions available&lt;/a&gt; in the ArchLinux wiki, and here are my notes on the installation.&lt;/p&gt;
+
+&lt;h2 id=&#34;install-issues:ee78b04dbd8e2687e8423cd7c5e4eff0&#34;&gt;Install issues&lt;/h2&gt;
+
+&lt;p&gt;I experienced 2 issues with the /arch/quickinstall script. First it failed because wget was missing from the cd. So I used &amp;#8220;vi&amp;#8221; to replace wget with &lt;a href=&#34;http://www.xach.com/snarf/&#34;&gt;snarf&lt;/a&gt; (which is on the cd) in the script. Secondly the quickinstall ftp URL was wrong in the wiki, it should be core instead of current (I have updated the wiki with the correct link)&lt;/p&gt;
+
+&lt;p&gt;When I entered the chroot the last command &amp;#8220;makedevs&amp;#8221; was not found, I just proceeded as /dev/null and other devices existed within the chroot. I don&amp;#8217;t know if that is the source of my 2 small outstanding problems.&lt;/p&gt;
+
+&lt;p&gt;I ran into a small problem as I was creating users, probably not related to ArchLinux PPC. If I tried, as root, to run: &amp;#8220;adduser username&amp;#8221; I would get the following error:&lt;/p&gt;
+
+&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;You are required to change your password immediately &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;root enforced&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+useradd: PAM authentication failed&lt;/pre&gt;
+
+&lt;p&gt;I then changed my password, remember I was logged in as root, but I keep getting the same error. So I manually created the user by editing /etc/passwd and /etc/shadow (by copying the lines from another ArchLinux box)&lt;/p&gt;
+
+&lt;p&gt;But if I tried, still as root, to: &amp;#8220;su &amp;#8211; username&amp;#8221;, I got this error:&lt;/p&gt;
+
+&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;su&lt;/span&gt;: incorrect password&lt;/pre&gt;
+
+&lt;p&gt;I finally track the problem down to a mismatch between /etc/shadow and /etc/shadow- in the line with the root user.&lt;/p&gt;
+
+&lt;h2 id=&#34;post-install:ee78b04dbd8e2687e8423cd7c5e4eff0&#34;&gt;Post install&lt;/h2&gt;
+
+&lt;p&gt;When everything was installed and the system running, I started to add applications and tweak settings:&lt;/p&gt;
+
+&lt;p&gt;First I installed pbbuttonsd so that machine would switch of the display when it was booted&lt;/p&gt;
+
+&lt;p&gt;Next I tried to set CPU frequency scaling up, using the &amp;#8220;conservative&amp;#8221; governor. But I got this error:&lt;/p&gt;
+
+&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;conservative governor failed, too long transition latency of HW, fallback to performance governor&lt;/pre&gt;
+
+&lt;p&gt;Instead of wasting to much time on that, I just decided to use the &amp;#8220;powersave&amp;#8221; governor.&lt;/p&gt;
+
+&lt;p&gt;Finally I installed &lt;a href=&#34;http://www.transmissionbt.com/&#34;&gt;transmission bittorrent client&lt;/a&gt;, and the &lt;a href=&#34;http://clutchbt.com/&#34;&gt;clutch web interface for transmission&lt;/a&gt;, and a couple of other apps.&lt;/p&gt;
+
+&lt;h2 id=&#34;unresolved-issuses:ee78b04dbd8e2687e8423cd7c5e4eff0&#34;&gt;Unresolved issuses&lt;/h2&gt;
+
+&lt;p&gt;I have 2 small problems left that are minor annoyances:&lt;/p&gt;
+
+&lt;p&gt;udev gives an error on every boot:&lt;/p&gt;
+
+&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;:: Loading udev...&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;etc&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;start_udev: &lt;span class=&#34;nu0&#34;&gt;110&lt;/span&gt;: &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;sbin&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;udevtrigger: not found
+&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;etc&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;start_udev: &lt;span class=&#34;nu0&#34;&gt;110&lt;/span&gt;: &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;sbin&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;udevsettle: not found done.&lt;/pre&gt;
+
+&lt;p&gt;I tried a &lt;a href=&#34;http://bbs.archlinux.org/viewtopic.php?id=49285&#34;&gt;couple of solutions&lt;/a&gt; I found in ArchLinux&amp;#8217;s forum but they did not help, so I&amp;#8217;m just ignoring it :)&lt;/p&gt;
+
+&lt;p&gt;Another error that comes at each boot is this clock error:&lt;/p&gt;
+
+&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;Cannot access the Hardware Clock via any know method. Use the &lt;span class=&#34;re5&#34;&gt;-debug&lt;/span&gt; option to see the details of our search &lt;span class=&#34;kw1&#34;&gt;for&lt;/span&gt; an access method&lt;/pre&gt;
+
+&lt;p&gt;I also ignore this, because the machine uses ntpdate to set its time.&lt;/p&gt;
+
+&lt;h2 id=&#34;status:ee78b04dbd8e2687e8423cd7c5e4eff0&#34;&gt;Status&lt;/h2&gt;
+
+&lt;p&gt;The machine has been running stable in a couple of weeks, and ArchLinux PPC feels as stable as the x86 edition.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Android on Rockhopper.dk</title>
-    <link>https://henrik-farre.github.io/tags/android/</link>
+    <link>https://rockhopper.dk/tags/android/</link>
     <description>Recent content in Android on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 03 Apr 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://henrik-farre.github.io/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://rockhopper.dk/tags/android/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Installing CyanogenMod 7.1 on a Sony Ericsson Xperia Arc (LT15i)</title>
-      <link>https://henrik-farre.github.io/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/</link>
+      <link>https://rockhopper.dk/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/</link>
       <pubDate>Tue, 03 Apr 2012 00:00:00 +0000</pubDate>
       
-      <guid>https://henrik-farre.github.io/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/</guid>
+      <guid>https://rockhopper.dk/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/</guid>
       <description>&lt;p&gt;Although the instructions for upgrading the Sony Ericsson Xperia Arc (not the new S version) are &lt;a title=&#34;Sony Ericsson Xperia Arc: Full Update Guide&#34; href=&#34;http://wiki.cyanogenmod.com/wiki/Sony_Ericsson_Xperia_Arc:_Full_Update_Guide&#34; target=&#34;_blank&#34;&gt;pretty detailed&lt;/a&gt; there are some twists that are not documented:&lt;/p&gt;
 
 &lt;ol&gt;
@@ -29,10 +29,10 @@
     
     <item>
       <title>Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1)</title>
-      <link>https://henrik-farre.github.io/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/</link>
+      <link>https://rockhopper.dk/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/</link>
       <pubDate>Sat, 19 Jun 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://henrik-farre.github.io/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/</guid>
+      <guid>https://rockhopper.dk/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/</guid>
       <description>
 
 &lt;p&gt;My ADP1 has been running Android 1.6 (Cyanogenmod 4.2.x) for quite a while now, and I was exited to see that it would be possible to run Android 2.1 on it thanks to Cyanogen :). This guide is a digest of information found on Cyanogen&amp;#8217;s wiki, like: &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Full_Update_Guide_-_ADP1_Firmware_to_CyanogenMod&#34;&gt;ADP1 Firmware to CyanogenMod&lt;/a&gt;, please consult the wiki for up todate information and warnings :)&lt;/p&gt;
@@ -109,10 +109,10 @@
     
     <item>
       <title>Updating the Android Developer Phone1 to v1.1</title>
-      <link>https://henrik-farre.github.io/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/</link>
+      <link>https://rockhopper.dk/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/</link>
       <pubDate>Tue, 10 Feb 2009 00:00:00 +0000</pubDate>
       
-      <guid>https://henrik-farre.github.io/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/</guid>
+      <guid>https://rockhopper.dk/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/</guid>
       <description>
 
 &lt;p&gt;I&amp;#8217;ve been putting off upgrading my ADP1 in fear of that I would brick it, but after reading that there now are official update images available I decided to give it a try.&lt;/p&gt;
@@ -233,10 +233,10 @@ Press home+back to reboot&lt;/pre&gt;
     
     <item>
       <title>Android Developer Phone: Mini review</title>
-      <link>https://henrik-farre.github.io/linux/hardware/phone-and-pda/android-developer-phone-mini-review/</link>
+      <link>https://rockhopper.dk/linux/hardware/phone-and-pda/android-developer-phone-mini-review/</link>
       <pubDate>Sat, 24 Jan 2009 00:00:00 +0000</pubDate>
       
-      <guid>https://henrik-farre.github.io/linux/hardware/phone-and-pda/android-developer-phone-mini-review/</guid>
+      <guid>https://rockhopper.dk/linux/hardware/phone-and-pda/android-developer-phone-mini-review/</guid>
       <description>
 
 &lt;p&gt;I have been playing around with my Android Developer Phone (ADP) for about 2 weeks now, and this are my thoughts on it so far.&lt;/p&gt;
@@ -305,10 +305,10 @@ Press home+back to reboot&lt;/pre&gt;
     
     <item>
       <title>Android G1 Dev Phone has landed in Denmark</title>
-      <link>https://henrik-farre.github.io/linux/hardware/phone-and-pda/android-g1-dev-phone-has-landed-in-denmark/</link>
+      <link>https://rockhopper.dk/linux/hardware/phone-and-pda/android-g1-dev-phone-has-landed-in-denmark/</link>
       <pubDate>Sun, 11 Jan 2009 00:00:00 +0000</pubDate>
       
-      <guid>https://henrik-farre.github.io/linux/hardware/phone-and-pda/android-g1-dev-phone-has-landed-in-denmark/</guid>
+      <guid>https://rockhopper.dk/linux/hardware/phone-and-pda/android-g1-dev-phone-has-landed-in-denmark/</guid>
       <description>
 
 &lt;p&gt;Finally, my HTC G1 Dev Phone running Android OS has arrived!&lt;/p&gt;
@@ -347,14 +347,14 @@ Press home+back to reboot&lt;/pre&gt;
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://henrik-farre.github.io/uploads/g1_box_with_contents.jpg&#34;
+    &lt;a href=&#34;https://rockhopper.dk/uploads/g1_box_with_contents.jpg&#34;
         title=&#34;Contents of box. Note the power adaptor&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://henrik-farre.github.io/uploads/g1_box_with_contents-150x150.jpg&#34;
+            &lt;img src=&#34;https://rockhopper.dk/uploads/g1_box_with_contents-150x150.jpg&#34;
                 class=&#34;
                     &#34;
                 
@@ -374,14 +374,14 @@ Press home+back to reboot&lt;/pre&gt;
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://henrik-farre.github.io/uploads/g1_front.jpg&#34;
+    &lt;a href=&#34;https://rockhopper.dk/uploads/g1_front.jpg&#34;
         title=&#34;Front of G1&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://henrik-farre.github.io/uploads/g1_front-150x150.jpg&#34;
+            &lt;img src=&#34;https://rockhopper.dk/uploads/g1_front-150x150.jpg&#34;
                 class=&#34;
                     &#34;
                 
@@ -401,14 +401,14 @@ Press home+back to reboot&lt;/pre&gt;
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://henrik-farre.github.io/uploads/g1_back.jpg&#34;
+    &lt;a href=&#34;https://rockhopper.dk/uploads/g1_back.jpg&#34;
         title=&#34;Backside of G1&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://henrik-farre.github.io/uploads/g1_back-150x150.jpg&#34;
+            &lt;img src=&#34;https://rockhopper.dk/uploads/g1_back-150x150.jpg&#34;
                 class=&#34;
                     &#34;
                 
@@ -428,14 +428,14 @@ Press home+back to reboot&lt;/pre&gt;
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://henrik-farre.github.io/uploads/g1_treo600_side_by_side.jpg&#34;
+    &lt;a href=&#34;https://rockhopper.dk/uploads/g1_treo600_side_by_side.jpg&#34;
         title=&#34;HTC G1 side by side with my old PalmOne Treo 600&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://henrik-farre.github.io/uploads/g1_treo600_side_by_side-150x150.jpg&#34;
+            &lt;img src=&#34;https://rockhopper.dk/uploads/g1_treo600_side_by_side-150x150.jpg&#34;
                 class=&#34;
                     &#34;
                 
@@ -455,14 +455,14 @@ Press home+back to reboot&lt;/pre&gt;
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://henrik-farre.github.io/uploads/g1_headphones.jpg&#34;
+    &lt;a href=&#34;https://rockhopper.dk/uploads/g1_headphones.jpg&#34;
         title=&#34;Head phones with micro usb connector&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://henrik-farre.github.io/uploads/g1_headphones-150x150.jpg&#34;
+            &lt;img src=&#34;https://rockhopper.dk/uploads/g1_headphones-150x150.jpg&#34;
                 class=&#34;
                     &#34;
                 

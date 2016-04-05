@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Wol on Rockhopper.dk</title>
-    <link>https://henrik-farre.github.io/tags/wol/</link>
+    <link>https://rockhopper.dk/tags/wol/</link>
     <description>Recent content in Wol on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 12 Apr 2008 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://henrik-farre.github.io/tags/wol/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://rockhopper.dk/tags/wol/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Check if MythTV backend is up</title>
-      <link>https://henrik-farre.github.io/linux/software/mythtv/check-if-mythtv-backend-is-up/</link>
+      <link>https://rockhopper.dk/linux/software/mythtv/check-if-mythtv-backend-is-up/</link>
       <pubDate>Sat, 12 Apr 2008 00:00:00 +0000</pubDate>
       
-      <guid>https://henrik-farre.github.io/linux/software/mythtv/check-if-mythtv-backend-is-up/</guid>
+      <guid>https://rockhopper.dk/linux/software/mythtv/check-if-mythtv-backend-is-up/</guid>
       <description>&lt;p&gt;My MythTV frontend depends on the masterbackend to be up and running, mainly because some partitions are nfs mounted. So I created a simple script to check if the backend is responding to ping:&lt;/p&gt;
 
 &lt;pre&gt;

@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on Rockhopper.dk</title>
-    <link>https://henrik-farre.github.io/page/</link>
+    <link>https://rockhopper.dk/page/</link>
     <description>Recent content in Pages on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 01 Apr 2016 10:15:11 +0200</lastBuildDate>
-    <atom:link href="https://henrik-farre.github.io/page/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://rockhopper.dk/page/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>About me</title>
-      <link>https://henrik-farre.github.io/about-me</link>
+      <link>https://rockhopper.dk/about-me</link>
       <pubDate>Fri, 01 Apr 2016 10:15:11 +0200</pubDate>
       
-      <guid>https://henrik-farre.github.io/about-me</guid>
+      <guid>https://rockhopper.dk/about-me</guid>
       <description>&lt;p&gt;I&amp;rsquo;m a veteran web developer with experience in a multitude of PHP based applications, including:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -25,7 +25,7 @@
 &lt;li&gt;Symfony&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;I also know a lot about &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;Docker&lt;/a&gt;, &lt;a href=&#34;https://henrik-farre.github.io/Categories/linux/&#34;&gt;Linux&lt;/a&gt; and &lt;a href=&#34;https://github.com/henrik-farre/vimrc&#34;&gt;Vim&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I also know a lot about &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;Docker&lt;/a&gt;, &lt;a href=&#34;https://rockhopper.dk/Categories/linux/&#34;&gt;Linux&lt;/a&gt; and &lt;a href=&#34;https://github.com/henrik-farre/vimrc&#34;&gt;Vim&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Find me on:&lt;/p&gt;
 

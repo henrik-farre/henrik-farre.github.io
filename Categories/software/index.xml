@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Software on Rockhopper.dk</title>
-    <link>https://henrik-farre.github.io/categories/software/</link>
+    <link>https://rockhopper.dk/categories/software/</link>
     <description>Recent content in Software on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 08 Jun 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://henrik-farre.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://rockhopper.dk/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Multiple profiles in Firefox: tips and tricks</title>
-      <link>https://henrik-farre.github.io/linux/multiple-profiles-in-firefox-tips-and-tricks/</link>
+      <link>https://rockhopper.dk/linux/multiple-profiles-in-firefox-tips-and-tricks/</link>
       <pubDate>Sun, 08 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://henrik-farre.github.io/linux/multiple-profiles-in-firefox-tips-and-tricks/</guid>
+      <guid>https://rockhopper.dk/linux/multiple-profiles-in-firefox-tips-and-tricks/</guid>
       <description>&lt;p&gt;I have two different profiles for Firefox, one for work, and one for everything else.&lt;/p&gt;
 
 &lt;p&gt;To start Firefox with the correct profile, I have created two different application launchers (.desktop files) in ~/.local/share/applications, one called firefox-work.desktop and the other firefox-home.desktop&lt;/p&gt;
@@ -74,10 +74,10 @@ xdotool type --window $WID &#34;$1&#34;
     
     <item>
       <title>How not to restore a Linux software raid</title>
-      <link>https://henrik-farre.github.io/linux/software/how-not-to-restore-a-linux-software-raid/</link>
+      <link>https://rockhopper.dk/linux/software/how-not-to-restore-a-linux-software-raid/</link>
       <pubDate>Sun, 19 Apr 2009 00:00:00 +0000</pubDate>
       
-      <guid>https://henrik-farre.github.io/linux/software/how-not-to-restore-a-linux-software-raid/</guid>
+      <guid>https://rockhopper.dk/linux/software/how-not-to-restore-a-linux-software-raid/</guid>
       <description>&lt;p&gt;We had a disk failure on one of our Xen servers at &lt;a href=&#34;http://www.bellcom.dk&#34;&gt;work&lt;/a&gt; last week, and what we thought would be a quick disk replace, turned into a small nightmare.&lt;/p&gt;
 
 &lt;p&gt;Our setup is fairly &amp;#8220;simple&amp;#8221;: 2 x raid1&amp;#8217;s consisting of sda1/sdb1 (/dev/md0 mounted at /) and sda3/sdb3 (/dev/md1 with LVM on top of it).&lt;/p&gt;
@@ -107,10 +107,10 @@ unused devices: &amp;lt;none&amp;gt;&lt;/pre&gt;
     
     <item>
       <title>CD/DVD burning, and working with .iso files</title>
-      <link>https://henrik-farre.github.io/linux/software/cddvd-burning-and-working-with-iso-files/</link>
+      <link>https://rockhopper.dk/linux/software/cddvd-burning-and-working-with-iso-files/</link>
       <pubDate>Thu, 13 Nov 2008 00:00:00 +0000</pubDate>
       
-      <guid>https://henrik-farre.github.io/linux/software/cddvd-burning-and-working-with-iso-files/</guid>
+      <guid>https://rockhopper.dk/linux/software/cddvd-burning-and-working-with-iso-files/</guid>
       <description>
 
 &lt;p&gt;Some handy command line tools to burn CDs/DVDs and work with .iso files:&lt;/p&gt;
@@ -157,10 +157,10 @@ unused devices: &amp;lt;none&amp;gt;&lt;/pre&gt;
     
     <item>
       <title>zsh, bash, screen and urxvt title</title>
-      <link>https://henrik-farre.github.io/linux/software/zsh-bash-screen-and-urxvt-title/</link>
+      <link>https://rockhopper.dk/linux/software/zsh-bash-screen-and-urxvt-title/</link>
       <pubDate>Wed, 05 Nov 2008 00:00:00 +0000</pubDate>
       
-      <guid>https://henrik-farre.github.io/linux/software/zsh-bash-screen-and-urxvt-title/</guid>
+      <guid>https://rockhopper.dk/linux/software/zsh-bash-screen-and-urxvt-title/</guid>
       <description>&lt;p&gt;I use both the zsh and bash shell, and most of the time I run them in screen. This happens in my favourite terminal: urxvt (aka rxvt-unicode).&lt;/p&gt;
 
 &lt;p&gt;I have a pretty consistence terminal title in both shells. I use hostname[last part of current path]:&lt;/p&gt;
@@ -169,14 +169,14 @@ unused devices: &amp;lt;none&amp;gt;&lt;/pre&gt;
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://henrik-farre.github.io/uploads/zsh_screen_urxvt-300x178.jpg&#34;
+    &lt;a href=&#34;https://rockhopper.dk/uploads/zsh_screen_urxvt-300x178.jpg&#34;
         title=&#34;Zsh in screen in urxvt&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://henrik-farre.github.io/uploads/zsh_screen_urxvt-300x178.jpg&#34;
+            &lt;img src=&#34;https://rockhopper.dk/uploads/zsh_screen_urxvt-300x178.jpg&#34;
                 class=&#34;
                     &#34;
                 
@@ -228,10 +228,10 @@ caption always &#34;%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw} %=%d %M %0c %{g}%H%{-}
     
     <item>
       <title>Fast nagios exim mail queue plugin replacement</title>
-      <link>https://henrik-farre.github.io/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/</link>
+      <link>https://rockhopper.dk/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/</link>
       <pubDate>Sat, 26 Jul 2008 00:00:00 +0000</pubDate>
       
-      <guid>https://henrik-farre.github.io/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/</guid>
+      <guid>https://rockhopper.dk/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/</guid>
       <description>&lt;p&gt;We had a problem with the nagios check_mailq plugin at &lt;a href=&#34;http://www.bellcom.dk&#34;&gt;work&lt;/a&gt;, it kept timing out. So I wrote a simple bash script (instead of 610 lines of perl) which is &amp;#8220;compatible&amp;#8221; with check_mailq (supports the same arguments) which uses &amp;#8220;exim4&amp;#8221; and is very quick. Just drop it in /usr/local/bin/check_mailq_simple.sh and adjust your nagios conf to use that instead of check_mailq&lt;/p&gt;
 
 &lt;pre&gt;

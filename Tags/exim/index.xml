@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Exim on Rockhopper.dk</title>
-    <link>https://henrik-farre.github.io/tags/exim/</link>
+    <link>https://rockhopper.dk/tags/exim/</link>
     <description>Recent content in Exim on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 26 Jul 2008 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://henrik-farre.github.io/tags/exim/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://rockhopper.dk/tags/exim/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Fast nagios exim mail queue plugin replacement</title>
-      <link>https://henrik-farre.github.io/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/</link>
+      <link>https://rockhopper.dk/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/</link>
       <pubDate>Sat, 26 Jul 2008 00:00:00 +0000</pubDate>
       
-      <guid>https://henrik-farre.github.io/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/</guid>
+      <guid>https://rockhopper.dk/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/</guid>
       <description>&lt;p&gt;We had a problem with the nagios check_mailq plugin at &lt;a href=&#34;http://www.bellcom.dk&#34;&gt;work&lt;/a&gt;, it kept timing out. So I wrote a simple bash script (instead of 610 lines of perl) which is &amp;#8220;compatible&amp;#8221; with check_mailq (supports the same arguments) which uses &amp;#8220;exim4&amp;#8221; and is very quick. Just drop it in /usr/local/bin/check_mailq_simple.sh and adjust your nagios conf to use that instead of check_mailq&lt;/p&gt;
 
 &lt;pre&gt;

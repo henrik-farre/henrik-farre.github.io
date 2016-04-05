@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Htpc on Rockhopper.dk</title>
-    <link>https://henrik-farre.github.io/tags/htpc/</link>
+    <link>https://rockhopper.dk/tags/htpc/</link>
     <description>Recent content in Htpc on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Nov 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://henrik-farre.github.io/tags/htpc/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://rockhopper.dk/tags/htpc/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>HTPC/NAS for watching Netflix on Linux part 1: the hardware</title>
-      <link>https://henrik-farre.github.io/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</link>
+      <link>https://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</link>
       <pubDate>Wed, 13 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://henrik-farre.github.io/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</guid>
+      <guid>https://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</guid>
       <description>
 
 &lt;p&gt;I decided to build a new HTPC/NAS in order to watch &lt;a href=&#34;http://www.netflix.com&#34;&gt;Netflix&lt;/a&gt; (using &lt;a href=&#34;https://wiki.archlinux.org/index.php/Pipelight&#34;&gt;pipelight&lt;/a&gt;) on Linux, and combine two older machines into one.&lt;/p&gt;

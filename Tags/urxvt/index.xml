@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Urxvt on Rockhopper.dk</title>
-    <link>https://henrik-farre.github.io/tags/urxvt/</link>
+    <link>https://rockhopper.dk/tags/urxvt/</link>
     <description>Recent content in Urxvt on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 05 Nov 2008 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://henrik-farre.github.io/tags/urxvt/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://rockhopper.dk/tags/urxvt/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>zsh, bash, screen and urxvt title</title>
-      <link>https://henrik-farre.github.io/linux/software/zsh-bash-screen-and-urxvt-title/</link>
+      <link>https://rockhopper.dk/linux/software/zsh-bash-screen-and-urxvt-title/</link>
       <pubDate>Wed, 05 Nov 2008 00:00:00 +0000</pubDate>
       
-      <guid>https://henrik-farre.github.io/linux/software/zsh-bash-screen-and-urxvt-title/</guid>
+      <guid>https://rockhopper.dk/linux/software/zsh-bash-screen-and-urxvt-title/</guid>
       <description>&lt;p&gt;I use both the zsh and bash shell, and most of the time I run them in screen. This happens in my favourite terminal: urxvt (aka rxvt-unicode).&lt;/p&gt;
 
 &lt;p&gt;I have a pretty consistence terminal title in both shells. I use hostname[last part of current path]:&lt;/p&gt;
@@ -23,14 +23,14 @@
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://henrik-farre.github.io/uploads/zsh_screen_urxvt-300x178.jpg&#34;
+    &lt;a href=&#34;https://rockhopper.dk/uploads/zsh_screen_urxvt-300x178.jpg&#34;
         title=&#34;Zsh in screen in urxvt&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://henrik-farre.github.io/uploads/zsh_screen_urxvt-300x178.jpg&#34;
+            &lt;img src=&#34;https://rockhopper.dk/uploads/zsh_screen_urxvt-300x178.jpg&#34;
                 class=&#34;
                     &#34;
                 

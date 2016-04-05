@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cmd Line on Rockhopper.dk</title>
-    <link>https://henrik-farre.github.io/tags/cmd-line/</link>
+    <link>https://rockhopper.dk/tags/cmd-line/</link>
     <description>Recent content in Cmd Line on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 13 Nov 2008 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://henrik-farre.github.io/tags/cmd-line/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://rockhopper.dk/tags/cmd-line/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>CD/DVD burning, and working with .iso files</title>
-      <link>https://henrik-farre.github.io/linux/software/cddvd-burning-and-working-with-iso-files/</link>
+      <link>https://rockhopper.dk/linux/software/cddvd-burning-and-working-with-iso-files/</link>
       <pubDate>Thu, 13 Nov 2008 00:00:00 +0000</pubDate>
       
-      <guid>https://henrik-farre.github.io/linux/software/cddvd-burning-and-working-with-iso-files/</guid>
+      <guid>https://rockhopper.dk/linux/software/cddvd-burning-and-working-with-iso-files/</guid>
       <description>
 
 &lt;p&gt;Some handy command line tools to burn CDs/DVDs and work with .iso files:&lt;/p&gt;

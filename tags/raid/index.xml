@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Raid on Rockhopper.dk</title>
-    <link>https://rockhopper.dk/tags/raid/</link>
+    <link>http://rockhopper.dk/tags/raid/</link>
     <description>Recent content in Raid on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 19 Apr 2009 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://rockhopper.dk/tags/raid/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://rockhopper.dk/tags/raid/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>How not to restore a Linux software raid</title>
-      <link>https://rockhopper.dk/linux/software/how-not-to-restore-a-linux-software-raid/</link>
+      <link>http://rockhopper.dk/linux/software/how-not-to-restore-a-linux-software-raid/</link>
       <pubDate>Sun, 19 Apr 2009 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/software/how-not-to-restore-a-linux-software-raid/</guid>
+      <guid>http://rockhopper.dk/linux/software/how-not-to-restore-a-linux-software-raid/</guid>
       <description>&lt;p&gt;We had a disk failure on one of our Xen servers at &lt;a href=&#34;http://www.bellcom.dk&#34;&gt;work&lt;/a&gt; last week, and what we thought would be a quick disk replace, turned into a small nightmare.&lt;/p&gt;
 
 &lt;p&gt;Our setup is fairly &amp;#8220;simple&amp;#8221;: 2 x raid1&amp;#8217;s consisting of sda1/sdb1 (/dev/md0 mounted at /) and sda3/sdb3 (/dev/md1 with LVM on top of it).&lt;/p&gt;

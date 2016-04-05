@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Powerbook on Rockhopper.dk</title>
-    <link>https://rockhopper.dk/tags/powerbook/</link>
+    <link>http://rockhopper.dk/tags/powerbook/</link>
     <description>Recent content in Powerbook on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 26 Jul 2008 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://rockhopper.dk/tags/powerbook/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://rockhopper.dk/tags/powerbook/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Installing ArchLinux PPC on my Powerbook Titanium</title>
-      <link>https://rockhopper.dk/linux/hardware/installing-archlinux-ppc-on-my-powerbook-titanium/</link>
+      <link>http://rockhopper.dk/linux/hardware/installing-archlinux-ppc-on-my-powerbook-titanium/</link>
       <pubDate>Sat, 26 Jul 2008 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/hardware/installing-archlinux-ppc-on-my-powerbook-titanium/</guid>
+      <guid>http://rockhopper.dk/linux/hardware/installing-archlinux-ppc-on-my-powerbook-titanium/</guid>
       <description>
 
 &lt;p&gt;I decided to bring my &lt;a href=&#34;https://rockhopper.dk/old/linux/hardware/powerbook-titanium.html&#34;&gt;Powerbook Titanium&lt;/a&gt; back into service as a server/torrent fetcher. So I downloaded &lt;a href=&#34;http://www.archlinuxppc.org/&#34;&gt;ArchLinux PPC&lt;/a&gt; and installed it.&lt;/p&gt;

@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Php on Rockhopper.dk</title>
-    <link>https://rockhopper.dk/categories/php/</link>
+    <link>http://rockhopper.dk/categories/php/</link>
     <description>Recent content in Php on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 04 Jan 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://rockhopper.dk/categories/php/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://rockhopper.dk/categories/php/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Docker and PHP xdebug</title>
-      <link>https://rockhopper.dk/linux/docker-and-php-xdebug/</link>
+      <link>http://rockhopper.dk/linux/docker-and-php-xdebug/</link>
       <pubDate>Sat, 04 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/docker-and-php-xdebug/</guid>
+      <guid>http://rockhopper.dk/linux/docker-and-php-xdebug/</guid>
       <description>&lt;p&gt;I have switched from using Vagrant to Docker as my local development environment, and I&amp;#8217;m still mentally trying to switch :)&lt;/p&gt;
 
 &lt;p&gt;To use the &lt;a href=&#34;https://github.com/joonty/vdebug&#34;&gt;vdebug plugin&lt;/a&gt; in Vim I have set xdebug up inside the container as follows:&lt;/p&gt;

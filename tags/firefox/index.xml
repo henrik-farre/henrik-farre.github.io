@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Firefox on Rockhopper.dk</title>
-    <link>https://rockhopper.dk/tags/firefox/</link>
+    <link>http://rockhopper.dk/tags/firefox/</link>
     <description>Recent content in Firefox on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 08 Jun 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://rockhopper.dk/tags/firefox/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://rockhopper.dk/tags/firefox/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Multiple profiles in Firefox: tips and tricks</title>
-      <link>https://rockhopper.dk/linux/multiple-profiles-in-firefox-tips-and-tricks/</link>
+      <link>http://rockhopper.dk/linux/multiple-profiles-in-firefox-tips-and-tricks/</link>
       <pubDate>Sun, 08 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/multiple-profiles-in-firefox-tips-and-tricks/</guid>
+      <guid>http://rockhopper.dk/linux/multiple-profiles-in-firefox-tips-and-tricks/</guid>
       <description>&lt;p&gt;I have two different profiles for Firefox, one for work, and one for everything else.&lt;/p&gt;
 
 &lt;p&gt;To start Firefox with the correct profile, I have created two different application launchers (.desktop files) in ~/.local/share/applications, one called firefox-work.desktop and the other firefox-home.desktop&lt;/p&gt;

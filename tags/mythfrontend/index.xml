@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mythfrontend on Rockhopper.dk</title>
-    <link>https://rockhopper.dk/tags/mythfrontend/</link>
+    <link>http://rockhopper.dk/tags/mythfrontend/</link>
     <description>Recent content in Mythfrontend on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 28 Jun 2008 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://rockhopper.dk/tags/mythfrontend/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://rockhopper.dk/tags/mythfrontend/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Check video encoding script for MythTV</title>
-      <link>https://rockhopper.dk/linux/software/mythtv/check-video-encoding-script-for-mythtv/</link>
+      <link>http://rockhopper.dk/linux/software/mythtv/check-video-encoding-script-for-mythtv/</link>
       <pubDate>Sat, 28 Jun 2008 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/software/mythtv/check-video-encoding-script-for-mythtv/</guid>
+      <guid>http://rockhopper.dk/linux/software/mythtv/check-video-encoding-script-for-mythtv/</guid>
       <description>&lt;p&gt;I&amp;#8217;m using Xine as the preferred video player on my MythTV frontend, because it has a nice video output driver called &amp;#8220;xxmc&amp;#8221;. This driver enables hardware accelerated playback of mpeg1/2 streams (e.g. ivtv recordings or DVDs) on Geforce 7xxx and other Geforce chips. The driver should fall back to the xv driver if the stream is in another format than mpeg1/2, but somehow the xxmc drives screws up playback of videos encoded with Xvid as playback gets really jerky.&lt;/p&gt;
 
 &lt;p&gt;I order to work around this, I created a script to check which video encoding is used, and if it&amp;#8217;s Xvid, Xine uses xv output. The script just requires MPlayer. Dump the script somewhere MythTV can find it, and set it as the preferred video player in MythTV.&lt;/p&gt;
@@ -50,10 +50,10 @@ xine ${VIDEO_DRIVER} ${AUDIO_DRIVER} ${EXTRA_OPTIONS} ${1}
     
     <item>
       <title>Check if MythTV backend is up</title>
-      <link>https://rockhopper.dk/linux/software/mythtv/check-if-mythtv-backend-is-up/</link>
+      <link>http://rockhopper.dk/linux/software/mythtv/check-if-mythtv-backend-is-up/</link>
       <pubDate>Sat, 12 Apr 2008 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/software/mythtv/check-if-mythtv-backend-is-up/</guid>
+      <guid>http://rockhopper.dk/linux/software/mythtv/check-if-mythtv-backend-is-up/</guid>
       <description>&lt;p&gt;My MythTV frontend depends on the masterbackend to be up and running, mainly because some partitions are nfs mounted. So I created a simple script to check if the backend is responding to ping:&lt;/p&gt;
 
 &lt;pre&gt;

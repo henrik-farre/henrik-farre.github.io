@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bios on Rockhopper.dk</title>
-    <link>https://rockhopper.dk/tags/bios/</link>
+    <link>http://rockhopper.dk/tags/bios/</link>
     <description>Recent content in Bios on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 17 Mar 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://rockhopper.dk/tags/bios/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://rockhopper.dk/tags/bios/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>UEFI booting Arch Linux on a HP ProBook 6360b</title>
-      <link>https://rockhopper.dk/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</link>
+      <link>http://rockhopper.dk/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</link>
       <pubDate>Sun, 17 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</guid>
+      <guid>http://rockhopper.dk/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</guid>
       <description>
 
 &lt;p&gt;As I&amp;#8217;ve just got a new Samsung 840 Pro Series 256GB SSD for my work laptop (HP ProBook 6360b), I wanted to try switching from BIOS booting to UEFI.&lt;/p&gt;

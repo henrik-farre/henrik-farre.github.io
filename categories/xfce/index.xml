@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Xfce on Rockhopper.dk</title>
-    <link>https://rockhopper.dk/categories/xfce/</link>
+    <link>http://rockhopper.dk/categories/xfce/</link>
     <description>Recent content in Xfce on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 14 Feb 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://rockhopper.dk/categories/xfce/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://rockhopper.dk/categories/xfce/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Xfce: auto rotate wallpaper without cron</title>
-      <link>https://rockhopper.dk/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/</link>
+      <link>http://rockhopper.dk/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/</link>
       <pubDate>Sun, 14 Feb 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/</guid>
+      <guid>http://rockhopper.dk/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/</guid>
       <description>&lt;p&gt;Since Xfce 4.6 I&amp;#8217;ve had the wallpaper autorotated on my Xfce desktop with the help of a small script and cron. But after an update of some component (probably libxfconf / xfconf) my script did not work anymore and I got this error if I tried to run the script from a console or via ssh:&lt;/p&gt;
 
 &lt;pre&gt;** (process:4150): CRITICAL **: Failed to init libxfconf: Failed to connect to socket /tmp/dbus-xrIvHB4Jas: Connection refused&lt;/pre&gt;
@@ -57,10 +57,10 @@ done
     
     <item>
       <title>Completely hide Xfce’s panels</title>
-      <link>https://rockhopper.dk/linux/software/xfce/completely-hide-xfces-panels/</link>
+      <link>http://rockhopper.dk/linux/software/xfce/completely-hide-xfces-panels/</link>
       <pubDate>Sat, 03 May 2008 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/software/xfce/completely-hide-xfces-panels/</guid>
+      <guid>http://rockhopper.dk/linux/software/xfce/completely-hide-xfces-panels/</guid>
       <description>&lt;p&gt;Even though a Xfce panel is &amp;#8220;hidden&amp;#8221; (i.e. &amp;#8220;Autohide&amp;#8221; is enabled) 3 pixels of it is still visible. But there is an easy way to hide it completely (Requires Xfwm4&amp;#8217;s compositor to be enabled):&lt;/p&gt;
 
 &lt;ul&gt;
@@ -75,14 +75,14 @@ done
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://rockhopper.dk/uploads/xfce-panel-manager.png&#34;
+    &lt;a href=&#34;http://rockhopper.dk/uploads/xfce-panel-manager.png&#34;
         title=&#34;Xfce&amp;#39;s panel set to hide completely&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://rockhopper.dk/uploads/xfce-panel-manager.png&#34;
+            &lt;img src=&#34;http://rockhopper.dk/uploads/xfce-panel-manager.png&#34;
                 class=&#34;
                     &#34;
                 

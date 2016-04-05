@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dvb C on Rockhopper.dk</title>
-    <link>https://rockhopper.dk/tags/dvb-c/</link>
+    <link>http://rockhopper.dk/tags/dvb-c/</link>
     <description>Recent content in Dvb C on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 29 May 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://rockhopper.dk/tags/dvb-c/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://rockhopper.dk/tags/dvb-c/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>AnySee E30 C Plus &#43; MythTV</title>
-      <link>https://rockhopper.dk/linux/software/mythtv/anysee-e30-c-plus-mythtv/</link>
+      <link>http://rockhopper.dk/linux/software/mythtv/anysee-e30-c-plus-mythtv/</link>
       <pubDate>Sat, 29 May 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/software/mythtv/anysee-e30-c-plus-mythtv/</guid>
+      <guid>http://rockhopper.dk/linux/software/mythtv/anysee-e30-c-plus-mythtv/</guid>
       <description>&lt;p&gt;I had the chance to test &lt;a href=&#34;http://www.anysee.dk/products.html&#34;&gt;AnySee&amp;#8217;s USB based DVB-C tuner&lt;/a&gt; with MythTV, and I can confirm it &amp;#8220;just works&amp;#8221;.&lt;/p&gt;
 
 &lt;p&gt;To setup the AnySee E30 C Plus just follow my &lt;a href=&#34;https://rockhopper.dk/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/&#34;&gt;Terratec Cinergy C PCI HD + MythTV guide&lt;/a&gt;, the setup is exactly the same. The only thing I noticed is that the signal strength is not as high as it is with the Terratec card, it hovers around 40-50% vs 90-95%.&lt;/p&gt;
@@ -44,17 +44,17 @@ dvb-usb: Anysee DVB USB2.0 successfully initialized and connected.&lt;/pre&gt;
     
     <item>
       <title>Terratec Cinergy C PCI HD &#43; MythTV</title>
-      <link>https://rockhopper.dk/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/</link>
+      <link>http://rockhopper.dk/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/</link>
       <pubDate>Tue, 09 Feb 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/</guid>
+      <guid>http://rockhopper.dk/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/</guid>
       <description>
 
 &lt;p&gt;In the middle of December 2009 danish cable TV providor &lt;a href=&#34;http://stofa.dk&#34;&gt;Stofa&lt;/a&gt; made most of the channels in its DVB-C network &lt;a href=&#34;http://www.stofa.dk/showpage.php?mid=368&#34;&gt;available unencoded&lt;/a&gt;. This prompted me to replace my analogue &lt;a href=&#34;https://rockhopper.dk/old/linux/hardware/pvr_cards.html&#34;&gt;Hauppauge WinTV-PVR-500 TV tuner card&lt;/a&gt; (yes the links goes to my old PVR-150 page) with something that could record the digital signal from DVB-C. I looked for a card that had the following characteristic:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Have stable Open Source Linux drivers&lt;/li&gt;
-&lt;li&gt;It should work with &lt;a href=&#34;https://rockhopper.dk/category/linux/software/mythtv/&#34;&gt;MythTV&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;It should work with &lt;a href=&#34;http://rockhopper.dk/category/linux/software/mythtv/&#34;&gt;MythTV&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Fit in a PCI slot (My Asus AT3N7A-I motherboard only has one PCI slot)&lt;/li&gt;
 &lt;li&gt;Be able to record HD TV&lt;/li&gt;
 &lt;li&gt;Not be to expensive&lt;/li&gt;
@@ -132,14 +132,14 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://rockhopper.dk/uploads/mythtv_capture_card_add_new.png&#34;
+    &lt;a href=&#34;http://rockhopper.dk/uploads/mythtv_capture_card_add_new.png&#34;
         title=&#34;MythTV setup: adding new capture card&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://rockhopper.dk/uploads/mythtv_capture_card_add_new-150x150.png&#34;
+            &lt;img src=&#34;http://rockhopper.dk/uploads/mythtv_capture_card_add_new-150x150.png&#34;
                 class=&#34;
                     &#34;
                 
@@ -176,14 +176,14 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://rockhopper.dk/uploads/mythtv_video_source_add_new.png&#34;
+    &lt;a href=&#34;http://rockhopper.dk/uploads/mythtv_video_source_add_new.png&#34;
         title=&#34;MythTV setup: adding new video source&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://rockhopper.dk/uploads/mythtv_video_source_add_new-150x150.png&#34;
+            &lt;img src=&#34;http://rockhopper.dk/uploads/mythtv_video_source_add_new-150x150.png&#34;
                 class=&#34;
                     &#34;
                 
@@ -214,14 +214,14 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://rockhopper.dk/uploads/mythtv_input_connections.png&#34;
+    &lt;a href=&#34;http://rockhopper.dk/uploads/mythtv_input_connections.png&#34;
         title=&#34;MythTV setup: input connections&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://rockhopper.dk/uploads/mythtv_input_connections-150x150.png&#34;
+            &lt;img src=&#34;http://rockhopper.dk/uploads/mythtv_input_connections-150x150.png&#34;
                 class=&#34;
                     &#34;
                 
@@ -250,14 +250,14 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://rockhopper.dk/uploads/mythtv_scanning_for_channels.png&#34;
+    &lt;a href=&#34;http://rockhopper.dk/uploads/mythtv_scanning_for_channels.png&#34;
         title=&#34;MythTV setup: scanning for channels&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://rockhopper.dk/uploads/mythtv_scanning_for_channels-150x150.png&#34;
+            &lt;img src=&#34;http://rockhopper.dk/uploads/mythtv_scanning_for_channels-150x150.png&#34;
                 class=&#34;
                     &#34;
                 
@@ -287,14 +287,14 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://rockhopper.dk/uploads/mythtv_scanning_for_channels2.png&#34;
+    &lt;a href=&#34;http://rockhopper.dk/uploads/mythtv_scanning_for_channels2.png&#34;
         title=&#34;MythTV setup: performing the scan&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://rockhopper.dk/uploads/mythtv_scanning_for_channels2-150x150.png&#34;
+            &lt;img src=&#34;http://rockhopper.dk/uploads/mythtv_scanning_for_channels2-150x150.png&#34;
                 class=&#34;
                     &#34;
                 
@@ -316,14 +316,14 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://rockhopper.dk/uploads/mythtv_scanning_for_channels_done.png&#34;
+    &lt;a href=&#34;http://rockhopper.dk/uploads/mythtv_scanning_for_channels_done.png&#34;
         title=&#34;MythTV setup: channel scanning completed&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://rockhopper.dk/uploads/mythtv_scanning_for_channels_done-150x150.png&#34;
+            &lt;img src=&#34;http://rockhopper.dk/uploads/mythtv_scanning_for_channels_done-150x150.png&#34;
                 class=&#34;
                     &#34;
                 

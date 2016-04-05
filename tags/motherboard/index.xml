@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Motherboard on Rockhopper.dk</title>
-    <link>https://rockhopper.dk/tags/motherboard/</link>
+    <link>http://rockhopper.dk/tags/motherboard/</link>
     <description>Recent content in Motherboard on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Nov 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://rockhopper.dk/tags/motherboard/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://rockhopper.dk/tags/motherboard/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>HTPC/NAS for watching Netflix on Linux part 1: the hardware</title>
-      <link>https://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</link>
+      <link>http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</link>
       <pubDate>Wed, 13 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</guid>
+      <guid>http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</guid>
       <description>
 
 &lt;p&gt;I decided to build a new HTPC/NAS in order to watch &lt;a href=&#34;http://www.netflix.com&#34;&gt;Netflix&lt;/a&gt; (using &lt;a href=&#34;https://wiki.archlinux.org/index.php/Pipelight&#34;&gt;pipelight&lt;/a&gt;) on Linux, and combine two older machines into one.&lt;/p&gt;
@@ -96,10 +96,10 @@
     
     <item>
       <title>Gigabyte GA-MA790FXT-UD5P and Linux</title>
-      <link>https://rockhopper.dk/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</link>
+      <link>http://rockhopper.dk/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</link>
       <pubDate>Sat, 18 Jul 2009 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</guid>
+      <guid>http://rockhopper.dk/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</guid>
       <description>
 
 &lt;p&gt;I recently upgraded the hardware of my desktop and here is my experience with the new hardware. The upgrade consists of:&lt;/p&gt;
@@ -121,14 +121,14 @@
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://rockhopper.dk/uploads/gigabyte_ga-ma790fxt-ud5p_1.jpg&#34;
+    &lt;a href=&#34;http://rockhopper.dk/uploads/gigabyte_ga-ma790fxt-ud5p_1.jpg&#34;
         title=&#34;Gigabyte GA-MA790FXT-UD5P mounted in Antec P182&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://rockhopper.dk/uploads/gigabyte_ga-ma790fxt-ud5p_1-150x150.jpg&#34;
+            &lt;img src=&#34;http://rockhopper.dk/uploads/gigabyte_ga-ma790fxt-ud5p_1-150x150.jpg&#34;
                 class=&#34;
                     &#34;
                 
@@ -150,14 +150,14 @@
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://rockhopper.dk/uploads/gigabyte_ga-ma790fxt-ud5p_2.jpg&#34;
+    &lt;a href=&#34;http://rockhopper.dk/uploads/gigabyte_ga-ma790fxt-ud5p_2.jpg&#34;
         title=&#34;Xigmatek HDT-S1283 Cooler blocking first two RAM slots&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://rockhopper.dk/uploads/gigabyte_ga-ma790fxt-ud5p_2-150x150.jpg&#34;
+            &lt;img src=&#34;http://rockhopper.dk/uploads/gigabyte_ga-ma790fxt-ud5p_2-150x150.jpg&#34;
                 class=&#34;
                     &#34;
                 
@@ -181,7 +181,7 @@
 
 &lt;p&gt;To match the new hardware I also switched from Arch Linux x686 to Arch Linux x86_64. I have not experienced any crashes or trouble after switching to the new hardware, so the hardware is 100% Linux compatible. There might be problems with older kernels, but I can confirm that it works with 2.6.28 or newer.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Update the 01-Aug-2009: attached &lt;a href=&#34;https://rockhopper.dk/uploads/gigabyte-ga-ma790fxt-ud5p-dmesg.txt&#34;&gt;dmesg&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update the 01-Aug-2009: attached &lt;a href=&#34;http://rockhopper.dk/uploads/gigabyte-ga-ma790fxt-ud5p-dmesg.txt&#34;&gt;dmesg&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;fancontrol-and-sensors:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;Fancontrol and sensors&lt;/h2&gt;
 

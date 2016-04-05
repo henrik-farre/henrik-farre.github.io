@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rockhopper.dk</title>
-    <link>https://rockhopper.dk/</link>
+    <link>http://rockhopper.dk/</link>
     <description>Recent content on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 01 Apr 2016 10:15:11 +0200</lastBuildDate>
-    <atom:link href="https://rockhopper.dk/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://rockhopper.dk/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>About me</title>
-      <link>https://rockhopper.dk/about-me</link>
+      <link>http://rockhopper.dk/about-me</link>
       <pubDate>Fri, 01 Apr 2016 10:15:11 +0200</pubDate>
       
-      <guid>https://rockhopper.dk/about-me</guid>
+      <guid>http://rockhopper.dk/about-me</guid>
       <description>&lt;p&gt;I&amp;rsquo;m a veteran web developer with experience in a multitude of PHP based applications, including:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -25,7 +25,7 @@
 &lt;li&gt;Symfony&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;I also know a lot about &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;Docker&lt;/a&gt;, &lt;a href=&#34;https://rockhopper.dk/categories/linux/&#34;&gt;Linux&lt;/a&gt; and &lt;a href=&#34;https://github.com/henrik-farre/vimrc&#34;&gt;Vim&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I also know a lot about &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;Docker&lt;/a&gt;, &lt;a href=&#34;http://rockhopper.dk/categories/linux/&#34;&gt;Linux&lt;/a&gt; and &lt;a href=&#34;https://github.com/henrik-farre/vimrc&#34;&gt;Vim&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Find me on:&lt;/p&gt;
 
@@ -38,10 +38,10 @@
     
     <item>
       <title>Mouse hover not working in Chrome/Chromium? Solution: stop synergy</title>
-      <link>https://rockhopper.dk/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/</link>
+      <link>http://rockhopper.dk/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/</link>
       <pubDate>Thu, 12 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/</guid>
+      <guid>http://rockhopper.dk/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/</guid>
       <description>&lt;p&gt;I had a strange problem: when I was using Chromium (Open source version of Chrome): mouse hover was not working. Click, scroll and so on worked fine, but when the mouse hovered above an element on a webpage nothing happend.&lt;/p&gt;
 
 &lt;p&gt;After googling I found that &lt;a href=&#34;http://synergy-project.org/&#34;&gt;synergy&lt;/a&gt; is the &lt;a href=&#34;https://www.google.dk/search?q=chrome+hover+synergy&#34;&gt;cause&lt;/a&gt;, so now I only start synergy when I need it.&lt;/p&gt;
@@ -50,10 +50,10 @@
     
     <item>
       <title>Multiple profiles in Firefox: tips and tricks</title>
-      <link>https://rockhopper.dk/linux/multiple-profiles-in-firefox-tips-and-tricks/</link>
+      <link>http://rockhopper.dk/linux/multiple-profiles-in-firefox-tips-and-tricks/</link>
       <pubDate>Sun, 08 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/multiple-profiles-in-firefox-tips-and-tricks/</guid>
+      <guid>http://rockhopper.dk/linux/multiple-profiles-in-firefox-tips-and-tricks/</guid>
       <description>&lt;p&gt;I have two different profiles for Firefox, one for work, and one for everything else.&lt;/p&gt;
 
 &lt;p&gt;To start Firefox with the correct profile, I have created two different application launchers (.desktop files) in ~/.local/share/applications, one called firefox-work.desktop and the other firefox-home.desktop&lt;/p&gt;
@@ -113,10 +113,10 @@ xdotool type --window $WID &#34;$1&#34;
     
     <item>
       <title>zsh prompt/window title: trim middle of path</title>
-      <link>https://rockhopper.dk/linux/zsh-promptwindow-title-trim-middle-of-path/</link>
+      <link>http://rockhopper.dk/linux/zsh-promptwindow-title-trim-middle-of-path/</link>
       <pubDate>Tue, 07 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/zsh-promptwindow-title-trim-middle-of-path/</guid>
+      <guid>http://rockhopper.dk/linux/zsh-promptwindow-title-trim-middle-of-path/</guid>
       <description>&lt;p&gt;I run zsh in tmux, and sometimes I end up in a deep directory where the path matches that of another window in tmux (for example in my local docker development environment and on the testing/production server). When this happens just seeing the last part of the path as the window title is not enough, like this: &amp;#8230;/sites/all/modules/somemodule.&lt;/p&gt;
 
 &lt;p&gt;So I changed my ~/.zshrc to contain this:&lt;/p&gt;
@@ -186,10 +186,10 @@ function preexec() {
     
     <item>
       <title>Docker and PHP xdebug</title>
-      <link>https://rockhopper.dk/linux/docker-and-php-xdebug/</link>
+      <link>http://rockhopper.dk/linux/docker-and-php-xdebug/</link>
       <pubDate>Sat, 04 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/docker-and-php-xdebug/</guid>
+      <guid>http://rockhopper.dk/linux/docker-and-php-xdebug/</guid>
       <description>&lt;p&gt;I have switched from using Vagrant to Docker as my local development environment, and I&amp;#8217;m still mentally trying to switch :)&lt;/p&gt;
 
 &lt;p&gt;To use the &lt;a href=&#34;https://github.com/joonty/vdebug&#34;&gt;vdebug plugin&lt;/a&gt; in Vim I have set xdebug up inside the container as follows:&lt;/p&gt;
@@ -220,10 +220,10 @@ xdebug.remote_port=9000&lt;/code&gt;
     
     <item>
       <title>HTPC/NAS for watching Netflix on Linux part 1: the hardware</title>
-      <link>https://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</link>
+      <link>http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</link>
       <pubDate>Wed, 13 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</guid>
+      <guid>http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</guid>
       <description>
 
 &lt;p&gt;I decided to build a new HTPC/NAS in order to watch &lt;a href=&#34;http://www.netflix.com&#34;&gt;Netflix&lt;/a&gt; (using &lt;a href=&#34;https://wiki.archlinux.org/index.php/Pipelight&#34;&gt;pipelight&lt;/a&gt;) on Linux, and combine two older machines into one.&lt;/p&gt;
@@ -305,10 +305,10 @@ xdebug.remote_port=9000&lt;/code&gt;
     
     <item>
       <title>UEFI booting Arch Linux on a HP ProBook 6360b</title>
-      <link>https://rockhopper.dk/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</link>
+      <link>http://rockhopper.dk/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</link>
       <pubDate>Sun, 17 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</guid>
+      <guid>http://rockhopper.dk/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</guid>
       <description>
 
 &lt;p&gt;As I&amp;#8217;ve just got a new Samsung 840 Pro Series 256GB SSD for my work laptop (HP ProBook 6360b), I wanted to try switching from BIOS booting to UEFI.&lt;/p&gt;
@@ -363,10 +363,10 @@ xdebug.remote_port=9000&lt;/code&gt;
     
     <item>
       <title>Installing CyanogenMod 7.1 on a Sony Ericsson Xperia Arc (LT15i)</title>
-      <link>https://rockhopper.dk/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/</link>
+      <link>http://rockhopper.dk/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/</link>
       <pubDate>Tue, 03 Apr 2012 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/</guid>
+      <guid>http://rockhopper.dk/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/</guid>
       <description>&lt;p&gt;Although the instructions for upgrading the Sony Ericsson Xperia Arc (not the new S version) are &lt;a title=&#34;Sony Ericsson Xperia Arc: Full Update Guide&#34; href=&#34;http://wiki.cyanogenmod.com/wiki/Sony_Ericsson_Xperia_Arc:_Full_Update_Guide&#34; target=&#34;_blank&#34;&gt;pretty detailed&lt;/a&gt; there are some twists that are not documented:&lt;/p&gt;
 
 &lt;ol&gt;
@@ -381,10 +381,10 @@ xdebug.remote_port=9000&lt;/code&gt;
     
     <item>
       <title>Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1)</title>
-      <link>https://rockhopper.dk/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/</link>
+      <link>http://rockhopper.dk/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/</link>
       <pubDate>Sat, 19 Jun 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/</guid>
+      <guid>http://rockhopper.dk/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/</guid>
       <description>
 
 &lt;p&gt;My ADP1 has been running Android 1.6 (Cyanogenmod 4.2.x) for quite a while now, and I was exited to see that it would be possible to run Android 2.1 on it thanks to Cyanogen :). This guide is a digest of information found on Cyanogen&amp;#8217;s wiki, like: &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Full_Update_Guide_-_ADP1_Firmware_to_CyanogenMod&#34;&gt;ADP1 Firmware to CyanogenMod&lt;/a&gt;, please consult the wiki for up todate information and warnings :)&lt;/p&gt;
@@ -461,10 +461,10 @@ xdebug.remote_port=9000&lt;/code&gt;
     
     <item>
       <title>AnySee E30 C Plus &#43; MythTV</title>
-      <link>https://rockhopper.dk/linux/software/mythtv/anysee-e30-c-plus-mythtv/</link>
+      <link>http://rockhopper.dk/linux/software/mythtv/anysee-e30-c-plus-mythtv/</link>
       <pubDate>Sat, 29 May 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/software/mythtv/anysee-e30-c-plus-mythtv/</guid>
+      <guid>http://rockhopper.dk/linux/software/mythtv/anysee-e30-c-plus-mythtv/</guid>
       <description>&lt;p&gt;I had the chance to test &lt;a href=&#34;http://www.anysee.dk/products.html&#34;&gt;AnySee&amp;#8217;s USB based DVB-C tuner&lt;/a&gt; with MythTV, and I can confirm it &amp;#8220;just works&amp;#8221;.&lt;/p&gt;
 
 &lt;p&gt;To setup the AnySee E30 C Plus just follow my &lt;a href=&#34;https://rockhopper.dk/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/&#34;&gt;Terratec Cinergy C PCI HD + MythTV guide&lt;/a&gt;, the setup is exactly the same. The only thing I noticed is that the signal strength is not as high as it is with the Terratec card, it hovers around 40-50% vs 90-95%.&lt;/p&gt;
@@ -494,10 +494,10 @@ dvb-usb: Anysee DVB USB2.0 successfully initialized and connected.&lt;/pre&gt;
     
     <item>
       <title>Xfce: auto rotate wallpaper without cron</title>
-      <link>https://rockhopper.dk/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/</link>
+      <link>http://rockhopper.dk/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/</link>
       <pubDate>Sun, 14 Feb 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/</guid>
+      <guid>http://rockhopper.dk/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/</guid>
       <description>&lt;p&gt;Since Xfce 4.6 I&amp;#8217;ve had the wallpaper autorotated on my Xfce desktop with the help of a small script and cron. But after an update of some component (probably libxfconf / xfconf) my script did not work anymore and I got this error if I tried to run the script from a console or via ssh:&lt;/p&gt;
 
 &lt;pre&gt;** (process:4150): CRITICAL **: Failed to init libxfconf: Failed to connect to socket /tmp/dbus-xrIvHB4Jas: Connection refused&lt;/pre&gt;
@@ -540,17 +540,17 @@ done
     
     <item>
       <title>Terratec Cinergy C PCI HD &#43; MythTV</title>
-      <link>https://rockhopper.dk/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/</link>
+      <link>http://rockhopper.dk/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/</link>
       <pubDate>Tue, 09 Feb 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/</guid>
+      <guid>http://rockhopper.dk/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/</guid>
       <description>
 
 &lt;p&gt;In the middle of December 2009 danish cable TV providor &lt;a href=&#34;http://stofa.dk&#34;&gt;Stofa&lt;/a&gt; made most of the channels in its DVB-C network &lt;a href=&#34;http://www.stofa.dk/showpage.php?mid=368&#34;&gt;available unencoded&lt;/a&gt;. This prompted me to replace my analogue &lt;a href=&#34;https://rockhopper.dk/old/linux/hardware/pvr_cards.html&#34;&gt;Hauppauge WinTV-PVR-500 TV tuner card&lt;/a&gt; (yes the links goes to my old PVR-150 page) with something that could record the digital signal from DVB-C. I looked for a card that had the following characteristic:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Have stable Open Source Linux drivers&lt;/li&gt;
-&lt;li&gt;It should work with &lt;a href=&#34;https://rockhopper.dk/category/linux/software/mythtv/&#34;&gt;MythTV&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;It should work with &lt;a href=&#34;http://rockhopper.dk/category/linux/software/mythtv/&#34;&gt;MythTV&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Fit in a PCI slot (My Asus AT3N7A-I motherboard only has one PCI slot)&lt;/li&gt;
 &lt;li&gt;Be able to record HD TV&lt;/li&gt;
 &lt;li&gt;Not be to expensive&lt;/li&gt;
@@ -628,14 +628,14 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://rockhopper.dk/uploads/mythtv_capture_card_add_new.png&#34;
+    &lt;a href=&#34;http://rockhopper.dk/uploads/mythtv_capture_card_add_new.png&#34;
         title=&#34;MythTV setup: adding new capture card&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://rockhopper.dk/uploads/mythtv_capture_card_add_new-150x150.png&#34;
+            &lt;img src=&#34;http://rockhopper.dk/uploads/mythtv_capture_card_add_new-150x150.png&#34;
                 class=&#34;
                     &#34;
                 
@@ -672,14 +672,14 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://rockhopper.dk/uploads/mythtv_video_source_add_new.png&#34;
+    &lt;a href=&#34;http://rockhopper.dk/uploads/mythtv_video_source_add_new.png&#34;
         title=&#34;MythTV setup: adding new video source&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://rockhopper.dk/uploads/mythtv_video_source_add_new-150x150.png&#34;
+            &lt;img src=&#34;http://rockhopper.dk/uploads/mythtv_video_source_add_new-150x150.png&#34;
                 class=&#34;
                     &#34;
                 
@@ -710,14 +710,14 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://rockhopper.dk/uploads/mythtv_input_connections.png&#34;
+    &lt;a href=&#34;http://rockhopper.dk/uploads/mythtv_input_connections.png&#34;
         title=&#34;MythTV setup: input connections&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://rockhopper.dk/uploads/mythtv_input_connections-150x150.png&#34;
+            &lt;img src=&#34;http://rockhopper.dk/uploads/mythtv_input_connections-150x150.png&#34;
                 class=&#34;
                     &#34;
                 
@@ -746,14 +746,14 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://rockhopper.dk/uploads/mythtv_scanning_for_channels.png&#34;
+    &lt;a href=&#34;http://rockhopper.dk/uploads/mythtv_scanning_for_channels.png&#34;
         title=&#34;MythTV setup: scanning for channels&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://rockhopper.dk/uploads/mythtv_scanning_for_channels-150x150.png&#34;
+            &lt;img src=&#34;http://rockhopper.dk/uploads/mythtv_scanning_for_channels-150x150.png&#34;
                 class=&#34;
                     &#34;
                 
@@ -783,14 +783,14 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://rockhopper.dk/uploads/mythtv_scanning_for_channels2.png&#34;
+    &lt;a href=&#34;http://rockhopper.dk/uploads/mythtv_scanning_for_channels2.png&#34;
         title=&#34;MythTV setup: performing the scan&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://rockhopper.dk/uploads/mythtv_scanning_for_channels2-150x150.png&#34;
+            &lt;img src=&#34;http://rockhopper.dk/uploads/mythtv_scanning_for_channels2-150x150.png&#34;
                 class=&#34;
                     &#34;
                 
@@ -812,14 +812,14 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://rockhopper.dk/uploads/mythtv_scanning_for_channels_done.png&#34;
+    &lt;a href=&#34;http://rockhopper.dk/uploads/mythtv_scanning_for_channels_done.png&#34;
         title=&#34;MythTV setup: channel scanning completed&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://rockhopper.dk/uploads/mythtv_scanning_for_channels_done-150x150.png&#34;
+            &lt;img src=&#34;http://rockhopper.dk/uploads/mythtv_scanning_for_channels_done-150x150.png&#34;
                 class=&#34;
                     &#34;
                 
@@ -946,10 +946,10 @@ mantis_ack_wait (0): Slave RACK Fail !&lt;/pre&gt;
     
     <item>
       <title>Gigabyte GA-MA790FXT-UD5P and Linux</title>
-      <link>https://rockhopper.dk/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</link>
+      <link>http://rockhopper.dk/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</link>
       <pubDate>Sat, 18 Jul 2009 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</guid>
+      <guid>http://rockhopper.dk/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</guid>
       <description>
 
 &lt;p&gt;I recently upgraded the hardware of my desktop and here is my experience with the new hardware. The upgrade consists of:&lt;/p&gt;
@@ -971,14 +971,14 @@ mantis_ack_wait (0): Slave RACK Fail !&lt;/pre&gt;
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://rockhopper.dk/uploads/gigabyte_ga-ma790fxt-ud5p_1.jpg&#34;
+    &lt;a href=&#34;http://rockhopper.dk/uploads/gigabyte_ga-ma790fxt-ud5p_1.jpg&#34;
         title=&#34;Gigabyte GA-MA790FXT-UD5P mounted in Antec P182&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://rockhopper.dk/uploads/gigabyte_ga-ma790fxt-ud5p_1-150x150.jpg&#34;
+            &lt;img src=&#34;http://rockhopper.dk/uploads/gigabyte_ga-ma790fxt-ud5p_1-150x150.jpg&#34;
                 class=&#34;
                     &#34;
                 
@@ -1000,14 +1000,14 @@ mantis_ack_wait (0): Slave RACK Fail !&lt;/pre&gt;
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;https://rockhopper.dk/uploads/gigabyte_ga-ma790fxt-ud5p_2.jpg&#34;
+    &lt;a href=&#34;http://rockhopper.dk/uploads/gigabyte_ga-ma790fxt-ud5p_2.jpg&#34;
         title=&#34;Xigmatek HDT-S1283 Cooler blocking first two RAM slots&#34;
         class=&#34;image-link thumbnail&#34;
         
     &gt;
         
             
-            &lt;img src=&#34;https://rockhopper.dk/uploads/gigabyte_ga-ma790fxt-ud5p_2-150x150.jpg&#34;
+            &lt;img src=&#34;http://rockhopper.dk/uploads/gigabyte_ga-ma790fxt-ud5p_2-150x150.jpg&#34;
                 class=&#34;
                     &#34;
                 
@@ -1031,7 +1031,7 @@ mantis_ack_wait (0): Slave RACK Fail !&lt;/pre&gt;
 
 &lt;p&gt;To match the new hardware I also switched from Arch Linux x686 to Arch Linux x86_64. I have not experienced any crashes or trouble after switching to the new hardware, so the hardware is 100% Linux compatible. There might be problems with older kernels, but I can confirm that it works with 2.6.28 or newer.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Update the 01-Aug-2009: attached &lt;a href=&#34;https://rockhopper.dk/uploads/gigabyte-ga-ma790fxt-ud5p-dmesg.txt&#34;&gt;dmesg&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update the 01-Aug-2009: attached &lt;a href=&#34;http://rockhopper.dk/uploads/gigabyte-ga-ma790fxt-ud5p-dmesg.txt&#34;&gt;dmesg&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;fancontrol-and-sensors:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;Fancontrol and sensors&lt;/h2&gt;
 
@@ -1101,10 +1101,10 @@ done
     
     <item>
       <title>How not to restore a Linux software raid</title>
-      <link>https://rockhopper.dk/linux/software/how-not-to-restore-a-linux-software-raid/</link>
+      <link>http://rockhopper.dk/linux/software/how-not-to-restore-a-linux-software-raid/</link>
       <pubDate>Sun, 19 Apr 2009 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/software/how-not-to-restore-a-linux-software-raid/</guid>
+      <guid>http://rockhopper.dk/linux/software/how-not-to-restore-a-linux-software-raid/</guid>
       <description>&lt;p&gt;We had a disk failure on one of our Xen servers at &lt;a href=&#34;http://www.bellcom.dk&#34;&gt;work&lt;/a&gt; last week, and what we thought would be a quick disk replace, turned into a small nightmare.&lt;/p&gt;
 
 &lt;p&gt;Our setup is fairly &amp;#8220;simple&amp;#8221;: 2 x raid1&amp;#8217;s consisting of sda1/sdb1 (/dev/md0 mounted at /) and sda3/sdb3 (/dev/md1 with LVM on top of it).&lt;/p&gt;
@@ -1134,10 +1134,10 @@ unused devices: &amp;lt;none&amp;gt;&lt;/pre&gt;
     
     <item>
       <title>Updating the Android Developer Phone1 to v1.1</title>
-      <link>https://rockhopper.dk/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/</link>
+      <link>http://rockhopper.dk/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/</link>
       <pubDate>Tue, 10 Feb 2009 00:00:00 +0000</pubDate>
       
-      <guid>https://rockhopper.dk/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/</guid>
+      <guid>http://rockhopper.dk/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/</guid>
       <description>
 
 &lt;p&gt;I&amp;#8217;ve been putting off upgrading my ADP1 in fear of that I would brick it, but after reading that there now are official update images available I decided to give it a try.&lt;/p&gt;

@@ -256,8 +256,7 @@ MINTEMP=hwmon0/device/pwm1=35 hwmon0/device/pwm2=45
 MAXTEMP=hwmon0/device/pwm1=45 hwmon0/device/pwm2=50
 MINSTART=hwmon0/device/pwm1=150 hwmon0/device/pwm2=150
 MINSTOP=hwmon0/device/pwm1=100 hwmon0/device/pwm2=100
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;On a hot summerday the sensors command outputs:&lt;/p&gt;
 
@@ -302,8 +301,7 @@ cpu0_vid:   +1.550 V&lt;/pre&gt;
   echo ondemand &amp;gt; /sys/devices/system/cpu/cpu${i}/cpufreq/scaling_governor
   echo 1 &amp;gt;/sys/devices/system/cpu/cpu${i}/cpufreq/ondemand/ignore_nice_load
 done
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -339,8 +337,7 @@ done
     &amp;lt;/match&amp;gt;
   &amp;lt;/device&amp;gt;
 &amp;lt;/deviceinfo&amp;gt;
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Now shutdown X, restart hal and X and the emulated scroll whell should work just fine. I have the following output in my &amp;#8220;/var/log/Xorg.0.log&amp;#8221;:&lt;/p&gt;
 

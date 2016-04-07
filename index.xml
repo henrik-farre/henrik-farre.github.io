@@ -6,8 +6,133 @@
     <description>Recent content on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Apr 2016 10:15:11 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 07 Apr 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://rockhopper.dk/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HTPC/NAS for watching Netflix on Linux part 2: the software</title>
+      <link>http://rockhopper.dk/linux/software/htpcnas-for-watching-netflix-on-linux-part-2-the-software/</link>
+      <pubDate>Thu, 07 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://rockhopper.dk/linux/software/htpcnas-for-watching-netflix-on-linux-part-2-the-software/</guid>
+      <description>
+
+&lt;p&gt;The system runs Arch Linux with Kodi and Chrome to view Netflix. The post will not go into detail on how to configure Kodi, but rather getting the other pieces of the puzzle setup. Read part 1 here: &lt;a href=&#34;http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/&#34;&gt;HTPC/NAS for watching Netflix on Linux part 1: the hardware&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Originally the setup used &lt;a href=&#34;https://wiki.archlinux.org/index.php/Pipelight&#34;&gt;Pipelight&lt;/a&gt; to watch Netflix, but I have moved away from that, because Chrome for Linux has native support for Netflix playback since version 42.&lt;/p&gt;
+
+&lt;h2 id=&#34;xorg-setup:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Xorg setup&lt;/h2&gt;
+
+&lt;p&gt;The system uses integrated Intel HD 4400 Graphics, and works without any configuration, but to tweak driver settings I created the file &lt;code&gt;/etc/X11/xorg.conf.d/40-device.conf&lt;/code&gt; and added:&lt;/p&gt;
+
+&lt;pre&gt;
+Section &#34;Device&#34;
+  Identifier  &#34;Card0&#34;
+  Driver      &#34;intel&#34;
+  Option      &#34;TearFree&#34; &#34;on&#34;
+  Option      &#34;TripleBuffer&#34; &#34;on&#34;
+  Option      &#34;Tiling&#34; &#34;on&#34;
+  Option      &#34;monitor-HDMI1&#34; &#34;HDMI1&#34;
+EndSection
+&lt;/pre&gt;
+
+&lt;p&gt;Refer to the Arch Linux &lt;a href=&#34;https://wiki.archlinux.org/index.php/Xorg&#34;&gt;wiki entry on Xorg&lt;/a&gt; for more information&lt;/p&gt;
+
+&lt;h2 id=&#34;auto-login:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Auto login&lt;/h2&gt;
+
+&lt;p&gt;As Arch Linux uses systemd I just followed the instructions for &lt;a href=&#34;https://wiki.archlinux.org/index.php/Automatic_login_to_virtual_console&#34;&gt;setting up auto login to console&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Create the directory &lt;code&gt;/etc/systemd/system/getty@tty1.service.d&lt;/code&gt; and add the following content to the file: &lt;code&gt;/etc/systemd/system/getty@tty1.service.d/autologin.conf&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;
+[Service]
+ExecStart=
+ExecStart=-/usr/bin/agetty --autologin YOUR_USERNAME --noclear %I 38400 linux
+&lt;/pre&gt;
+
+&lt;p&gt;Remember to change YOUR_USERNAME&lt;/p&gt;
+
+&lt;h2 id=&#34;auto-start-xorg:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Auto start Xorg&lt;/h2&gt;
+
+&lt;p&gt;I have this in &lt;code&gt;~/.bash_profile&lt;/code&gt; which gets sourced when auto login runs.&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;source /etc/profile
+
+umask 007
+setterm -blank 0
+
+export PATH=$HOME/bin:$PATH:/usr/local/bin
+
+if [[ x$DISPLAY == &#39;x&#39; ]]; then
+  # Do not redirect output if you want to run xorg as rootless
+  exec startx
+fi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;openbox:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Openbox&lt;/h2&gt;
+
+&lt;p&gt;The startx command executes &lt;code&gt;~/.xinitrc&lt;/code&gt; which contains:&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;#!/bin/sh
+exec openbox-session
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then Openbox executes: &lt;code&gt;~/.config/openbox/autostart&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
+
+xrdb -load ~/.Xresources
+
+# If colors looks &#34;off&#34;, try to enable the following, my problem has disappeared in newer versions of the Intel driver
+# xrandr --output HDMI2 --set &#34;Broadcast RGB&#34; &#34;Full&#34;
+# Hide cursor
+unclutter &amp;
+xset -dpms s off
+setxkbmap dk
+
+/usr/bin/kodi --standalone -fs &amp;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;kodi-tweaks:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Kodi tweaks&lt;/h2&gt;
+
+&lt;h3 id=&#34;hardware-accelerated-playback-on-intel:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Hardware accelerated playback on Intel&lt;/h3&gt;
+
+&lt;p&gt;I have installed libva-intel-driver, libva-vdpau-driver, libvdpau and libva and enabled hardware accelerated playback in Kodi&amp;rsquo;s settings. The Intel HD Graphics can handle 1080p without problems.&lt;/p&gt;
+
+&lt;h3 id=&#34;idle-cpu-usage:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Idle CPU usage&lt;/h3&gt;
+
+&lt;p&gt;Depending on the Intel driver version, Kodi might use about 15% CPU when idle, but by editing &lt;code&gt;~/.kodi/userdata/advancedsettings.xml&lt;/code&gt; I was able to reduce it to 3%&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;advancedsettings&amp;gt;
+  &amp;lt;gui&amp;gt;
+    &amp;lt;algorithmdirtyregions&amp;gt;3&amp;lt;/algorithmdirtyregions&amp;gt;
+    &amp;lt;nofliptimeout&amp;gt;1000&amp;lt;/nofliptimeout&amp;gt;
+  &amp;lt;/gui&amp;gt;
+&amp;lt;/advancedsettings&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;mouse-pointer:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Mouse pointer&lt;/h3&gt;
+
+&lt;p&gt;To get a decent size cursor in Chrome I have these settings in &lt;code&gt;~/.Xresources&lt;/code&gt; (Requires the DMZ mouse cursor theme installed)&lt;/p&gt;
+
+&lt;pre&gt;
+Xcursor.theme: DMZ
+Xcursor.size: 32
+&lt;/pre&gt;
+
+&lt;h2 id=&#34;plugins:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Plugins&lt;/h2&gt;
+
+&lt;p&gt;I created two simple addons that launches Chromium in fullscreen mode and opens a website like Rdio or Netflix. You can find them in my &lt;a href=&#34;https://github.com/henrik-farre/xbmc-addons&#34;&gt;XBMC addons repository&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;cec-consumer-electronics-control-over-hdmi:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;CEC (Consumer Electronics Control) over HDMI&lt;/h2&gt;
+
+&lt;p&gt;I also added a USB - CEC Adapter from &lt;a href=&#34;https://www.pulse-eight.com/&#34;&gt;PulseEight&lt;/a&gt; so it is possible to control Kodi using the TVs remote control.&lt;/p&gt;
+
+&lt;p&gt;If you wish to remap some of the buttons on your remote here is an excellent guide: &lt;a href=&#34;http://xbmcnut.blogspot.dk/2013/07/how-to-remap-cec-buttons-on-sony-tv.html&#34;&gt;How To remap CEC buttons on a Sony TV Remote for XBMC under Xbian 1.0.5a&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>About me</title>
@@ -74,8 +199,7 @@ Type=Application
 MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
 StartupNotify=true
 Categories=Network;WebBrowser;
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Replace &amp;#8220;Home&amp;#8221; with the name of your profile.&lt;/p&gt;
 
@@ -106,8 +230,7 @@ xdotool windowactivate --sync $WID
 xdotool key --window $WID ctrl+t
 xdotool key --window $WID ctrl+l
 xdotool type --window $WID &#34;$1&#34;
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The last thing to to is to open exo-preferred-applications and select the script as the preferred &amp;#8220;web-browser&amp;#8221; (remember &amp;#8220;%s&amp;#8221;).&lt;/p&gt;
 </description>
@@ -177,8 +300,7 @@ function precmd() {
 function preexec() {
   title &#34;$1&#34;
 }
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;This creates the following window title: ~/Work/docker/&amp;#8230;/all/modules/somemodule. The magic happens by saying %7(c:%-3~/&amp;#8230;/%3~:%~) which means: if &amp;#8220;c&amp;#8221;, which contains the entire path after prefix has been replaced -&amp;gt; /home/username to ~, is larger than 7, show the 3 first directories, then &amp;#8230; and finally the last 3 directories.&lt;/p&gt;
 
@@ -203,16 +325,14 @@ function preexec() {
 xdebug.remote_enable=1
 xdebug.remote_autostart=0
 xdebug.remote_connect_back=1
-xdebug.remote_port=9000&lt;/code&gt;
-&lt;/pre&gt;
+xdebug.remote_port=9000&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;And in my ~/.vimrc I have these vdebug settings:&lt;/p&gt;
 
 &lt;pre&gt;
 &lt;code class=&#34;language-vim&#34;&gt;let g:vdebug_options = {&#34;path_maps&#34;: {&#34;/var/www&#34;: &#34;/home/username/Localdev&#34;}, \
 &#34;break_on_open&#34;: 0, &#34;watch_window_style&#34;: &#34;compact&#34;, \
-&#34;server&#34; : &#34;172.17.42.1&#34;}&lt;/code&gt;
-&lt;/pre&gt;
+&#34;server&#34; : &#34;172.17.42.1&#34;}&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;172.17.42.1 is the ip of the bridge created by docker, it can be found by using ip addr and looking for the &amp;#8220;docker0&amp;#8221; interface.&lt;/p&gt;
 
@@ -517,8 +637,7 @@ Exec=/home/enrique/bin/xfce-rotatebg.sh &amp;
 StartupNotify=false
 Terminal=false
 Hidden=false
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;And the content of the xfce-rotatebg.sh is:&lt;/p&gt;
 
@@ -531,8 +650,7 @@ while true; do
   xfconf-query -c xfce4-desktop -p ${PROPERTY} -s &#34;${IMAGE_PATH}&#34;
   sleep 600
 done
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The sleep command controls the delay between wallpaper changes.&lt;/p&gt;
 
@@ -911,8 +1029,7 @@ $mysqli-&amp;gt;query($sql);
 $mysqli-&amp;gt;close();
 
 ?&amp;gt;
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Remember to replace &amp;#8220;YOUR DB USER&amp;#8221; and &amp;#8220;YOUR DB PASSWORD&amp;#8221; with real values.&lt;/p&gt;
 
@@ -1050,8 +1167,7 @@ MINTEMP=hwmon0/device/pwm1=35 hwmon0/device/pwm2=45
 MAXTEMP=hwmon0/device/pwm1=45 hwmon0/device/pwm2=50
 MINSTART=hwmon0/device/pwm1=150 hwmon0/device/pwm2=150
 MINSTOP=hwmon0/device/pwm1=100 hwmon0/device/pwm2=100
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;On a hot summerday the sensors command outputs:&lt;/p&gt;
 
@@ -1096,8 +1212,7 @@ cpu0_vid:   +1.550 V&lt;/pre&gt;
   echo ondemand &amp;gt; /sys/devices/system/cpu/cpu${i}/cpufreq/scaling_governor
   echo 1 &amp;gt;/sys/devices/system/cpu/cpu${i}/cpufreq/ondemand/ignore_nice_load
 done
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -1131,130 +1246,6 @@ unused devices: &amp;lt;none&amp;gt;&lt;/pre&gt;
 &lt;p&gt;Fast forward to the next day: we started receiving e-mails from customers saying data was missing from their sites, and they where missing data from the day the drive failed&amp;#8230; then it dawned on us: when we readded sda3 it was overridden with the old data from sdb3 :(. Only one thing to do: restore from backup.&lt;/p&gt;
 
 &lt;p&gt;Now the question is: why the hell was sda3 marked as failed after the reboot? It was on the good drive&amp;#8230;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Updating the Android Developer Phone1 to v1.1</title>
-      <link>http://rockhopper.dk/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/</link>
-      <pubDate>Tue, 10 Feb 2009 00:00:00 +0000</pubDate>
-      
-      <guid>http://rockhopper.dk/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/</guid>
-      <description>
-
-&lt;p&gt;I&amp;#8217;ve been putting off upgrading my ADP1 in fear of that I would brick it, but after reading that there now are official update images available I decided to give it a try.&lt;/p&gt;
-
-&lt;p&gt;Here is a short walk through:&lt;/p&gt;
-
-&lt;p&gt;First download the following (you can skip download of the JesusFreke images if you don&amp;#8217;t want a backup):&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://andblogs.net/2009/01/jesusfrekes-14-images-are-out/&#34; target=&#34;_blank&#34;&gt;&lt;span class=&#34;downloadlink&#34;&gt;JesusFreke ADP1&lt;/span&gt;&lt;/a&gt; (bottom of the page, before the comments)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://android-dls.com/wiki/index.php?title=Fastboot&#34; target=&#34;_blank&#34;&gt;Fastboot&lt;/a&gt; (either compile it your self or download &amp;#8220;DarkriftX&amp;#8217;s precompiled&amp;#8221; version)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://andblogs.net/2009/02/new-adp1-update-official-with-google-voice-and-more/&#34; target=&#34;_blank&#34;&gt;ADP1.1 update&lt;/a&gt; (get the &amp;#8220;No Device Checks!&amp;#8221; version)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;backup-the-adp1:a7d24fea433cc3a9c2cce45be1a10207&#34;&gt;Backup the ADP1&lt;/h1&gt;
-
-&lt;p&gt;(This is based on this &lt;a title=&#34; ADP1 ONLY instructions for backup, installing from git, then back to backup &#34; href=&#34;http://groups.google.com/group/android-discuss/browse_thread/thread/e9eb4604357ff117?hide_quotes=no&amp;pli=1&#34; target=&#34;_blank&#34;&gt;google groups thread&lt;/a&gt; and the &lt;a href=&#34;http://antonmelser.org/open-source/backup-install-restore-adp1.html&#34; target=&#34;_blank&#34;&gt;cleaned up version&lt;/a&gt;)&lt;/p&gt;
-
-&lt;p&gt;This is a non destructive backup procedure, you will not have to install anything on your phone!&lt;/p&gt;
-
-&lt;p&gt;You will need about 110mb free on the SD card installed in your phone.&lt;/p&gt;
-
-&lt;p&gt;Extract JFv1.41_ADP1.1.zip and then boot the ADP1 into &amp;#8220;fastboot&amp;#8221; mode:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Power the phone off&lt;/li&gt;
-&lt;li&gt;Hold the camera button down&lt;/li&gt;
-&lt;li&gt;Press the power button (still holding the camera button down)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;A white screen with small androids on skateboards will apper on the screen, and in the middle of the screen it will say &amp;#8220;serial0&amp;#8221;. Connect the USB cable to your computer and the ADP1, wait a bit, then press the &amp;#8220;back&amp;#8221; button. The text should change to &amp;#8220;fastboot&amp;#8221;. If not, check the dmesg on your computer, it should say something like:&lt;/p&gt;
-
-&lt;pre&gt;usb 1-2: new high speed USB device using ehci_hcd and address 11
-usb 1-2: configuration #1 chosen from 1 choice&lt;/pre&gt;
-
-&lt;p&gt;Now the phone should be ready to boot the recovery image from JF (if you don&amp;#8217;t have sudo, log in as root):&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;sudo ./fastboot boot JFv1.41_ADP1.1/data/recovery.img&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The phone will now boot using the image, and you should see some Linux kernel messages scrolling by, and then an image with yellow text.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Press &amp;#8220;Alt+b&amp;#8221; (without the quotes)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Backup is now running and you should see the following messages:&lt;/p&gt;
-
-&lt;pre&gt;Performing backup...
-Backup complete!&lt;/pre&gt;
-
-&lt;p&gt;Now reboot the phone&lt;/p&gt;
-
-&lt;h2 id=&#34;flashing-new-firmware:a7d24fea433cc3a9c2cce45be1a10207&#34;&gt;Flashing new firmware&lt;/h2&gt;
-
-&lt;p&gt;Connect the USB cable to the phone and mount the SD card, I have mine mounted at /media/android_sd&lt;/p&gt;
-
-&lt;p&gt;Copy the update image to the SD card:&lt;/p&gt;
-
-&lt;pre&gt;cp signed-holiday_nochecks_devphone-ota-130444-debug.55489994.zip /media/android_sd/update.img&lt;/pre&gt;
-
-&lt;p&gt;Now perform the following steps:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Power off&lt;/li&gt;
-&lt;li&gt;Press and hold the &amp;#8220;home&amp;#8221; button&lt;/li&gt;
-&lt;li&gt;Press the power button&lt;/li&gt;
-&lt;li&gt;When a image of a phone and a exclamation sign appears press &amp;#8220;Alt+l&amp;#8221; and then &amp;#8220;Alt+s&amp;#8221;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;The phone should start the updating process and show these messages:&lt;/p&gt;
-
-&lt;pre&gt;Installing from sdcard...
-Finding update package...
-Opening update package...
-Verifying update package...
-Installing update
-Formatting Boot:...
-Extraction radio image
-Formatting System
-Copying files
-Writing boot
-Installation complete
-Press home+back to reboot&lt;/pre&gt;
-
-&lt;p&gt;After pressing home+backup a final message will appear:&lt;/p&gt;
-
-&lt;pre&gt;Writing radio image&lt;/pre&gt;
-
-&lt;p&gt;Then the phone rebooted twice (the process took about 3-4 mins), and it displayed two images, one where there is an arrow pointing onto a chip, and an arrow comming out of a box and pointing to a phone.&lt;/p&gt;
-
-&lt;p&gt;The update should be complete after that.&lt;/p&gt;
-
-&lt;h2 id=&#34;new-things-after-the-update:a7d24fea433cc3a9c2cce45be1a10207&#34;&gt;New things after the update&lt;/h2&gt;
-
-&lt;p&gt;2 new applications are installed; &amp;#8220;Voice Dialer&amp;#8221; and &amp;#8220;Voice Search&amp;#8221;. I have not played with them yet so I can&amp;#8217;t really say anything about them :)&lt;/p&gt;
-
-&lt;p&gt;There are a couple of new settings here and there, but I have not noticed anything fancy, so I guess we still have to wait the the mysterious &amp;#8220;cupcake&amp;#8221; update, if such a thing even exists.&lt;/p&gt;
-
-&lt;p&gt;Before the update the phone had the following information:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Build date: Mon Now 3 12:54:32 PST 2008&lt;/li&gt;
-&lt;li&gt;Linux kernel version: 2.6.25-01843-gfea26b0&lt;/li&gt;
-&lt;li&gt;Baseband version: 62.33.20.08H_1.22.12.29&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Now it has:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Build date: Mon Feb 9 10:28:32 PST 2009&lt;/li&gt;
-&lt;li&gt;Linux kernel version: 2.6.25-01845-g85d4f0d&lt;/li&gt;
-&lt;li&gt;Baseband version: 62.33.20.08H_1.22.14.11&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

@@ -41,8 +41,7 @@
     &amp;lt;/match&amp;gt;
   &amp;lt;/device&amp;gt;
 &amp;lt;/deviceinfo&amp;gt;
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Now shutdown X, restart hal and X and the emulated scroll whell should work just fine. I have the following output in my &amp;#8220;/var/log/Xorg.0.log&amp;#8221;:&lt;/p&gt;
 

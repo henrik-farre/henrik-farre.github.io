@@ -6,8 +6,133 @@
     <description>Recent content in Software on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 Jun 2014 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 Apr 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://rockhopper.dk/categories/software/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HTPC/NAS for watching Netflix on Linux part 2: the software</title>
+      <link>http://rockhopper.dk/linux/software/htpcnas-for-watching-netflix-on-linux-part-2-the-software/</link>
+      <pubDate>Thu, 07 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://rockhopper.dk/linux/software/htpcnas-for-watching-netflix-on-linux-part-2-the-software/</guid>
+      <description>
+
+&lt;p&gt;The system runs Arch Linux with Kodi and Chrome to view Netflix. The post will not go into detail on how to configure Kodi, but rather getting the other pieces of the puzzle setup. Read part 1 here: &lt;a href=&#34;http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/&#34;&gt;HTPC/NAS for watching Netflix on Linux part 1: the hardware&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Originally the setup used &lt;a href=&#34;https://wiki.archlinux.org/index.php/Pipelight&#34;&gt;Pipelight&lt;/a&gt; to watch Netflix, but I have moved away from that, because Chrome for Linux has native support for Netflix playback since version 42.&lt;/p&gt;
+
+&lt;h2 id=&#34;xorg-setup:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Xorg setup&lt;/h2&gt;
+
+&lt;p&gt;The system uses integrated Intel HD 4400 Graphics, and works without any configuration, but to tweak driver settings I created the file &lt;code&gt;/etc/X11/xorg.conf.d/40-device.conf&lt;/code&gt; and added:&lt;/p&gt;
+
+&lt;pre&gt;
+Section &#34;Device&#34;
+  Identifier  &#34;Card0&#34;
+  Driver      &#34;intel&#34;
+  Option      &#34;TearFree&#34; &#34;on&#34;
+  Option      &#34;TripleBuffer&#34; &#34;on&#34;
+  Option      &#34;Tiling&#34; &#34;on&#34;
+  Option      &#34;monitor-HDMI1&#34; &#34;HDMI1&#34;
+EndSection
+&lt;/pre&gt;
+
+&lt;p&gt;Refer to the Arch Linux &lt;a href=&#34;https://wiki.archlinux.org/index.php/Xorg&#34;&gt;wiki entry on Xorg&lt;/a&gt; for more information&lt;/p&gt;
+
+&lt;h2 id=&#34;auto-login:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Auto login&lt;/h2&gt;
+
+&lt;p&gt;As Arch Linux uses systemd I just followed the instructions for &lt;a href=&#34;https://wiki.archlinux.org/index.php/Automatic_login_to_virtual_console&#34;&gt;setting up auto login to console&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Create the directory &lt;code&gt;/etc/systemd/system/getty@tty1.service.d&lt;/code&gt; and add the following content to the file: &lt;code&gt;/etc/systemd/system/getty@tty1.service.d/autologin.conf&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;
+[Service]
+ExecStart=
+ExecStart=-/usr/bin/agetty --autologin YOUR_USERNAME --noclear %I 38400 linux
+&lt;/pre&gt;
+
+&lt;p&gt;Remember to change YOUR_USERNAME&lt;/p&gt;
+
+&lt;h2 id=&#34;auto-start-xorg:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Auto start Xorg&lt;/h2&gt;
+
+&lt;p&gt;I have this in &lt;code&gt;~/.bash_profile&lt;/code&gt; which gets sourced when auto login runs.&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;source /etc/profile
+
+umask 007
+setterm -blank 0
+
+export PATH=$HOME/bin:$PATH:/usr/local/bin
+
+if [[ x$DISPLAY == &#39;x&#39; ]]; then
+  # Do not redirect output if you want to run xorg as rootless
+  exec startx
+fi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;openbox:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Openbox&lt;/h2&gt;
+
+&lt;p&gt;The startx command executes &lt;code&gt;~/.xinitrc&lt;/code&gt; which contains:&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;#!/bin/sh
+exec openbox-session
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then Openbox executes: &lt;code&gt;~/.config/openbox/autostart&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
+
+xrdb -load ~/.Xresources
+
+# If colors looks &#34;off&#34;, try to enable the following, my problem has disappeared in newer versions of the Intel driver
+# xrandr --output HDMI2 --set &#34;Broadcast RGB&#34; &#34;Full&#34;
+# Hide cursor
+unclutter &amp;
+xset -dpms s off
+setxkbmap dk
+
+/usr/bin/kodi --standalone -fs &amp;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;kodi-tweaks:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Kodi tweaks&lt;/h2&gt;
+
+&lt;h3 id=&#34;hardware-accelerated-playback-on-intel:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Hardware accelerated playback on Intel&lt;/h3&gt;
+
+&lt;p&gt;I have installed libva-intel-driver, libva-vdpau-driver, libvdpau and libva and enabled hardware accelerated playback in Kodi&amp;rsquo;s settings. The Intel HD Graphics can handle 1080p without problems.&lt;/p&gt;
+
+&lt;h3 id=&#34;idle-cpu-usage:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Idle CPU usage&lt;/h3&gt;
+
+&lt;p&gt;Depending on the Intel driver version, Kodi might use about 15% CPU when idle, but by editing &lt;code&gt;~/.kodi/userdata/advancedsettings.xml&lt;/code&gt; I was able to reduce it to 3%&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;advancedsettings&amp;gt;
+  &amp;lt;gui&amp;gt;
+    &amp;lt;algorithmdirtyregions&amp;gt;3&amp;lt;/algorithmdirtyregions&amp;gt;
+    &amp;lt;nofliptimeout&amp;gt;1000&amp;lt;/nofliptimeout&amp;gt;
+  &amp;lt;/gui&amp;gt;
+&amp;lt;/advancedsettings&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;mouse-pointer:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Mouse pointer&lt;/h3&gt;
+
+&lt;p&gt;To get a decent size cursor in Chrome I have these settings in &lt;code&gt;~/.Xresources&lt;/code&gt; (Requires the DMZ mouse cursor theme installed)&lt;/p&gt;
+
+&lt;pre&gt;
+Xcursor.theme: DMZ
+Xcursor.size: 32
+&lt;/pre&gt;
+
+&lt;h2 id=&#34;plugins:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Plugins&lt;/h2&gt;
+
+&lt;p&gt;I created two simple addons that launches Chromium in fullscreen mode and opens a website like Rdio or Netflix. You can find them in my &lt;a href=&#34;https://github.com/henrik-farre/xbmc-addons&#34;&gt;XBMC addons repository&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;cec-consumer-electronics-control-over-hdmi:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;CEC (Consumer Electronics Control) over HDMI&lt;/h2&gt;
+
+&lt;p&gt;I also added a USB - CEC Adapter from &lt;a href=&#34;https://www.pulse-eight.com/&#34;&gt;PulseEight&lt;/a&gt; so it is possible to control Kodi using the TVs remote control.&lt;/p&gt;
+
+&lt;p&gt;If you wish to remap some of the buttons on your remote here is an excellent guide: &lt;a href=&#34;http://xbmcnut.blogspot.dk/2013/07/how-to-remap-cec-buttons-on-sony-tv.html&#34;&gt;How To remap CEC buttons on a Sony TV Remote for XBMC under Xbian 1.0.5a&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Multiple profiles in Firefox: tips and tricks</title>
@@ -33,8 +158,7 @@ Type=Application
 MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
 StartupNotify=true
 Categories=Network;WebBrowser;
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Replace &amp;#8220;Home&amp;#8221; with the name of your profile.&lt;/p&gt;
 
@@ -65,8 +189,7 @@ xdotool windowactivate --sync $WID
 xdotool key --window $WID ctrl+t
 xdotool key --window $WID ctrl+l
 xdotool type --window $WID &#34;$1&#34;
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The last thing to to is to open exo-preferred-applications and select the script as the preferred &amp;#8220;web-browser&amp;#8221; (remember &amp;#8220;%s&amp;#8221;).&lt;/p&gt;
 </description>
@@ -204,8 +327,7 @@ else
 fi
 PS1=$&#39;%{\e[0;32m%}%m%{\e[0m%}:%~&amp;gt; &#39;
 export PS1
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;My ~/.bashrc:&lt;/p&gt;
 
@@ -213,16 +335,14 @@ export PS1
 &lt;code class=&#34;language-bash&#34;&gt;PROMPT_COMMAND=&#39;echo -ne &#34;\033]0;${USER}@${HOSTNAME}: ${PWD}\007&#34;&#39;
 PS1=&#39;\[\033[0;32m\]\h\[\033[00m\]:\w&amp;gt; &#39;
 export PS1 PROMPT_COMMAND
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;And finally my ~/.screenrc&lt;/p&gt;
 
 &lt;pre&gt;
 &lt;code class=&#34;language-bash&#34;&gt;hardstatus string &#34;%h&#34;
 caption always &#34;%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw} %=%d %M %0c %{g}%H%{-}&#34;
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -266,8 +386,7 @@ else
   echo &#34;ERROR: something did not go right&#34;
   exit 2
 fi
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;This has been tested on Debian sarge.&lt;/p&gt;
 </description>

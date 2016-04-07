@@ -5,7 +5,7 @@
     <meta name="generator" content="Hugo 0.15" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans|Marcellus+SC'>
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans%7CMarcellus+SC'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
@@ -31,8 +31,14 @@
   <body>
 
     <header class="site">
-      <nav class="navbar navbar-default">
-        <div class="container">
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-md-12">
+            <img src="/img/header_strand.png" alt="">
+          </div>
+        </div>
+        <nav class="navbar navbar-inverse">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
@@ -63,8 +69,8 @@
             
           </div>
 
-        </div>
-      </nav>
+        </nav>
+      </div>
     </header>
 
     <div class="site">
@@ -123,8 +129,7 @@ function isup() {
  fi
 }
 
-isup</code>
-</pre>
+isup</code></pre>
 
 <p>But there is a small problem with this approach: the backend starts replying to ping long before nfsd and mythbackend are ready.</p>
 
@@ -142,8 +147,7 @@ function isbackendup {
     stat_done
   fi
 }
-</code>
-</pre>
+</code></pre>
 
 <p>Finally I wrapped it all up in an ArchLinux rc script, and use WOL to wake the backend:</p>
 
@@ -180,8 +184,7 @@ case "$1" in
   *)
     echo "usage: $0 {start|stop|restart}"
 esac
-</code>
-</pre>
+</code></pre>
 
 <p>If you run ArchLinux just added it to /etc/rc.conf in the DAEMONS array.</p>
 
@@ -211,7 +214,7 @@ esac
       <aside class="site">
 
   
-  <div class="panel panel-default">
+  <div class="panel panel-inverse">
     <div class="panel-heading">
       <h2 class="panel-title"><i class="fa fa-tags"></i> Categories</h2>
     </div>
@@ -229,16 +232,16 @@ esac
       
       <a href="http://rockhopper.dk/categories/xfce" class="list-group-item">xfce</a>
       
-      <a href="http://rockhopper.dk/categories/xorg" class="list-group-item">xorg</a>
+      <a href="http://rockhopper.dk/categories/vim" class="list-group-item">vim</a>
       
       <a href="http://rockhopper.dk/categories/php" class="list-group-item">php</a>
       
-      <a href="http://rockhopper.dk/categories/vim" class="list-group-item">vim</a>
+      <a href="http://rockhopper.dk/categories/xorg" class="list-group-item">xorg</a>
       
     </div>
   </div>
   
-  <div class="panel panel-default">
+  <div class="panel panel-inverse">
     <div class="panel-heading">
       <h2 class="panel-title"><i class="fa fa-tags"></i> Tags</h2>
     </div>
@@ -250,19 +253,19 @@ esac
       
       <a href="http://rockhopper.dk/tags/mythbackend" class="list-group-item">mythbackend</a>
       
-      <a href="http://rockhopper.dk/tags/mythfrontend" class="list-group-item">mythfrontend</a>
+      <a href="http://rockhopper.dk/tags/dvb-c" class="list-group-item">dvb-c</a>
       
       <a href="http://rockhopper.dk/tags/zsh" class="list-group-item">zsh</a>
       
-      <a href="http://rockhopper.dk/tags/dvb-c" class="list-group-item">dvb-c</a>
-      
       <a href="http://rockhopper.dk/tags/motherboard" class="list-group-item">motherboard</a>
       
-      <a href="http://rockhopper.dk/tags/exim" class="list-group-item">exim</a>
+      <a href="http://rockhopper.dk/tags/htpc" class="list-group-item">htpc</a>
       
-      <a href="http://rockhopper.dk/tags/nagios" class="list-group-item">nagios</a>
+      <a href="http://rockhopper.dk/tags/mythfrontend" class="list-group-item">mythfrontend</a>
       
-      <a href="http://rockhopper.dk/tags/tmux" class="list-group-item">tmux</a>
+      <a href="http://rockhopper.dk/tags/uefi" class="list-group-item">uefi</a>
+      
+      <a href="http://rockhopper.dk/tags/firefox" class="list-group-item">firefox</a>
       
     </div>
   </div>

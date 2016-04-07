@@ -413,8 +413,7 @@ $mysqli-&amp;gt;query($sql);
 $mysqli-&amp;gt;close();
 
 ?&amp;gt;
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Remember to replace &amp;#8220;YOUR DB USER&amp;#8221; and &amp;#8220;YOUR DB PASSWORD&amp;#8221; with real values.&lt;/p&gt;
 

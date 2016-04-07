@@ -58,8 +58,7 @@ else
 fi
 PS1=$&#39;%{\e[0;32m%}%m%{\e[0m%}:%~&amp;gt; &#39;
 export PS1
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;My ~/.bashrc:&lt;/p&gt;
 
@@ -67,16 +66,14 @@ export PS1
 &lt;code class=&#34;language-bash&#34;&gt;PROMPT_COMMAND=&#39;echo -ne &#34;\033]0;${USER}@${HOSTNAME}: ${PWD}\007&#34;&#39;
 PS1=&#39;\[\033[0;32m\]\h\[\033[00m\]:\w&amp;gt; &#39;
 export PS1 PROMPT_COMMAND
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;And finally my ~/.screenrc&lt;/p&gt;
 
 &lt;pre&gt;
 &lt;code class=&#34;language-bash&#34;&gt;hardstatus string &#34;%h&#34;
 caption always &#34;%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw} %=%d %M %0c %{g}%H%{-}&#34;
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

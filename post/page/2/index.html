@@ -5,7 +5,7 @@
     <meta name="generator" content="Hugo 0.15" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans|Marcellus+SC'>
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans%7CMarcellus+SC'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
@@ -31,8 +31,14 @@
   <body>
 
     <header class="site">
-      <nav class="navbar navbar-default">
-        <div class="container">
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-md-12">
+            <img src="/img/header_strand.png" alt="">
+          </div>
+        </div>
+        <nav class="navbar navbar-inverse">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
@@ -63,8 +69,8 @@
             
           </div>
 
-        </div>
-      </nav>
+        </nav>
+      </div>
     </header>
 
     <div class="site">
@@ -80,8 +86,25 @@
       
       <article class="li">
   <header>
+    <div class="date">Sun, Feb 14, 2010</div>
+    <h2 class="title"><a href="http://rockhopper.dk/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/">Xfce: auto rotate wallpaper without cron</a></h2>
+  </header>
+  <div class="body"><p>Since Xfce 4.6 I&#8217;ve had the wallpaper autorotated on my Xfce desktop with the help of a small script and cron. But after an update of some component (probably libxfconf / xfconf) my script did not work anymore and I got this error if I tried to run the script from a console or via ssh:</p>
+</div>
+
+  
+  <footer>
+    <a href="http://rockhopper.dk/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/" class="btn btn-default">Read More…</a>
+  </footer>
+  
+</article>
+<hr>
+
+      
+      <article class="li">
+  <header>
     <div class="date">Tue, Feb 9, 2010</div>
-    <div class="title"><a href="http://rockhopper.dk/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/">Terratec Cinergy C PCI HD &#43; MythTV</a></div>
+    <h2 class="title"><a href="http://rockhopper.dk/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/">Terratec Cinergy C PCI HD &#43; MythTV</a></h2>
   </header>
   <div class="body"><p>In the middle of December 2009 danish cable TV providor <a href="http://stofa.dk">Stofa</a> made most of the channels in its DVB-C network <a href="http://www.stofa.dk/showpage.php?mid=368">available unencoded</a>. This prompted me to replace my analogue <a href="https://rockhopper.dk/old/linux/hardware/pvr_cards.html">Hauppauge WinTV-PVR-500 TV tuner card</a> (yes the links goes to my old PVR-150 page) with something that could record the digital signal from DVB-C. I looked for a card that had the following characteristic:</p>
 </div>
@@ -98,7 +121,7 @@
       <article class="li">
   <header>
     <div class="date">Sat, Jul 18, 2009</div>
-    <div class="title"><a href="http://rockhopper.dk/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/">Gigabyte GA-MA790FXT-UD5P and Linux</a></div>
+    <h2 class="title"><a href="http://rockhopper.dk/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/">Gigabyte GA-MA790FXT-UD5P and Linux</a></h2>
   </header>
   <div class="body"><p>I recently upgraded the hardware of my desktop and here is my experience with the new hardware. The upgrade consists of:</p>
 </div>
@@ -115,7 +138,7 @@
       <article class="li">
   <header>
     <div class="date">Sun, Apr 19, 2009</div>
-    <div class="title"><a href="http://rockhopper.dk/linux/software/how-not-to-restore-a-linux-software-raid/">How not to restore a Linux software raid</a></div>
+    <h2 class="title"><a href="http://rockhopper.dk/linux/software/how-not-to-restore-a-linux-software-raid/">How not to restore a Linux software raid</a></h2>
   </header>
   <div class="body">We had a disk failure on one of our Xen servers at work last week, and what we thought would be a quick disk replace, turned into a small nightmare. Our setup is fairly &#8220;simple&#8221;: 2 x raid1&#8217;s consisting of sda1/sdb1 (/dev/md0 mounted at /) and sda3/sdb3 (/dev/md1 with LVM on top of it). mdadm reported that sdb1 and sdb3 had failed, so we just had to identify which disk was sdb in the server and replace it.</div>
 
@@ -131,7 +154,7 @@
       <article class="li">
   <header>
     <div class="date">Tue, Feb 10, 2009</div>
-    <div class="title"><a href="http://rockhopper.dk/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/">Updating the Android Developer Phone1 to v1.1</a></div>
+    <h2 class="title"><a href="http://rockhopper.dk/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/">Updating the Android Developer Phone1 to v1.1</a></h2>
   </header>
   <div class="body"><p>I&#8217;ve been putting off upgrading my ADP1 in fear of that I would brick it, but after reading that there now are official update images available I decided to give it a try.</p>
 </div>
@@ -148,7 +171,7 @@
       <article class="li">
   <header>
     <div class="date">Sat, Jan 24, 2009</div>
-    <div class="title"><a href="http://rockhopper.dk/linux/hardware/phone-and-pda/android-developer-phone-mini-review/">Android Developer Phone: Mini review</a></div>
+    <h2 class="title"><a href="http://rockhopper.dk/linux/hardware/phone-and-pda/android-developer-phone-mini-review/">Android Developer Phone: Mini review</a></h2>
   </header>
   <div class="body"><p>I have been playing around with my Android Developer Phone (ADP) for about 2 weeks now, and this are my thoughts on it so far.</p>
 </div>
@@ -165,7 +188,7 @@
       <article class="li">
   <header>
     <div class="date">Sun, Jan 11, 2009</div>
-    <div class="title"><a href="http://rockhopper.dk/linux/hardware/phone-and-pda/android-g1-dev-phone-has-landed-in-denmark/">Android G1 Dev Phone has landed in Denmark</a></div>
+    <h2 class="title"><a href="http://rockhopper.dk/linux/hardware/phone-and-pda/android-g1-dev-phone-has-landed-in-denmark/">Android G1 Dev Phone has landed in Denmark</a></h2>
   </header>
   <div class="body"><p>Finally, my HTC G1 Dev Phone running Android OS has arrived!</p>
 </div>
@@ -182,7 +205,7 @@
       <article class="li">
   <header>
     <div class="date">Sat, Dec 6, 2008</div>
-    <div class="title"><a href="http://rockhopper.dk/linux/hardware/logitech-marble-fx-trackball-with-xorg-and-hal/">Logitech Marble FX trackball with Xorg and Hal</a></div>
+    <h2 class="title"><a href="http://rockhopper.dk/linux/hardware/logitech-marble-fx-trackball-with-xorg-and-hal/">Logitech Marble FX trackball with Xorg and Hal</a></h2>
   </header>
   <div class="body"><p>After the recent upgrade in ArchLinux of xorg-server from 1.4.x to 1.5.x my thrusty Logitech Marble FX trackball did not work entirely. The trackball does not have a dedicated scroll wheel, but by pressing a button, and using the trackball, you can scroll both vertical and horizontal.</p>
 </div>
@@ -199,7 +222,7 @@
       <article class="li">
   <header>
     <div class="date">Thu, Nov 13, 2008</div>
-    <div class="title"><a href="http://rockhopper.dk/linux/software/cddvd-burning-and-working-with-iso-files/">CD/DVD burning, and working with .iso files</a></div>
+    <h2 class="title"><a href="http://rockhopper.dk/linux/software/cddvd-burning-and-working-with-iso-files/">CD/DVD burning, and working with .iso files</a></h2>
   </header>
   <div class="body"><p>Some handy command line tools to burn CDs/DVDs and work with .iso files:</p>
 </div>
@@ -216,7 +239,7 @@
       <article class="li">
   <header>
     <div class="date">Wed, Nov 5, 2008</div>
-    <div class="title"><a href="http://rockhopper.dk/linux/software/zsh-bash-screen-and-urxvt-title/">zsh, bash, screen and urxvt title</a></div>
+    <h2 class="title"><a href="http://rockhopper.dk/linux/software/zsh-bash-screen-and-urxvt-title/">zsh, bash, screen and urxvt title</a></h2>
   </header>
   <div class="body"><p>I use both the zsh and bash shell, and most of the time I run them in screen. This happens in my favourite terminal: urxvt (aka rxvt-unicode).</p>
 </div>
@@ -224,23 +247,6 @@
   
   <footer>
     <a href="http://rockhopper.dk/linux/software/zsh-bash-screen-and-urxvt-title/" class="btn btn-default">Read More…</a>
-  </footer>
-  
-</article>
-<hr>
-
-      
-      <article class="li">
-  <header>
-    <div class="date">Sat, Jul 26, 2008</div>
-    <div class="title"><a href="http://rockhopper.dk/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/">Fast nagios exim mail queue plugin replacement</a></div>
-  </header>
-  <div class="body"><p>We had a problem with the nagios check_mailq plugin at [work][1], it kept timing out. So I wrote a simple bash script (instead of 610 lines of perl) which is &#8220;compatible&#8221; with check_mailq (supports the same arguments) which uses &#8220;exim4&#8221; and is very quick. Just drop it in /usr/local/bin/check_mailq_simple.sh and adjust your nagios conf to use that instead of check_mailq</p>
-</div>
-
-  
-  <footer>
-    <a href="http://rockhopper.dk/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/" class="btn btn-default">Read More…</a>
   </footer>
   
 </article>
@@ -268,7 +274,7 @@
       <aside class="site">
 
   
-  <div class="panel panel-default">
+  <div class="panel panel-inverse">
     <div class="panel-heading">
       <h2 class="panel-title"><i class="fa fa-tags"></i> Categories</h2>
     </div>
@@ -276,26 +282,26 @@
       
       <a href="http://rockhopper.dk/categories/software" class="list-group-item">software</a>
       
-      <a href="http://rockhopper.dk/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
-      
       <a href="http://rockhopper.dk/categories/hardware" class="list-group-item">hardware</a>
       
-      <a href="http://rockhopper.dk/categories/linux" class="list-group-item">linux</a>
+      <a href="http://rockhopper.dk/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
       
       <a href="http://rockhopper.dk/categories/mythtv" class="list-group-item">mythtv</a>
       
+      <a href="http://rockhopper.dk/categories/linux" class="list-group-item">linux</a>
+      
       <a href="http://rockhopper.dk/categories/xfce" class="list-group-item">xfce</a>
       
-      <a href="http://rockhopper.dk/categories/xorg" class="list-group-item">xorg</a>
+      <a href="http://rockhopper.dk/categories/vim" class="list-group-item">vim</a>
       
       <a href="http://rockhopper.dk/categories/php" class="list-group-item">php</a>
       
-      <a href="http://rockhopper.dk/categories/vim" class="list-group-item">vim</a>
+      <a href="http://rockhopper.dk/categories/xorg" class="list-group-item">xorg</a>
       
     </div>
   </div>
   
-  <div class="panel panel-default">
+  <div class="panel panel-inverse">
     <div class="panel-heading">
       <h2 class="panel-title"><i class="fa fa-tags"></i> Tags</h2>
     </div>
@@ -307,19 +313,19 @@
       
       <a href="http://rockhopper.dk/tags/mythbackend" class="list-group-item">mythbackend</a>
       
-      <a href="http://rockhopper.dk/tags/mythfrontend" class="list-group-item">mythfrontend</a>
+      <a href="http://rockhopper.dk/tags/dvb-c" class="list-group-item">dvb-c</a>
       
       <a href="http://rockhopper.dk/tags/zsh" class="list-group-item">zsh</a>
       
-      <a href="http://rockhopper.dk/tags/dvb-c" class="list-group-item">dvb-c</a>
-      
       <a href="http://rockhopper.dk/tags/motherboard" class="list-group-item">motherboard</a>
       
-      <a href="http://rockhopper.dk/tags/probook-6360b" class="list-group-item">probook-6360b</a>
+      <a href="http://rockhopper.dk/tags/htpc" class="list-group-item">htpc</a>
       
-      <a href="http://rockhopper.dk/tags/cmd-line" class="list-group-item">cmd-line</a>
+      <a href="http://rockhopper.dk/tags/mythfrontend" class="list-group-item">mythfrontend</a>
       
-      <a href="http://rockhopper.dk/tags/powerbook" class="list-group-item">powerbook</a>
+      <a href="http://rockhopper.dk/tags/uefi" class="list-group-item">uefi</a>
+      
+      <a href="http://rockhopper.dk/tags/exim" class="list-group-item">exim</a>
       
     </div>
   </div>

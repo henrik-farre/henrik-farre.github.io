@@ -32,8 +32,7 @@ Exec=/home/enrique/bin/xfce-rotatebg.sh &amp;
 StartupNotify=false
 Terminal=false
 Hidden=false
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;And the content of the xfce-rotatebg.sh is:&lt;/p&gt;
 
@@ -46,8 +45,7 @@ while true; do
   xfconf-query -c xfce4-desktop -p ${PROPERTY} -s &#34;${IMAGE_PATH}&#34;
   sleep 600
 done
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The sleep command controls the delay between wallpaper changes.&lt;/p&gt;
 

@@ -5,7 +5,7 @@
     <meta name="generator" content="Hugo 0.15" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans|Marcellus+SC'>
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans%7CMarcellus+SC'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
@@ -31,8 +31,14 @@
   <body>
 
     <header class="site">
-      <nav class="navbar navbar-default">
-        <div class="container">
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-md-12">
+            <img src="/img/header_strand.png" alt="">
+          </div>
+        </div>
+        <nav class="navbar navbar-inverse">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
@@ -63,8 +69,8 @@
             
           </div>
 
-        </div>
-      </nav>
+        </nav>
+      </div>
     </header>
 
     <div class="site">
@@ -81,7 +87,24 @@
       <article class="li">
   <header>
     <div class="date">Sat, Jul 26, 2008</div>
-    <div class="title"><a href="http://rockhopper.dk/linux/hardware/installing-archlinux-ppc-on-my-powerbook-titanium/">Installing ArchLinux PPC on my Powerbook Titanium</a></div>
+    <h2 class="title"><a href="http://rockhopper.dk/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/">Fast nagios exim mail queue plugin replacement</a></h2>
+  </header>
+  <div class="body"><p>We had a problem with the nagios check_mailq plugin at [work][1], it kept timing out. So I wrote a simple bash script (instead of 610 lines of perl) which is &#8220;compatible&#8221; with check_mailq (supports the same arguments) which uses &#8220;exim4&#8221; and is very quick. Just drop it in /usr/local/bin/check_mailq_simple.sh and adjust your nagios conf to use that instead of check_mailq</p>
+</div>
+
+  
+  <footer>
+    <a href="http://rockhopper.dk/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/" class="btn btn-default">Read More…</a>
+  </footer>
+  
+</article>
+<hr>
+
+      
+      <article class="li">
+  <header>
+    <div class="date">Sat, Jul 26, 2008</div>
+    <h2 class="title"><a href="http://rockhopper.dk/linux/hardware/installing-archlinux-ppc-on-my-powerbook-titanium/">Installing ArchLinux PPC on my Powerbook Titanium</a></h2>
   </header>
   <div class="body"><p>I decided to bring my [Powerbook Titanium][1] back into service as a server/torrent fetcher. So I downloaded [ArchLinux PPC][2] and installed it.</p>
 </div>
@@ -98,7 +121,7 @@
       <article class="li">
   <header>
     <div class="date">Sat, Jun 28, 2008</div>
-    <div class="title"><a href="http://rockhopper.dk/linux/software/mythtv/check-video-encoding-script-for-mythtv/">Check video encoding script for MythTV</a></div>
+    <h2 class="title"><a href="http://rockhopper.dk/linux/software/mythtv/check-video-encoding-script-for-mythtv/">Check video encoding script for MythTV</a></h2>
   </header>
   <div class="body"><p>I&#8217;m using Xine as the preferred video player on my MythTV frontend, because it has a nice video output driver called &#8220;xxmc&#8221;. This driver enables hardware accelerated playback of mpeg1/2 streams (e.g. ivtv recordings or DVDs) on Geforce 7xxx and other Geforce chips.</p>
 </div>
@@ -115,7 +138,7 @@
       <article class="li">
   <header>
     <div class="date">Sat, May 3, 2008</div>
-    <div class="title"><a href="http://rockhopper.dk/linux/software/xfce/completely-hide-xfces-panels/">Completely hide Xfce’s panels</a></div>
+    <h2 class="title"><a href="http://rockhopper.dk/linux/software/xfce/completely-hide-xfces-panels/">Completely hide Xfce’s panels</a></h2>
   </header>
   <div class="body">Even though a Xfce panel is &#8220;hidden&#8221; (i.e. &#8220;Autohide&#8221; is enabled) 3 pixels of it is still visible. But there is an easy way to hide it completely (Requires Xfwm4&#8217;s compositor to be enabled): Right click on the panel you want to hide, select &#8220;Customize panel&#8221; Set &#8220;Transparency&#8221; to 100% Click &#8220;Make active panel opaque&#8221; The 3 pixels are now 100% transparent, but when the mouse cursor moves over the panel, the panel becomes opaque.</div>
 
@@ -131,7 +154,7 @@
       <article class="li">
   <header>
     <div class="date">Sat, Apr 12, 2008</div>
-    <div class="title"><a href="http://rockhopper.dk/linux/software/mythtv/check-if-mythtv-backend-is-up/">Check if MythTV backend is up</a></div>
+    <h2 class="title"><a href="http://rockhopper.dk/linux/software/mythtv/check-if-mythtv-backend-is-up/">Check if MythTV backend is up</a></h2>
   </header>
   <div class="body"><p>My MythTV frontend depends on the masterbackend to be up and running, mainly because some partitions are nfs mounted. So I created a simple script to check if the backend is responding to ping:</p>
 </div>
@@ -164,7 +187,7 @@
       <aside class="site">
 
   
-  <div class="panel panel-default">
+  <div class="panel panel-inverse">
     <div class="panel-heading">
       <h2 class="panel-title"><i class="fa fa-tags"></i> Categories</h2>
     </div>
@@ -172,13 +195,13 @@
       
       <a href="http://rockhopper.dk/categories/software" class="list-group-item">software</a>
       
-      <a href="http://rockhopper.dk/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
-      
       <a href="http://rockhopper.dk/categories/hardware" class="list-group-item">hardware</a>
       
-      <a href="http://rockhopper.dk/categories/mythtv" class="list-group-item">mythtv</a>
+      <a href="http://rockhopper.dk/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
       
       <a href="http://rockhopper.dk/categories/linux" class="list-group-item">linux</a>
+      
+      <a href="http://rockhopper.dk/categories/mythtv" class="list-group-item">mythtv</a>
       
       <a href="http://rockhopper.dk/categories/xfce" class="list-group-item">xfce</a>
       
@@ -191,7 +214,7 @@
     </div>
   </div>
   
-  <div class="panel panel-default">
+  <div class="panel panel-inverse">
     <div class="panel-heading">
       <h2 class="panel-title"><i class="fa fa-tags"></i> Tags</h2>
     </div>
@@ -203,19 +226,19 @@
       
       <a href="http://rockhopper.dk/tags/mythbackend" class="list-group-item">mythbackend</a>
       
-      <a href="http://rockhopper.dk/tags/zsh" class="list-group-item">zsh</a>
+      <a href="http://rockhopper.dk/tags/mythfrontend" class="list-group-item">mythfrontend</a>
       
       <a href="http://rockhopper.dk/tags/dvb-c" class="list-group-item">dvb-c</a>
       
+      <a href="http://rockhopper.dk/tags/zsh" class="list-group-item">zsh</a>
+      
       <a href="http://rockhopper.dk/tags/motherboard" class="list-group-item">motherboard</a>
       
-      <a href="http://rockhopper.dk/tags/mythfrontend" class="list-group-item">mythfrontend</a>
+      <a href="http://rockhopper.dk/tags/htpc" class="list-group-item">htpc</a>
       
-      <a href="http://rockhopper.dk/tags/exim" class="list-group-item">exim</a>
+      <a href="http://rockhopper.dk/tags/kodi" class="list-group-item">kodi</a>
       
-      <a href="http://rockhopper.dk/tags/nagios" class="list-group-item">nagios</a>
-      
-      <a href="http://rockhopper.dk/tags/synergy" class="list-group-item">synergy</a>
+      <a href="http://rockhopper.dk/tags/booting" class="list-group-item">booting</a>
       
     </div>
   </div>

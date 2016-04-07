@@ -49,8 +49,7 @@ else
   echo &#34;ERROR: something did not go right&#34;
   exit 2
 fi
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;This has been tested on Debian sarge.&lt;/p&gt;
 </description>

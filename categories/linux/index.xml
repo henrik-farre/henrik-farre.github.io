@@ -45,8 +45,7 @@ Type=Application
 MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
 StartupNotify=true
 Categories=Network;WebBrowser;
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Replace &amp;#8220;Home&amp;#8221; with the name of your profile.&lt;/p&gt;
 
@@ -77,8 +76,7 @@ xdotool windowactivate --sync $WID
 xdotool key --window $WID ctrl+t
 xdotool key --window $WID ctrl+l
 xdotool type --window $WID &#34;$1&#34;
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The last thing to to is to open exo-preferred-applications and select the script as the preferred &amp;#8220;web-browser&amp;#8221; (remember &amp;#8220;%s&amp;#8221;).&lt;/p&gt;
 </description>
@@ -148,8 +146,7 @@ function precmd() {
 function preexec() {
   title &#34;$1&#34;
 }
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;This creates the following window title: ~/Work/docker/&amp;#8230;/all/modules/somemodule. The magic happens by saying %7(c:%-3~/&amp;#8230;/%3~:%~) which means: if &amp;#8220;c&amp;#8221;, which contains the entire path after prefix has been replaced -&amp;gt; /home/username to ~, is larger than 7, show the 3 first directories, then &amp;#8230; and finally the last 3 directories.&lt;/p&gt;
 
@@ -174,16 +171,14 @@ function preexec() {
 xdebug.remote_enable=1
 xdebug.remote_autostart=0
 xdebug.remote_connect_back=1
-xdebug.remote_port=9000&lt;/code&gt;
-&lt;/pre&gt;
+xdebug.remote_port=9000&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;And in my ~/.vimrc I have these vdebug settings:&lt;/p&gt;
 
 &lt;pre&gt;
 &lt;code class=&#34;language-vim&#34;&gt;let g:vdebug_options = {&#34;path_maps&#34;: {&#34;/var/www&#34;: &#34;/home/username/Localdev&#34;}, \
 &#34;break_on_open&#34;: 0, &#34;watch_window_style&#34;: &#34;compact&#34;, \
-&#34;server&#34; : &#34;172.17.42.1&#34;}&lt;/code&gt;
-&lt;/pre&gt;
+&#34;server&#34; : &#34;172.17.42.1&#34;}&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;172.17.42.1 is the ip of the bridge created by docker, it can be found by using ip addr and looking for the &amp;#8220;docker0&amp;#8221; interface.&lt;/p&gt;
 

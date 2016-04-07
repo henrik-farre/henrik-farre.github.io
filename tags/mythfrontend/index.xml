@@ -43,8 +43,7 @@ EXTRA_OPTIONS=&#34;-pfhq --no-splash&#34;
 DEBUG_OPTIONS=&#34;--verbose=5 &amp;gt; /shared/mythtv/xine.log&#34;
 
 xine ${VIDEO_DRIVER} ${AUDIO_DRIVER} ${EXTRA_OPTIONS} ${1}
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -69,8 +68,7 @@ function isup() {
  fi
 }
 
-isup&lt;/code&gt;
-&lt;/pre&gt;
+isup&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;But there is a small problem with this approach: the backend starts replying to ping long before nfsd and mythbackend are ready.&lt;/p&gt;
 
@@ -88,8 +86,7 @@ function isbackendup {
     stat_done
   fi
 }
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Finally I wrapped it all up in an ArchLinux rc script, and use WOL to wake the backend:&lt;/p&gt;
 
@@ -126,8 +123,7 @@ case &#34;$1&#34; in
   *)
     echo &#34;usage: $0 {start|stop|restart}&#34;
 esac
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;If you run ArchLinux just added it to /etc/rc.conf in the DAEMONS array.&lt;/p&gt;
 

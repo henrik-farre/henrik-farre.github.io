@@ -6,8 +6,57 @@
     <description>Recent content on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 12 Apr 2016 10:47:36 +0200</lastBuildDate>
     <atom:link href="http://rockhopper.dk/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Local PHP development with Vim/Neovim and Docker</title>
+      <link>http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker</link>
+      <pubDate>Tue, 12 Apr 2016 10:47:36 +0200</pubDate>
+      
+      <guid>http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker</guid>
+      <description>
+
+&lt;p&gt;I use Neovim for all my text editing, and as I&#39;m a web developer I edit a lot of HTML, PHP, CSS and JavaScript. And not only do I have to switch between different programming/markup languages I also have to switch between different environments, ranging from old Drupal 6 sites on Debian squeeze to a Symfony setup on Debian Jessie to ensure that my code works in production.&lt;/p&gt;
+
+&lt;h2 id=&#34;enter-docker:0c08f28664efdd056b375f3539e6eeb3&#34;&gt;Enter Docker&lt;/h2&gt;
+
+&lt;p&gt;Switching between different versions of Apache/PHP/MySQL and other components is nearly impossible if they are locally installed. In the old dark days I would work on a site directly on the server, then later Vagrant came along and gave a virtual server that could be provisioned like the production server and now Docker gives lightweight containers that allows to quickly switch between different setups.&lt;/p&gt;
+
+&lt;p&gt;I use a Docker image that contains all the needed components for the development environment. My docker setup is here &lt;a href=&#34;http://github.com/henrik-farre/docker&#34;&gt;http://github.com/henrik-farre/docker&lt;/a&gt;. I use a simple script to make interaction easier, it&#39;s called &amp;quot;pilotboat&amp;quot;.&lt;/p&gt;
+
+&lt;p&gt;My Docker image contains Apache, MariaDB, PHP5 with Xdebug, Mailhog and Webgrind. Database data is kept separately in a volume and sites/virtual hosts are kept on the host.&lt;/p&gt;
+
+&lt;h3 id=&#34;workflow:0c08f28664efdd056b375f3539e6eeb3&#34;&gt;Workflow&lt;/h3&gt;
+
+&lt;p&gt;I can either drop an existing virtual host file in the vhosts directory, or run &lt;code&gt;pilotboat site-create mydomain.dev&lt;/code&gt; which will create a virtual host and directory structure. I use dnsmasq to point the top level domain (.dev) to localhost. If you use NetworkManager just create the following file: &lt;code&gt;/etc/NetworkManager/dnsmasq.d/dev.conf&lt;/code&gt; containing:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;address=/dev/127.0.0.1&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then I can checkout the site from git and import a database, which can be done by &lt;code&gt;pilotboat db-import database_name&lt;/code&gt;. The command will try to import a file in the databases directory called database_name.sql.gz and the file should have been created by running &lt;code&gt;mysqldump -f --opt -u root -p -c [database_name] | gzip &amp;gt; [database_name.sql.gz]&lt;/code&gt;, or alternative I use phpMyAdmin which is running in the container on &lt;a href=&#34;http://localhost/phpmyadmin/&#34;&gt;http://localhost/phpmyadmin/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;vim-neovim:0c08f28664efdd056b375f3539e6eeb3&#34;&gt;Vim / Neovim&lt;/h2&gt;
+
+&lt;p&gt;The only special setup for Vim is connecting Xdebug in the container to Vdebug, and map paths from inside the container to the local file system:
+&lt;pre&gt;&lt;code class=&#34;language-vim&#34;&gt;let g:vdebug_options = {&amp;quot;path_maps&amp;quot;: {&amp;quot;/var/www&amp;quot;: &amp;quot;/path/to/pilotboat/sites&amp;quot;}, &amp;quot;break_on_open&amp;quot;: 0, &amp;quot;watch_window_style&amp;quot;: &amp;quot;compact&amp;quot;, &amp;quot;server&amp;quot; : &amp;quot;172.17.0.1&amp;quot;, &amp;quot;port&amp;quot;: 9000}
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+
+&lt;p&gt;I try to make Neovim do as much work for me as possible, and I use the following plugins to help me with that:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/joonty/vdebug&#34;&gt;Vdebug&lt;/a&gt;: Debug PHP code step by step&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mattn/emmet-vim&#34;&gt;Emmet&lt;/a&gt;: Expands div#header &amp;gt; ul.menu &amp;gt; li*5 to real HTML&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/SirVer/ultisnips&#34;&gt;UltiSnips&lt;/a&gt;: Advanced snippet expanding, useful for quickly typing PHP functions complete with PHP doc comments&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Valloric/YouCompleteMe&#34;&gt;YouCompleteMe&lt;/a&gt;: Great for completing the current programming languages native functions and vars&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Raimondi/delimitMate&#34;&gt;delimitMate&lt;/a&gt;: Automatically insert matching brackets, parentheses and more&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/tpope/vim-surround&#34;&gt;Surround&lt;/a&gt;: Wraps words in &#39; or * or other characters&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/scrooloose/nerdcommenter&#34;&gt;NERD Commenter&lt;/a&gt;: Comment/Uncomment single lines or blocks&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/benekastah/neomake&#34;&gt;Neomake&lt;/a&gt;: Automatically asynchronous syntax checking, works with PHP lint, &lt;a href=&#34;https://phpmd.org/&#34;&gt;PHP Mess Detector&lt;/a&gt; and &lt;a href=&#34;https://github.com/squizlabs/PHP_CodeSniffer&#34;&gt;PHP_CodeSniffer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can find my Neovim setup here: &lt;a href=&#34;http://github.com/henrik-farre/vimrc&#34;&gt;http://github.com/henrik-farre/vimrc&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>HTPC/NAS for watching Netflix on Linux part 2: the software</title>
@@ -98,7 +147,7 @@ setxkbmap dk
 
 &lt;h3 id=&#34;hardware-accelerated-playback-on-intel:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Hardware accelerated playback on Intel&lt;/h3&gt;
 
-&lt;p&gt;I have installed libva-intel-driver, libva-vdpau-driver, libvdpau and libva and enabled hardware accelerated playback in Kodi&amp;rsquo;s settings. The Intel HD Graphics can handle 1080p without problems.&lt;/p&gt;
+&lt;p&gt;I have installed libva-intel-driver, libva-vdpau-driver, libvdpau and libva and enabled hardware accelerated playback in Kodi&#39;s settings. The Intel HD Graphics can handle 1080p without problems.&lt;/p&gt;
 
 &lt;h3 id=&#34;idle-cpu-usage:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Idle CPU usage&lt;/h3&gt;
 
@@ -140,7 +189,7 @@ Xcursor.size: 32
       <pubDate>Fri, 01 Apr 2016 10:15:11 +0200</pubDate>
       
       <guid>http://rockhopper.dk/about-me</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m a veteran web developer with experience in a multitude of PHP based applications, including:&lt;/p&gt;
+      <description>&lt;p&gt;I&#39;m a veteran web developer with experience in a multitude of PHP based applications, including:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Drupal&lt;/li&gt;
@@ -1213,39 +1262,6 @@ cpu0_vid:   +1.550 V&lt;/pre&gt;
   echo 1 &amp;gt;/sys/devices/system/cpu/cpu${i}/cpufreq/ondemand/ignore_nice_load
 done
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>How not to restore a Linux software raid</title>
-      <link>http://rockhopper.dk/linux/software/how-not-to-restore-a-linux-software-raid/</link>
-      <pubDate>Sun, 19 Apr 2009 00:00:00 +0000</pubDate>
-      
-      <guid>http://rockhopper.dk/linux/software/how-not-to-restore-a-linux-software-raid/</guid>
-      <description>&lt;p&gt;We had a disk failure on one of our Xen servers at &lt;a href=&#34;http://www.bellcom.dk&#34;&gt;work&lt;/a&gt; last week, and what we thought would be a quick disk replace, turned into a small nightmare.&lt;/p&gt;
-
-&lt;p&gt;Our setup is fairly &amp;#8220;simple&amp;#8221;: 2 x raid1&amp;#8217;s consisting of sda1/sdb1 (/dev/md0 mounted at /) and sda3/sdb3 (/dev/md1 with LVM on top of it).&lt;/p&gt;
-
-&lt;p&gt;mdadm reported that sdb1 and sdb3 had failed, so we just had to identify which disk was sdb in the server and replace it. Well it wasn&amp;#8217;t easy to see which disk has which after we had opened the server, so we decided to boot the server again to look up the drives&amp;#8217; serial number (using hdparm -I /dev/sda, and the small barcode on the front of the disk).&lt;/p&gt;
-
-&lt;p&gt;Now the fun part starts. The contents of /proc/mdstat showed something like this after the reboot:&lt;/p&gt;
-
-&lt;pre&gt;Personalities : [raid1]
-md1 : active raid1 sdb3[0] sda3[1] (F)
-      235400320 blocks [2/1] [U_]
-
-md0 : active raid1 sdb1[0] (F) sda1[1]
-      7815488 blocks [1/2] [_U]
-
-unused devices: &amp;lt;none&amp;gt;&lt;/pre&gt;
-
-&lt;p&gt;On md0 sdb1 is failed, and on md1 it&amp;#8217;s sda3, so one partition is marked failed on each drive. Here we made the &lt;strong&gt;big mistake&lt;/strong&gt;: we decided to readd sdb1 to md0 and sdb3 to md1.&lt;/p&gt;
-
-&lt;p&gt;While the raid was syncing there was a lot of disk errors on sda1 and sda3, so we identified sda using its serial number, shutdown the server, replaced the disk, booted and everything looked fine.&lt;/p&gt;
-
-&lt;p&gt;Fast forward to the next day: we started receiving e-mails from customers saying data was missing from their sites, and they where missing data from the day the drive failed&amp;#8230; then it dawned on us: when we readded sda3 it was overridden with the old data from sdb3 :(. Only one thing to do: restore from backup.&lt;/p&gt;
-
-&lt;p&gt;Now the question is: why the hell was sda3 marked as failed after the reboot? It was on the good drive&amp;#8230;&lt;/p&gt;
 </description>
     </item>
     

@@ -12,18 +12,18 @@
   
     <link href="/css/combined.css" rel="stylesheet" />
     <link rel="alternate" type="application/rss+xml" title="RSS" href="http://rockhopper.dk//index.xml">
-    <link rel="canonical" href="http://rockhopper.dk/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/" />
+    <link rel="canonical" href="http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker" />
 
     
-    <title>Fast nagios exim mail queue plugin replacement - Rockhopper.dk</title>
-    <meta property='og:title' content="Fast nagios exim mail queue plugin replacement - Rockhopper.dk">
+    <title>Local PHP development with Vim/Neovim and Docker - Rockhopper.dk</title>
+    <meta property='og:title' content="Local PHP development with Vim/Neovim and Docker - Rockhopper.dk">
     <meta property="og:type" content="article">
     
     
     <meta name="google-site-verification" content="eoEQEAp-8H6Sou4fffVz-N58YP34LIRG0wJyHvvxVJw" />
     
 
-    <meta property="og:url" content="http://rockhopper.dk/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/">
+    <meta property="og:url" content="http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker">
     
     
   </head>
@@ -86,11 +86,11 @@
       <article class="single" itemscope="itemscope" itemtype="http://schema.org/Article">
 
         <meta itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" content="http://rockhopper.dk/"/>
-        <meta itemprop="dateModified" content="2008-07-26T00:00:00&#43;00:00">
-        <meta itemprop="headline" content="Fast nagios exim mail queue plugin replacement">
-        <meta itemprop="description" content="We had a problem with the nagios check_mailq plugin at [work][1], it kept timing out. So I wrote a simple bash script (instead of 610 lines of perl) which is &#8220;compatible&#8221; with check_mailq (supports the same arguments) which uses &#8220;exim4&#8221; and is very quick. Just drop it in /usr/local/bin/check_mailq_simple.sh and adjust your nagios conf to use that instead of check_mailq
+        <meta itemprop="dateModified" content="2016-04-12T10:47:36&#43;02:00">
+        <meta itemprop="headline" content="Local PHP development with Vim/Neovim and Docker">
+        <meta itemprop="description" content="I use Neovim for all my text editing, and as I&#39;m a web developer I edit a lot of HTML, PHP, CSS and JavaScript. And not only do I have to switch between different programming/markup languages I also have to switch between different environments, ranging from old Drupal 6 sites on Debian squeeze to a Symfony setup on Debian Jessie to ensure that my code works in production.
 ">
-        <meta itemprop="url" content="http://rockhopper.dk/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/">
+        <meta itemprop="url" content="http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker">
         <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
           <meta itemprop="url" content="http://rockhopper.dk/images/default.jpg" />
           <meta itemprop="width" content="800">
@@ -109,59 +109,62 @@
         </div>
 
         <header class="article-header">
-          <time itemprop="datePublished" pubdate="pubdate" datetime="2008-07-26T00:00:00&#43;00:00">Sat, Jul 26, 2008</time>
-          <h1 class="article-title">Fast nagios exim mail queue plugin replacement</h1>
+          <time itemprop="datePublished" pubdate="pubdate" datetime="2016-04-12T10:47:36&#43;02:00">Tue, Apr 12, 2016</time>
+          <h1 class="article-title">Local PHP development with Vim/Neovim and Docker</h1>
         </header>
 
         <div class="article-body" itemprop="articleBody">
-          <p>We had a problem with the nagios check_mailq plugin at <a href="http://www.bellcom.dk">work</a>, it kept timing out. So I wrote a simple bash script (instead of 610 lines of perl) which is &#8220;compatible&#8221; with check_mailq (supports the same arguments) which uses &#8220;exim4&#8221; and is very quick. Just drop it in /usr/local/bin/check_mailq_simple.sh and adjust your nagios conf to use that instead of check_mailq</p>
+          
 
-<pre>
-<code class="language-bash">#!/bin/bash
+<p>I use Neovim for all my text editing, and as I'm a web developer I edit a lot of HTML, PHP, CSS and JavaScript. And not only do I have to switch between different programming/markup languages I also have to switch between different environments, ranging from old Drupal 6 sites on Debian squeeze to a Symfony setup on Debian Jessie to ensure that my code works in production.</p>
 
-WARNING=""
-CRITICAL=""
-MAILER=""
-TIMER=""
+<h2 id="enter-docker:0c08f28664efdd056b375f3539e6eeb3">Enter Docker</h2>
 
-while getopts "w:c:M:t" optionName; do
-  case "${optionName}" in
-    w) WARNING="${OPTARG}";;
-    c) CRITICAL="${OPTARG}";;
-    M) MAILER="${OPTARG}";;
-    t) TIMER="${OPTARG}";;
-  esac
-done
+<p>Switching between different versions of Apache/PHP/MySQL and other components is nearly impossible if they are locally installed. In the old dark days I would work on a site directly on the server, then later Vagrant came along and gave a virtual server that could be provisioned like the production server and now Docker gives lightweight containers that allows to quickly switch between different setups.</p>
 
-MAILS_IN_QUEUE=`sudo /usr/sbin/exim4 -bpc`
+<p>I use a Docker image that contains all the needed components for the development environment. My docker setup is here <a href="http://github.com/henrik-farre/docker">http://github.com/henrik-farre/docker</a>. I use a simple script to make interaction easier, it's called &quot;pilotboat&quot;.</p>
 
-if [[ ${MAILS_IN_QUEUE} -gt ${CRITICAL} ]]; then
-  echo "CRITICAL: mailq is ${MAILS_IN_QUEUE} (threshold w = ${CRITICAL})|unsent=${MAILS_IN_QUEUE};${WARNING};${CRITICAL};0"
-  exit 2
-elif [[ ${MAILS_IN_QUEUE} -gt ${WARNING} ]]; then
-  echo "WARNING: mailq is ${MAILS_IN_QUEUE} (threshold w = ${WARNING})|unsent=${MAILS_IN_QUEUE};${WARNING};${CRITICAL};0"
-  exit 1
-elif [[ ${MAILS_IN_QUEUE} -lt ${WARNING} ]]; then
-  echo "OK: mailq is ${MAILS_IN_QUEUE} (threshold w = ${WARNING})|unsent=${MAILS_IN_QUEUE};${WARNING};${CRITICAL};0"
-  exit
-else
-  echo "ERROR: something did not go right"
-  exit 2
-fi
-</code></pre>
+<p>My Docker image contains Apache, MariaDB, PHP5 with Xdebug, Mailhog and Webgrind. Database data is kept separately in a volume and sites/virtual hosts are kept on the host.</p>
 
-<p>This has been tested on Debian sarge.</p>
+<h3 id="workflow:0c08f28664efdd056b375f3539e6eeb3">Workflow</h3>
+
+<p>I can either drop an existing virtual host file in the vhosts directory, or run <code>pilotboat site-create mydomain.dev</code> which will create a virtual host and directory structure. I use dnsmasq to point the top level domain (.dev) to localhost. If you use NetworkManager just create the following file: <code>/etc/NetworkManager/dnsmasq.d/dev.conf</code> containing:</p>
+
+<pre><code>address=/dev/127.0.0.1</code></pre>
+
+<p>Then I can checkout the site from git and import a database, which can be done by <code>pilotboat db-import database_name</code>. The command will try to import a file in the databases directory called database_name.sql.gz and the file should have been created by running <code>mysqldump -f --opt -u root -p -c [database_name] | gzip &gt; [database_name.sql.gz]</code>, or alternative I use phpMyAdmin which is running in the container on <a href="http://localhost/phpmyadmin/">http://localhost/phpmyadmin/</a></p>
+
+<h2 id="vim-neovim:0c08f28664efdd056b375f3539e6eeb3">Vim / Neovim</h2>
+
+<p>The only special setup for Vim is connecting Xdebug in the container to Vdebug, and map paths from inside the container to the local file system:
+<pre><code class="language-vim">let g:vdebug_options = {&quot;path_maps&quot;: {&quot;/var/www&quot;: &quot;/path/to/pilotboat/sites&quot;}, &quot;break_on_open&quot;: 0, &quot;watch_window_style&quot;: &quot;compact&quot;, &quot;server&quot; : &quot;172.17.0.1&quot;, &quot;port&quot;: 9000}
+</code></pre></p>
+
+<p>I try to make Neovim do as much work for me as possible, and I use the following plugins to help me with that:</p>
+
+<ul>
+<li><a href="https://github.com/joonty/vdebug">Vdebug</a>: Debug PHP code step by step</li>
+<li><a href="https://github.com/mattn/emmet-vim">Emmet</a>: Expands div#header &gt; ul.menu &gt; li*5 to real HTML</li>
+<li><a href="https://github.com/SirVer/ultisnips">UltiSnips</a>: Advanced snippet expanding, useful for quickly typing PHP functions complete with PHP doc comments</li>
+<li><a href="https://github.com/Valloric/YouCompleteMe">YouCompleteMe</a>: Great for completing the current programming languages native functions and vars</li>
+<li><a href="https://github.com/Raimondi/delimitMate">delimitMate</a>: Automatically insert matching brackets, parentheses and more</li>
+<li><a href="https://github.com/tpope/vim-surround">Surround</a>: Wraps words in ' or * or other characters</li>
+<li><a href="https://github.com/scrooloose/nerdcommenter">NERD Commenter</a>: Comment/Uncomment single lines or blocks</li>
+<li><a href="https://github.com/benekastah/neomake">Neomake</a>: Automatically asynchronous syntax checking, works with PHP lint, <a href="https://phpmd.org/">PHP Mess Detector</a> and <a href="https://github.com/squizlabs/PHP_CodeSniffer">PHP_CodeSniffer</a></li>
+</ul>
+
+<p>You can find my Neovim setup here: <a href="http://github.com/henrik-farre/vimrc">http://github.com/henrik-farre/vimrc</a></p>
 
         </div>
 
         <aside>
-          <div class="section"><a href="http://rockhopper.dk/tags/exim" class="tag">exim</a> <a href="http://rockhopper.dk/tags/nagios" class="tag">nagios</a> </div>
+          <div class="section"><a href="http://rockhopper.dk/tags/docker" class="tag">Docker</a> </div>
 
           <div class="section share">
-            <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2frockhopper.dk%2flinux%2fsoftware%2ffast-nagios-exim-mail-queue-plugin-replacement%2f&t=Fast%20nagios%20exim%20mail%20queue%20plugin%20replacement" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-            <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2frockhopper.dk%2flinux%2fsoftware%2ffast-nagios-exim-mail-queue-plugin-replacement%2f&text=Fast%20nagios%20exim%20mail%20queue%20plugin%20replacement&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-            <a href="https://plus.google.com/share?url=http%3a%2f%2frockhopper.dk%2flinux%2fsoftware%2ffast-nagios-exim-mail-queue-plugin-replacement%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-            <a href="http://getpocket.com/edit?url=http%3a%2f%2frockhopper.dk%2flinux%2fsoftware%2ffast-nagios-exim-mail-queue-plugin-replacement%2f&title=Fast%20nagios%20exim%20mail%20queue%20plugin%20replacement" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+            <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2frockhopper.dk%2flinux%2fsoftware%2flocal-php-development-with-vimneovim-and-docker&t=Local%20PHP%20development%20with%20Vim%2fNeovim%20and%20Docker" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+            <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2frockhopper.dk%2flinux%2fsoftware%2flocal-php-development-with-vimneovim-and-docker&text=Local%20PHP%20development%20with%20Vim%2fNeovim%20and%20Docker&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+            <a href="https://plus.google.com/share?url=http%3a%2f%2frockhopper.dk%2flinux%2fsoftware%2flocal-php-development-with-vimneovim-and-docker" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+            <a href="http://getpocket.com/edit?url=http%3a%2f%2frockhopper.dk%2flinux%2fsoftware%2flocal-php-development-with-vimneovim-and-docker&title=Local%20PHP%20development%20with%20Vim%2fNeovim%20and%20Docker" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
           </div>
 
           
@@ -188,9 +191,9 @@ fi
       
       <a href="http://rockhopper.dk/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
       
-      <a href="http://rockhopper.dk/categories/mythtv" class="list-group-item">mythtv</a>
-      
       <a href="http://rockhopper.dk/categories/linux" class="list-group-item">linux</a>
+      
+      <a href="http://rockhopper.dk/categories/mythtv" class="list-group-item">mythtv</a>
       
       <a href="http://rockhopper.dk/categories/php" class="list-group-item">php</a>
       
@@ -227,7 +230,7 @@ fi
       
       <a href="http://rockhopper.dk/tags/zsh" class="list-group-item">zsh</a>
       
-      <a href="http://rockhopper.dk/tags/firefox" class="list-group-item">firefox</a>
+      <a href="http://rockhopper.dk/tags/booting" class="list-group-item">booting</a>
       
     </div>
   </div>

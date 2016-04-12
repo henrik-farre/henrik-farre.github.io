@@ -98,7 +98,7 @@ setxkbmap dk
 
 &lt;h3 id=&#34;hardware-accelerated-playback-on-intel:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Hardware accelerated playback on Intel&lt;/h3&gt;
 
-&lt;p&gt;I have installed libva-intel-driver, libva-vdpau-driver, libvdpau and libva and enabled hardware accelerated playback in Kodi&amp;rsquo;s settings. The Intel HD Graphics can handle 1080p without problems.&lt;/p&gt;
+&lt;p&gt;I have installed libva-intel-driver, libva-vdpau-driver, libvdpau and libva and enabled hardware accelerated playback in Kodi&#39;s settings. The Intel HD Graphics can handle 1080p without problems.&lt;/p&gt;
 
 &lt;h3 id=&#34;idle-cpu-usage:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Idle CPU usage&lt;/h3&gt;
 

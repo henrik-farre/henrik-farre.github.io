@@ -6,8 +6,317 @@
     <description>Recent content in Software on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 Apr 2016 10:47:36 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 24 Apr 2016 11:44:30 +0200</lastBuildDate>
     <atom:link href="http://rockhopper.dk/categories/software/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HTPC/NAS for watching Netflix on Linux part 3: Powermanagement</title>
+      <link>http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-3-the-hardware/</link>
+      <pubDate>Sun, 24 Apr 2016 11:44:30 +0200</pubDate>
+      
+      <guid>http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-3-the-hardware/</guid>
+      <description>
+
+&lt;p&gt;My HTPC should be available when I need it, but not waste power when I&#39;m not at home or sleeping.&lt;/p&gt;
+
+&lt;p&gt;See previous parts: &lt;a href=&#34;http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/&#34;&gt;Part 1&lt;/a&gt;, &lt;a href=&#34;http://rockhopper.dk/linux/software/htpcnas-for-watching-netflix-on-linux-part-2-the-software/&#34;&gt;Part 2&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;My setup consists of 3 scripts:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;kodi-shutdown-inhibit-check.sh&lt;/code&gt;: Main script that is run from cron, talks to Kodi to allow/inhibit shutdown&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;shutdown-check.sh&lt;/code&gt;: Checks if anything should inhibit shutdown&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;set-next-wakeup.sh&lt;/code&gt;: Sets when the computer should start next time&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;kodi-idle-shutdown-timer:5f91763b9d80fb35b2b67752e5825a34&#34;&gt;Kodi idle shutdown timer&lt;/h2&gt;
+
+&lt;p&gt;Kodi is set to shutdown after 5 mins of inactivity (See &amp;quot;Timer til lukning af funktion&amp;quot;):&lt;/p&gt;
+
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;http://rockhopper.dk/uploads/kodi_powersave_settings.png&#34;
+        title=&#34;Kodi Powersave settings&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;http://rockhopper.dk/uploads/kodi_powersave_settings-320x180.png&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;Kodi Powersave settings&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Every 4 minutes cron runs the &lt;code&gt;kodi-shutdown-inhibit-check.sh&lt;/code&gt; script. Note: it requires that &lt;code&gt;kodi-send&lt;/code&gt; from the kodi-eventclients package is installed.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
+# based on http://forum.xbmc.org/showthread.php?tid=172801&amp;pid=1500080#pid1500080
+
+LASTSTATEFILE=&#34;/tmp/xbmc-shutdown-inibit-laststate&#34;
+
+XBMCPIDFILE=&#34;/tmp/xbmc-shutdown-inibit-pid&#34;
+
+# Handle restart of xbmc
+CURRENTPID=$(pgrep kodi.bin)
+
+KODI_NOT_RUNNING=0
+if [[ $? -gt 0 ]]; then
+  KODI_NOT_RUNNING=1
+fi
+
+if [[ -f $XBMCPIDFILE ]]; then
+  PID=`cat $XBMCPIDFILE`
+else
+  PID=$CURRENTPID
+  echo $PID &gt; $XBMCPIDFILE
+fi
+
+# if the old pid is not equal to the current, make sure that inhibit is send again
+# by forcing it to be 0
+if [[ $PID != $CURRENTPID ]]; then
+  /usr/bin/logger &#34;$0: XBMC changed PID: $PID != $CURRENTPID&#34;
+  if [[ -f $LASTSTATEFILE ]]; then
+    rm $LASTSTATEFILE
+  fi
+  echo $CURRENTPID &gt; $XBMCPIDFILE
+fi
+
+/usr/local/bin/set-next-wakeup.sh &amp;&gt;/dev/null
+
+if [[ -f $LASTSTATEFILE ]]; then
+  LASTSTATE=`cat $LASTSTATEFILE`
+else
+  LASTSTATE=0
+fi
+
+/usr/local/bin/shutdown-check.sh &amp;&gt;/dev/null
+CHECK=$?
+
+# Enable to debug
+# /usr/bin/logger &#34;$0: [DEBUG] CHECK: ${CHECK}&#34;
+# /usr/bin/logger &#34;$0: [DEBUG] KODI_NOT_RUNNING: ${KODI_NOT_RUNNING}&#34;
+# /usr/bin/logger &#34;$0: [DEBUG] PID: ${PID}&#34;
+# /usr/bin/logger &#34;$0: [DEBUG] CURRENTPID: ${CURRENTPID}&#34;
+
+# 0: Shutdown allowed
+if [[ $CHECK -eq 0 ]]; then
+  if [[ $KODI_NOT_RUNNING -gt 0 ]]; then
+    /usr/bin/logger &#34;$0: Kodi not running, shutting down&#34;
+    /usr/bin/shutdown -h now
+  fi
+  if [[ $LASTSTATE -ne 0 ]]; then
+    kodi-send --action=&#34;XBMC.InhibitIdleShutdown(false)&#34; &gt;/dev/null
+    /usr/bin/logger &#34;$0: Allow shutdown&#34;
+    echo &#34;0&#34; &gt; $LASTSTATEFILE
+#  else
+#    /usr/bin/logger &#34;$0: Shutdown allready allowed&#34;
+  fi
+else
+  if [[ $LASTSTATE -eq 0 ]]; then
+    kodi-send --action=&#34;XBMC.InhibitIdleShutdown(true)&#34; &gt;/dev/null
+    /usr/bin/logger &#34;$0: Inhibit shutdown&#34;
+    echo &#34;1&#34; &gt; $LASTSTATEFILE
+#  else
+#    /usr/bin/logger &#34;$0: Shutdown allready inhibited&#34;
+  fi
+fi&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The above script calls &lt;code&gt;shutdown-check.sh&lt;/code&gt; to see if it is OK to shutdown. The script checks for:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Time of day, weekdays the computer should be on between 9 and 10:59, and again from 19 to 23:59. If the computer is running after midnight it will be shutdown between 2 and 6&lt;/li&gt;
+&lt;li&gt;A couple of checks to see if anything is running that should be allowed to continue running&lt;/li&gt;
+&lt;li&gt;Is there any users logged in other than the user that runs Kodi (in this case the &amp;quot;mythtv&amp;quot; user)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
+
+# Check time
+HOUR=`date &#39;+%-k&#39;`
+MIN=`date +%M`
+DAY=`date &#39;+%u&#39;`
+
+case ${DAY} in
+  1|2|3|4|5) # Work days
+  ONHOURS=&#34;9 10 19 20 21 22 23&#34;
+  ;;
+  6|7) # Weekends
+  ONHOURS=&#34;0 1 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23&#34;
+  ;;
+esac
+
+# Hours where shutdown is forced
+KILLHOURS=&#34;2 3 4 5 6&#34;
+
+for KILLHOUR in ${KILLHOURS}; do
+  if [[ ${HOUR} == ${KILLHOUR} ]]; then
+    /usr/bin/logger &#34;$0: in killhour: ${HOUR} (day:${DAY})&#34;
+    exit 0
+  fi
+done
+
+for ONHOUR in ${ONHOURS}; do
+  if [[ ${HOUR} == ${ONHOUR} ]]; then
+    #/usr/bin/logger &#34;$0: in onhour: ${HOUR} (day:${DAY})&#34;
+    exit 1
+  else
+    # Considered true if clock 18:16
+    if [[ $(( ${HOUR} + 1 )) == ${ONHOUR} &amp;&amp; ${MIN} -gt 15 ]]; then
+      /usr/bin/logger &#34;$0: less than 45min to onhour: ${HOUR} ${MIN} ${ONHOUR} (day:${DAY})&#34;
+      exit 1
+    fi
+  fi
+done
+
+if [[ `transmission-remote -l | wc -l` &gt; 2 ]]; then
+  /usr/bin/logger &#34;$0: transmission downloading&#34;
+  exit 1
+fi
+
+if [[ `grep -c &#34;check&#34; /proc/mdstat` = 1 ]]; then
+  /usr/bin/logger &#34;$0: raid resync is running&#34;
+  exit 1
+fi
+
+if [ -e /tmp/noshutdown-*.lock ]; then
+  /usr/bin/logger &#34;$0: a job is running&#34;
+  exit 1
+fi
+
+declare -a CHECK_PROGRAMS
+CHECK_PROGRAMS=(&#39;chrome&#39; &#39;chromium&#39; &#39;fs-uae&#39; &#39;popcorntime&#39; &#39;dolphin&#39;)
+
+for PROGRAM in &#34;${CHECK_PROGRAMS[@]}&#34;; do
+  if pgrep &#34;$PROGRAM&#34; &amp;&gt;/dev/null; then
+    /usr/bin/logger &#34;$0: $PROGRAM is running&#34;
+    exit 1
+  fi
+done
+
+# if last | head | grep -q &#34;.*still logged in&#34;; then
+USERS=`w -h | grep -v mythtv | wc -l`
+if [[ $USERS &gt; 0 ]]; then
+  # A user is logged in
+  /usr/bin/logger &#34;$0: user logged in&#34;
+  exit 1
+fi
+
+/usr/bin/logger &#34;$0: shutdown ok&#34;
+exit 0&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;wakeup:5f91763b9d80fb35b2b67752e5825a34&#34;&gt;Wakeup&lt;/h2&gt;
+
+&lt;p&gt;The last 2 pieces is to set up the computer so that it will automatically start the next day, and enable Wake-On-LAN.&lt;/p&gt;
+
+&lt;h3 id=&#34;wakeup-via-acpi-rtc:5f91763b9d80fb35b2b67752e5825a34&#34;&gt;Wakeup via ACPI / RTC&lt;/h3&gt;
+
+&lt;p&gt;I have made a simple script that ensures that the computer is turned on at 9:00 and again at 19:00 on weekdays, and at 7:00 in the weekend. The script is called &lt;code&gt;set-next-shutdown.sh&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Note: this requires that the BIOS/UEFI is configured correctly, in the case of the Gigabyte GA-Z87-D3HP the &amp;quot;Wake from Alarm&amp;quot; should be disabled.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
+
+# Defaults to tomorrow @ 09:00:00 in weekdays, and 07:00:00 in the weekend
+LASTWAKETIMEFILE=&#34;/tmp/set_next_wakeup_laststate&#34;
+
+HOUR=`date &#39;+%-k&#39;`
+DAY=`date &#39;+%u&#39;`
+
+ONTIME=`date &#39;+%s&#39; -d &#39;tomorrow 09:00:00&#39;`
+
+case ${DAY} in
+  1|2|3|4) # Work days
+    case ${HOUR} in
+      0|1|2|3|4|5|6|7)
+        ONTIME=`date &#39;+%s&#39; -d &#39;09:00:00&#39;`
+        ;;
+      8|9|10|11|12|13|14|15)
+        ONTIME=`date &#39;+%s&#39; -d &#39;19:00:00&#39;`
+        ;;
+    esac
+    ;;
+  5) # Friday
+    case ${HOUR} in
+      0|1|2|3|4|5|6|7)
+        ONTIME=`date &#39;+%s&#39; -d &#39;9:00:00&#39;`
+        ;;
+      8|9|10|11|12|13|14|15)
+        ONTIME=`date &#39;+%s&#39; -d &#39;19:00:00&#39;`
+        ;;
+      16|17|18|19|20|21|22|23)
+        ONTIME=`date &#39;+%s&#39; -d &#39;tomorrow 07:00:00&#39;`
+        ;;
+    esac
+    ;;
+  6) # Saturday
+    case ${HOUR} in
+      0|1|2|3|4|5|6)
+        ONTIME=`date &#39;+%s&#39; -d &#39;7:00:00&#39;`
+        ;;
+      *)
+        ONTIME=`date &#39;+%s&#39; -d &#39;tomorrow 07:00:00&#39;`
+        ;;
+    esac
+    ;;
+  7) # Sunday
+    case ${HOUR} in
+      0|1|2|3|4|5|6)
+        ONTIME=`date &#39;+%s&#39; -d &#39;7:00:00&#39;`
+        ;;
+    esac
+    ;;
+esac
+
+if [[ -f $LASTWAKETIMEFILE ]]; then
+  LASTWAKETIME=`cat $LASTWAKETIMEFILE`
+  if [[ $LASTWAKETIME != $ONTIME ]]; then
+    /usr/bin/logger &#34;$0: Setting wakeup to $ONTIME (`date -d @${ONTIME}`)&#34;
+    echo 0 &gt; /sys/class/rtc/rtc0/wakealarm
+    echo $ONTIME &gt; /sys/class/rtc/rtc0/wakealarm
+    echo $ONTIME &gt; $LASTWAKETIMEFILE
+#  else
+#    /usr/bin/logger &#34;$0: Wakeup allready set to $LASTWAKETIME (`date -d @${LASTWAKETIME}`)&#34;
+  fi
+else
+  /usr/bin/logger &#34;$0: Setting wakeup to $ONTIME (`date -d @${ONTIME}`)&#34;
+  echo 0 &gt; /sys/class/rtc/rtc0/wakealarm
+  echo $ONTIME &gt; /sys/class/rtc/rtc0/wakealarm
+  echo $ONTIME &gt; $LASTWAKETIMEFILE
+fi&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;wake-on-lan-wol:5f91763b9d80fb35b2b67752e5825a34&#34;&gt;Wake On LAN (WOL)&lt;/h3&gt;
+
+&lt;p&gt;In case I need the computer at a time where it is not runnin, I can wake it from my desktop computer or from my phone using the &lt;a href=&#34;https://play.google.com/store/apps/details?id=de.ralischer.wakeonlan&#34;&gt;Wake On LAN&lt;/a&gt; app.&lt;/p&gt;
+
+&lt;p&gt;Activate WOL support using ethtool with a systemd unit (based on &lt;a href=&#34;https://wiki.archlinux.org/index.php/Wake-on-LAN#systemd_service&#34;&gt;Arch Linux Wiki:Wake-on-LAN&lt;/a&gt;):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ini&#34;&gt;[Unit]
+Description=Wake-on-LAN for %i
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/ethtool -s %i wol g
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now I can use the wol tool to wake the HTPC: &lt;code&gt;wol -v ${MAC}&lt;/code&gt; where ${MAC} is the MAC address of NIC&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Local PHP development with Vim/Neovim and Docker</title>

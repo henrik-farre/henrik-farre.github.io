@@ -6,8 +6,317 @@
     <description>Recent content on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 Apr 2016 10:47:36 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 24 Apr 2016 11:44:30 +0200</lastBuildDate>
     <atom:link href="http://rockhopper.dk/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HTPC/NAS for watching Netflix on Linux part 3: Powermanagement</title>
+      <link>http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-3-the-hardware/</link>
+      <pubDate>Sun, 24 Apr 2016 11:44:30 +0200</pubDate>
+      
+      <guid>http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-3-the-hardware/</guid>
+      <description>
+
+&lt;p&gt;My HTPC should be available when I need it, but not waste power when I&#39;m not at home or sleeping.&lt;/p&gt;
+
+&lt;p&gt;See previous parts: &lt;a href=&#34;http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/&#34;&gt;Part 1&lt;/a&gt;, &lt;a href=&#34;http://rockhopper.dk/linux/software/htpcnas-for-watching-netflix-on-linux-part-2-the-software/&#34;&gt;Part 2&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;My setup consists of 3 scripts:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;kodi-shutdown-inhibit-check.sh&lt;/code&gt;: Main script that is run from cron, talks to Kodi to allow/inhibit shutdown&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;shutdown-check.sh&lt;/code&gt;: Checks if anything should inhibit shutdown&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;set-next-wakeup.sh&lt;/code&gt;: Sets when the computer should start next time&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;kodi-idle-shutdown-timer:5f91763b9d80fb35b2b67752e5825a34&#34;&gt;Kodi idle shutdown timer&lt;/h2&gt;
+
+&lt;p&gt;Kodi is set to shutdown after 5 mins of inactivity (See &amp;quot;Timer til lukning af funktion&amp;quot;):&lt;/p&gt;
+
+
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-sm-4&#34;&gt;
+    &lt;a href=&#34;http://rockhopper.dk/uploads/kodi_powersave_settings.png&#34;
+        title=&#34;Kodi Powersave settings&#34;
+        class=&#34;image-link thumbnail&#34;
+        
+    &gt;
+        
+            
+            &lt;img src=&#34;http://rockhopper.dk/uploads/kodi_powersave_settings-320x180.png&#34;
+                class=&#34;
+                    &#34;
+                
+                
+                
+                
+            /&gt;
+        
+        
+        &lt;div class=&#34;caption&#34;&gt;Kodi Powersave settings&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Every 4 minutes cron runs the &lt;code&gt;kodi-shutdown-inhibit-check.sh&lt;/code&gt; script. Note: it requires that &lt;code&gt;kodi-send&lt;/code&gt; from the kodi-eventclients package is installed.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
+# based on http://forum.xbmc.org/showthread.php?tid=172801&amp;pid=1500080#pid1500080
+
+LASTSTATEFILE=&#34;/tmp/xbmc-shutdown-inibit-laststate&#34;
+
+XBMCPIDFILE=&#34;/tmp/xbmc-shutdown-inibit-pid&#34;
+
+# Handle restart of xbmc
+CURRENTPID=$(pgrep kodi.bin)
+
+KODI_NOT_RUNNING=0
+if [[ $? -gt 0 ]]; then
+  KODI_NOT_RUNNING=1
+fi
+
+if [[ -f $XBMCPIDFILE ]]; then
+  PID=`cat $XBMCPIDFILE`
+else
+  PID=$CURRENTPID
+  echo $PID &gt; $XBMCPIDFILE
+fi
+
+# if the old pid is not equal to the current, make sure that inhibit is send again
+# by forcing it to be 0
+if [[ $PID != $CURRENTPID ]]; then
+  /usr/bin/logger &#34;$0: XBMC changed PID: $PID != $CURRENTPID&#34;
+  if [[ -f $LASTSTATEFILE ]]; then
+    rm $LASTSTATEFILE
+  fi
+  echo $CURRENTPID &gt; $XBMCPIDFILE
+fi
+
+/usr/local/bin/set-next-wakeup.sh &amp;&gt;/dev/null
+
+if [[ -f $LASTSTATEFILE ]]; then
+  LASTSTATE=`cat $LASTSTATEFILE`
+else
+  LASTSTATE=0
+fi
+
+/usr/local/bin/shutdown-check.sh &amp;&gt;/dev/null
+CHECK=$?
+
+# Enable to debug
+# /usr/bin/logger &#34;$0: [DEBUG] CHECK: ${CHECK}&#34;
+# /usr/bin/logger &#34;$0: [DEBUG] KODI_NOT_RUNNING: ${KODI_NOT_RUNNING}&#34;
+# /usr/bin/logger &#34;$0: [DEBUG] PID: ${PID}&#34;
+# /usr/bin/logger &#34;$0: [DEBUG] CURRENTPID: ${CURRENTPID}&#34;
+
+# 0: Shutdown allowed
+if [[ $CHECK -eq 0 ]]; then
+  if [[ $KODI_NOT_RUNNING -gt 0 ]]; then
+    /usr/bin/logger &#34;$0: Kodi not running, shutting down&#34;
+    /usr/bin/shutdown -h now
+  fi
+  if [[ $LASTSTATE -ne 0 ]]; then
+    kodi-send --action=&#34;XBMC.InhibitIdleShutdown(false)&#34; &gt;/dev/null
+    /usr/bin/logger &#34;$0: Allow shutdown&#34;
+    echo &#34;0&#34; &gt; $LASTSTATEFILE
+#  else
+#    /usr/bin/logger &#34;$0: Shutdown allready allowed&#34;
+  fi
+else
+  if [[ $LASTSTATE -eq 0 ]]; then
+    kodi-send --action=&#34;XBMC.InhibitIdleShutdown(true)&#34; &gt;/dev/null
+    /usr/bin/logger &#34;$0: Inhibit shutdown&#34;
+    echo &#34;1&#34; &gt; $LASTSTATEFILE
+#  else
+#    /usr/bin/logger &#34;$0: Shutdown allready inhibited&#34;
+  fi
+fi&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The above script calls &lt;code&gt;shutdown-check.sh&lt;/code&gt; to see if it is OK to shutdown. The script checks for:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Time of day, weekdays the computer should be on between 9 and 10:59, and again from 19 to 23:59. If the computer is running after midnight it will be shutdown between 2 and 6&lt;/li&gt;
+&lt;li&gt;A couple of checks to see if anything is running that should be allowed to continue running&lt;/li&gt;
+&lt;li&gt;Is there any users logged in other than the user that runs Kodi (in this case the &amp;quot;mythtv&amp;quot; user)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
+
+# Check time
+HOUR=`date &#39;+%-k&#39;`
+MIN=`date +%M`
+DAY=`date &#39;+%u&#39;`
+
+case ${DAY} in
+  1|2|3|4|5) # Work days
+  ONHOURS=&#34;9 10 19 20 21 22 23&#34;
+  ;;
+  6|7) # Weekends
+  ONHOURS=&#34;0 1 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23&#34;
+  ;;
+esac
+
+# Hours where shutdown is forced
+KILLHOURS=&#34;2 3 4 5 6&#34;
+
+for KILLHOUR in ${KILLHOURS}; do
+  if [[ ${HOUR} == ${KILLHOUR} ]]; then
+    /usr/bin/logger &#34;$0: in killhour: ${HOUR} (day:${DAY})&#34;
+    exit 0
+  fi
+done
+
+for ONHOUR in ${ONHOURS}; do
+  if [[ ${HOUR} == ${ONHOUR} ]]; then
+    #/usr/bin/logger &#34;$0: in onhour: ${HOUR} (day:${DAY})&#34;
+    exit 1
+  else
+    # Considered true if clock 18:16
+    if [[ $(( ${HOUR} + 1 )) == ${ONHOUR} &amp;&amp; ${MIN} -gt 15 ]]; then
+      /usr/bin/logger &#34;$0: less than 45min to onhour: ${HOUR} ${MIN} ${ONHOUR} (day:${DAY})&#34;
+      exit 1
+    fi
+  fi
+done
+
+if [[ `transmission-remote -l | wc -l` &gt; 2 ]]; then
+  /usr/bin/logger &#34;$0: transmission downloading&#34;
+  exit 1
+fi
+
+if [[ `grep -c &#34;check&#34; /proc/mdstat` = 1 ]]; then
+  /usr/bin/logger &#34;$0: raid resync is running&#34;
+  exit 1
+fi
+
+if [ -e /tmp/noshutdown-*.lock ]; then
+  /usr/bin/logger &#34;$0: a job is running&#34;
+  exit 1
+fi
+
+declare -a CHECK_PROGRAMS
+CHECK_PROGRAMS=(&#39;chrome&#39; &#39;chromium&#39; &#39;fs-uae&#39; &#39;popcorntime&#39; &#39;dolphin&#39;)
+
+for PROGRAM in &#34;${CHECK_PROGRAMS[@]}&#34;; do
+  if pgrep &#34;$PROGRAM&#34; &amp;&gt;/dev/null; then
+    /usr/bin/logger &#34;$0: $PROGRAM is running&#34;
+    exit 1
+  fi
+done
+
+# if last | head | grep -q &#34;.*still logged in&#34;; then
+USERS=`w -h | grep -v mythtv | wc -l`
+if [[ $USERS &gt; 0 ]]; then
+  # A user is logged in
+  /usr/bin/logger &#34;$0: user logged in&#34;
+  exit 1
+fi
+
+/usr/bin/logger &#34;$0: shutdown ok&#34;
+exit 0&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;wakeup:5f91763b9d80fb35b2b67752e5825a34&#34;&gt;Wakeup&lt;/h2&gt;
+
+&lt;p&gt;The last 2 pieces is to set up the computer so that it will automatically start the next day, and enable Wake-On-LAN.&lt;/p&gt;
+
+&lt;h3 id=&#34;wakeup-via-acpi-rtc:5f91763b9d80fb35b2b67752e5825a34&#34;&gt;Wakeup via ACPI / RTC&lt;/h3&gt;
+
+&lt;p&gt;I have made a simple script that ensures that the computer is turned on at 9:00 and again at 19:00 on weekdays, and at 7:00 in the weekend. The script is called &lt;code&gt;set-next-shutdown.sh&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Note: this requires that the BIOS/UEFI is configured correctly, in the case of the Gigabyte GA-Z87-D3HP the &amp;quot;Wake from Alarm&amp;quot; should be disabled.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
+
+# Defaults to tomorrow @ 09:00:00 in weekdays, and 07:00:00 in the weekend
+LASTWAKETIMEFILE=&#34;/tmp/set_next_wakeup_laststate&#34;
+
+HOUR=`date &#39;+%-k&#39;`
+DAY=`date &#39;+%u&#39;`
+
+ONTIME=`date &#39;+%s&#39; -d &#39;tomorrow 09:00:00&#39;`
+
+case ${DAY} in
+  1|2|3|4) # Work days
+    case ${HOUR} in
+      0|1|2|3|4|5|6|7)
+        ONTIME=`date &#39;+%s&#39; -d &#39;09:00:00&#39;`
+        ;;
+      8|9|10|11|12|13|14|15)
+        ONTIME=`date &#39;+%s&#39; -d &#39;19:00:00&#39;`
+        ;;
+    esac
+    ;;
+  5) # Friday
+    case ${HOUR} in
+      0|1|2|3|4|5|6|7)
+        ONTIME=`date &#39;+%s&#39; -d &#39;9:00:00&#39;`
+        ;;
+      8|9|10|11|12|13|14|15)
+        ONTIME=`date &#39;+%s&#39; -d &#39;19:00:00&#39;`
+        ;;
+      16|17|18|19|20|21|22|23)
+        ONTIME=`date &#39;+%s&#39; -d &#39;tomorrow 07:00:00&#39;`
+        ;;
+    esac
+    ;;
+  6) # Saturday
+    case ${HOUR} in
+      0|1|2|3|4|5|6)
+        ONTIME=`date &#39;+%s&#39; -d &#39;7:00:00&#39;`
+        ;;
+      *)
+        ONTIME=`date &#39;+%s&#39; -d &#39;tomorrow 07:00:00&#39;`
+        ;;
+    esac
+    ;;
+  7) # Sunday
+    case ${HOUR} in
+      0|1|2|3|4|5|6)
+        ONTIME=`date &#39;+%s&#39; -d &#39;7:00:00&#39;`
+        ;;
+    esac
+    ;;
+esac
+
+if [[ -f $LASTWAKETIMEFILE ]]; then
+  LASTWAKETIME=`cat $LASTWAKETIMEFILE`
+  if [[ $LASTWAKETIME != $ONTIME ]]; then
+    /usr/bin/logger &#34;$0: Setting wakeup to $ONTIME (`date -d @${ONTIME}`)&#34;
+    echo 0 &gt; /sys/class/rtc/rtc0/wakealarm
+    echo $ONTIME &gt; /sys/class/rtc/rtc0/wakealarm
+    echo $ONTIME &gt; $LASTWAKETIMEFILE
+#  else
+#    /usr/bin/logger &#34;$0: Wakeup allready set to $LASTWAKETIME (`date -d @${LASTWAKETIME}`)&#34;
+  fi
+else
+  /usr/bin/logger &#34;$0: Setting wakeup to $ONTIME (`date -d @${ONTIME}`)&#34;
+  echo 0 &gt; /sys/class/rtc/rtc0/wakealarm
+  echo $ONTIME &gt; /sys/class/rtc/rtc0/wakealarm
+  echo $ONTIME &gt; $LASTWAKETIMEFILE
+fi&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;wake-on-lan-wol:5f91763b9d80fb35b2b67752e5825a34&#34;&gt;Wake On LAN (WOL)&lt;/h3&gt;
+
+&lt;p&gt;In case I need the computer at a time where it is not runnin, I can wake it from my desktop computer or from my phone using the &lt;a href=&#34;https://play.google.com/store/apps/details?id=de.ralischer.wakeonlan&#34;&gt;Wake On LAN&lt;/a&gt; app.&lt;/p&gt;
+
+&lt;p&gt;Activate WOL support using ethtool with a systemd unit (based on &lt;a href=&#34;https://wiki.archlinux.org/index.php/Wake-on-LAN#systemd_service&#34;&gt;Arch Linux Wiki:Wake-on-LAN&lt;/a&gt;):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ini&#34;&gt;[Unit]
+Description=Wake-on-LAN for %i
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/ethtool -s %i wol g
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now I can use the wol tool to wake the HTPC: &lt;code&gt;wol -v ${MAC}&lt;/code&gt; where ${MAC} is the MAC address of NIC&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Local PHP development with Vim/Neovim and Docker</title>
@@ -1109,159 +1418,6 @@ mantis_ack_wait (0): Slave RACK Fail !&lt;/pre&gt;
 &lt;p&gt;I hope this problem is fixed when the 2.6.33 Linux kernel hits my machine.&lt;/p&gt;
 
 &lt;p&gt;To view the recorded shows I strongly recommend a &lt;a href=&#34;http://en.wikipedia.org/wiki/VDPAU&#34;&gt;Nvidia graphics card that support VDPAU&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Gigabyte GA-MA790FXT-UD5P and Linux</title>
-      <link>http://rockhopper.dk/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</link>
-      <pubDate>Sat, 18 Jul 2009 00:00:00 +0000</pubDate>
-      
-      <guid>http://rockhopper.dk/linux/hardware/gigabyte-ga-ma790fxt-ud5p-and-linux/</guid>
-      <description>
-
-&lt;p&gt;I recently upgraded the hardware of my desktop and here is my experience with the new hardware. The upgrade consists of:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Motherboard: Gigabyte GA-MA790FXT-UD5P (&lt;a href=&#34;http://www.gigabyte.com.tw/Products/Motherboard/Products_Spec.aspx?ProductID=3005&#34;&gt;Product page&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;CPU: AMD Phenom II X4 810 Processor 2.6Ghz AM3 socket (&lt;a href=&#34;http://products.amd.com/en-us/DesktopCPUDetail.aspx?id=526&amp;amp;f1=AMD+Phenom%E2%84%A2+II+X4&amp;amp;f2=810&amp;amp;f3=2600&amp;amp;f4=512&amp;amp;f5=AM3&amp;amp;f6=C2&amp;amp;f7=45nm+SOI&amp;amp;f8=95+W&amp;amp;f9=4000&amp;amp;f10=False&amp;amp;f11=False&#34;&gt;Specs&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;CPU cooler: Xigmatek HDT-S1283 Cooler (&lt;a href=&#34;http://www.xigmatek.com/product/air-hdts1283.php&#34;&gt;Product page&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;RAM: Corsair 4Gb DDR3 XMS3 DHX PC10600 1333MHz (&lt;a href=&#34;http://www.corsair.com/products/xms3dhx/default.aspx&#34;&gt;Product page&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I reused my Hauppauge PVR-500, Nvidia GS-7300 and 3x500Gb Seagate harddrives (raid5+LVM).&lt;/p&gt;
-
-&lt;h2 id=&#34;installation:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;Installation&lt;/h2&gt;
-
-&lt;p&gt;The motherboard with attached CPU cooler fits nicely into my Antec P182.&lt;/p&gt;
-
-
-
-&lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;http://rockhopper.dk/uploads/gigabyte_ga-ma790fxt-ud5p_1.jpg&#34;
-        title=&#34;Gigabyte GA-MA790FXT-UD5P mounted in Antec P182&#34;
-        class=&#34;image-link thumbnail&#34;
-        
-    &gt;
-        
-            
-            &lt;img src=&#34;http://rockhopper.dk/uploads/gigabyte_ga-ma790fxt-ud5p_1-150x150.jpg&#34;
-                class=&#34;
-                    &#34;
-                
-                
-                
-                
-            /&gt;
-        
-        
-        &lt;div class=&#34;caption&#34;&gt;Gigabyte GA-MA790FXT-UD5P mounted in Antec P182&lt;/div&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-
-&lt;p&gt;The CPU cooler can only be installed on a socket AM3 motherboard in such a way that the fan either blows up (towards the top of the case) or down (towards the PCI-e slots). When the cooler is mounted in this way, it also means that the lowest fins on the heatsink extends over the two first RAM slots. This might not normally cause any problems, but because the Corsair memory modules have headspreaders attached, they are rather tall, preventing them from being placed below the fins. The solution is to place the modules in the last 2 slots. I choose to install the cooler so the fan blows air hot upwards and out of the case&amp;#8217;s top vents.&lt;/p&gt;
-
-
-
-&lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;http://rockhopper.dk/uploads/gigabyte_ga-ma790fxt-ud5p_2.jpg&#34;
-        title=&#34;Xigmatek HDT-S1283 Cooler blocking first two RAM slots&#34;
-        class=&#34;image-link thumbnail&#34;
-        
-    &gt;
-        
-            
-            &lt;img src=&#34;http://rockhopper.dk/uploads/gigabyte_ga-ma790fxt-ud5p_2-150x150.jpg&#34;
-                class=&#34;
-                    &#34;
-                
-                
-                
-                
-            /&gt;
-        
-        
-        &lt;div class=&#34;caption&#34;&gt;Xigmatek HDT-S1283 Cooler blocking first two RAM slots&lt;/div&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-
-&lt;h2 id=&#34;bios:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;BIOS&lt;/h2&gt;
-
-&lt;p&gt;The default version shipped with the motherboard does not have legacy USB keyboard support enabled, which means there is no keyboard in GRUB (when Linux is booted there is no problem). I didn&amp;#8217;t notice if there was a option to enabled it, I just updated to the newest version at the time (version F5c) which fixed it. Updating the BIOS just require a USB thumbdrive formattet with FAT32, and the extracted BIOS file (use unrar to extract it from the .exe file). While tweaking the BIOS I switched all SATA drives to AHCI, to get the most from the drives in Linux, and set the memory frequency to 1333MHz.&lt;/p&gt;
-
-&lt;h2 id=&#34;os:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;OS&lt;/h2&gt;
-
-&lt;p&gt;To match the new hardware I also switched from Arch Linux x686 to Arch Linux x86_64. I have not experienced any crashes or trouble after switching to the new hardware, so the hardware is 100% Linux compatible. There might be problems with older kernels, but I can confirm that it works with 2.6.28 or newer.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Update the 01-Aug-2009: attached &lt;a href=&#34;http://rockhopper.dk/uploads/gigabyte-ga-ma790fxt-ud5p-dmesg.txt&#34;&gt;dmesg&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;fancontrol-and-sensors:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;Fancontrol and sensors&lt;/h2&gt;
-
-&lt;p&gt;I installed lm_sensors and used pwmconfig to create a /etc/fancontrol file:&lt;/p&gt;
-
-&lt;pre&gt;
-&lt;code class=&#34;language-bash&#34;&gt;Configuration file generated by pwmconfig, changes will be lost
-# cpu : temp2, pwm1, min:35, max:50
-# sys1: temp1, pwm2, min:45, max:50
-INTERVAL=10
-FCTEMPS=hwmon0/device/pwm1=hwmon0/device/temp2_input hwmon0/device/pwm2=hwmon0/device/temp1_input
-FCFANS=hwmon0/device/pwm1=hwmon0/device/fan1_input hwmon0/device/pwm2=hwmon0/device/fan2_input
-MINTEMP=hwmon0/device/pwm1=35 hwmon0/device/pwm2=45
-MAXTEMP=hwmon0/device/pwm1=45 hwmon0/device/pwm2=50
-MINSTART=hwmon0/device/pwm1=150 hwmon0/device/pwm2=150
-MINSTOP=hwmon0/device/pwm1=100 hwmon0/device/pwm2=100
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;On a hot summerday the sensors command outputs:&lt;/p&gt;
-
-&lt;pre&gt;it8720-isa-0228
-Adapter: ISA adapter
-in0:         +1.04 V  (min =  +0.00 V, max =  +4.08 V)
-in1:         +1.62 V  (min =  +0.00 V, max =  +4.08 V)
-in2:         +3.28 V  (min =  +0.00 V, max =  +4.08 V)
-in3:         +2.96 V  (min =  +0.00 V, max =  +4.08 V)
-in4:         +3.07 V  (min =  +0.00 V, max =  +4.08 V)
-in5:         +1.97 V  (min =  +0.00 V, max =  +4.08 V)
-in6:         +4.08 V  (min =  +0.00 V, max =  +4.08 V)
-in7:         +2.16 V  (min =  +0.00 V, max =  +4.08 V)
-Vbat:        +3.25 V
-fan1:        198 RPM  (min =    0 RPM)
-fan2:        941 RPM  (min =    0 RPM)
-fan3:          0 RPM  (min =    0 RPM)
-fan4:          0 RPM  (min =    0 RPM)
-fan5:        521 RPM  (min =    0 RPM)
-temp1:       +48.0°C  (low  = +127.0°C, high = +127.0°C)  sensor = thermistor
-temp2:       +40.0°C  (low  = +127.0°C, high = +60.0°C)  sensor = thermal diode
-temp3:       +45.0°C  (low  = +127.0°C, high = +127.0°C)  sensor = thermistor
-cpu0_vid:   +1.550 V&lt;/pre&gt;
-
-&lt;h2 id=&#34;other-applications:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;Other applications&lt;/h2&gt;
-
-&lt;p&gt;To get the most from a multicore CPU some appliations needs to be configured to use all cores.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Blender: works out of the box, if not check render settings (F10) for &amp;#8220;Threads: 4&amp;#8221;&lt;/li&gt;
-&lt;li&gt;The GIMP: should also use all four cores, else check enviroment settings&lt;/li&gt;
-&lt;li&gt;OGMRip: go to profiles, edit a profile and in the &amp;#8220;Video&amp;#8221; tab increase the number of threads to 4&lt;/li&gt;
-&lt;li&gt;Makepkg: edit /etc/makepkg.conf and set MAKEFLAGS=&amp;#8221;-j5&amp;#8243; (Yes 5, one pr core + 1)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;cpu-frequency-scaling:3fe8a0b44f4350929c629b86ba688ce5&#34;&gt;CPU frequency scaling&lt;/h2&gt;
-
-&lt;p&gt;I use the ondemand CPU frequceny scaling governor, so most of the time all four cores run at 800MHz and only switch to 2.6GHz when it is needed. I have put the following in my /etc/rc.local:&lt;/p&gt;
-
-&lt;pre&gt;
-&lt;code class=&#34;language-bash&#34;&gt;for i in 0 1 2 3; do
-  echo ondemand &amp;gt; /sys/devices/system/cpu/cpu${i}/cpufreq/scaling_governor
-  echo 1 &amp;gt;/sys/devices/system/cpu/cpu${i}/cpufreq/ondemand/ignore_nice_load
-done
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

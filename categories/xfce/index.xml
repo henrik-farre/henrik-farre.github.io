@@ -74,24 +74,25 @@ done
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4&#34;&gt;
     &lt;a href=&#34;http://rockhopper.dk/uploads/xfce-panel-manager.png&#34;
-        title=&#34;Xfce&amp;#39;s panel set to hide completely&#34;
-        class=&#34;image-link thumbnail&#34;
+    title=&#34;Xfce&amp;#39;s panel set to hide completely&#34;
+    class=&#34;image-link thumbnail&#34;
+    
+&gt;
+    
         
-    &gt;
-        
+        &lt;img src=&#34;http://rockhopper.dk/uploads/thumbnails/xfce-panel-manager-176x176.png&#34;
+            class=&#34;
+                &#34;
             
-            &lt;img src=&#34;http://rockhopper.dk/uploads/xfce-panel-manager.png&#34;
-                class=&#34;
-                    &#34;
-                
-                
-                
-                
-            /&gt;
-        
-        
-        &lt;div class=&#34;caption&#34;&gt;Xfce&amp;#39;s panel set to hide completely&lt;/div&gt;
-    &lt;/a&gt;
+            
+            
+            
+        /&gt;
+    
+    
+    &lt;div class=&#34;caption&#34;&gt;Xfce&amp;#39;s panel set to hide completely&lt;/div&gt;
+&lt;/a&gt;
+
   &lt;/div&gt;
 &lt;/div&gt;
 

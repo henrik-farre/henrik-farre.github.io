@@ -343,11 +343,10 @@ Press home+back to reboot&lt;/pre&gt;
 
 &lt;h2 id=&#34;photos:12f6248c67b226d44f139d9565d024ce&#34;&gt;Photos&lt;/h2&gt;
 
-
-
-&lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;http://rockhopper.dk/uploads/g1_box_with_contents.jpg&#34;
+&lt;div class=&#34;row image-gallery&#34;&gt;
+  
+&lt;div class=&#34;col-xs-6 col-sm-4 col-md-4&#34;&gt;
+  &lt;a href=&#34;http://rockhopper.dk/uploads/g1_box_with_contents.jpg&#34;
     title=&#34;Contents of box. Note the power adaptor&#34;
     class=&#34;image-link thumbnail&#34;
     
@@ -367,15 +366,10 @@ Press home+back to reboot&lt;/pre&gt;
     &lt;div class=&#34;caption&#34;&gt;Contents of box. Note the power adaptor&lt;/div&gt;
 &lt;/a&gt;
 
-  &lt;/div&gt;
 &lt;/div&gt;
 
-
-&lt;p&gt;
-
-&lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;http://rockhopper.dk/uploads/g1_front.jpg&#34;
+&lt;div class=&#34;col-xs-6 col-sm-4 col-md-4&#34;&gt;
+  &lt;a href=&#34;http://rockhopper.dk/uploads/g1_front.jpg&#34;
     title=&#34;Front of G1&#34;
     class=&#34;image-link thumbnail&#34;
     
@@ -395,15 +389,10 @@ Press home+back to reboot&lt;/pre&gt;
     &lt;div class=&#34;caption&#34;&gt;Front of G1&lt;/div&gt;
 &lt;/a&gt;
 
-  &lt;/div&gt;
 &lt;/div&gt;
-&lt;/p&gt;
 
-&lt;p&gt;
-
-&lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;http://rockhopper.dk/uploads/g1_back.jpg&#34;
+&lt;div class=&#34;col-xs-6 col-sm-4 col-md-4&#34;&gt;
+  &lt;a href=&#34;http://rockhopper.dk/uploads/g1_back.jpg&#34;
     title=&#34;Backside of G1&#34;
     class=&#34;image-link thumbnail&#34;
     
@@ -423,15 +412,10 @@ Press home+back to reboot&lt;/pre&gt;
     &lt;div class=&#34;caption&#34;&gt;Backside of G1&lt;/div&gt;
 &lt;/a&gt;
 
-  &lt;/div&gt;
 &lt;/div&gt;
-&lt;/p&gt;
 
-&lt;p&gt;
-
-&lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;http://rockhopper.dk/uploads/g1_treo600_side_by_side.jpg&#34;
+&lt;div class=&#34;col-xs-6 col-sm-4 col-md-4&#34;&gt;
+  &lt;a href=&#34;http://rockhopper.dk/uploads/g1_treo600_side_by_side.jpg&#34;
     title=&#34;HTC G1 side by side with my old PalmOne Treo 600&#34;
     class=&#34;image-link thumbnail&#34;
     
@@ -451,15 +435,10 @@ Press home+back to reboot&lt;/pre&gt;
     &lt;div class=&#34;caption&#34;&gt;HTC G1 side by side with my old PalmOne Treo 600&lt;/div&gt;
 &lt;/a&gt;
 
-  &lt;/div&gt;
 &lt;/div&gt;
-&lt;/p&gt;
 
-&lt;p&gt;
-
-&lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-sm-4&#34;&gt;
-    &lt;a href=&#34;http://rockhopper.dk/uploads/g1_headphones.jpg&#34;
+&lt;div class=&#34;col-xs-6 col-sm-4 col-md-4&#34;&gt;
+  &lt;a href=&#34;http://rockhopper.dk/uploads/g1_headphones.jpg&#34;
     title=&#34;Head phones with micro usb connector&#34;
     class=&#34;image-link thumbnail&#34;
     
@@ -479,9 +458,11 @@ Press home+back to reboot&lt;/pre&gt;
     &lt;div class=&#34;caption&#34;&gt;Head phones with micro usb connector&lt;/div&gt;
 &lt;/a&gt;
 
-  &lt;/div&gt;
 &lt;/div&gt;
-&lt;/p&gt;
+
+
+&lt;/div&gt;
+
 </description>
     </item>
     

@@ -23,7 +23,7 @@
 
 &lt;div class=&#34;row image-gallery&#34;&gt;
   
-&lt;div class=&#34;col-sm-4&#34;&gt;
+&lt;div class=&#34;col-xs-6 col-sm-4 col-md-4&#34;&gt;
   &lt;a href=&#34;http://rockhopper.dk/uploads/duplicity_wan_upload_dropbox_150mb_chunks.png&#34;
     title=&#34;Upload to Dropbox with 150Mb chunk size&#34;
     class=&#34;image-link thumbnail&#34;
@@ -46,7 +46,7 @@
 
 &lt;/div&gt;
 
-&lt;div class=&#34;col-sm-4&#34;&gt;
+&lt;div class=&#34;col-xs-6 col-sm-4 col-md-4&#34;&gt;
   &lt;a href=&#34;http://rockhopper.dk/uploads/duplicity_wan_upload_dropbox_16mb_chunks.png&#34;
     title=&#34;Upload to Dropbox with 16Mb chunk size&#34;
     class=&#34;image-link thumbnail&#34;

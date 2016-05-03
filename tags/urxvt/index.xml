@@ -22,10 +22,10 @@
 
 
 &lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-sm-4&#34;&gt;
+  &lt;div class=&#34;col-sm-4 photo&#34;&gt;
     &lt;a href=&#34;http://rockhopper.dk/uploads/zsh_screen_urxvt.jpg&#34;
     title=&#34;Zsh in screen in urxvt&#34;
-    class=&#34;image-link thumbnail&#34;
+    class=&#34;thumbnail&#34;
     
 &gt;
     

@@ -23,10 +23,10 @@
 
 &lt;div class=&#34;row image-gallery&#34;&gt;
   
-&lt;div class=&#34;col-xs-6 col-sm-4 col-md-4&#34;&gt;
+&lt;div class=&#34;col-xs-6 col-sm-4 col-md-4 gallery-photo&#34;&gt;
   &lt;a href=&#34;http://rockhopper.dk/uploads/duplicity_wan_upload_dropbox_150mb_chunks.png&#34;
     title=&#34;Upload to Dropbox with 150Mb chunk size&#34;
-    class=&#34;image-link thumbnail&#34;
+    class=&#34;thumbnail&#34;
     
 &gt;
     
@@ -46,10 +46,10 @@
 
 &lt;/div&gt;
 
-&lt;div class=&#34;col-xs-6 col-sm-4 col-md-4&#34;&gt;
+&lt;div class=&#34;col-xs-6 col-sm-4 col-md-4 gallery-photo&#34;&gt;
   &lt;a href=&#34;http://rockhopper.dk/uploads/duplicity_wan_upload_dropbox_16mb_chunks.png&#34;
     title=&#34;Upload to Dropbox with 16Mb chunk size&#34;
-    class=&#34;image-link thumbnail&#34;
+    class=&#34;thumbnail&#34;
     
 &gt;
     
@@ -89,10 +89,10 @@ DPBX_UPLOAD_CHUNK_SIZE = 16 * 1024 * 1024&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;
 
 &lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-sm-4&#34;&gt;
+  &lt;div class=&#34;col-sm-4 photo&#34;&gt;
     &lt;a href=&#34;http://rockhopper.dk/uploads/duplicity_wan_upload_google_drive_volsize_512mb.png&#34;
     title=&#34;Upload to Google Drive with 512Mb volsize&#34;
-    class=&#34;image-link thumbnail&#34;
+    class=&#34;thumbnail&#34;
     
 &gt;
     
@@ -164,10 +164,10 @@ Giving up after 5 attempts. OverflowError: length too large&lt;/pre&gt;
 
 
 &lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-sm-4&#34;&gt;
+  &lt;div class=&#34;col-sm-4 photo&#34;&gt;
     &lt;a href=&#34;http://rockhopper.dk/uploads/kodi_powersave_settings.png&#34;
     title=&#34;Kodi Powersave settings&#34;
-    class=&#34;image-link thumbnail&#34;
+    class=&#34;thumbnail&#34;
     
 &gt;
     
@@ -646,7 +646,7 @@ Xcursor.size: 32
 &lt;li&gt;&lt;i class=&#39;fa fa-linkedin&#39;&gt;&lt;/i&gt; &lt;a href=&#34;https://dk.linkedin.com/in/henrikfarre&#34;&gt;LinkedIn&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;This blog is powered by &lt;a href=&#34;http://gohugo.io&#34;&gt;Hugo&lt;/a&gt; and &lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages&lt;/a&gt; and you can find my setup &lt;a href=&#34;https://github.com/henrik-farre/hugo.rockhopper.dk&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This blog is powered by &lt;a href=&#34;http://gohugo.io&#34;&gt;Hugo&lt;/a&gt; and &lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages&lt;/a&gt; and you can find my setup &lt;a href=&#34;https://github.com/henrik-farre/hugo.rockhopper.dk&#34;&gt;here&lt;/a&gt;. The theme is based on the &lt;a href=&#34;http://themes.gohugo.io/beg/&#34;&gt;Beg&lt;/a&gt; theme by &lt;a href=&#34;http://yet.unresolved.xyz/&#34;&gt;Daisuke Tsuji&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

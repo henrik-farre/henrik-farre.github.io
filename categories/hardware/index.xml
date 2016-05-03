@@ -178,10 +178,10 @@
 
 
 &lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-sm-4&#34;&gt;
+  &lt;div class=&#34;col-sm-4 photo&#34;&gt;
     &lt;a href=&#34;http://rockhopper.dk/uploads/gigabyte_ga-ma790fxt-ud5p_1.jpg&#34;
     title=&#34;Gigabyte GA-MA790FXT-UD5P mounted in Antec P182&#34;
-    class=&#34;image-link thumbnail&#34;
+    class=&#34;thumbnail&#34;
     
 &gt;
     
@@ -208,10 +208,10 @@
 
 
 &lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-sm-4&#34;&gt;
+  &lt;div class=&#34;col-sm-4 photo&#34;&gt;
     &lt;a href=&#34;http://rockhopper.dk/uploads/gigabyte_ga-ma790fxt-ud5p_2.jpg&#34;
     title=&#34;Xigmatek HDT-S1283 Cooler blocking first two RAM slots&#34;
-    class=&#34;image-link thumbnail&#34;
+    class=&#34;thumbnail&#34;
     
 &gt;
     

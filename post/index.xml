@@ -23,10 +23,10 @@
 
 &lt;div class=&#34;row image-gallery&#34;&gt;
   
-&lt;div class=&#34;col-xs-6 col-sm-4 col-md-4&#34;&gt;
+&lt;div class=&#34;col-xs-6 col-sm-4 col-md-4 gallery-photo&#34;&gt;
   &lt;a href=&#34;http://rockhopper.dk/uploads/duplicity_wan_upload_dropbox_150mb_chunks.png&#34;
     title=&#34;Upload to Dropbox with 150Mb chunk size&#34;
-    class=&#34;image-link thumbnail&#34;
+    class=&#34;thumbnail&#34;
     
 &gt;
     
@@ -46,10 +46,10 @@
 
 &lt;/div&gt;
 
-&lt;div class=&#34;col-xs-6 col-sm-4 col-md-4&#34;&gt;
+&lt;div class=&#34;col-xs-6 col-sm-4 col-md-4 gallery-photo&#34;&gt;
   &lt;a href=&#34;http://rockhopper.dk/uploads/duplicity_wan_upload_dropbox_16mb_chunks.png&#34;
     title=&#34;Upload to Dropbox with 16Mb chunk size&#34;
-    class=&#34;image-link thumbnail&#34;
+    class=&#34;thumbnail&#34;
     
 &gt;
     
@@ -89,10 +89,10 @@ DPBX_UPLOAD_CHUNK_SIZE = 16 * 1024 * 1024&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;
 
 &lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-sm-4&#34;&gt;
+  &lt;div class=&#34;col-sm-4 photo&#34;&gt;
     &lt;a href=&#34;http://rockhopper.dk/uploads/duplicity_wan_upload_google_drive_volsize_512mb.png&#34;
     title=&#34;Upload to Google Drive with 512Mb volsize&#34;
-    class=&#34;image-link thumbnail&#34;
+    class=&#34;thumbnail&#34;
     
 &gt;
     
@@ -164,10 +164,10 @@ Giving up after 5 attempts. OverflowError: length too large&lt;/pre&gt;
 
 
 &lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-sm-4&#34;&gt;
+  &lt;div class=&#34;col-sm-4 photo&#34;&gt;
     &lt;a href=&#34;http://rockhopper.dk/uploads/kodi_powersave_settings.png&#34;
     title=&#34;Kodi Powersave settings&#34;
-    class=&#34;image-link thumbnail&#34;
+    class=&#34;thumbnail&#34;
     
 &gt;
     
@@ -1205,10 +1205,10 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 
 &lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-sm-4&#34;&gt;
+  &lt;div class=&#34;col-sm-4 photo&#34;&gt;
     &lt;a href=&#34;http://rockhopper.dk/uploads/mythtv_capture_card_add_new.png&#34;
     title=&#34;MythTV setup: adding new capture card&#34;
-    class=&#34;image-link thumbnail&#34;
+    class=&#34;thumbnail&#34;
     
 &gt;
     
@@ -1250,10 +1250,10 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 
 &lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-sm-4&#34;&gt;
+  &lt;div class=&#34;col-sm-4 photo&#34;&gt;
     &lt;a href=&#34;http://rockhopper.dk/uploads/mythtv_video_source_add_new.png&#34;
     title=&#34;MythTV setup: adding new video source&#34;
-    class=&#34;image-link thumbnail&#34;
+    class=&#34;thumbnail&#34;
     
 &gt;
     
@@ -1289,10 +1289,10 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 
 &lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-sm-4&#34;&gt;
+  &lt;div class=&#34;col-sm-4 photo&#34;&gt;
     &lt;a href=&#34;http://rockhopper.dk/uploads/mythtv_input_connections.png&#34;
     title=&#34;MythTV setup: input connections&#34;
-    class=&#34;image-link thumbnail&#34;
+    class=&#34;thumbnail&#34;
     
 &gt;
     
@@ -1326,10 +1326,10 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 
 &lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-sm-4&#34;&gt;
+  &lt;div class=&#34;col-sm-4 photo&#34;&gt;
     &lt;a href=&#34;http://rockhopper.dk/uploads/mythtv_scanning_for_channels.png&#34;
     title=&#34;MythTV setup: scanning for channels&#34;
-    class=&#34;image-link thumbnail&#34;
+    class=&#34;thumbnail&#34;
     
 &gt;
     
@@ -1364,10 +1364,10 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 
 &lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-sm-4&#34;&gt;
+  &lt;div class=&#34;col-sm-4 photo&#34;&gt;
     &lt;a href=&#34;http://rockhopper.dk/uploads/mythtv_scanning_for_channels2.png&#34;
     title=&#34;MythTV setup: performing the scan&#34;
-    class=&#34;image-link thumbnail&#34;
+    class=&#34;thumbnail&#34;
     
 &gt;
     
@@ -1394,10 +1394,10 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 
 &lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-sm-4&#34;&gt;
+  &lt;div class=&#34;col-sm-4 photo&#34;&gt;
     &lt;a href=&#34;http://rockhopper.dk/uploads/mythtv_scanning_for_channels_done.png&#34;
     title=&#34;MythTV setup: channel scanning completed&#34;
-    class=&#34;image-link thumbnail&#34;
+    class=&#34;thumbnail&#34;
     
 &gt;
     

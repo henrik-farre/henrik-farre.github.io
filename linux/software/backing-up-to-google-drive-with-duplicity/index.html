@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.15" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans%7CMarcellus+SC'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+  
+    <link href="/css/combined.css" rel="stylesheet" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://rockhopper.dk//index.xml">
+    <link rel="canonical" href="http://rockhopper.dk/linux/software/backing-up-to-google-drive-with-duplicity" />
+
+    
+    <title>Backing up to Google drive with Duplicity - Rockhopper.dk</title>
+    <meta property='og:title' content="Backing up to Google drive with Duplicity - Rockhopper.dk">
+    <meta property="og:type" content="article">
+    
+    
+    <meta name="google-site-verification" content="eoEQEAp-8H6Sou4fffVz-N58YP34LIRG0wJyHvvxVJw" />
+    
+
+    <meta property="og:url" content="http://rockhopper.dk/linux/software/backing-up-to-google-drive-with-duplicity">
+    
+    
+  </head>
+
+  <body>
+
+    <header class="site">
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-md-12">
+            <img src="/img/header_strand.png" alt="">
+          </div>
+        </div>
+        <nav class="navbar navbar-inverse">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://rockhopper.dk/">Rockhopper.dk</a>
+          </div>
+
+          <div id="navbar" class="collapse navbar-collapse">
+            
+            <ul class="nav navbar-nav navbar-right">
+              
+              
+              <li><a href="/about-me/"><i class='fa fa-user'></i> About me</a></li>
+              
+              
+              
+              <li><a href="https://github.com/henrik-farre"><i class='fa fa-github'></i> Github</a></li>
+              
+              
+              
+              <li><a href="https://dk.linkedin.com/in/henrikfarre"><i class='fa fa-linkedin'></i> LinkedIn</a></li>
+              
+              
+            </ul>
+            
+          </div>
+
+        </nav>
+      </div>
+    </header>
+
+    <div class="site">
+      <div class="container">
+
+
+
+<div class="single">
+
+  <div class="row">
+    <div class="col-md-8">
+
+      <article class="single" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+        <meta itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" content="http://rockhopper.dk/"/>
+        <meta itemprop="dateModified" content="2016-05-10T10:40:15&#43;02:00">
+        <meta itemprop="headline" content="Backing up to Google drive with Duplicity">
+        <meta itemprop="description" content="As described in my previous post I use Duplicity with Google Drive for storage. In this post I give a quick how to on configuring Duplicity for that setup.
+">
+        <meta itemprop="url" content="http://rockhopper.dk/linux/software/backing-up-to-google-drive-with-duplicity">
+        <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+          <meta itemprop="url" content="http://rockhopper.dk/images/default.jpg" />
+          <meta itemprop="width" content="800">
+          <meta itemprop="height" content="800">
+        </div>
+        <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+          <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+            <meta itemprop="url" content="http://rockhopper.dk/images/logo.jpg">
+            <meta itemprop="width" content="100">
+            <meta itemprop="height" content="100">
+          </div>
+          <meta itemprop="name" content="Rockhopper.dk">
+        </div>
+        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <meta itemprop="name" content="Henrik Farre">
+        </div>
+
+        <header class="article-header">
+          <time itemprop="datePublished" pubdate="pubdate" datetime="2016-05-10T10:40:15&#43;02:00">Tue, May 10, 2016</time>
+          <h1 class="article-title">Backing up to Google drive with Duplicity</h1>
+        </header>
+
+        <div class="article-body" itemprop="articleBody">
+          
+
+<p>As described in my <a href="/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end/">previous post</a> I use Duplicity with Google Drive for storage. In this post I give a quick how to on configuring Duplicity for that setup.</p>
+
+<h2 id="prerequisites:a4873c35425d94672fb7ac53bf8aa261">Prerequisites</h2>
+
+<ul>
+<li>Duplicity installed</li>
+<li>PyDrive, I installed it from Arch Linux's <a href="https://aur.archlinux.org/packages/python2-pydrive/">Aur repository</a></li>
+<li>GPG keys configured</li>
+<li>A Google Drive account</li>
+<li>First time you run Duplicity it has to be done interactively, as it will prompt you to allow access to Google drive</li>
+</ul>
+
+<h2 id="google-drive-api-setup:a4873c35425d94672fb7ac53bf8aa261">Google drive API setup</h2>
+
+<p>Go to <a href="https://console.developers.google.com/">console.developers.google.com</a> and create a new project, under &quot;Show advanced options &gt; App Engine location&quot; I selected &quot;europe-west&quot;.</p>
+
+<ol>
+<li>Select &quot;Google Drive API&quot; and enable, then select &quot;Credentials&quot; in the menu to the left</li>
+<li>Fill out &quot;OAuth consent screen&quot;</li>
+<li>Click &quot;Create credentials&quot; in the popup and select &quot;OAuth client ID&quot; in the dropdown</li>
+<li>Select &quot;Other&quot; and give the client a name</li>
+<li>Download the JSON file, save it as <code>/root/.duplicity/client_secrets.json</code>
+. Put the &quot;Client ID&quot; and &quot;Client secret&quot; in <code>/root/.duplicity/gdrive</code>
+ (see below)</li>
+</ol>
+
+<div class="row image-gallery">
+  
+<div class="col-xs-6 col-sm-4 col-md-4 gallery-photo">
+  <a href="/uploads/duplicity_gdrive_backend_api_enable_api.png"
+    title="1. Enabling Google drive API for project"
+    class="thumbnail"
+    
+>
+    
+        
+        <img src="/uploads/thumbnails/duplicity_gdrive_backend_api_enable_api.png"
+            class=""
+            
+            
+            
+            
+        />
+    
+    
+    <div class="caption">1. Enabling Google drive API for project</div>
+</a>
+
+</div>
+
+<div class="col-xs-6 col-sm-4 col-md-4 gallery-photo">
+  <a href="/uploads/duplicity_gdrive_backend_api_oauth_consent_screen.png"
+    title="2. OAuth consent screen"
+    class="thumbnail"
+    
+>
+    
+        
+        <img src="/uploads/thumbnails/duplicity_gdrive_backend_api_oauth_consent_screen.png"
+            class=""
+            
+            
+            
+            
+        />
+    
+    
+    <div class="caption">2. OAuth consent screen</div>
+</a>
+
+</div>
+
+<div class="col-xs-6 col-sm-4 col-md-4 gallery-photo">
+  <a href="/uploads/duplicity_gdrive_backend_api_create_oauth.png"
+    title="3. Selecting OAuth client ID"
+    class="thumbnail"
+    
+>
+    
+        
+        <img src="/uploads/thumbnails/duplicity_gdrive_backend_api_create_oauth.png"
+            class=""
+            
+            
+            
+            
+        />
+    
+    
+    <div class="caption">3. Selecting OAuth client ID</div>
+</a>
+
+</div>
+
+<div class="col-xs-6 col-sm-4 col-md-4 gallery-photo">
+  <a href="/uploads/duplicity_gdrive_backend_api_create_client_id.png"
+    title="4. Creating client ID"
+    class="thumbnail"
+    
+>
+    
+        
+        <img src="/uploads/thumbnails/duplicity_gdrive_backend_api_create_client_id.png"
+            class=""
+            
+            
+            
+            
+        />
+    
+    
+    <div class="caption">4. Creating client ID</div>
+</a>
+
+</div>
+
+<div class="col-xs-6 col-sm-4 col-md-4 gallery-photo">
+  <a href="/uploads/duplicity_gdrive_backend_api_client_id.png"
+    title="5. Credentials for client and JSON download"
+    class="thumbnail"
+    
+>
+    
+        
+        <img src="/uploads/thumbnails/duplicity_gdrive_backend_api_client_id.png"
+            class=""
+            
+            
+            
+            
+        />
+    
+    
+    <div class="caption">5. Credentials for client and JSON download</div>
+</a>
+
+</div>
+
+
+</div>
+
+
+<p>Create <code>/root/.duplicity/gdrive</code>
+ and add the values from step 5:</p>
+
+<p><pre><code class="language-yml">client_config_backend: settings
+client_config:
+  client_id: XXXXXXXXXXXXXXXXXXXXXX.apps.googleusercontent.com
+  client_secret: XXXXXXXXXXXXXXXXXXXXXX
+save_credentials: True
+save_credentials_backend: file
+save_credentials_file: gdrive.cache
+get_refresh_token: True</code></pre>
+</p>
+
+<h2 id="granting-duplicity-access-to-google-drive:a4873c35425d94672fb7ac53bf8aa261">Granting Duplicity access to Google drive</h2>
+
+<p>PyDrive would prompt for a verification code everytime I ran Duplicity, and would not create the gdrive.cache file. I fixed it by changing the current working directory to <code>/root/.duplicity/</code>
+. A simple script like the following should work:</p>
+
+<p><pre><code class="language-bash">#!/bin/bash
+cd /root/.duplicity/
+
+PASSPHRASE="XXXXXXXXXX"
+GOOGLE_DRIVE_SETTINGS="/root/.duplicity/gdrive"
+DEST="gdocs://YOUR_GMAIL/SOME_DIR/$HOSTNAME/home"
+SRC="/home"
+
+duplicity incr --encrypt-key XXXXXXX --full-if-older-than 4M --volsize 1024 --asynchronous-upload --exclude-device-files --exclude-other-filesystems "${SRC}" "${DEST}"</code></pre>
+</p>
+
+<p>When you run this script the first time, you should get a prompt that says (XXXXXXXXXXXXXXXXXXXXXX will be your client id):</p>
+
+<pre>Go to the following link in your browser:
+
+    https://accounts.google.com/o/oauth2/auth?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&response_type=code&client_id=XXXXXXXXXXXXXXXXXXXXXX.apps.googleusercontent.com&access_type=offline
+
+Enter verification code:</pre>
+
+<p>When you have approved access you should have the file <code>/root/.duplicity/gdrive.cache</code>
+, and next time Duplicity runs, it should automatically be authorized.</p>
+
+<h2 id="wrapping-up:a4873c35425d94672fb7ac53bf8aa261">Wrapping up</h2>
+
+<p>I have created a set of <a href="https://github.com/henrik-farre/duplicity_backup_scripts">Duplicity backup scrips</a> with error handling/reporting that wraps backup, restore, cleanup and backup verification, feel free to use or fork them :)</p>
+
+        </div>
+
+        <aside>
+          <div class="section"><a href="http://rockhopper.dk/tags/duplicity" class="tag">Duplicity</a> </div>
+
+          <div class="section share">
+            <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2frockhopper.dk%2flinux%2fsoftware%2fbacking-up-to-google-drive-with-duplicity&t=Backing%20up%20to%20Google%20drive%20with%20Duplicity" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+            <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2frockhopper.dk%2flinux%2fsoftware%2fbacking-up-to-google-drive-with-duplicity&text=Backing%20up%20to%20Google%20drive%20with%20Duplicity&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+            <a href="https://plus.google.com/share?url=http%3a%2f%2frockhopper.dk%2flinux%2fsoftware%2fbacking-up-to-google-drive-with-duplicity" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+            <a href="http://getpocket.com/edit?url=http%3a%2f%2frockhopper.dk%2flinux%2fsoftware%2fbacking-up-to-google-drive-with-duplicity&title=Backing%20up%20to%20Google%20drive%20with%20Duplicity" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+          </div>
+
+          
+          
+          
+        </aside>
+
+      </article>
+
+    </div>
+    <div class="col-md-4">
+      <aside class="site">
+
+  
+  <div class="panel panel-inverse">
+    <div class="panel-heading">
+      <h2 class="panel-title"><i class="fa fa-tags"></i> Categories</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://rockhopper.dk/categories/software" class="list-group-item">software</a>
+      
+      <a href="http://rockhopper.dk/categories/hardware" class="list-group-item">hardware</a>
+      
+      <a href="http://rockhopper.dk/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
+      
+      <a href="http://rockhopper.dk/categories/linux" class="list-group-item">linux</a>
+      
+      <a href="http://rockhopper.dk/categories/mythtv" class="list-group-item">mythtv</a>
+      
+      <a href="http://rockhopper.dk/categories/backup" class="list-group-item">backup</a>
+      
+      <a href="http://rockhopper.dk/categories/php" class="list-group-item">php</a>
+      
+      <a href="http://rockhopper.dk/categories/vim" class="list-group-item">vim</a>
+      
+      <a href="http://rockhopper.dk/categories/xfce" class="list-group-item">xfce</a>
+      
+      <a href="http://rockhopper.dk/categories/xorg" class="list-group-item">xorg</a>
+      
+    </div>
+  </div>
+  
+  <div class="panel panel-inverse">
+    <div class="panel-heading">
+      <h2 class="panel-title"><i class="fa fa-tags"></i> Tags</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://rockhopper.dk/tags/android" class="list-group-item">android</a>
+      
+      <a href="http://rockhopper.dk/tags/htpc" class="list-group-item">htpc</a>
+      
+      <a href="http://rockhopper.dk/tags/mythbackend" class="list-group-item">mythbackend</a>
+      
+      <a href="http://rockhopper.dk/tags/archlinux" class="list-group-item">archlinux</a>
+      
+      <a href="http://rockhopper.dk/tags/docker" class="list-group-item">docker</a>
+      
+      <a href="http://rockhopper.dk/tags/motherboard" class="list-group-item">motherboard</a>
+      
+      <a href="http://rockhopper.dk/tags/mythfrontend" class="list-group-item">mythfrontend</a>
+      
+      <a href="http://rockhopper.dk/tags/zsh" class="list-group-item">zsh</a>
+      
+      <a href="http://rockhopper.dk/tags/dvb-c" class="list-group-item">dvb-c</a>
+      
+      <a href="http://rockhopper.dk/tags/duplicity" class="list-group-item">duplicity</a>
+      
+    </div>
+  </div>
+  
+
+</aside>
+
+    </div>
+  </div>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site">
+      <div class="container">
+        <p>&copy; 2016 Henrik Farre - <a href="/about-me/">About</a></p>
+      </div>
+    </footer>
+
+    <script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  
+    <script src="/js/combined.js" ></script>
+
+    
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-4186065-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+    
+
+  </body>
+</html>
+

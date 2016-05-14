@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.15" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans%7CMarcellus+SC'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+  
+    <link href="/css/combined.css" rel="stylesheet" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://rockhopper.dk//index.xml">
+    <link rel="canonical" href="http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker" />
+
+    
+    <title>Behat tests with Symfony 3, PhantomJS and Docker - Rockhopper.dk</title>
+    <meta property='og:title' content="Behat tests with Symfony 3, PhantomJS and Docker - Rockhopper.dk">
+    <meta property="og:type" content="article">
+    
+    
+    <meta name="google-site-verification" content="eoEQEAp-8H6Sou4fffVz-N58YP34LIRG0wJyHvvxVJw" />
+    
+
+    <meta property="og:url" content="http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker">
+    
+    
+  </head>
+
+  <body>
+
+    <header class="site">
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-md-12">
+            <img src="/img/header_strand.png" alt="">
+          </div>
+        </div>
+        <nav class="navbar navbar-inverse">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://rockhopper.dk/">Rockhopper.dk</a>
+          </div>
+
+          <div id="navbar" class="collapse navbar-collapse">
+            
+            <ul class="nav navbar-nav navbar-right">
+              
+              
+              <li><a href="/about-me/"><i class='fa fa-user'></i> About me</a></li>
+              
+              
+              
+              <li><a href="https://github.com/henrik-farre"><i class='fa fa-github'></i> Github</a></li>
+              
+              
+              
+              <li><a href="https://dk.linkedin.com/in/henrikfarre"><i class='fa fa-linkedin'></i> LinkedIn</a></li>
+              
+              
+            </ul>
+            
+          </div>
+
+        </nav>
+      </div>
+    </header>
+
+    <div class="site">
+      <div class="container">
+
+
+
+<div class="single">
+
+  <div class="row">
+    <div class="col-md-8">
+
+      <article class="single" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+        <meta itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" content="http://rockhopper.dk/"/>
+        <meta itemprop="dateModified" content="2016-05-14T14:56:22&#43;02:00">
+        <meta itemprop="headline" content="Behat tests with Symfony 3, PhantomJS and Docker">
+        <meta itemprop="description" content="Writing tests should be easy, but installing and maintaining every single piece needed is nontrivial. Thankfully Docker can provide each piece of the jigsaw: Symfony 3, Behat and PhantomJS.
+">
+        <meta itemprop="url" content="http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker">
+        <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+          <meta itemprop="name" content="Rockhopper.dk">
+        </div>
+        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <meta itemprop="name" content="Henrik Farre">
+          <meta itemprop="sameAs" content="https://dk.linkedin.com/in/henrikfarre">
+          <meta itemprop="sameAs" content="https://github.com/henrik-farre">
+        </div>
+
+        <header class="article-header">
+          <time itemprop="datePublished" pubdate="pubdate" datetime="2016-05-14T14:56:22&#43;02:00">Sat, May 14, 2016</time>
+          <h1 class="article-title">Behat tests with Symfony 3, PhantomJS and Docker</h1>
+        </header>
+
+        <div class="article-body" itemprop="articleBody">
+          
+
+<p>Writing tests should be easy, but installing and maintaining every single piece needed is nontrivial. Thankfully Docker can provide each piece of the jigsaw: Symfony 3, Behat and PhantomJS.</p>
+
+<p>I have created <a href="https://github.com/henrik-farre/docker">pilotboat</a> to make it easy for me to develop and test PHP based applications, and I will use it in this how-to. If you prefer to use another setup, feel free to look through my <a href="https://github.com/henrik-farre/docker">github repository for pilotboat</a> for inspiration.</p>
+
+<h2 id="prerequisite:dd2227ba96c5d4fb3ed6a97f377930d8">Prerequisite</h2>
+
+<ol>
+<li>Working Docker installation</li>
+<li>A top level domain that points to your local machine, e.g. .dev</li>
+</ol>
+
+<h2 id="pilotboat-setup:dd2227ba96c5d4fb3ed6a97f377930d8">Pilotboat setup</h2>
+
+<p>The following steps are required to setup pilotboat:</p>
+
+<ol>
+<li>Clone <a href="https://github.com/henrik-farre/docker">https://github.com/henrik-farre/docker</a> to your preferred location</li>
+<li>Add the bin directory to your $PATH.</li>
+<li>(Optional) Create an <a href="https://blackfire.io">Blackfire.io</a> account</li>
+<li>Copy containers/docker.env.skel to containers/docker.env and fill out the values for your Blackfire.io account, or leave them blank</li>
+<li>Run: <kbd>pilotboat start php-dev-debian-jessie</kbd>
+ (starts the default image based on Debian Jessie with Apache 2.4.x and PHP 5.6.x)</li>
+</ol>
+
+<p>Docker-compose will download and build the needed images and start the containers.</p>
+
+<h2 id="site-setup:dd2227ba96c5d4fb3ed6a97f377930d8">Site setup</h2>
+
+<p>To create a site based on Symfony 3 run <kbd>pilotboat site-create symfony.dev symfony</kbd>
+ (symfony.dev is your domain name, you may choose anything you like). The latest stable version of the Symfony 3 framework will be downloaded and installed. Note that pilotboat will create a database, but you will have to manually configure <code>app/config/parameters.yml</code>
+ to access it.</p>
+
+<h2 id="behat-configuration:dd2227ba96c5d4fb3ed6a97f377930d8">Behat configuration</h2>
+
+<p>Enter the container with <kbd>pilotboat shell</kbd>
+ and change to your site: <kbd>cd symfony.dev</kbd>
+.</p>
+
+<p>Next you will have to install the needed bundles for Behat, using composer: <kbd>composer require --dev behat/behat behat/mink behat/mink-extension behat/mink-selenium2-driver</kbd>
+</p>
+
+<p>When composer is done installing, initialize Behat with <kbd>vendor/bin/behat --init</kbd>
+, this will create the <code>features</code>
+ directory and <code>features/bootstrap/FeatureContext.php</code>
+.</p>
+
+<p>Now we have to tie everything together using a <code>behat.yml</code>
+ file, that you create in the root directory of your site, e.g. /var/www/symfony.dev:</p>
+
+<pre><code class="language-yml">default:
+  suites:
+    default:
+      contexts:
+        - FeatureContext
+        - Behat\MinkExtension\Context\MinkContext
+  extensions:
+    Behat\MinkExtension:
+      base_url: 'http://symfony.dev/'
+      sessions:
+        default:
+          selenium2:
+            wd_host: 'http://phantomjs:8910/wd/hub'</code></pre>
+
+
+<h2 id="writing-and-running-tests:dd2227ba96c5d4fb3ed6a97f377930d8">Writing and running tests</h2>
+
+<p>I will not go into detail on how to write tests, so the following is just a small example. Create <code>features/homepage.feature</code>
+ and put the following in the file:</p>
+
+<pre><code class="language-cucumber">Feature: Homepage
+  In order to see if the home page works
+  As a website user
+  I need to be able to see the home page
+
+  Scenario: See the home page
+    Given I am on "/"
+    Then I should see "Welcome to Symfony 3"</code></pre>
+
+
+<p>Run <kbd>vendor/bin/behat</kbd>
+ to execute the test, and you should see something like:</p>
+
+<pre>Feature: Homepage
+  In order to see if the home page works
+  As a website user
+  I need to be able to see the home page
+
+  Scenario: See the home page                # features/homepage.feature:6
+    Given I am on "/"                        # Behat\MinkExtension\Context\MinkContext::visit()
+    Then I should see "Welcome to Symfony 3" # Behat\MinkExtension\Context\MinkContext::assertPageContainsText()
+
+1 scenario (1 passed)
+2 steps (2 passed)
+0m0.21s (13.43Mb)</pre>
+
+<p>And you're ready to write tests :)</p>
+
+        </div>
+
+        <aside>
+          <div class="section"><a href="http://rockhopper.dk/tags/behat" class="tag">Behat</a> <a href="http://rockhopper.dk/tags/docker" class="tag">Docker</a> </div>
+
+          <div class="section share">
+            <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2frockhopper.dk%2flinux%2fsoftware%2fbehat-tests-with-symfony3-phantomjs-and-docker&t=Behat%20tests%20with%20Symfony%203%2c%20PhantomJS%20and%20Docker" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+            <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2frockhopper.dk%2flinux%2fsoftware%2fbehat-tests-with-symfony3-phantomjs-and-docker&text=Behat%20tests%20with%20Symfony%203%2c%20PhantomJS%20and%20Docker&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+            <a href="https://plus.google.com/share?url=http%3a%2f%2frockhopper.dk%2flinux%2fsoftware%2fbehat-tests-with-symfony3-phantomjs-and-docker" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+            <a href="http://getpocket.com/edit?url=http%3a%2f%2frockhopper.dk%2flinux%2fsoftware%2fbehat-tests-with-symfony3-phantomjs-and-docker&title=Behat%20tests%20with%20Symfony%203%2c%20PhantomJS%20and%20Docker" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+          </div>
+
+          
+          
+          
+        </aside>
+
+      </article>
+
+    </div>
+    <div class="col-md-4">
+      <aside class="site">
+
+  
+  <div class="panel panel-inverse">
+    <div class="panel-heading">
+      <h2 class="panel-title"><i class="fa fa-tags"></i> Categories</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://rockhopper.dk/categories/software" class="list-group-item">software</a>
+      
+      <a href="http://rockhopper.dk/categories/hardware" class="list-group-item">hardware</a>
+      
+      <a href="http://rockhopper.dk/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
+      
+      <a href="http://rockhopper.dk/categories/linux" class="list-group-item">linux</a>
+      
+      <a href="http://rockhopper.dk/categories/mythtv" class="list-group-item">mythtv</a>
+      
+      <a href="http://rockhopper.dk/categories/php" class="list-group-item">php</a>
+      
+      <a href="http://rockhopper.dk/categories/vim" class="list-group-item">vim</a>
+      
+      <a href="http://rockhopper.dk/categories/xfce" class="list-group-item">xfce</a>
+      
+      <a href="http://rockhopper.dk/categories/backup" class="list-group-item">backup</a>
+      
+      <a href="http://rockhopper.dk/categories/pilotboat" class="list-group-item">pilotboat</a>
+      
+    </div>
+  </div>
+  
+  <div class="panel panel-inverse">
+    <div class="panel-heading">
+      <h2 class="panel-title"><i class="fa fa-tags"></i> Tags</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://rockhopper.dk/tags/android" class="list-group-item">android</a>
+      
+      <a href="http://rockhopper.dk/tags/docker" class="list-group-item">docker</a>
+      
+      <a href="http://rockhopper.dk/tags/htpc" class="list-group-item">htpc</a>
+      
+      <a href="http://rockhopper.dk/tags/archlinux" class="list-group-item">archlinux</a>
+      
+      <a href="http://rockhopper.dk/tags/mythbackend" class="list-group-item">mythbackend</a>
+      
+      <a href="http://rockhopper.dk/tags/dvb-c" class="list-group-item">dvb-c</a>
+      
+      <a href="http://rockhopper.dk/tags/duplicity" class="list-group-item">duplicity</a>
+      
+      <a href="http://rockhopper.dk/tags/mythfrontend" class="list-group-item">mythfrontend</a>
+      
+      <a href="http://rockhopper.dk/tags/motherboard" class="list-group-item">motherboard</a>
+      
+      <a href="http://rockhopper.dk/tags/zsh" class="list-group-item">zsh</a>
+      
+    </div>
+  </div>
+  
+
+</aside>
+
+    </div>
+  </div>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site">
+      <div class="container">
+        <p>&copy; 2016 Henrik Farre - <a href="/about-me/">About</a></p>
+      </div>
+    </footer>
+
+    <script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  
+    <script src="/js/combined.js" ></script>
+
+    
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-4186065-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+    
+
+  </body>
+</html>
+

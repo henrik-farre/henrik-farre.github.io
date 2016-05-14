@@ -56,7 +56,7 @@
         &lt;img src=&#34;http://rockhopper.dk/uploads/thumbnails/duplicity_gdrive_backend_api_enable_api.png&#34;
             class=&#34;&#34;
             
-            
+            alt=&#34;1. Enabling Google drive API for project&#34;
             
             
         /&gt;
@@ -78,7 +78,7 @@
         &lt;img src=&#34;http://rockhopper.dk/uploads/thumbnails/duplicity_gdrive_backend_api_oauth_consent_screen.png&#34;
             class=&#34;&#34;
             
-            
+            alt=&#34;2. OAuth consent screen&#34;
             
             
         /&gt;
@@ -100,7 +100,7 @@
         &lt;img src=&#34;http://rockhopper.dk/uploads/thumbnails/duplicity_gdrive_backend_api_create_oauth.png&#34;
             class=&#34;&#34;
             
-            
+            alt=&#34;3. Selecting OAuth client ID&#34;
             
             
         /&gt;
@@ -122,7 +122,7 @@
         &lt;img src=&#34;http://rockhopper.dk/uploads/thumbnails/duplicity_gdrive_backend_api_create_client_id.png&#34;
             class=&#34;&#34;
             
-            
+            alt=&#34;4. Creating client ID&#34;
             
             
         /&gt;
@@ -144,7 +144,7 @@
         &lt;img src=&#34;http://rockhopper.dk/uploads/thumbnails/duplicity_gdrive_backend_api_client_id.png&#34;
             class=&#34;&#34;
             
-            
+            alt=&#34;5. Credentials for client and JSON download&#34;
             
             
         /&gt;
@@ -230,7 +230,7 @@ Enter verification code:&lt;/pre&gt;
         &lt;img src=&#34;http://rockhopper.dk/uploads/thumbnails/duplicity_wan_upload_dropbox_150mb_chunks.png&#34;
             class=&#34;&#34;
             
-            
+            alt=&#34;Upload to Dropbox with 150Mb chunk size&#34;
             
             
         /&gt;
@@ -252,7 +252,7 @@ Enter verification code:&lt;/pre&gt;
         &lt;img src=&#34;http://rockhopper.dk/uploads/thumbnails/duplicity_wan_upload_dropbox_16mb_chunks.png&#34;
             class=&#34;&#34;
             
-            
+            alt=&#34;Upload to Dropbox with 16Mb chunk size&#34;
             
             
         /&gt;
@@ -294,7 +294,7 @@ DPBX_UPLOAD_CHUNK_SIZE = 16 * 1024 * 1024&lt;/code&gt;&lt;/pre&gt;
         &lt;img src=&#34;http://rockhopper.dk/uploads/thumbnails/duplicity_wan_upload_google_drive_volsize_512mb.png&#34;
             class=&#34;&#34;
             
-            
+            alt=&#34;Upload to Google Drive with 512Mb volsize&#34;
             
             
         /&gt;

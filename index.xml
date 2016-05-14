@@ -6,8 +6,115 @@
     <description>Recent content on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 10 May 2016 10:40:15 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 14 May 2016 14:56:22 +0200</lastBuildDate>
     <atom:link href="http://rockhopper.dk/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Behat tests with Symfony 3, PhantomJS and Docker</title>
+      <link>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker</link>
+      <pubDate>Sat, 14 May 2016 14:56:22 +0200</pubDate>
+      
+      <guid>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker</guid>
+      <description>
+
+&lt;p&gt;Writing tests should be easy, but installing and maintaining every single piece needed is nontrivial. Thankfully Docker can provide each piece of the jigsaw: Symfony 3, Behat and PhantomJS.&lt;/p&gt;
+
+&lt;p&gt;I have created &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;pilotboat&lt;/a&gt; to make it easy for me to develop and test PHP based applications, and I will use it in this how-to. If you prefer to use another setup, feel free to look through my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;github repository for pilotboat&lt;/a&gt; for inspiration.&lt;/p&gt;
+
+&lt;h2 id=&#34;prerequisite:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Prerequisite&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Working Docker installation&lt;/li&gt;
+&lt;li&gt;A top level domain that points to your local machine, e.g. .dev&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;pilotboat-setup:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Pilotboat setup&lt;/h2&gt;
+
+&lt;p&gt;The following steps are required to setup pilotboat:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Clone &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;https://github.com/henrik-farre/docker&lt;/a&gt; to your preferred location&lt;/li&gt;
+&lt;li&gt;Add the bin directory to your $PATH.&lt;/li&gt;
+&lt;li&gt;(Optional) Create an &lt;a href=&#34;https://blackfire.io&#34;&gt;Blackfire.io&lt;/a&gt; account&lt;/li&gt;
+&lt;li&gt;Copy containers/docker.env.skel to containers/docker.env and fill out the values for your Blackfire.io account, or leave them blank&lt;/li&gt;
+&lt;li&gt;Run: &lt;kbd&gt;pilotboat start php-dev-debian-jessie&lt;/kbd&gt;
+ (starts the default image based on Debian Jessie with Apache 2.4.x and PHP 5.6.x)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Docker-compose will download and build the needed images and start the containers.&lt;/p&gt;
+
+&lt;h2 id=&#34;site-setup:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Site setup&lt;/h2&gt;
+
+&lt;p&gt;To create a site based on Symfony 3 run &lt;kbd&gt;pilotboat site-create symfony.dev symfony&lt;/kbd&gt;
+ (symfony.dev is your domain name, you may choose anything you like). The latest stable version of the Symfony 3 framework will be downloaded and installed. Note that pilotboat will create a database, but you will have to manually configure &lt;code&gt;app/config/parameters.yml&lt;/code&gt;
+ to access it.&lt;/p&gt;
+
+&lt;h2 id=&#34;behat-configuration:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Behat configuration&lt;/h2&gt;
+
+&lt;p&gt;Enter the container with &lt;kbd&gt;pilotboat shell&lt;/kbd&gt;
+ and change to your site: &lt;kbd&gt;cd symfony.dev&lt;/kbd&gt;
+.&lt;/p&gt;
+
+&lt;p&gt;Next you will have to install the needed bundles for Behat, using composer: &lt;kbd&gt;composer require --dev behat/behat behat/mink behat/mink-extension behat/mink-selenium2-driver&lt;/kbd&gt;
+&lt;/p&gt;
+
+&lt;p&gt;When composer is done installing, initialize Behat with &lt;kbd&gt;vendor/bin/behat --init&lt;/kbd&gt;
+, this will create the &lt;code&gt;features&lt;/code&gt;
+ directory and &lt;code&gt;features/bootstrap/FeatureContext.php&lt;/code&gt;
+.&lt;/p&gt;
+
+&lt;p&gt;Now we have to tie everything together using a &lt;code&gt;behat.yml&lt;/code&gt;
+ file, that you create in the root directory of your site, e.g. /var/www/symfony.dev:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yml&#34;&gt;default:
+  suites:
+    default:
+      contexts:
+        - FeatureContext
+        - Behat\MinkExtension\Context\MinkContext
+  extensions:
+    Behat\MinkExtension:
+      base_url: &#39;http://symfony.dev/&#39;
+      sessions:
+        default:
+          selenium2:
+            wd_host: &#39;http://phantomjs:8910/wd/hub&#39;&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;h2 id=&#34;writing-and-running-tests:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Writing and running tests&lt;/h2&gt;
+
+&lt;p&gt;I will not go into detail on how to write tests, so the following is just a small example. Create &lt;code&gt;features/homepage.feature&lt;/code&gt;
+ and put the following in the file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;Feature: Homepage
+  In order to see if the home page works
+  As a website user
+  I need to be able to see the home page
+
+  Scenario: See the home page
+    Given I am on &#34;/&#34;
+    Then I should see &#34;Welcome to Symfony 3&#34;&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Run &lt;kbd&gt;vendor/bin/behat&lt;/kbd&gt;
+ to execute the test, and you should see something like:&lt;/p&gt;
+
+&lt;pre&gt;Feature: Homepage
+  In order to see if the home page works
+  As a website user
+  I need to be able to see the home page
+
+  Scenario: See the home page                # features/homepage.feature:6
+    Given I am on &#34;/&#34;                        # Behat\MinkExtension\Context\MinkContext::visit()
+    Then I should see &#34;Welcome to Symfony 3&#34; # Behat\MinkExtension\Context\MinkContext::assertPageContainsText()
+
+1 scenario (1 passed)
+2 steps (2 passed)
+0m0.21s (13.43Mb)&lt;/pre&gt;
+
+&lt;p&gt;And you&#39;re ready to write tests :)&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Backing up to Google drive with Duplicity</title>
@@ -56,7 +163,7 @@
         &lt;img src=&#34;http://rockhopper.dk/uploads/thumbnails/duplicity_gdrive_backend_api_enable_api.png&#34;
             class=&#34;&#34;
             
-            
+            alt=&#34;1. Enabling Google drive API for project&#34;
             
             
         /&gt;
@@ -78,7 +185,7 @@
         &lt;img src=&#34;http://rockhopper.dk/uploads/thumbnails/duplicity_gdrive_backend_api_oauth_consent_screen.png&#34;
             class=&#34;&#34;
             
-            
+            alt=&#34;2. OAuth consent screen&#34;
             
             
         /&gt;
@@ -100,7 +207,7 @@
         &lt;img src=&#34;http://rockhopper.dk/uploads/thumbnails/duplicity_gdrive_backend_api_create_oauth.png&#34;
             class=&#34;&#34;
             
-            
+            alt=&#34;3. Selecting OAuth client ID&#34;
             
             
         /&gt;
@@ -122,7 +229,7 @@
         &lt;img src=&#34;http://rockhopper.dk/uploads/thumbnails/duplicity_gdrive_backend_api_create_client_id.png&#34;
             class=&#34;&#34;
             
-            
+            alt=&#34;4. Creating client ID&#34;
             
             
         /&gt;
@@ -144,7 +251,7 @@
         &lt;img src=&#34;http://rockhopper.dk/uploads/thumbnails/duplicity_gdrive_backend_api_client_id.png&#34;
             class=&#34;&#34;
             
-            
+            alt=&#34;5. Credentials for client and JSON download&#34;
             
             
         /&gt;
@@ -230,7 +337,7 @@ Enter verification code:&lt;/pre&gt;
         &lt;img src=&#34;http://rockhopper.dk/uploads/thumbnails/duplicity_wan_upload_dropbox_150mb_chunks.png&#34;
             class=&#34;&#34;
             
-            
+            alt=&#34;Upload to Dropbox with 150Mb chunk size&#34;
             
             
         /&gt;
@@ -252,7 +359,7 @@ Enter verification code:&lt;/pre&gt;
         &lt;img src=&#34;http://rockhopper.dk/uploads/thumbnails/duplicity_wan_upload_dropbox_16mb_chunks.png&#34;
             class=&#34;&#34;
             
-            
+            alt=&#34;Upload to Dropbox with 16Mb chunk size&#34;
             
             
         /&gt;
@@ -294,7 +401,7 @@ DPBX_UPLOAD_CHUNK_SIZE = 16 * 1024 * 1024&lt;/code&gt;&lt;/pre&gt;
         &lt;img src=&#34;http://rockhopper.dk/uploads/thumbnails/duplicity_wan_upload_google_drive_volsize_512mb.png&#34;
             class=&#34;&#34;
             
-            
+            alt=&#34;Upload to Google Drive with 512Mb volsize&#34;
             
             
         /&gt;
@@ -368,7 +475,7 @@ Giving up after 5 attempts. OverflowError: length too large&lt;/pre&gt;
         &lt;img src=&#34;http://rockhopper.dk/uploads/thumbnails/kodi_powersave_settings.png&#34;
             class=&#34;&#34;
             
-            
+            alt=&#34;Kodi Powersave settings&#34;
             
             
         /&gt;
@@ -1257,39 +1364,6 @@ xdebug.remote_port=9000&lt;/code&gt;&lt;/pre&gt;
     DangerSPL and CM 5 for Dream
   &lt;/h1&gt;
 &lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>AnySee E30 C Plus &#43; MythTV</title>
-      <link>http://rockhopper.dk/linux/software/mythtv/anysee-e30-c-plus-mythtv/</link>
-      <pubDate>Sat, 29 May 2010 00:00:00 +0000</pubDate>
-      
-      <guid>http://rockhopper.dk/linux/software/mythtv/anysee-e30-c-plus-mythtv/</guid>
-      <description>&lt;p&gt;I had the chance to test &lt;a href=&#34;http://www.anysee.dk/products.html&#34;&gt;AnySee&amp;#8217;s USB based DVB-C tuner&lt;/a&gt; with MythTV, and I can confirm it &amp;#8220;just works&amp;#8221;.&lt;/p&gt;
-
-&lt;p&gt;To setup the AnySee E30 C Plus just follow my &lt;a href=&#34;https://rockhopper.dk/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/&#34;&gt;Terratec Cinergy C PCI HD + MythTV guide&lt;/a&gt;, the setup is exactly the same. The only thing I noticed is that the signal strength is not as high as it is with the Terratec card, it hovers around 40-50% vs 90-95%.&lt;/p&gt;
-
-&lt;p&gt;Dmesg output:&lt;/p&gt;
-
-&lt;pre&gt;usb 2-6: USB disconnect, address 4
-dvb-usb: Anysee DVB USB2.0 successfully deinitialized and disconnected.
-usb 2-6: new high speed USB device using ehci_hcd and address 5
-usb 2-6: device not accepting address 5, error -71
-usb 2-6: new high speed USB device using ehci_hcd and address 6
-usb 2-6: config 1 interface 0 altsetting 0 bulk endpoint 0x1 has invalid maxpacket 64
-usb 2-6: config 1 interface 0 altsetting 0 bulk endpoint 0x81 has invalid maxpacket 64
-usb 2-6: config 1 interface 0 altsetting 1 bulk endpoint 0x1 has invalid maxpacket 64
-usb 2-6: config 1 interface 0 altsetting 1 bulk endpoint 0x81 has invalid maxpacket 64
-usb 2-6: configuration #1 chosen from 1 choice
-dvb-usb: found a &#39;Anysee DVB USB2.0&#39; in warm state.
-dvb-usb: will pass the complete MPEG2 transport stream to the software demuxer.
-DVB: registering new adapter (Anysee DVB USB2.0)
-anysee: firmware version:0.1.2 hardware id:15
-DVB: registering adapter 0 frontend 0 (Philips TDA10023 DVB-C)...
-input: IR-receiver inside an USB DVB receiver as /devices/pci0000:00/0000:00:1d.7/usb2/2-6/input/input10
-dvb-usb: schedule remote query interval to 200 msecs.
-dvb-usb: Anysee DVB USB2.0 successfully initialized and connected.&lt;/pre&gt;
 </description>
     </item>
     

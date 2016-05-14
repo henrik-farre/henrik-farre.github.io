@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pilotboat on Rockhopper.dk</title>
+    <link>http://rockhopper.dk/categories/pilotboat/</link>
+    <description>Recent content in Pilotboat on Rockhopper.dk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 14 May 2016 14:56:22 +0200</lastBuildDate>
+    <atom:link href="http://rockhopper.dk/categories/pilotboat/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Behat tests with Symfony 3, PhantomJS and Docker</title>
+      <link>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker</link>
+      <pubDate>Sat, 14 May 2016 14:56:22 +0200</pubDate>
+      
+      <guid>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker</guid>
+      <description>
+
+&lt;p&gt;Writing tests should be easy, but installing and maintaining every single piece needed is nontrivial. Thankfully Docker can provide each piece of the jigsaw: Symfony 3, Behat and PhantomJS.&lt;/p&gt;
+
+&lt;p&gt;I have created &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;pilotboat&lt;/a&gt; to make it easy for me to develop and test PHP based applications, and I will use it in this how-to. If you prefer to use another setup, feel free to look through my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;github repository for pilotboat&lt;/a&gt; for inspiration.&lt;/p&gt;
+
+&lt;h2 id=&#34;prerequisite:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Prerequisite&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Working Docker installation&lt;/li&gt;
+&lt;li&gt;A top level domain that points to your local machine, e.g. .dev&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;pilotboat-setup:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Pilotboat setup&lt;/h2&gt;
+
+&lt;p&gt;The following steps are required to setup pilotboat:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Clone &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;https://github.com/henrik-farre/docker&lt;/a&gt; to your preferred location&lt;/li&gt;
+&lt;li&gt;Add the bin directory to your $PATH.&lt;/li&gt;
+&lt;li&gt;(Optional) Create an &lt;a href=&#34;https://blackfire.io&#34;&gt;Blackfire.io&lt;/a&gt; account&lt;/li&gt;
+&lt;li&gt;Copy containers/docker.env.skel to containers/docker.env and fill out the values for your Blackfire.io account, or leave them blank&lt;/li&gt;
+&lt;li&gt;Run: &lt;kbd&gt;pilotboat start php-dev-debian-jessie&lt;/kbd&gt;
+ (starts the default image based on Debian Jessie with Apache 2.4.x and PHP 5.6.x)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Docker-compose will download and build the needed images and start the containers.&lt;/p&gt;
+
+&lt;h2 id=&#34;site-setup:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Site setup&lt;/h2&gt;
+
+&lt;p&gt;To create a site based on Symfony 3 run &lt;kbd&gt;pilotboat site-create symfony.dev symfony&lt;/kbd&gt;
+ (symfony.dev is your domain name, you may choose anything you like). The latest stable version of the Symfony 3 framework will be downloaded and installed. Note that pilotboat will create a database, but you will have to manually configure &lt;code&gt;app/config/parameters.yml&lt;/code&gt;
+ to access it.&lt;/p&gt;
+
+&lt;h2 id=&#34;behat-configuration:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Behat configuration&lt;/h2&gt;
+
+&lt;p&gt;Enter the container with &lt;kbd&gt;pilotboat shell&lt;/kbd&gt;
+ and change to your site: &lt;kbd&gt;cd symfony.dev&lt;/kbd&gt;
+.&lt;/p&gt;
+
+&lt;p&gt;Next you will have to install the needed bundles for Behat, using composer: &lt;kbd&gt;composer require --dev behat/behat behat/mink behat/mink-extension behat/mink-selenium2-driver&lt;/kbd&gt;
+&lt;/p&gt;
+
+&lt;p&gt;When composer is done installing, initialize Behat with &lt;kbd&gt;vendor/bin/behat --init&lt;/kbd&gt;
+, this will create the &lt;code&gt;features&lt;/code&gt;
+ directory and &lt;code&gt;features/bootstrap/FeatureContext.php&lt;/code&gt;
+.&lt;/p&gt;
+
+&lt;p&gt;Now we have to tie everything together using a &lt;code&gt;behat.yml&lt;/code&gt;
+ file, that you create in the root directory of your site, e.g. /var/www/symfony.dev:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yml&#34;&gt;default:
+  suites:
+    default:
+      contexts:
+        - FeatureContext
+        - Behat\MinkExtension\Context\MinkContext
+  extensions:
+    Behat\MinkExtension:
+      base_url: &#39;http://symfony.dev/&#39;
+      sessions:
+        default:
+          selenium2:
+            wd_host: &#39;http://phantomjs:8910/wd/hub&#39;&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;h2 id=&#34;writing-and-running-tests:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Writing and running tests&lt;/h2&gt;
+
+&lt;p&gt;I will not go into detail on how to write tests, so the following is just a small example. Create &lt;code&gt;features/homepage.feature&lt;/code&gt;
+ and put the following in the file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;Feature: Homepage
+  In order to see if the home page works
+  As a website user
+  I need to be able to see the home page
+
+  Scenario: See the home page
+    Given I am on &#34;/&#34;
+    Then I should see &#34;Welcome to Symfony 3&#34;&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Run &lt;kbd&gt;vendor/bin/behat&lt;/kbd&gt;
+ to execute the test, and you should see something like:&lt;/p&gt;
+
+&lt;pre&gt;Feature: Homepage
+  In order to see if the home page works
+  As a website user
+  I need to be able to see the home page
+
+  Scenario: See the home page                # features/homepage.feature:6
+    Given I am on &#34;/&#34;                        # Behat\MinkExtension\Context\MinkContext::visit()
+    Then I should see &#34;Welcome to Symfony 3&#34; # Behat\MinkExtension\Context\MinkContext::assertPageContainsText()
+
+1 scenario (1 passed)
+2 steps (2 passed)
+0m0.21s (13.43Mb)&lt;/pre&gt;
+
+&lt;p&gt;And you&#39;re ready to write tests :)&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

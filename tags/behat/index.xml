@@ -6,8 +6,110 @@
     <description>Recent content in Behat on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 May 2016 14:56:22 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 17 May 2016 10:51:24 +0200</lastBuildDate>
     <atom:link href="http://rockhopper.dk/tags/behat/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Behat: taking screenshots of failed steps</title>
+      <link>http://rockhopper.dk/linux/software/behat-taking-screenshots-of-failed-steps</link>
+      <pubDate>Tue, 17 May 2016 10:51:24 +0200</pubDate>
+      
+      <guid>http://rockhopper.dk/linux/software/behat-taking-screenshots-of-failed-steps</guid>
+      <description>&lt;p&gt;Getting a screenshot and a dump of the HTML of a failed step is invaluable when running tests on a headless &amp;quot;browser&amp;quot; like PhantomJS, and this post will show you how&lt;/p&gt;
+
+&lt;p&gt;You will of cause need a working Behat/PhantomJS setup to run this code, you can see my post about &lt;a href=&#34;http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker/&#34;&gt;Behat tests with Symfony 3, PhantomJS and Docker&lt;/a&gt; on how to configure everything like &lt;code&gt;behat.yml&lt;/code&gt;
+.&lt;/p&gt;
+
+&lt;p&gt;The following code is compiled from this Github bug report: &lt;a href=&#34;https://github.com/Behat/Behat/issues/649&#34;&gt;Behat 3: Taking screenshots after failed steps #649&lt;/a&gt; and &lt;a href=&#34;https://www.google.dk/#q=takeScreenshotAfterFailedStep&#34;&gt;several other people using &amp;quot;takeScreenshotAfterFailedStep&amp;quot; as the function name&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Edit your &lt;code&gt;features/bootstrap/FeatureContext.php&lt;/code&gt;
+ and create the takeScreenshotAfterFailedStep function:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
+
+use Behat\Behat\Context\Context;
+use Behat\Behat\Context\SnippetAcceptingContext;
+use Behat\Gherkin\Node\PyStringNode;
+use Behat\Gherkin\Node\TableNode;
+
+use Behat\Testwork\Tester\Result\TestResult;
+use Behat\Behat\Hook\Scope\AfterStepScope;
+use Behat\Behat\Hook\Scope\BeforeScenarioScope;
+
+class FeatureContext implements Context, SnippetAcceptingContext
+{
+    /** @var \Behat\MinkExtension\Context\MinkContext */
+    private $minkContext;
+
+    public function __construct() {}
+
+    /**
+     * @BeforeScenario
+     * http://behat.readthedocs.org/en/v3.0/cookbooks/context_communication.html
+     */
+    public function gatherContexts(BeforeScenarioScope $scope)
+    {
+        $environment = $scope-&amp;gt;getEnvironment();
+        $this-&amp;gt;minkContext = $environment-&amp;gt;getContext(&#39;Behat\MinkExtension\Context\MinkContext&#39;);
+    }
+
+    /**
+     * @AfterStep
+     */
+    public function takeScreenshotAfterFailedStep(AfterStepScope $scope)
+    {
+        if (TestResult::FAILED === $scope-&amp;gt;getTestResult()-&amp;gt;getResultCode()) {
+            $driver = $this-&amp;gt;minkContext-&amp;gt;getSession()-&amp;gt;getDriver();
+
+            if (!$driver instanceof Behat\Mink\Driver\Selenium2Driver) {
+                return;
+            }
+
+            $page               = $this-&amp;gt;minkContext-&amp;gt;getSession()-&amp;gt;getPage()-&amp;gt;getContent();
+            $screenshot         = $driver-&amp;gt;getScreenshot();
+            $screenshotFileName = date(&#39;d-m-y&#39;).&#39;-&#39;.uniqid().&#39;.png&#39;;
+            $pageFileName       = date(&#39;d-m-y&#39;).&#39;-&#39;.uniqid().&#39;.html&#39;;
+            // NOTE: hardcoded path:
+            $filePath           = &#34;/var/www/symfony.dev/&#34;;
+
+            file_put_contents($filePath.$screenshotFileName, $screenshot);
+            file_put_contents($filePath.$pageFileName, $page);
+            print &#39;Screenshot at: &#39;.$filePath.$screenshotFileName.&#34;\n&#34;;
+            print &#39;HTML dump at: &#39;.$filePath.$pageFileName.&#34;\n&#34;;
+        }
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;When a step failes you should see something like:&lt;/p&gt;
+
+&lt;pre&gt;Feature: Homepage
+  In order to see if the home page works
+  As a website user
+  I need to be able to see the home page
+
+  Scenario: See the home page                # features/homepage.feature:6
+    Given I am on &#34;/&#34;                        # Behat\MinkExtension\Context\MinkContext::visit()
+    Then I should see &#34;Welcome to Symfony 4&#34; # Behat\MinkExtension\Context\MinkContext::assertPageContainsText()
+      The text &#34;Welcome to Symfony 4&#34; was not found anywhere in the text of the current page. (Behat\Mink\Exception\ResponseTextException)
+    │
+    │  Screenshot at: /var/www/symfony.dev/17-05-16-573ae8a1e9f9a.png
+    │  HTML dump at: /var/www/symfony.dev/17-05-16-573ae8a1e9fd3.html
+    │
+    │
+    └─ @AfterStep # FeatureContext::takeScreenshotAfterFailedStep()
+
+--- Failed scenarios:
+
+    features/homepage.feature:6
+
+1 scenario (1 failed)
+2 steps (1 passed, 1 failed)
+0m0.31s (13.49Mb)&lt;/pre&gt;
+
+&lt;p&gt;Happy testing :)&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Behat tests with Symfony 3, PhantomJS and Docker</title>

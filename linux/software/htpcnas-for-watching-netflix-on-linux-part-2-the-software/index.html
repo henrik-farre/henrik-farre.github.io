@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.15" />
+    <meta name="generator" content="Hugo 0.16" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans%7CMarcellus+SC'>
@@ -54,7 +54,7 @@
             <ul class="nav navbar-nav navbar-right">
               
               
-              <li><a href="/about-me/"><i class='fa fa-user'></i> About me</a></li>
+              <li><a href="/about-me"><i class='fa fa-user'></i> About me</a></li>
               
               
               
@@ -112,7 +112,7 @@
 
 <p>Originally the setup used <a href="https://wiki.archlinux.org/index.php/Pipelight">Pipelight</a> to watch Netflix, but I have moved away from that, because Chrome for Linux has native support for Netflix playback since version 42.</p>
 
-<h2 id="xorg-setup:c2e1881c6cc9a7bacff7f9afad74d2a0">Xorg setup</h2>
+<h2 id="xorg-setup">Xorg setup</h2>
 
 <p>The system uses integrated Intel HD 4400 Graphics, and works without any configuration, but to tweak driver settings I created the file <code>/etc/X11/xorg.conf.d/40-device.conf</code> and added:</p>
 
@@ -129,7 +129,7 @@ EndSection
 
 <p>Refer to the Arch Linux <a href="https://wiki.archlinux.org/index.php/Xorg">wiki entry on Xorg</a> for more information</p>
 
-<h2 id="auto-login:c2e1881c6cc9a7bacff7f9afad74d2a0">Auto login</h2>
+<h2 id="auto-login">Auto login</h2>
 
 <p>As Arch Linux uses systemd I just followed the instructions for <a href="https://wiki.archlinux.org/index.php/Automatic_login_to_virtual_console">setting up auto login to console</a>.</p>
 
@@ -143,7 +143,7 @@ ExecStart=-/usr/bin/agetty --autologin YOUR_USERNAME --noclear %I 38400 linux
 
 <p>Remember to change YOUR_USERNAME</p>
 
-<h2 id="auto-start-xorg:c2e1881c6cc9a7bacff7f9afad74d2a0">Auto start Xorg</h2>
+<h2 id="auto-start-xorg">Auto start Xorg</h2>
 
 <p>I have this in <code>~/.bash_profile</code> which gets sourced when auto login runs.</p>
 
@@ -161,7 +161,7 @@ if [[ x$DISPLAY == 'x' ]]; then
 fi
 </code></pre>
 
-<h2 id="openbox:c2e1881c6cc9a7bacff7f9afad74d2a0">Openbox</h2>
+<h2 id="openbox">Openbox</h2>
 
 <p>The startx command executes <code>~/.xinitrc</code> which contains:</p>
 
@@ -185,13 +185,13 @@ setxkbmap dk
 
 /usr/bin/kodi --standalone -fs &</code></pre>
 
-<h2 id="kodi-tweaks:c2e1881c6cc9a7bacff7f9afad74d2a0">Kodi tweaks</h2>
+<h2 id="kodi-tweaks">Kodi tweaks</h2>
 
-<h3 id="hardware-accelerated-playback-on-intel:c2e1881c6cc9a7bacff7f9afad74d2a0">Hardware accelerated playback on Intel</h3>
+<h3 id="hardware-accelerated-playback-on-intel">Hardware accelerated playback on Intel</h3>
 
 <p>I have installed libva-intel-driver, libva-vdpau-driver, libvdpau and libva and enabled hardware accelerated playback in Kodi's settings. The Intel HD Graphics can handle 1080p without problems.</p>
 
-<h3 id="idle-cpu-usage:c2e1881c6cc9a7bacff7f9afad74d2a0">Idle CPU usage</h3>
+<h3 id="idle-cpu-usage">Idle CPU usage</h3>
 
 <p>Depending on the Intel driver version, Kodi might use about 15% CPU when idle, but by editing <code>~/.kodi/userdata/advancedsettings.xml</code> I was able to reduce it to 3%</p>
 
@@ -204,7 +204,7 @@ setxkbmap dk
 &lt;/advancedsettings&gt;
 </code></pre>
 
-<h3 id="mouse-pointer:c2e1881c6cc9a7bacff7f9afad74d2a0">Mouse pointer</h3>
+<h3 id="mouse-pointer">Mouse pointer</h3>
 
 <p>To get a decent size cursor in Chrome I have these settings in <code>~/.Xresources</code> (Requires the DMZ mouse cursor theme installed)</p>
 
@@ -213,11 +213,11 @@ Xcursor.theme: DMZ
 Xcursor.size: 32
 </pre>
 
-<h2 id="plugins:c2e1881c6cc9a7bacff7f9afad74d2a0">Plugins</h2>
+<h2 id="plugins">Plugins</h2>
 
 <p>I created two simple addons that launches Chromium in fullscreen mode and opens a website like Rdio or Netflix. You can find them in my <a href="https://github.com/henrik-farre/xbmc-addons">XBMC addons repository</a></p>
 
-<h2 id="cec-consumer-electronics-control-over-hdmi:c2e1881c6cc9a7bacff7f9afad74d2a0">CEC (Consumer Electronics Control) over HDMI</h2>
+<h2 id="cec-consumer-electronics-control-over-hdmi">CEC (Consumer Electronics Control) over HDMI</h2>
 
 <p>I also added a USB - CEC Adapter from <a href="https://www.pulse-eight.com/">PulseEight</a> so it is possible to control Kodi using the TVs remote control.</p>
 
@@ -266,11 +266,11 @@ Xcursor.size: 32
       
       <a href="http://rockhopper.dk/categories/mythtv" class="list-group-item">mythtv</a>
       
-      <a href="http://rockhopper.dk/categories/xfce" class="list-group-item">xfce</a>
+      <a href="http://rockhopper.dk/categories/backup" class="list-group-item">backup</a>
       
       <a href="http://rockhopper.dk/categories/vim" class="list-group-item">vim</a>
       
-      <a href="http://rockhopper.dk/categories/backup" class="list-group-item">backup</a>
+      <a href="http://rockhopper.dk/categories/xfce" class="list-group-item">xfce</a>
       
       <a href="http://rockhopper.dk/categories/pilotboat" class="list-group-item">pilotboat</a>
       
@@ -287,21 +287,21 @@ Xcursor.size: 32
       
       <a href="http://rockhopper.dk/tags/archlinux" class="list-group-item">archlinux</a>
       
-      <a href="http://rockhopper.dk/tags/mythbackend" class="list-group-item">mythbackend</a>
-      
-      <a href="http://rockhopper.dk/tags/htpc" class="list-group-item">htpc</a>
+      <a href="http://rockhopper.dk/tags/behat" class="list-group-item">behat</a>
       
       <a href="http://rockhopper.dk/tags/docker" class="list-group-item">docker</a>
       
+      <a href="http://rockhopper.dk/tags/htpc" class="list-group-item">htpc</a>
+      
+      <a href="http://rockhopper.dk/tags/mythbackend" class="list-group-item">mythbackend</a>
+      
+      <a href="http://rockhopper.dk/tags/duplicity" class="list-group-item">duplicity</a>
+      
       <a href="http://rockhopper.dk/tags/dvb-c" class="list-group-item">dvb-c</a>
       
-      <a href="http://rockhopper.dk/tags/behat" class="list-group-item">behat</a>
-      
-      <a href="http://rockhopper.dk/tags/mythfrontend" class="list-group-item">mythfrontend</a>
+      <a href="http://rockhopper.dk/tags/kodi" class="list-group-item">kodi</a>
       
       <a href="http://rockhopper.dk/tags/motherboard" class="list-group-item">motherboard</a>
-      
-      <a href="http://rockhopper.dk/tags/kodi" class="list-group-item">kodi</a>
       
     </div>
   </div>

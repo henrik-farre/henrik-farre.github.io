@@ -21,14 +21,14 @@
 
 &lt;p&gt;I have created &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;pilotboat&lt;/a&gt; to make it easy for me to develop and test PHP based applications, and I will use it in this how-to. If you prefer to use another setup, feel free to look through my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;github repository for pilotboat&lt;/a&gt; for inspiration.&lt;/p&gt;
 
-&lt;h2 id=&#34;prerequisite:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Prerequisite&lt;/h2&gt;
+&lt;h2 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Working Docker installation&lt;/li&gt;
 &lt;li&gt;A top level domain that points to your local machine, e.g. .dev&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#34;pilotboat-setup:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Pilotboat setup&lt;/h2&gt;
+&lt;h2 id=&#34;pilotboat-setup&#34;&gt;Pilotboat setup&lt;/h2&gt;
 
 &lt;p&gt;The following steps are required to setup pilotboat:&lt;/p&gt;
 
@@ -43,13 +43,13 @@
 
 &lt;p&gt;Docker-compose will download and build the needed images and start the containers.&lt;/p&gt;
 
-&lt;h2 id=&#34;site-setup:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Site setup&lt;/h2&gt;
+&lt;h2 id=&#34;site-setup&#34;&gt;Site setup&lt;/h2&gt;
 
 &lt;p&gt;To create a site based on Symfony 3 run &lt;kbd&gt;pilotboat site-create symfony.dev symfony&lt;/kbd&gt;
  (symfony.dev is your domain name, you may choose anything you like). The latest stable version of the Symfony 3 framework will be downloaded and installed. Note that pilotboat will create a database, but you will have to manually configure &lt;code&gt;app/config/parameters.yml&lt;/code&gt;
  to access it.&lt;/p&gt;
 
-&lt;h2 id=&#34;behat-configuration:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Behat configuration&lt;/h2&gt;
+&lt;h2 id=&#34;behat-configuration&#34;&gt;Behat configuration&lt;/h2&gt;
 
 &lt;p&gt;Enter the container with &lt;kbd&gt;pilotboat shell&lt;/kbd&gt;
  and change to your site: &lt;kbd&gt;cd symfony.dev&lt;/kbd&gt;
@@ -81,7 +81,7 @@
             wd_host: &#39;http://phantomjs:8910/wd/hub&#39;&lt;/code&gt;&lt;/pre&gt;
 
 
-&lt;h2 id=&#34;writing-and-running-tests:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Writing and running tests&lt;/h2&gt;
+&lt;h2 id=&#34;writing-and-running-tests&#34;&gt;Writing and running tests&lt;/h2&gt;
 
 &lt;p&gt;I will not go into detail on how to write tests, so the following is just a small example. Create &lt;code&gt;features/homepage.feature&lt;/code&gt;
  and put the following in the file:&lt;/p&gt;
@@ -126,7 +126,7 @@
 
 &lt;p&gt;I use Neovim for all my text editing, and as I&#39;m a web developer I edit a lot of HTML, PHP, CSS and JavaScript. And not only do I have to switch between different programming/markup languages I also have to switch between different environments, ranging from old Drupal 6 sites on Debian squeeze to a Symfony setup on Debian Jessie to ensure that my code works in production.&lt;/p&gt;
 
-&lt;h2 id=&#34;enter-docker:0c08f28664efdd056b375f3539e6eeb3&#34;&gt;Enter Docker&lt;/h2&gt;
+&lt;h2 id=&#34;enter-docker&#34;&gt;Enter Docker&lt;/h2&gt;
 
 &lt;p&gt;Switching between different versions of Apache/PHP/MySQL and other components is nearly impossible if they are locally installed. In the old dark days I would work on a site directly on the server, then later Vagrant came along and gave a virtual server that could be provisioned like the production server and now Docker gives lightweight containers that allows to quickly switch between different setups.&lt;/p&gt;
 
@@ -134,7 +134,7 @@
 
 &lt;p&gt;My Docker image contains Apache, MariaDB, PHP5 with Xdebug, Mailhog and Webgrind. Database data is kept separately in a volume and sites/virtual hosts are kept on the host.&lt;/p&gt;
 
-&lt;h3 id=&#34;workflow:0c08f28664efdd056b375f3539e6eeb3&#34;&gt;Workflow&lt;/h3&gt;
+&lt;h3 id=&#34;workflow&#34;&gt;Workflow&lt;/h3&gt;
 
 &lt;p&gt;I can either drop an existing virtual host file in the vhosts directory, or run &lt;code&gt;pilotboat site-create mydomain.dev&lt;/code&gt; which will create a virtual host and directory structure. I use dnsmasq to point the top level domain (.dev) to localhost. If you use NetworkManager just create the following file: &lt;code&gt;/etc/NetworkManager/dnsmasq.d/dev.conf&lt;/code&gt; containing:&lt;/p&gt;
 
@@ -142,7 +142,7 @@
 
 &lt;p&gt;Then I can checkout the site from git and import a database, which can be done by &lt;code&gt;pilotboat db-import database_name&lt;/code&gt;. The command will try to import a file in the databases directory called database_name.sql.gz and the file should have been created by running &lt;code&gt;mysqldump -f --opt -u root -p -c [database_name] | gzip &amp;gt; [database_name.sql.gz]&lt;/code&gt;, or alternative I use phpMyAdmin which is running in the container on &lt;a href=&#34;http://localhost/phpmyadmin/&#34;&gt;http://localhost/phpmyadmin/&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;vim-neovim:0c08f28664efdd056b375f3539e6eeb3&#34;&gt;Vim / Neovim&lt;/h2&gt;
+&lt;h2 id=&#34;vim-neovim&#34;&gt;Vim / Neovim&lt;/h2&gt;
 
 &lt;p&gt;The only special setup for Vim is connecting Xdebug in the container to Vdebug, and map paths from inside the container to the local file system:
 &lt;pre&gt;&lt;code class=&#34;language-vim&#34;&gt;let g:vdebug_options = {&amp;quot;path_maps&amp;quot;: {&amp;quot;/var/www&amp;quot;: &amp;quot;/path/to/pilotboat/sites&amp;quot;}, &amp;quot;break_on_open&amp;quot;: 0, &amp;quot;watch_window_style&amp;quot;: &amp;quot;compact&amp;quot;, &amp;quot;server&amp;quot; : &amp;quot;172.17.0.1&amp;quot;, &amp;quot;port&amp;quot;: 9000}

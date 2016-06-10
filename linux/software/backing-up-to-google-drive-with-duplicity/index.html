@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.15" />
+    <meta name="generator" content="Hugo 0.16" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans%7CMarcellus+SC'>
@@ -54,7 +54,7 @@
             <ul class="nav navbar-nav navbar-right">
               
               
-              <li><a href="/about-me/"><i class='fa fa-user'></i> About me</a></li>
+              <li><a href="/about-me"><i class='fa fa-user'></i> About me</a></li>
               
               
               
@@ -110,7 +110,7 @@
 
 <p>As described in my <a href="/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end/">previous post</a> I use Duplicity with Google Drive for storage. In this post I give a quick how to on configuring Duplicity for that setup.</p>
 
-<h2 id="prerequisites:a4873c35425d94672fb7ac53bf8aa261">Prerequisites</h2>
+<h2 id="prerequisites">Prerequisites</h2>
 
 <ul>
 <li>Duplicity installed</li>
@@ -120,7 +120,7 @@
 <li>First time you run Duplicity it has to be done interactively, as it will prompt you to allow access to Google drive</li>
 </ul>
 
-<h2 id="google-drive-api-setup:a4873c35425d94672fb7ac53bf8aa261">Google drive API setup</h2>
+<h2 id="google-drive-api-setup">Google drive API setup</h2>
 
 <p>Go to <a href="https://console.developers.google.com/">console.developers.google.com</a> and create a new project, under &quot;Show advanced options &gt; App Engine location&quot; I selected &quot;europe-west&quot;.</p>
 
@@ -253,7 +253,7 @@
 <p>Create <code>/root/.duplicity/gdrive</code>
  and add the values from step 5:</p>
 
-<p><pre><code class="language-yml">client_config_backend: settings
+<pre><code class="language-yml">client_config_backend: settings
 client_config:
   client_id: XXXXXXXXXXXXXXXXXXXXXX.apps.googleusercontent.com
   client_secret: XXXXXXXXXXXXXXXXXXXXXX
@@ -261,14 +261,14 @@ save_credentials: True
 save_credentials_backend: file
 save_credentials_file: gdrive.cache
 get_refresh_token: True</code></pre>
-</p>
 
-<h2 id="granting-duplicity-access-to-google-drive:a4873c35425d94672fb7ac53bf8aa261">Granting Duplicity access to Google drive</h2>
+
+<h2 id="granting-duplicity-access-to-google-drive">Granting Duplicity access to Google drive</h2>
 
 <p>PyDrive would prompt for a verification code everytime I ran Duplicity, and would not create the gdrive.cache file. I fixed it by changing the current working directory to <code>/root/.duplicity/</code>
 . A simple script like the following should work:</p>
 
-<p><pre><code class="language-bash">#!/bin/bash
+<pre><code class="language-bash">#!/bin/bash
 cd /root/.duplicity/
 
 PASSPHRASE="XXXXXXXXXX"
@@ -277,7 +277,7 @@ DEST="gdocs://YOUR_GMAIL/SOME_DIR/$HOSTNAME/home"
 SRC="/home"
 
 duplicity incr --encrypt-key XXXXXXX --full-if-older-than 4M --volsize 1024 --asynchronous-upload --exclude-device-files --exclude-other-filesystems "${SRC}" "${DEST}"</code></pre>
-</p>
+
 
 <p>When you run this script the first time, you should get a prompt that says (XXXXXXXXXXXXXXXXXXXXXX will be your client id):</p>
 
@@ -290,7 +290,7 @@ Enter verification code:</pre>
 <p>When you have approved access you should have the file <code>/root/.duplicity/gdrive.cache</code>
 , and next time Duplicity runs, it should automatically be authorized.</p>
 
-<h2 id="wrapping-up:a4873c35425d94672fb7ac53bf8aa261">Wrapping up</h2>
+<h2 id="wrapping-up">Wrapping up</h2>
 
 <p>I have created a set of <a href="https://github.com/henrik-farre/duplicity_backup_scripts">Duplicity backup scrips</a> with error handling/reporting that wraps backup, restore, cleanup and backup verification, feel free to use or fork them :)</p>
 
@@ -327,9 +327,9 @@ Enter verification code:</pre>
       
       <a href="http://rockhopper.dk/categories/software" class="list-group-item">software</a>
       
-      <a href="http://rockhopper.dk/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
-      
       <a href="http://rockhopper.dk/categories/hardware" class="list-group-item">hardware</a>
+      
+      <a href="http://rockhopper.dk/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
       
       <a href="http://rockhopper.dk/categories/php" class="list-group-item">php</a>
       
@@ -337,11 +337,11 @@ Enter verification code:</pre>
       
       <a href="http://rockhopper.dk/categories/mythtv" class="list-group-item">mythtv</a>
       
-      <a href="http://rockhopper.dk/categories/xfce" class="list-group-item">xfce</a>
+      <a href="http://rockhopper.dk/categories/backup" class="list-group-item">backup</a>
       
       <a href="http://rockhopper.dk/categories/vim" class="list-group-item">vim</a>
       
-      <a href="http://rockhopper.dk/categories/backup" class="list-group-item">backup</a>
+      <a href="http://rockhopper.dk/categories/xfce" class="list-group-item">xfce</a>
       
       <a href="http://rockhopper.dk/categories/pilotboat" class="list-group-item">pilotboat</a>
       
@@ -356,21 +356,21 @@ Enter verification code:</pre>
       
       <a href="http://rockhopper.dk/tags/android" class="list-group-item">android</a>
       
-      <a href="http://rockhopper.dk/tags/docker" class="list-group-item">docker</a>
-      
       <a href="http://rockhopper.dk/tags/archlinux" class="list-group-item">archlinux</a>
-      
-      <a href="http://rockhopper.dk/tags/mythbackend" class="list-group-item">mythbackend</a>
-      
-      <a href="http://rockhopper.dk/tags/htpc" class="list-group-item">htpc</a>
-      
-      <a href="http://rockhopper.dk/tags/zsh" class="list-group-item">zsh</a>
-      
-      <a href="http://rockhopper.dk/tags/dvb-c" class="list-group-item">dvb-c</a>
       
       <a href="http://rockhopper.dk/tags/behat" class="list-group-item">behat</a>
       
-      <a href="http://rockhopper.dk/tags/mythfrontend" class="list-group-item">mythfrontend</a>
+      <a href="http://rockhopper.dk/tags/docker" class="list-group-item">docker</a>
+      
+      <a href="http://rockhopper.dk/tags/htpc" class="list-group-item">htpc</a>
+      
+      <a href="http://rockhopper.dk/tags/mythbackend" class="list-group-item">mythbackend</a>
+      
+      <a href="http://rockhopper.dk/tags/duplicity" class="list-group-item">duplicity</a>
+      
+      <a href="http://rockhopper.dk/tags/dvb-c" class="list-group-item">dvb-c</a>
+      
+      <a href="http://rockhopper.dk/tags/kodi" class="list-group-item">kodi</a>
       
       <a href="http://rockhopper.dk/tags/motherboard" class="list-group-item">motherboard</a>
       

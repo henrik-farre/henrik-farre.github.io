@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.15" />
+    <meta name="generator" content="Hugo 0.16" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans%7CMarcellus+SC'>
@@ -54,7 +54,7 @@
             <ul class="nav navbar-nav navbar-right">
               
               
-              <li><a href="/about-me/"><i class='fa fa-user'></i> About me</a></li>
+              <li><a href="/about-me"><i class='fa fa-user'></i> About me</a></li>
               
               
               
@@ -120,7 +120,7 @@
 <li><code>set-next-wakeup.sh</code>: Sets when the computer should start next time</li>
 </ol>
 
-<h2 id="kodi-idle-shutdown-timer:5f91763b9d80fb35b2b67752e5825a34">Kodi idle shutdown timer</h2>
+<h2 id="kodi-idle-shutdown-timer">Kodi idle shutdown timer</h2>
 
 <p>Kodi is set to shutdown after 5 mins of inactivity (See &quot;Timer til lukning af funktion&quot;):</p>
 
@@ -308,11 +308,11 @@ fi
 /usr/bin/logger "$0: shutdown ok"
 exit 0</code></pre>
 
-<h2 id="wakeup:5f91763b9d80fb35b2b67752e5825a34">Wakeup</h2>
+<h2 id="wakeup">Wakeup</h2>
 
 <p>The last 2 pieces is to set up the computer so that it will automatically start the next day, and enable Wake-On-LAN.</p>
 
-<h3 id="wakeup-via-acpi-rtc:5f91763b9d80fb35b2b67752e5825a34">Wakeup via ACPI / RTC</h3>
+<h3 id="wakeup-via-acpi-rtc">Wakeup via ACPI / RTC</h3>
 
 <p>I have made a simple script that ensures that the computer is turned on at 9:00 and again at 19:00 on weekdays, and at 7:00 in the weekend. The script is called <code>set-next-shutdown.sh</code>.</p>
 
@@ -388,7 +388,7 @@ else
   echo $ONTIME > $LASTWAKETIMEFILE
 fi</code></pre>
 
-<h3 id="wake-on-lan-wol:5f91763b9d80fb35b2b67752e5825a34">Wake On LAN (WOL)</h3>
+<h3 id="wake-on-lan-wol">Wake On LAN (WOL)</h3>
 
 <p>In case I need the computer at a time where it is not runnin, I can wake it from my desktop computer or from my phone using the <a href="https://play.google.com/store/apps/details?id=de.ralischer.wakeonlan">Wake On LAN</a> app.</p>
 
@@ -450,11 +450,11 @@ WantedBy=multi-user.target</code></pre>
       
       <a href="http://rockhopper.dk/categories/mythtv" class="list-group-item">mythtv</a>
       
-      <a href="http://rockhopper.dk/categories/xfce" class="list-group-item">xfce</a>
+      <a href="http://rockhopper.dk/categories/backup" class="list-group-item">backup</a>
       
       <a href="http://rockhopper.dk/categories/vim" class="list-group-item">vim</a>
       
-      <a href="http://rockhopper.dk/categories/backup" class="list-group-item">backup</a>
+      <a href="http://rockhopper.dk/categories/xfce" class="list-group-item">xfce</a>
       
       <a href="http://rockhopper.dk/categories/pilotboat" class="list-group-item">pilotboat</a>
       
@@ -469,21 +469,21 @@ WantedBy=multi-user.target</code></pre>
       
       <a href="http://rockhopper.dk/tags/android" class="list-group-item">android</a>
       
-      <a href="http://rockhopper.dk/tags/docker" class="list-group-item">docker</a>
-      
       <a href="http://rockhopper.dk/tags/archlinux" class="list-group-item">archlinux</a>
-      
-      <a href="http://rockhopper.dk/tags/mythbackend" class="list-group-item">mythbackend</a>
-      
-      <a href="http://rockhopper.dk/tags/htpc" class="list-group-item">htpc</a>
-      
-      <a href="http://rockhopper.dk/tags/zsh" class="list-group-item">zsh</a>
-      
-      <a href="http://rockhopper.dk/tags/dvb-c" class="list-group-item">dvb-c</a>
       
       <a href="http://rockhopper.dk/tags/behat" class="list-group-item">behat</a>
       
-      <a href="http://rockhopper.dk/tags/mythfrontend" class="list-group-item">mythfrontend</a>
+      <a href="http://rockhopper.dk/tags/docker" class="list-group-item">docker</a>
+      
+      <a href="http://rockhopper.dk/tags/htpc" class="list-group-item">htpc</a>
+      
+      <a href="http://rockhopper.dk/tags/mythbackend" class="list-group-item">mythbackend</a>
+      
+      <a href="http://rockhopper.dk/tags/duplicity" class="list-group-item">duplicity</a>
+      
+      <a href="http://rockhopper.dk/tags/dvb-c" class="list-group-item">dvb-c</a>
+      
+      <a href="http://rockhopper.dk/tags/kodi" class="list-group-item">kodi</a>
       
       <a href="http://rockhopper.dk/tags/motherboard" class="list-group-item">motherboard</a>
       

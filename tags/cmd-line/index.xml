@@ -19,7 +19,7 @@
 
 &lt;p&gt;Some handy command line tools to burn CDs/DVDs and work with .iso files:&lt;/p&gt;
 
-&lt;h2 id=&#34;burning-iso-files:9bdb5f4f5bfba3f52784bc072e63c9c7&#34;&gt;Burning .iso files:&lt;/h2&gt;
+&lt;h2 id=&#34;burning-iso-files&#34;&gt;Burning .iso files:&lt;/h2&gt;
 
 &lt;p&gt;Basic usage of wodim (formally know as cdrecord):&lt;/p&gt;
 
@@ -29,7 +29,7 @@
 
 &lt;p&gt;If your drive supports BurnFree add: -v driveropts=burnfree&lt;/p&gt;
 
-&lt;h2 id=&#34;generating-iso-files:9bdb5f4f5bfba3f52784bc072e63c9c7&#34;&gt;Generating .iso files&lt;/h2&gt;
+&lt;h2 id=&#34;generating-iso-files&#34;&gt;Generating .iso files&lt;/h2&gt;
 
 &lt;p&gt;Add content of directory to an iso:&lt;/p&gt;
 
@@ -43,7 +43,7 @@
 &lt;li&gt;-graft-points : Maps a directory to another, e.g. specifying &amp;#8220;-graft-points &amp;#8216;/=/home/myusername&#39;&amp;#8221; the contents of /home/myusername is mapped to / on the iso&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;to-burn-directly-to-cd-dvd:9bdb5f4f5bfba3f52784bc072e63c9c7&#34;&gt;To burn directly to CD/DVD&lt;/h2&gt;
+&lt;h2 id=&#34;to-burn-directly-to-cd-dvd&#34;&gt;To burn directly to CD/DVD&lt;/h2&gt;
 
 &lt;p&gt;By combining genisoimage and wodim, you can burn files directly:&lt;/p&gt;
 
@@ -51,7 +51,7 @@
 
 &lt;p&gt;Note the missing -o for genisoimage, and the &amp;#8220;-&amp;#8221; argument for wodim&lt;/p&gt;
 
-&lt;h2 id=&#34;mounting-iso-files:9bdb5f4f5bfba3f52784bc072e63c9c7&#34;&gt;Mounting .iso files&lt;/h2&gt;
+&lt;h2 id=&#34;mounting-iso-files&#34;&gt;Mounting .iso files&lt;/h2&gt;
 
 &lt;p&gt;This requires root rights:&lt;/p&gt;
 

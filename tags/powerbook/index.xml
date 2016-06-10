@@ -21,7 +21,7 @@
 
 &lt;p&gt;I just followed the &lt;a href=&#34;http://wiki.archlinux.org/index.php/Install_Arch_Linux_PPC&#34;&gt;instructions available&lt;/a&gt; in the ArchLinux wiki, and here are my notes on the installation.&lt;/p&gt;
 
-&lt;h2 id=&#34;install-issues:ee78b04dbd8e2687e8423cd7c5e4eff0&#34;&gt;Install issues&lt;/h2&gt;
+&lt;h2 id=&#34;install-issues&#34;&gt;Install issues&lt;/h2&gt;
 
 &lt;p&gt;I experienced 2 issues with the /arch/quickinstall script. First it failed because wget was missing from the cd. So I used &amp;#8220;vi&amp;#8221; to replace wget with &lt;a href=&#34;http://www.xach.com/snarf/&#34;&gt;snarf&lt;/a&gt; (which is on the cd) in the script. Secondly the quickinstall ftp URL was wrong in the wiki, it should be core instead of current (I have updated the wiki with the correct link)&lt;/p&gt;
 
@@ -40,7 +40,7 @@ useradd: PAM authentication failed&lt;/pre&gt;
 
 &lt;p&gt;I finally track the problem down to a mismatch between /etc/shadow and /etc/shadow- in the line with the root user.&lt;/p&gt;
 
-&lt;h2 id=&#34;post-install:ee78b04dbd8e2687e8423cd7c5e4eff0&#34;&gt;Post install&lt;/h2&gt;
+&lt;h2 id=&#34;post-install&#34;&gt;Post install&lt;/h2&gt;
 
 &lt;p&gt;When everything was installed and the system running, I started to add applications and tweak settings:&lt;/p&gt;
 
@@ -54,7 +54,7 @@ useradd: PAM authentication failed&lt;/pre&gt;
 
 &lt;p&gt;Finally I installed &lt;a href=&#34;http://www.transmissionbt.com/&#34;&gt;transmission bittorrent client&lt;/a&gt;, and the &lt;a href=&#34;http://clutchbt.com/&#34;&gt;clutch web interface for transmission&lt;/a&gt;, and a couple of other apps.&lt;/p&gt;
 
-&lt;h2 id=&#34;unresolved-issuses:ee78b04dbd8e2687e8423cd7c5e4eff0&#34;&gt;Unresolved issuses&lt;/h2&gt;
+&lt;h2 id=&#34;unresolved-issuses&#34;&gt;Unresolved issuses&lt;/h2&gt;
 
 &lt;p&gt;I have 2 small problems left that are minor annoyances:&lt;/p&gt;
 
@@ -71,7 +71,7 @@ useradd: PAM authentication failed&lt;/pre&gt;
 
 &lt;p&gt;I also ignore this, because the machine uses ntpdate to set its time.&lt;/p&gt;
 
-&lt;h2 id=&#34;status:ee78b04dbd8e2687e8423cd7c5e4eff0&#34;&gt;Status&lt;/h2&gt;
+&lt;h2 id=&#34;status&#34;&gt;Status&lt;/h2&gt;
 
 &lt;p&gt;The machine has been running stable in a couple of weeks, and ArchLinux PPC feels as stable as the x86 edition.&lt;/p&gt;
 </description>

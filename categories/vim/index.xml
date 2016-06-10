@@ -19,7 +19,7 @@
 
 &lt;p&gt;I use Neovim for all my text editing, and as I&#39;m a web developer I edit a lot of HTML, PHP, CSS and JavaScript. And not only do I have to switch between different programming/markup languages I also have to switch between different environments, ranging from old Drupal 6 sites on Debian squeeze to a Symfony setup on Debian Jessie to ensure that my code works in production.&lt;/p&gt;
 
-&lt;h2 id=&#34;enter-docker:0c08f28664efdd056b375f3539e6eeb3&#34;&gt;Enter Docker&lt;/h2&gt;
+&lt;h2 id=&#34;enter-docker&#34;&gt;Enter Docker&lt;/h2&gt;
 
 &lt;p&gt;Switching between different versions of Apache/PHP/MySQL and other components is nearly impossible if they are locally installed. In the old dark days I would work on a site directly on the server, then later Vagrant came along and gave a virtual server that could be provisioned like the production server and now Docker gives lightweight containers that allows to quickly switch between different setups.&lt;/p&gt;
 
@@ -27,7 +27,7 @@
 
 &lt;p&gt;My Docker image contains Apache, MariaDB, PHP5 with Xdebug, Mailhog and Webgrind. Database data is kept separately in a volume and sites/virtual hosts are kept on the host.&lt;/p&gt;
 
-&lt;h3 id=&#34;workflow:0c08f28664efdd056b375f3539e6eeb3&#34;&gt;Workflow&lt;/h3&gt;
+&lt;h3 id=&#34;workflow&#34;&gt;Workflow&lt;/h3&gt;
 
 &lt;p&gt;I can either drop an existing virtual host file in the vhosts directory, or run &lt;code&gt;pilotboat site-create mydomain.dev&lt;/code&gt; which will create a virtual host and directory structure. I use dnsmasq to point the top level domain (.dev) to localhost. If you use NetworkManager just create the following file: &lt;code&gt;/etc/NetworkManager/dnsmasq.d/dev.conf&lt;/code&gt; containing:&lt;/p&gt;
 
@@ -35,7 +35,7 @@
 
 &lt;p&gt;Then I can checkout the site from git and import a database, which can be done by &lt;code&gt;pilotboat db-import database_name&lt;/code&gt;. The command will try to import a file in the databases directory called database_name.sql.gz and the file should have been created by running &lt;code&gt;mysqldump -f --opt -u root -p -c [database_name] | gzip &amp;gt; [database_name.sql.gz]&lt;/code&gt;, or alternative I use phpMyAdmin which is running in the container on &lt;a href=&#34;http://localhost/phpmyadmin/&#34;&gt;http://localhost/phpmyadmin/&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;vim-neovim:0c08f28664efdd056b375f3539e6eeb3&#34;&gt;Vim / Neovim&lt;/h2&gt;
+&lt;h2 id=&#34;vim-neovim&#34;&gt;Vim / Neovim&lt;/h2&gt;
 
 &lt;p&gt;The only special setup for Vim is connecting Xdebug in the container to Vdebug, and map paths from inside the container to the local file system:
 &lt;pre&gt;&lt;code class=&#34;language-vim&#34;&gt;let g:vdebug_options = {&amp;quot;path_maps&amp;quot;: {&amp;quot;/var/www&amp;quot;: &amp;quot;/path/to/pilotboat/sites&amp;quot;}, &amp;quot;break_on_open&amp;quot;: 0, &amp;quot;watch_window_style&amp;quot;: &amp;quot;compact&amp;quot;, &amp;quot;server&amp;quot; : &amp;quot;172.17.0.1&amp;quot;, &amp;quot;port&amp;quot;: 9000}

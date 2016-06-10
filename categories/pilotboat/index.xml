@@ -21,14 +21,14 @@
 
 &lt;p&gt;I have created &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;pilotboat&lt;/a&gt; to make it easy for me to develop and test PHP based applications, and I will use it in this how-to. If you prefer to use another setup, feel free to look through my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;github repository for pilotboat&lt;/a&gt; for inspiration.&lt;/p&gt;
 
-&lt;h2 id=&#34;prerequisite:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Prerequisite&lt;/h2&gt;
+&lt;h2 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Working Docker installation&lt;/li&gt;
 &lt;li&gt;A top level domain that points to your local machine, e.g. .dev&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#34;pilotboat-setup:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Pilotboat setup&lt;/h2&gt;
+&lt;h2 id=&#34;pilotboat-setup&#34;&gt;Pilotboat setup&lt;/h2&gt;
 
 &lt;p&gt;The following steps are required to setup pilotboat:&lt;/p&gt;
 
@@ -43,13 +43,13 @@
 
 &lt;p&gt;Docker-compose will download and build the needed images and start the containers.&lt;/p&gt;
 
-&lt;h2 id=&#34;site-setup:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Site setup&lt;/h2&gt;
+&lt;h2 id=&#34;site-setup&#34;&gt;Site setup&lt;/h2&gt;
 
 &lt;p&gt;To create a site based on Symfony 3 run &lt;kbd&gt;pilotboat site-create symfony.dev symfony&lt;/kbd&gt;
  (symfony.dev is your domain name, you may choose anything you like). The latest stable version of the Symfony 3 framework will be downloaded and installed. Note that pilotboat will create a database, but you will have to manually configure &lt;code&gt;app/config/parameters.yml&lt;/code&gt;
  to access it.&lt;/p&gt;
 
-&lt;h2 id=&#34;behat-configuration:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Behat configuration&lt;/h2&gt;
+&lt;h2 id=&#34;behat-configuration&#34;&gt;Behat configuration&lt;/h2&gt;
 
 &lt;p&gt;Enter the container with &lt;kbd&gt;pilotboat shell&lt;/kbd&gt;
  and change to your site: &lt;kbd&gt;cd symfony.dev&lt;/kbd&gt;
@@ -81,7 +81,7 @@
             wd_host: &#39;http://phantomjs:8910/wd/hub&#39;&lt;/code&gt;&lt;/pre&gt;
 
 
-&lt;h2 id=&#34;writing-and-running-tests:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Writing and running tests&lt;/h2&gt;
+&lt;h2 id=&#34;writing-and-running-tests&#34;&gt;Writing and running tests&lt;/h2&gt;
 
 &lt;p&gt;I will not go into detail on how to write tests, so the following is just a small example. Create &lt;code&gt;features/homepage.feature&lt;/code&gt;
  and put the following in the file:&lt;/p&gt;

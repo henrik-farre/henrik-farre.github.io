@@ -12,18 +12,18 @@
   
     <link href="/css/combined.css" rel="stylesheet" />
     <link rel="alternate" type="application/rss+xml" title="RSS" href="http://rockhopper.dk//index.xml">
-    <link rel="canonical" href="http://rockhopper.dk/linux/software/mythtv/check-video-encoding-script-for-mythtv/" />
+    <link rel="canonical" href="http://rockhopper.dk/tags/drupal-8/" />
 
     
-    <title>Check video encoding script for MythTV - Rockhopper.dk</title>
-    <meta property='og:title' content="Check video encoding script for MythTV - Rockhopper.dk">
+    <title>Drupal 8 - Rockhopper.dk</title>
+    <meta property='og:title' content="Drupal 8 - Rockhopper.dk">
     <meta property="og:type" content="article">
     
     
     <meta name="google-site-verification" content="eoEQEAp-8H6Sou4fffVz-N58YP34LIRG0wJyHvvxVJw" />
     
 
-    <meta property="og:url" content="http://rockhopper.dk/linux/software/mythtv/check-video-encoding-script-for-mythtv/">
+    <meta property="og:url" content="http://rockhopper.dk/tags/drupal-8/">
     
     
   </head>
@@ -77,84 +77,31 @@
       <div class="container">
 
 
-
-<div class="single">
+<div class="list">
 
   <div class="row">
     <div class="col-md-8">
+      <header class="page-title">Drupal 8</header>
 
-      <article class="single" itemscope="itemscope" itemtype="http://schema.org/Article">
+      
+      <article class="li">
+  <header>
+    <div class="date">Fri, Jun 10, 2016</div>
+    <h2 class="title"><a href="http://rockhopper.dk/linux/software/drupal-8-and-behat-tests">Drupal 8 and Behat tests</a></h2>
+  </header>
+  <div class="body"><p>The <a href="https://www.drupal.org/project/drupalextension">&quot;Drupal Extension to Behat and Mink&quot;</a> provides some nice Drupal specific step definitions and ways of setting test data up. This post runs through the setup process.</p>
+</div>
 
-        <meta itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" content="http://rockhopper.dk/"/>
-        <meta itemprop="dateModified" content="2008-06-28T00:00:00&#43;00:00">
-        <meta itemprop="headline" content="Check video encoding script for MythTV">
-        <meta itemprop="description" content="I&#8217;m using Xine as the preferred video player on my MythTV frontend, because it has a nice video output driver called &#8220;xxmc&#8221;. This driver enables hardware accelerated playback of mpeg1/2 streams (e.g. ivtv recordings or DVDs) on Geforce 7xxx and other Geforce chips.
-">
-        <meta itemprop="url" content="http://rockhopper.dk/linux/software/mythtv/check-video-encoding-script-for-mythtv/">
-        <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-          <meta itemprop="name" content="Rockhopper.dk">
-        </div>
-        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-          <meta itemprop="name" content="Henrik Farre">
-          <meta itemprop="sameAs" content="https://dk.linkedin.com/in/henrikfarre">
-          <meta itemprop="sameAs" content="https://github.com/henrik-farre">
-        </div>
+  
+  <footer>
+    <a href="http://rockhopper.dk/linux/software/drupal-8-and-behat-tests" class="btn btn-default">Read More…</a>
+  </footer>
+  
+</article>
+<hr>
 
-        <header class="article-header">
-          <time itemprop="datePublished" pubdate="pubdate" datetime="2008-06-28T00:00:00&#43;00:00">Sat, Jun 28, 2008</time>
-          <h1 class="article-title">Check video encoding script for MythTV</h1>
-        </header>
-
-        <div class="article-body" itemprop="articleBody">
-          <p>I&#8217;m using Xine as the preferred video player on my MythTV frontend, because it has a nice video output driver called &#8220;xxmc&#8221;. This driver enables hardware accelerated playback of mpeg1/2 streams (e.g. ivtv recordings or DVDs) on Geforce 7xxx and other Geforce chips. The driver should fall back to the xv driver if the stream is in another format than mpeg1/2, but somehow the xxmc drives screws up playback of videos encoded with Xvid as playback gets really jerky.</p>
-
-<p>I order to work around this, I created a script to check which video encoding is used, and if it&#8217;s Xvid, Xine uses xv output. The script just requires MPlayer. Dump the script somewhere MythTV can find it, and set it as the preferred video player in MythTV.</p>
-
-<p>You can of cause adapt it if you would like to use MPlayer instead of Xine, or want the script to check for something else than Xvid, or want the script to check for something entirely different then encoding (size maybe?), just check the output of: mplayer -identify &#8220;file&#8221;</p>
-
-<pre>
-<code class="language-bash">#!/bin/bash
-
-# Don't check encoding if MythTV is trying to playback a DVD
-if [[ ${1} != 'dvd://' ]]; then
-  VIDEO_FORMAT=`mplayer -really-quiet -identify -frames -vc null -vo null -ao null ${1} 2&lt;/dev/null | awk -F= '/^ID_VIDEO_FORMAT/ {print $2}'` # ID_VIDEO_FORMAT contains the encoding
-else
-  VIDEO_FORMAT='dvd'
-fi
-
-if [[ ${VIDEO_FORMAT} = 'XVID'  ]]; then
-  VIDEO_DRIVER="-V xv" # Use xv output for Xvid, xxmc for everything else
-else
-  VIDEO_DRIVER="-V xxmc"
-fi
-
-# Xine options
-AUDIO_DRIVER="-A alsa"
-EXTRA_OPTIONS="-pfhq --no-splash"
-DEBUG_OPTIONS="--verbose=5 &gt; /shared/mythtv/xine.log"
-
-xine ${VIDEO_DRIVER} ${AUDIO_DRIVER} ${EXTRA_OPTIONS} ${1}
-</code></pre>
-
-        </div>
-
-        <aside>
-          <div class="section"><a href="http://rockhopper.dk/tags/mythfrontend" class="tag">mythfrontend</a> </div>
-
-          <div class="section share">
-            <a href="https://www.reddit.com/submit?url=http%3a%2f%2frockhopper.dk%2flinux%2fsoftware%2fmythtv%2fcheck-video-encoding-script-for-mythtv%2f&title=Check%20video%20encoding%20script%20for%20MythTV" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-reddit-alien"></i></a>
-            <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2frockhopper.dk%2flinux%2fsoftware%2fmythtv%2fcheck-video-encoding-script-for-mythtv%2f&t=Check%20video%20encoding%20script%20for%20MythTV" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-            <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2frockhopper.dk%2flinux%2fsoftware%2fmythtv%2fcheck-video-encoding-script-for-mythtv%2f&text=Check%20video%20encoding%20script%20for%20MythTV&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-            <a href="https://plus.google.com/share?url=http%3a%2f%2frockhopper.dk%2flinux%2fsoftware%2fmythtv%2fcheck-video-encoding-script-for-mythtv%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-            <a href="http://getpocket.com/edit?url=http%3a%2f%2frockhopper.dk%2flinux%2fsoftware%2fmythtv%2fcheck-video-encoding-script-for-mythtv%2f&title=Check%20video%20encoding%20script%20for%20MythTV" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-          </div>
-
-          
-          
-          
-        </aside>
-
-      </article>
+      
+      
 
     </div>
     <div class="col-md-4">
@@ -226,7 +173,6 @@ xine ${VIDEO_DRIVER} ${AUDIO_DRIVER} ${EXTRA_OPTIONS} ${1}
   </div>
 
 </div>
-
       </div>
     </div>
 

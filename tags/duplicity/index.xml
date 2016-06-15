@@ -19,7 +19,7 @@
 
 &lt;p&gt;As described in my &lt;a href=&#34;http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end/&#34;&gt;previous post&lt;/a&gt; I use Duplicity with Google Drive for storage. In this post I give a quick how to on configuring Duplicity for that setup.&lt;/p&gt;
 
-&lt;h2 id=&#34;prerequisites:a4873c35425d94672fb7ac53bf8aa261&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Duplicity installed&lt;/li&gt;
@@ -29,7 +29,7 @@
 &lt;li&gt;First time you run Duplicity it has to be done interactively, as it will prompt you to allow access to Google drive&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;google-drive-api-setup:a4873c35425d94672fb7ac53bf8aa261&#34;&gt;Google drive API setup&lt;/h2&gt;
+&lt;h2 id=&#34;google-drive-api-setup&#34;&gt;Google drive API setup&lt;/h2&gt;
 
 &lt;p&gt;Go to &lt;a href=&#34;https://console.developers.google.com/&#34;&gt;console.developers.google.com&lt;/a&gt; and create a new project, under &amp;quot;Show advanced options &amp;gt; App Engine location&amp;quot; I selected &amp;quot;europe-west&amp;quot;.&lt;/p&gt;
 
@@ -162,7 +162,7 @@
 &lt;p&gt;Create &lt;code&gt;/root/.duplicity/gdrive&lt;/code&gt;
  and add the values from step 5:&lt;/p&gt;
 
-&lt;p&gt;&lt;pre&gt;&lt;code class=&#34;language-yml&#34;&gt;client_config_backend: settings
+&lt;pre&gt;&lt;code class=&#34;language-yml&#34;&gt;client_config_backend: settings
 client_config:
   client_id: XXXXXXXXXXXXXXXXXXXXXX.apps.googleusercontent.com
   client_secret: XXXXXXXXXXXXXXXXXXXXXX
@@ -170,14 +170,14 @@ save_credentials: True
 save_credentials_backend: file
 save_credentials_file: gdrive.cache
 get_refresh_token: True&lt;/code&gt;&lt;/pre&gt;
-&lt;/p&gt;
 
-&lt;h2 id=&#34;granting-duplicity-access-to-google-drive:a4873c35425d94672fb7ac53bf8aa261&#34;&gt;Granting Duplicity access to Google drive&lt;/h2&gt;
+
+&lt;h2 id=&#34;granting-duplicity-access-to-google-drive&#34;&gt;Granting Duplicity access to Google drive&lt;/h2&gt;
 
 &lt;p&gt;PyDrive would prompt for a verification code everytime I ran Duplicity, and would not create the gdrive.cache file. I fixed it by changing the current working directory to &lt;code&gt;/root/.duplicity/&lt;/code&gt;
 . A simple script like the following should work:&lt;/p&gt;
 
-&lt;p&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
 cd /root/.duplicity/
 
 PASSPHRASE=&#34;XXXXXXXXXX&#34;
@@ -186,7 +186,7 @@ DEST=&#34;gdocs://YOUR_GMAIL/SOME_DIR/$HOSTNAME/home&#34;
 SRC=&#34;/home&#34;
 
 duplicity incr --encrypt-key XXXXXXX --full-if-older-than 4M --volsize 1024 --asynchronous-upload --exclude-device-files --exclude-other-filesystems &#34;${SRC}&#34; &#34;${DEST}&#34;&lt;/code&gt;&lt;/pre&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;When you run this script the first time, you should get a prompt that says (XXXXXXXXXXXXXXXXXXXXXX will be your client id):&lt;/p&gt;
 
@@ -199,7 +199,7 @@ Enter verification code:&lt;/pre&gt;
 &lt;p&gt;When you have approved access you should have the file &lt;code&gt;/root/.duplicity/gdrive.cache&lt;/code&gt;
 , and next time Duplicity runs, it should automatically be authorized.&lt;/p&gt;
 
-&lt;h2 id=&#34;wrapping-up:a4873c35425d94672fb7ac53bf8aa261&#34;&gt;Wrapping up&lt;/h2&gt;
+&lt;h2 id=&#34;wrapping-up&#34;&gt;Wrapping up&lt;/h2&gt;
 
 &lt;p&gt;I have created a set of &lt;a href=&#34;https://github.com/henrik-farre/duplicity_backup_scripts&#34;&gt;Duplicity backup scrips&lt;/a&gt; with error handling/reporting that wraps backup, restore, cleanup and backup verification, feel free to use or fork them :)&lt;/p&gt;
 </description>
@@ -280,7 +280,7 @@ DPBX_UPLOAD_CHUNK_SIZE = 16 * 1024 * 1024&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;So I decided to try Google Drive as back end, which was just fixed in duplicity version 0.7.07.1. Google drive utilized the bandwidth much better, and the delay between uploads is when duplicity prepares the next volume for upload.&lt;/p&gt;
 
-&lt;p&gt;
+
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4 photo&#34;&gt;
@@ -305,7 +305,7 @@ DPBX_UPLOAD_CHUNK_SIZE = 16 * 1024 * 1024&lt;/code&gt;&lt;/pre&gt;
 
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;So I purchased 1Tb of storage for Google drive for USD 9.99/month, and to my surprise it was without taxes, so I ended up paying USD 12.49/month (~ DKK 85/month), but it is much faster than Dropbox.&lt;/p&gt;
 

@@ -62,7 +62,7 @@ dvb-usb: Anysee DVB USB2.0 successfully initialized and connected.&lt;/pre&gt;
 
 &lt;p&gt;I spend a lot of time looking for information on different sites like &lt;a href=&#34;http://www.linuxtv.org/wiki/index.php&#34;&gt;LinuxTV wiki&lt;/a&gt; (direct link to &lt;a href=&#34;http://www.linuxtv.org/wiki/index.php/TerraTec_Cinergy_C_DVB-C&#34;&gt;TerraTec Cinergy C DVB-C&lt;/a&gt;) and &lt;a href=&#34;http://www.mythtv.org/wiki/Video_capture_card&#34;&gt;MythTV wiki&lt;/a&gt;, and ended up with the TerraTec card.&lt;/p&gt;
 
-&lt;h2 id=&#34;installing-the-card:0c6998ea031b046b392950a185a01db3&#34;&gt;Installing the card&lt;/h2&gt;
+&lt;h2 id=&#34;installing-the-card&#34;&gt;Installing the card&lt;/h2&gt;
 
 &lt;p&gt;On the physical installation I don&amp;#8217;t have any interesting to say, it fits into the PCI slot on the motherboard without covering/blocking anything.&lt;/p&gt;
 
@@ -97,7 +97,7 @@ Mantis VP-2040 IR Receiver: unknown key: key=0x00 down=1
 Mantis VP-2040 IR Receiver: unknown key: key=0x00 down=0
 &lt;/pre&gt;
 
-&lt;h2 id=&#34;adding-the-card-to-mythtv:0c6998ea031b046b392950a185a01db3&#34;&gt;Adding the card to MythTV&lt;/h2&gt;
+&lt;h2 id=&#34;adding-the-card-to-mythtv&#34;&gt;Adding the card to MythTV&lt;/h2&gt;
 
 &lt;p&gt;I started by scanning for channels using the &amp;#8220;scan&amp;#8221; tool from the linuxtv-dvb-apps package in ArchLinux. None of the provided data files (in &amp;#8220;/usr/share/dvb/dvb-c/&amp;#8221;) contained the correct information, so I created one using information about frequency and other bits provided by &lt;a href=&#34;http://www.stofa.dk/showpage.php?shortcut=kanalsoeg&#34;&gt;Stofa&lt;/a&gt;:&lt;/p&gt;
 
@@ -120,11 +120,11 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;p&gt;So instead of importing the channels.conf file, I made MythTV itself scan for the channels.&lt;/p&gt;
 
-&lt;h2 id=&#34;mythtv-setup:0c6998ea031b046b392950a185a01db3&#34;&gt;Mythtv setup&lt;/h2&gt;
+&lt;h2 id=&#34;mythtv-setup&#34;&gt;Mythtv setup&lt;/h2&gt;
 
 &lt;p&gt;I started by shutting down the mythbackend, and starting &amp;#8220;mythtv-setup&amp;#8221;. I deleted all references to my old analogue TV card, and proceeded to setup the new Terratec Cinergy C PCI HD card. &lt;strong&gt;Note:&lt;/strong&gt; I only mention the settings that I changed, the rest are left on their default setting.&lt;/p&gt;
 
-&lt;h3 id=&#34;adding-a-new-capture-card:0c6998ea031b046b392950a185a01db3&#34;&gt;Adding a new capture card&lt;/h3&gt;
+&lt;h3 id=&#34;adding-a-new-capture-card&#34;&gt;Adding a new capture card&lt;/h3&gt;
 
 &lt;p&gt;In mythtv-setup enter &amp;#8220;Capture cards&amp;#8221; and select &amp;#8220;New capture card&amp;#8221;.&lt;/p&gt;
 
@@ -168,7 +168,7 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;p&gt;When I pressed finish, the card is listed on the capture cards page.&lt;/p&gt;
 
-&lt;h3 id=&#34;adding-a-new-video-source:0c6998ea031b046b392950a185a01db3&#34;&gt;Adding a new video source&lt;/h3&gt;
+&lt;h3 id=&#34;adding-a-new-video-source&#34;&gt;Adding a new video source&lt;/h3&gt;
 
 &lt;p&gt;In mythtv-setup enter &amp;#8220;Video sources&amp;#8221; and select &amp;#8220;New video source&amp;#8221;.&lt;/p&gt;
 
@@ -206,7 +206,7 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;p&gt;Press finish and the source should be listed on the sources page.&lt;/p&gt;
 
-&lt;h3 id=&#34;connection-capture-card-to-video-source:0c6998ea031b046b392950a185a01db3&#34;&gt;Connection capture card to video source&lt;/h3&gt;
+&lt;h3 id=&#34;connection-capture-card-to-video-source&#34;&gt;Connection capture card to video source&lt;/h3&gt;
 
 &lt;p&gt;In mythtv-setup enter &amp;#8220;Input connections&amp;#8221; and select the one that matches the DVB device number you got from capture cards.&lt;/p&gt;
 
@@ -244,7 +244,7 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;p&gt;Now press &amp;#8220;Scan for channels&amp;#8221;&lt;/p&gt;
 
-&lt;h3 id=&#34;scanning-for-channels:0c6998ea031b046b392950a185a01db3&#34;&gt;Scanning for channels&lt;/h3&gt;
+&lt;h3 id=&#34;scanning-for-channels&#34;&gt;Scanning for channels&lt;/h3&gt;
 
 
 
@@ -341,7 +341,7 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;p&gt;Select &amp;#8220;Insert all&amp;#8221; which brings you back to the input connection screen.&lt;/p&gt;
 
-&lt;h3 id=&#34;channel-editor:0c6998ea031b046b392950a185a01db3&#34;&gt;Channel editor&lt;/h3&gt;
+&lt;h3 id=&#34;channel-editor&#34;&gt;Channel editor&lt;/h3&gt;
 
 &lt;p&gt;In mythtv-setup enter &amp;#8220;Channel Editor&amp;#8221;&lt;/p&gt;
 
@@ -349,7 +349,7 @@ C 346000000 6900000 NONE QAM64&lt;/pre&gt;
 
 &lt;p&gt;This should be it, you should be able to record now :)&lt;/p&gt;
 
-&lt;h2 id=&#34;eit-tv-guide:0c6998ea031b046b392950a185a01db3&#34;&gt;EIT (TV guide)&lt;/h2&gt;
+&lt;h2 id=&#34;eit-tv-guide&#34;&gt;EIT (TV guide)&lt;/h2&gt;
 
 &lt;p&gt;MythTV should be able to get the data for the TV guide from the DVB-C stream, but I can&amp;#8217;t get it working. When googling the problem I learned that importing the channels.conf generated by the &amp;#8220;scan&amp;#8221; tool does not provide enough data for MythTV to pickup the EIT data from the stream.&lt;/p&gt;
 
@@ -383,7 +383,7 @@ Program Association Table
 
 &lt;p&gt;So for the time being I have given up, but luckily I found another way to get data from the stream.&lt;/p&gt;
 
-&lt;h2 id=&#34;tv-grab-dvb-plus:0c6998ea031b046b392950a185a01db3&#34;&gt;TV grab dvb plus&lt;/h2&gt;
+&lt;h2 id=&#34;tv-grab-dvb-plus&#34;&gt;TV grab dvb plus&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://sourceforge.net/projects/tvgrabeit/&#34;&gt;tv_grab_dvb_plus&lt;/a&gt; is a small tool that produces a xmltv file that can be imported into MythTV, just download and compile it. It worked the first time I tried it, although there are two minor issues:&lt;/p&gt;
 
@@ -429,7 +429,7 @@ cd = iconv_open(&#34;ISO-8859-1&#34;, cs_new);
 
 &lt;p&gt;All that is left is to import the produced xml file into MythTV with this command: &amp;#8220;mythfilldatabase &amp;#8211;file 1 dvbplus.xml&amp;#8221; (or whatever you called the file).&lt;/p&gt;
 
-&lt;h2 id=&#34;final-thoughts:0c6998ea031b046b392950a185a01db3&#34;&gt;Final thoughts&lt;/h2&gt;
+&lt;h2 id=&#34;final-thoughts&#34;&gt;Final thoughts&lt;/h2&gt;
 
 &lt;p&gt;So far I&amp;#8217;m pleased with the combination of the TerraTec Cinergy C DVB-C card and MythTV, although it&amp;#8217;s not super stable, and sometimes MythTV fails to record a program, and the following messages appear in dmesg:&lt;/p&gt;
 

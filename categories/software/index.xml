@@ -6,8 +6,124 @@
     <description>Recent content in Software on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 May 2016 10:51:24 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 10 Jun 2016 10:23:40 +0200</lastBuildDate>
     <atom:link href="http://rockhopper.dk/categories/software/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Drupal 8 and Behat tests</title>
+      <link>http://rockhopper.dk/linux/software/drupal-8-and-behat-tests</link>
+      <pubDate>Fri, 10 Jun 2016 10:23:40 +0200</pubDate>
+      
+      <guid>http://rockhopper.dk/linux/software/drupal-8-and-behat-tests</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://www.drupal.org/project/drupalextension&#34;&gt;&amp;quot;Drupal Extension to Behat and Mink&amp;quot;&lt;/a&gt; provides some nice Drupal specific step definitions and ways of setting test data up. This post runs through the setup process.&lt;/p&gt;
+
+&lt;p&gt;First create a behat directory outside your Drupal installation (&lt;code&gt;public_html&lt;/code&gt;
+ in my case) so that you have the following directory layout:&lt;/p&gt;
+
+&lt;pre&gt;.
+├── behat
+├── logs
+│   ├── access.log
+│   └── error.log
+├── public_html
+│   ├── autoload.php
+│   ├── ...
+│   └── web.config
+├── sessions
+├── tmp
+└── upload&lt;/pre&gt;
+
+&lt;p&gt;I always keep the entire layout show above in git (with git ignores on the contents of &lt;code&gt;logs&lt;/code&gt;
+, &lt;code&gt;session&lt;/code&gt;
+, &lt;code&gt;tmp&lt;/code&gt;
+ and &lt;code&gt;upload&lt;/code&gt;
+).&lt;/p&gt;
+
+&lt;p&gt;Inside the &lt;code&gt;behat&lt;/code&gt;
+ directory create a &lt;code&gt;composer.json&lt;/code&gt;
+ file, with the following content:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;{
+  &#34;require&#34;: {
+    &#34;drupal/drupal-extension&#34;: &#34;~3.0&#34;,
+    &#34;guzzlehttp/guzzle&#34;: &#34;^6.0@dev&#34;,
+    &#34;symfony/dependency-injection&#34;: &#34;2.8.2&#34;,
+    &#34;symfony/event-dispatcher&#34;: &#34;2.8.2&#34;
+  },
+  &#34;config&#34;: {
+    &#34;bin-dir&#34;: &#34;bin/&#34;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;It is needed to pin the version of the Symfony dependencies, else you will get this error:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;PHP Fatal error:  Undefined class constant &#39;Symfony\Component\DependencyInjection\ContainerInterface::SCOPE_CONTAINER&#39; in /var/www/drupal8.dev/public_html/core/lib/Drupal/Core/DependencyInjection/Container.php on line 16&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;See this &lt;a href=&#34;https://www.drupal.org/node/2704943&#34;&gt;bug report&lt;/a&gt; for more info. The file is based on the &lt;a href=&#34;https://behat-drupal-extension.readthedocs.io/en/3.1/localinstall.html&#34;&gt;Stand-alone installation&lt;/a&gt; documentation for the Drupal Extension to Behat and Mink.&lt;/p&gt;
+
+&lt;p&gt;Next the dependencies has to be installed. I use my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;Docker based dev environment &amp;quot;pilotboat&amp;quot;&lt;/a&gt;, so I execute &lt;kbd&gt;pilotboat shell&lt;/kbd&gt;
+ to get a shell inside the container, if you use something else, just follow the next instructions.&lt;/p&gt;
+
+&lt;p&gt;Enter the &lt;code&gt;behat&lt;/code&gt;
+ directory, &lt;kbd&gt;cd drupal8.dev/behat&lt;/kbd&gt;
+ and run: &lt;kbd&gt;composer install&lt;/kbd&gt;
+ and wait until everything is installed.&lt;/p&gt;
+
+&lt;p&gt;Now we can create &lt;code&gt;behat.yml&lt;/code&gt;
+. Adapt the url for PhantomJS (wd_host), and the paths to the Drupal installation so it matches your setup.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;default:
+  suites:
+    default:
+      contexts:
+        - FeatureContext
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\MessageContext
+        - Drupal\DrupalExtension\Context\DrushContext
+  extensions:
+    Behat\MinkExtension:
+      selenium2:
+        wd_host: &#39;http://phantomjs:8910/wd/hub&#39;
+      base_url: http://drupal8.dev
+    Drupal\DrupalExtension:
+      blackbox: ~
+      api_driver: &#39;drupal&#39;
+      drush:
+        root: &#39;/var/www/drupal8.dev/public_html&#39;
+      drupal:
+        drupal_root: &#39;/var/www/drupal8.dev/public_html&#39;&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Now everything should be ready so that you can run &lt;kbd&gt;bin/behat --init&lt;/kbd&gt;
+ and then create the first feature: &lt;code&gt;features/homepage.feature&lt;/code&gt;
+.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;Feature: Homepage
+  In order to see if the home page works
+  As a website user
+  I need to be able to see the home page
+
+  Scenario: See the home page
+    Given I am on &#34;/&#34;
+    Then I should see &#34;Welcome to drupal8.dev&#34;&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;If you want to create nodes, you can tag the feature or the scenario with &amp;quot;@api&amp;quot;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;@api
+  Scenario: Create a node
+    Given I am logged in as a user with the &#34;administrator&#34; role
+    When I am viewing an &#34;article&#34; content with the title &#34;My article&#34;
+    Then I should see the heading &#34;My article&#34;&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;For more information about the api driver see the &lt;a href=&#34;https://behat-drupal-extension.readthedocs.io/en/3.1/drupalapi.html&#34;&gt;Drupal API Driver documentation&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Behat: taking screenshots of failed steps</title>
@@ -123,14 +239,14 @@ class FeatureContext implements Context, SnippetAcceptingContext
 
 &lt;p&gt;I have created &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;pilotboat&lt;/a&gt; to make it easy for me to develop and test PHP based applications, and I will use it in this how-to. If you prefer to use another setup, feel free to look through my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;github repository for pilotboat&lt;/a&gt; for inspiration.&lt;/p&gt;
 
-&lt;h2 id=&#34;prerequisite:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Prerequisite&lt;/h2&gt;
+&lt;h2 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Working Docker installation&lt;/li&gt;
 &lt;li&gt;A top level domain that points to your local machine, e.g. .dev&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#34;pilotboat-setup:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Pilotboat setup&lt;/h2&gt;
+&lt;h2 id=&#34;pilotboat-setup&#34;&gt;Pilotboat setup&lt;/h2&gt;
 
 &lt;p&gt;The following steps are required to setup pilotboat:&lt;/p&gt;
 
@@ -145,13 +261,13 @@ class FeatureContext implements Context, SnippetAcceptingContext
 
 &lt;p&gt;Docker-compose will download and build the needed images and start the containers.&lt;/p&gt;
 
-&lt;h2 id=&#34;site-setup:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Site setup&lt;/h2&gt;
+&lt;h2 id=&#34;site-setup&#34;&gt;Site setup&lt;/h2&gt;
 
 &lt;p&gt;To create a site based on Symfony 3 run &lt;kbd&gt;pilotboat site-create symfony.dev symfony&lt;/kbd&gt;
  (symfony.dev is your domain name, you may choose anything you like). The latest stable version of the Symfony 3 framework will be downloaded and installed. Note that pilotboat will create a database, but you will have to manually configure &lt;code&gt;app/config/parameters.yml&lt;/code&gt;
  to access it.&lt;/p&gt;
 
-&lt;h2 id=&#34;behat-configuration:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Behat configuration&lt;/h2&gt;
+&lt;h2 id=&#34;behat-configuration&#34;&gt;Behat configuration&lt;/h2&gt;
 
 &lt;p&gt;Enter the container with &lt;kbd&gt;pilotboat shell&lt;/kbd&gt;
  and change to your site: &lt;kbd&gt;cd symfony.dev&lt;/kbd&gt;
@@ -183,7 +299,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
             wd_host: &#39;http://phantomjs:8910/wd/hub&#39;&lt;/code&gt;&lt;/pre&gt;
 
 
-&lt;h2 id=&#34;writing-and-running-tests:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Writing and running tests&lt;/h2&gt;
+&lt;h2 id=&#34;writing-and-running-tests&#34;&gt;Writing and running tests&lt;/h2&gt;
 
 &lt;p&gt;I will not go into detail on how to write tests, so the following is just a small example. Create &lt;code&gt;features/homepage.feature&lt;/code&gt;
  and put the following in the file:&lt;/p&gt;
@@ -228,7 +344,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
 
 &lt;p&gt;As described in my &lt;a href=&#34;http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end/&#34;&gt;previous post&lt;/a&gt; I use Duplicity with Google Drive for storage. In this post I give a quick how to on configuring Duplicity for that setup.&lt;/p&gt;
 
-&lt;h2 id=&#34;prerequisites:a4873c35425d94672fb7ac53bf8aa261&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Duplicity installed&lt;/li&gt;
@@ -238,7 +354,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
 &lt;li&gt;First time you run Duplicity it has to be done interactively, as it will prompt you to allow access to Google drive&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;google-drive-api-setup:a4873c35425d94672fb7ac53bf8aa261&#34;&gt;Google drive API setup&lt;/h2&gt;
+&lt;h2 id=&#34;google-drive-api-setup&#34;&gt;Google drive API setup&lt;/h2&gt;
 
 &lt;p&gt;Go to &lt;a href=&#34;https://console.developers.google.com/&#34;&gt;console.developers.google.com&lt;/a&gt; and create a new project, under &amp;quot;Show advanced options &amp;gt; App Engine location&amp;quot; I selected &amp;quot;europe-west&amp;quot;.&lt;/p&gt;
 
@@ -371,7 +487,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
 &lt;p&gt;Create &lt;code&gt;/root/.duplicity/gdrive&lt;/code&gt;
  and add the values from step 5:&lt;/p&gt;
 
-&lt;p&gt;&lt;pre&gt;&lt;code class=&#34;language-yml&#34;&gt;client_config_backend: settings
+&lt;pre&gt;&lt;code class=&#34;language-yml&#34;&gt;client_config_backend: settings
 client_config:
   client_id: XXXXXXXXXXXXXXXXXXXXXX.apps.googleusercontent.com
   client_secret: XXXXXXXXXXXXXXXXXXXXXX
@@ -379,14 +495,14 @@ save_credentials: True
 save_credentials_backend: file
 save_credentials_file: gdrive.cache
 get_refresh_token: True&lt;/code&gt;&lt;/pre&gt;
-&lt;/p&gt;
 
-&lt;h2 id=&#34;granting-duplicity-access-to-google-drive:a4873c35425d94672fb7ac53bf8aa261&#34;&gt;Granting Duplicity access to Google drive&lt;/h2&gt;
+
+&lt;h2 id=&#34;granting-duplicity-access-to-google-drive&#34;&gt;Granting Duplicity access to Google drive&lt;/h2&gt;
 
 &lt;p&gt;PyDrive would prompt for a verification code everytime I ran Duplicity, and would not create the gdrive.cache file. I fixed it by changing the current working directory to &lt;code&gt;/root/.duplicity/&lt;/code&gt;
 . A simple script like the following should work:&lt;/p&gt;
 
-&lt;p&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
 cd /root/.duplicity/
 
 PASSPHRASE=&#34;XXXXXXXXXX&#34;
@@ -395,7 +511,7 @@ DEST=&#34;gdocs://YOUR_GMAIL/SOME_DIR/$HOSTNAME/home&#34;
 SRC=&#34;/home&#34;
 
 duplicity incr --encrypt-key XXXXXXX --full-if-older-than 4M --volsize 1024 --asynchronous-upload --exclude-device-files --exclude-other-filesystems &#34;${SRC}&#34; &#34;${DEST}&#34;&lt;/code&gt;&lt;/pre&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;When you run this script the first time, you should get a prompt that says (XXXXXXXXXXXXXXXXXXXXXX will be your client id):&lt;/p&gt;
 
@@ -408,7 +524,7 @@ Enter verification code:&lt;/pre&gt;
 &lt;p&gt;When you have approved access you should have the file &lt;code&gt;/root/.duplicity/gdrive.cache&lt;/code&gt;
 , and next time Duplicity runs, it should automatically be authorized.&lt;/p&gt;
 
-&lt;h2 id=&#34;wrapping-up:a4873c35425d94672fb7ac53bf8aa261&#34;&gt;Wrapping up&lt;/h2&gt;
+&lt;h2 id=&#34;wrapping-up&#34;&gt;Wrapping up&lt;/h2&gt;
 
 &lt;p&gt;I have created a set of &lt;a href=&#34;https://github.com/henrik-farre/duplicity_backup_scripts&#34;&gt;Duplicity backup scrips&lt;/a&gt; with error handling/reporting that wraps backup, restore, cleanup and backup verification, feel free to use or fork them :)&lt;/p&gt;
 </description>
@@ -489,7 +605,7 @@ DPBX_UPLOAD_CHUNK_SIZE = 16 * 1024 * 1024&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;So I decided to try Google Drive as back end, which was just fixed in duplicity version 0.7.07.1. Google drive utilized the bandwidth much better, and the delay between uploads is when duplicity prepares the next volume for upload.&lt;/p&gt;
 
-&lt;p&gt;
+
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4 photo&#34;&gt;
@@ -514,7 +630,7 @@ DPBX_UPLOAD_CHUNK_SIZE = 16 * 1024 * 1024&lt;/code&gt;&lt;/pre&gt;
 
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;So I purchased 1Tb of storage for Google drive for USD 9.99/month, and to my surprise it was without taxes, so I ended up paying USD 12.49/month (~ DKK 85/month), but it is much faster than Dropbox.&lt;/p&gt;
 
@@ -559,7 +675,7 @@ Giving up after 5 attempts. OverflowError: length too large&lt;/pre&gt;
 &lt;li&gt;&lt;code&gt;set-next-wakeup.sh&lt;/code&gt;: Sets when the computer should start next time&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#34;kodi-idle-shutdown-timer:5f91763b9d80fb35b2b67752e5825a34&#34;&gt;Kodi idle shutdown timer&lt;/h2&gt;
+&lt;h2 id=&#34;kodi-idle-shutdown-timer&#34;&gt;Kodi idle shutdown timer&lt;/h2&gt;
 
 &lt;p&gt;Kodi is set to shutdown after 5 mins of inactivity (See &amp;quot;Timer til lukning af funktion&amp;quot;):&lt;/p&gt;
 
@@ -747,11 +863,11 @@ fi
 /usr/bin/logger &#34;$0: shutdown ok&#34;
 exit 0&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;wakeup:5f91763b9d80fb35b2b67752e5825a34&#34;&gt;Wakeup&lt;/h2&gt;
+&lt;h2 id=&#34;wakeup&#34;&gt;Wakeup&lt;/h2&gt;
 
 &lt;p&gt;The last 2 pieces is to set up the computer so that it will automatically start the next day, and enable Wake-On-LAN.&lt;/p&gt;
 
-&lt;h3 id=&#34;wakeup-via-acpi-rtc:5f91763b9d80fb35b2b67752e5825a34&#34;&gt;Wakeup via ACPI / RTC&lt;/h3&gt;
+&lt;h3 id=&#34;wakeup-via-acpi-rtc&#34;&gt;Wakeup via ACPI / RTC&lt;/h3&gt;
 
 &lt;p&gt;I have made a simple script that ensures that the computer is turned on at 9:00 and again at 19:00 on weekdays, and at 7:00 in the weekend. The script is called &lt;code&gt;set-next-shutdown.sh&lt;/code&gt;.&lt;/p&gt;
 
@@ -827,7 +943,7 @@ else
   echo $ONTIME &gt; $LASTWAKETIMEFILE
 fi&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;wake-on-lan-wol:5f91763b9d80fb35b2b67752e5825a34&#34;&gt;Wake On LAN (WOL)&lt;/h3&gt;
+&lt;h3 id=&#34;wake-on-lan-wol&#34;&gt;Wake On LAN (WOL)&lt;/h3&gt;
 
 &lt;p&gt;In case I need the computer at a time where it is not runnin, I can wake it from my desktop computer or from my phone using the &lt;a href=&#34;https://play.google.com/store/apps/details?id=de.ralischer.wakeonlan&#34;&gt;Wake On LAN&lt;/a&gt; app.&lt;/p&gt;
 
@@ -858,7 +974,7 @@ WantedBy=multi-user.target&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;I use Neovim for all my text editing, and as I&#39;m a web developer I edit a lot of HTML, PHP, CSS and JavaScript. And not only do I have to switch between different programming/markup languages I also have to switch between different environments, ranging from old Drupal 6 sites on Debian squeeze to a Symfony setup on Debian Jessie to ensure that my code works in production.&lt;/p&gt;
 
-&lt;h2 id=&#34;enter-docker:0c08f28664efdd056b375f3539e6eeb3&#34;&gt;Enter Docker&lt;/h2&gt;
+&lt;h2 id=&#34;enter-docker&#34;&gt;Enter Docker&lt;/h2&gt;
 
 &lt;p&gt;Switching between different versions of Apache/PHP/MySQL and other components is nearly impossible if they are locally installed. In the old dark days I would work on a site directly on the server, then later Vagrant came along and gave a virtual server that could be provisioned like the production server and now Docker gives lightweight containers that allows to quickly switch between different setups.&lt;/p&gt;
 
@@ -866,7 +982,7 @@ WantedBy=multi-user.target&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;My Docker image contains Apache, MariaDB, PHP5 with Xdebug, Mailhog and Webgrind. Database data is kept separately in a volume and sites/virtual hosts are kept on the host.&lt;/p&gt;
 
-&lt;h3 id=&#34;workflow:0c08f28664efdd056b375f3539e6eeb3&#34;&gt;Workflow&lt;/h3&gt;
+&lt;h3 id=&#34;workflow&#34;&gt;Workflow&lt;/h3&gt;
 
 &lt;p&gt;I can either drop an existing virtual host file in the vhosts directory, or run &lt;code&gt;pilotboat site-create mydomain.dev&lt;/code&gt; which will create a virtual host and directory structure. I use dnsmasq to point the top level domain (.dev) to localhost. If you use NetworkManager just create the following file: &lt;code&gt;/etc/NetworkManager/dnsmasq.d/dev.conf&lt;/code&gt; containing:&lt;/p&gt;
 
@@ -874,7 +990,7 @@ WantedBy=multi-user.target&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Then I can checkout the site from git and import a database, which can be done by &lt;code&gt;pilotboat db-import database_name&lt;/code&gt;. The command will try to import a file in the databases directory called database_name.sql.gz and the file should have been created by running &lt;code&gt;mysqldump -f --opt -u root -p -c [database_name] | gzip &amp;gt; [database_name.sql.gz]&lt;/code&gt;, or alternative I use phpMyAdmin which is running in the container on &lt;a href=&#34;http://localhost/phpmyadmin/&#34;&gt;http://localhost/phpmyadmin/&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;vim-neovim:0c08f28664efdd056b375f3539e6eeb3&#34;&gt;Vim / Neovim&lt;/h2&gt;
+&lt;h2 id=&#34;vim-neovim&#34;&gt;Vim / Neovim&lt;/h2&gt;
 
 &lt;p&gt;The only special setup for Vim is connecting Xdebug in the container to Vdebug, and map paths from inside the container to the local file system:
 &lt;pre&gt;&lt;code class=&#34;language-vim&#34;&gt;let g:vdebug_options = {&amp;quot;path_maps&amp;quot;: {&amp;quot;/var/www&amp;quot;: &amp;quot;/path/to/pilotboat/sites&amp;quot;}, &amp;quot;break_on_open&amp;quot;: 0, &amp;quot;watch_window_style&amp;quot;: &amp;quot;compact&amp;quot;, &amp;quot;server&amp;quot; : &amp;quot;172.17.0.1&amp;quot;, &amp;quot;port&amp;quot;: 9000}
@@ -909,7 +1025,7 @@ WantedBy=multi-user.target&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Originally the setup used &lt;a href=&#34;https://wiki.archlinux.org/index.php/Pipelight&#34;&gt;Pipelight&lt;/a&gt; to watch Netflix, but I have moved away from that, because Chrome for Linux has native support for Netflix playback since version 42.&lt;/p&gt;
 
-&lt;h2 id=&#34;xorg-setup:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Xorg setup&lt;/h2&gt;
+&lt;h2 id=&#34;xorg-setup&#34;&gt;Xorg setup&lt;/h2&gt;
 
 &lt;p&gt;The system uses integrated Intel HD 4400 Graphics, and works without any configuration, but to tweak driver settings I created the file &lt;code&gt;/etc/X11/xorg.conf.d/40-device.conf&lt;/code&gt; and added:&lt;/p&gt;
 
@@ -926,7 +1042,7 @@ EndSection
 
 &lt;p&gt;Refer to the Arch Linux &lt;a href=&#34;https://wiki.archlinux.org/index.php/Xorg&#34;&gt;wiki entry on Xorg&lt;/a&gt; for more information&lt;/p&gt;
 
-&lt;h2 id=&#34;auto-login:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Auto login&lt;/h2&gt;
+&lt;h2 id=&#34;auto-login&#34;&gt;Auto login&lt;/h2&gt;
 
 &lt;p&gt;As Arch Linux uses systemd I just followed the instructions for &lt;a href=&#34;https://wiki.archlinux.org/index.php/Automatic_login_to_virtual_console&#34;&gt;setting up auto login to console&lt;/a&gt;.&lt;/p&gt;
 
@@ -940,7 +1056,7 @@ ExecStart=-/usr/bin/agetty --autologin YOUR_USERNAME --noclear %I 38400 linux
 
 &lt;p&gt;Remember to change YOUR_USERNAME&lt;/p&gt;
 
-&lt;h2 id=&#34;auto-start-xorg:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Auto start Xorg&lt;/h2&gt;
+&lt;h2 id=&#34;auto-start-xorg&#34;&gt;Auto start Xorg&lt;/h2&gt;
 
 &lt;p&gt;I have this in &lt;code&gt;~/.bash_profile&lt;/code&gt; which gets sourced when auto login runs.&lt;/p&gt;
 
@@ -958,7 +1074,7 @@ if [[ x$DISPLAY == &#39;x&#39; ]]; then
 fi
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;openbox:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Openbox&lt;/h2&gt;
+&lt;h2 id=&#34;openbox&#34;&gt;Openbox&lt;/h2&gt;
 
 &lt;p&gt;The startx command executes &lt;code&gt;~/.xinitrc&lt;/code&gt; which contains:&lt;/p&gt;
 
@@ -982,13 +1098,13 @@ setxkbmap dk
 
 /usr/bin/kodi --standalone -fs &amp;&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;kodi-tweaks:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Kodi tweaks&lt;/h2&gt;
+&lt;h2 id=&#34;kodi-tweaks&#34;&gt;Kodi tweaks&lt;/h2&gt;
 
-&lt;h3 id=&#34;hardware-accelerated-playback-on-intel:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Hardware accelerated playback on Intel&lt;/h3&gt;
+&lt;h3 id=&#34;hardware-accelerated-playback-on-intel&#34;&gt;Hardware accelerated playback on Intel&lt;/h3&gt;
 
 &lt;p&gt;I have installed libva-intel-driver, libva-vdpau-driver, libvdpau and libva and enabled hardware accelerated playback in Kodi&#39;s settings. The Intel HD Graphics can handle 1080p without problems.&lt;/p&gt;
 
-&lt;h3 id=&#34;idle-cpu-usage:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Idle CPU usage&lt;/h3&gt;
+&lt;h3 id=&#34;idle-cpu-usage&#34;&gt;Idle CPU usage&lt;/h3&gt;
 
 &lt;p&gt;Depending on the Intel driver version, Kodi might use about 15% CPU when idle, but by editing &lt;code&gt;~/.kodi/userdata/advancedsettings.xml&lt;/code&gt; I was able to reduce it to 3%&lt;/p&gt;
 
@@ -1001,7 +1117,7 @@ setxkbmap dk
 &amp;lt;/advancedsettings&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;mouse-pointer:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Mouse pointer&lt;/h3&gt;
+&lt;h3 id=&#34;mouse-pointer&#34;&gt;Mouse pointer&lt;/h3&gt;
 
 &lt;p&gt;To get a decent size cursor in Chrome I have these settings in &lt;code&gt;~/.Xresources&lt;/code&gt; (Requires the DMZ mouse cursor theme installed)&lt;/p&gt;
 
@@ -1010,11 +1126,11 @@ Xcursor.theme: DMZ
 Xcursor.size: 32
 &lt;/pre&gt;
 
-&lt;h2 id=&#34;plugins:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Plugins&lt;/h2&gt;
+&lt;h2 id=&#34;plugins&#34;&gt;Plugins&lt;/h2&gt;
 
 &lt;p&gt;I created two simple addons that launches Chromium in fullscreen mode and opens a website like Rdio or Netflix. You can find them in my &lt;a href=&#34;https://github.com/henrik-farre/xbmc-addons&#34;&gt;XBMC addons repository&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;cec-consumer-electronics-control-over-hdmi:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;CEC (Consumer Electronics Control) over HDMI&lt;/h2&gt;
+&lt;h2 id=&#34;cec-consumer-electronics-control-over-hdmi&#34;&gt;CEC (Consumer Electronics Control) over HDMI&lt;/h2&gt;
 
 &lt;p&gt;I also added a USB - CEC Adapter from &lt;a href=&#34;https://www.pulse-eight.com/&#34;&gt;PulseEight&lt;/a&gt; so it is possible to control Kodi using the TVs remote control.&lt;/p&gt;
 
@@ -1126,7 +1242,7 @@ unused devices: &amp;lt;none&amp;gt;&lt;/pre&gt;
 
 &lt;p&gt;Some handy command line tools to burn CDs/DVDs and work with .iso files:&lt;/p&gt;
 
-&lt;h2 id=&#34;burning-iso-files:9bdb5f4f5bfba3f52784bc072e63c9c7&#34;&gt;Burning .iso files:&lt;/h2&gt;
+&lt;h2 id=&#34;burning-iso-files&#34;&gt;Burning .iso files:&lt;/h2&gt;
 
 &lt;p&gt;Basic usage of wodim (formally know as cdrecord):&lt;/p&gt;
 
@@ -1136,7 +1252,7 @@ unused devices: &amp;lt;none&amp;gt;&lt;/pre&gt;
 
 &lt;p&gt;If your drive supports BurnFree add: -v driveropts=burnfree&lt;/p&gt;
 
-&lt;h2 id=&#34;generating-iso-files:9bdb5f4f5bfba3f52784bc072e63c9c7&#34;&gt;Generating .iso files&lt;/h2&gt;
+&lt;h2 id=&#34;generating-iso-files&#34;&gt;Generating .iso files&lt;/h2&gt;
 
 &lt;p&gt;Add content of directory to an iso:&lt;/p&gt;
 
@@ -1150,7 +1266,7 @@ unused devices: &amp;lt;none&amp;gt;&lt;/pre&gt;
 &lt;li&gt;-graft-points : Maps a directory to another, e.g. specifying &amp;#8220;-graft-points &amp;#8216;/=/home/myusername&#39;&amp;#8221; the contents of /home/myusername is mapped to / on the iso&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;to-burn-directly-to-cd-dvd:9bdb5f4f5bfba3f52784bc072e63c9c7&#34;&gt;To burn directly to CD/DVD&lt;/h2&gt;
+&lt;h2 id=&#34;to-burn-directly-to-cd-dvd&#34;&gt;To burn directly to CD/DVD&lt;/h2&gt;
 
 &lt;p&gt;By combining genisoimage and wodim, you can burn files directly:&lt;/p&gt;
 
@@ -1158,7 +1274,7 @@ unused devices: &amp;lt;none&amp;gt;&lt;/pre&gt;
 
 &lt;p&gt;Note the missing -o for genisoimage, and the &amp;#8220;-&amp;#8221; argument for wodim&lt;/p&gt;
 
-&lt;h2 id=&#34;mounting-iso-files:9bdb5f4f5bfba3f52784bc072e63c9c7&#34;&gt;Mounting .iso files&lt;/h2&gt;
+&lt;h2 id=&#34;mounting-iso-files&#34;&gt;Mounting .iso files&lt;/h2&gt;
 
 &lt;p&gt;This requires root rights:&lt;/p&gt;
 

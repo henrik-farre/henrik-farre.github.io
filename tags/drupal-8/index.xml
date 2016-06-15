@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Drupal 8 on Rockhopper.dk</title>
+    <link>http://rockhopper.dk/tags/drupal-8/</link>
+    <description>Recent content in Drupal 8 on Rockhopper.dk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 10 Jun 2016 10:23:40 +0200</lastBuildDate>
+    <atom:link href="http://rockhopper.dk/tags/drupal-8/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Drupal 8 and Behat tests</title>
+      <link>http://rockhopper.dk/linux/software/drupal-8-and-behat-tests</link>
+      <pubDate>Fri, 10 Jun 2016 10:23:40 +0200</pubDate>
+      
+      <guid>http://rockhopper.dk/linux/software/drupal-8-and-behat-tests</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://www.drupal.org/project/drupalextension&#34;&gt;&amp;quot;Drupal Extension to Behat and Mink&amp;quot;&lt;/a&gt; provides some nice Drupal specific step definitions and ways of setting test data up. This post runs through the setup process.&lt;/p&gt;
+
+&lt;p&gt;First create a behat directory outside your Drupal installation (&lt;code&gt;public_html&lt;/code&gt;
+ in my case) so that you have the following directory layout:&lt;/p&gt;
+
+&lt;pre&gt;.
+├── behat
+├── logs
+│   ├── access.log
+│   └── error.log
+├── public_html
+│   ├── autoload.php
+│   ├── ...
+│   └── web.config
+├── sessions
+├── tmp
+└── upload&lt;/pre&gt;
+
+&lt;p&gt;I always keep the entire layout show above in git (with git ignores on the contents of &lt;code&gt;logs&lt;/code&gt;
+, &lt;code&gt;session&lt;/code&gt;
+, &lt;code&gt;tmp&lt;/code&gt;
+ and &lt;code&gt;upload&lt;/code&gt;
+).&lt;/p&gt;
+
+&lt;p&gt;Inside the &lt;code&gt;behat&lt;/code&gt;
+ directory create a &lt;code&gt;composer.json&lt;/code&gt;
+ file, with the following content:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;{
+  &#34;require&#34;: {
+    &#34;drupal/drupal-extension&#34;: &#34;~3.0&#34;,
+    &#34;guzzlehttp/guzzle&#34;: &#34;^6.0@dev&#34;,
+    &#34;symfony/dependency-injection&#34;: &#34;2.8.2&#34;,
+    &#34;symfony/event-dispatcher&#34;: &#34;2.8.2&#34;
+  },
+  &#34;config&#34;: {
+    &#34;bin-dir&#34;: &#34;bin/&#34;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;It is needed to pin the version of the Symfony dependencies, else you will get this error:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;PHP Fatal error:  Undefined class constant &#39;Symfony\Component\DependencyInjection\ContainerInterface::SCOPE_CONTAINER&#39; in /var/www/drupal8.dev/public_html/core/lib/Drupal/Core/DependencyInjection/Container.php on line 16&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;See this &lt;a href=&#34;https://www.drupal.org/node/2704943&#34;&gt;bug report&lt;/a&gt; for more info. The file is based on the &lt;a href=&#34;https://behat-drupal-extension.readthedocs.io/en/3.1/localinstall.html&#34;&gt;Stand-alone installation&lt;/a&gt; documentation for the Drupal Extension to Behat and Mink.&lt;/p&gt;
+
+&lt;p&gt;Next the dependencies has to be installed. I use my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;Docker based dev environment &amp;quot;pilotboat&amp;quot;&lt;/a&gt;, so I execute &lt;kbd&gt;pilotboat shell&lt;/kbd&gt;
+ to get a shell inside the container, if you use something else, just follow the next instructions.&lt;/p&gt;
+
+&lt;p&gt;Enter the &lt;code&gt;behat&lt;/code&gt;
+ directory, &lt;kbd&gt;cd drupal8.dev/behat&lt;/kbd&gt;
+ and run: &lt;kbd&gt;composer install&lt;/kbd&gt;
+ and wait until everything is installed.&lt;/p&gt;
+
+&lt;p&gt;Now we can create &lt;code&gt;behat.yml&lt;/code&gt;
+. Adapt the url for PhantomJS (wd_host), and the paths to the Drupal installation so it matches your setup.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;default:
+  suites:
+    default:
+      contexts:
+        - FeatureContext
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\MessageContext
+        - Drupal\DrupalExtension\Context\DrushContext
+  extensions:
+    Behat\MinkExtension:
+      selenium2:
+        wd_host: &#39;http://phantomjs:8910/wd/hub&#39;
+      base_url: http://drupal8.dev
+    Drupal\DrupalExtension:
+      blackbox: ~
+      api_driver: &#39;drupal&#39;
+      drush:
+        root: &#39;/var/www/drupal8.dev/public_html&#39;
+      drupal:
+        drupal_root: &#39;/var/www/drupal8.dev/public_html&#39;&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Now everything should be ready so that you can run &lt;kbd&gt;bin/behat --init&lt;/kbd&gt;
+ and then create the first feature: &lt;code&gt;features/homepage.feature&lt;/code&gt;
+.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;Feature: Homepage
+  In order to see if the home page works
+  As a website user
+  I need to be able to see the home page
+
+  Scenario: See the home page
+    Given I am on &#34;/&#34;
+    Then I should see &#34;Welcome to drupal8.dev&#34;&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;If you want to create nodes, you can tag the feature or the scenario with &amp;quot;@api&amp;quot;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;@api
+  Scenario: Create a node
+    Given I am logged in as a user with the &#34;administrator&#34; role
+    When I am viewing an &#34;article&#34; content with the title &#34;My article&#34;
+    Then I should see the heading &#34;My article&#34;&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;For more information about the api driver see the &lt;a href=&#34;https://behat-drupal-extension.readthedocs.io/en/3.1/drupalapi.html&#34;&gt;Drupal API Driver documentation&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

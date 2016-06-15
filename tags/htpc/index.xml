@@ -29,7 +29,7 @@
 &lt;li&gt;&lt;code&gt;set-next-wakeup.sh&lt;/code&gt;: Sets when the computer should start next time&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#34;kodi-idle-shutdown-timer:5f91763b9d80fb35b2b67752e5825a34&#34;&gt;Kodi idle shutdown timer&lt;/h2&gt;
+&lt;h2 id=&#34;kodi-idle-shutdown-timer&#34;&gt;Kodi idle shutdown timer&lt;/h2&gt;
 
 &lt;p&gt;Kodi is set to shutdown after 5 mins of inactivity (See &amp;quot;Timer til lukning af funktion&amp;quot;):&lt;/p&gt;
 
@@ -217,11 +217,11 @@ fi
 /usr/bin/logger &#34;$0: shutdown ok&#34;
 exit 0&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;wakeup:5f91763b9d80fb35b2b67752e5825a34&#34;&gt;Wakeup&lt;/h2&gt;
+&lt;h2 id=&#34;wakeup&#34;&gt;Wakeup&lt;/h2&gt;
 
 &lt;p&gt;The last 2 pieces is to set up the computer so that it will automatically start the next day, and enable Wake-On-LAN.&lt;/p&gt;
 
-&lt;h3 id=&#34;wakeup-via-acpi-rtc:5f91763b9d80fb35b2b67752e5825a34&#34;&gt;Wakeup via ACPI / RTC&lt;/h3&gt;
+&lt;h3 id=&#34;wakeup-via-acpi-rtc&#34;&gt;Wakeup via ACPI / RTC&lt;/h3&gt;
 
 &lt;p&gt;I have made a simple script that ensures that the computer is turned on at 9:00 and again at 19:00 on weekdays, and at 7:00 in the weekend. The script is called &lt;code&gt;set-next-shutdown.sh&lt;/code&gt;.&lt;/p&gt;
 
@@ -297,7 +297,7 @@ else
   echo $ONTIME &gt; $LASTWAKETIMEFILE
 fi&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;wake-on-lan-wol:5f91763b9d80fb35b2b67752e5825a34&#34;&gt;Wake On LAN (WOL)&lt;/h3&gt;
+&lt;h3 id=&#34;wake-on-lan-wol&#34;&gt;Wake On LAN (WOL)&lt;/h3&gt;
 
 &lt;p&gt;In case I need the computer at a time where it is not runnin, I can wake it from my desktop computer or from my phone using the &lt;a href=&#34;https://play.google.com/store/apps/details?id=de.ralischer.wakeonlan&#34;&gt;Wake On LAN&lt;/a&gt; app.&lt;/p&gt;
 
@@ -330,7 +330,7 @@ WantedBy=multi-user.target&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Originally the setup used &lt;a href=&#34;https://wiki.archlinux.org/index.php/Pipelight&#34;&gt;Pipelight&lt;/a&gt; to watch Netflix, but I have moved away from that, because Chrome for Linux has native support for Netflix playback since version 42.&lt;/p&gt;
 
-&lt;h2 id=&#34;xorg-setup:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Xorg setup&lt;/h2&gt;
+&lt;h2 id=&#34;xorg-setup&#34;&gt;Xorg setup&lt;/h2&gt;
 
 &lt;p&gt;The system uses integrated Intel HD 4400 Graphics, and works without any configuration, but to tweak driver settings I created the file &lt;code&gt;/etc/X11/xorg.conf.d/40-device.conf&lt;/code&gt; and added:&lt;/p&gt;
 
@@ -347,7 +347,7 @@ EndSection
 
 &lt;p&gt;Refer to the Arch Linux &lt;a href=&#34;https://wiki.archlinux.org/index.php/Xorg&#34;&gt;wiki entry on Xorg&lt;/a&gt; for more information&lt;/p&gt;
 
-&lt;h2 id=&#34;auto-login:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Auto login&lt;/h2&gt;
+&lt;h2 id=&#34;auto-login&#34;&gt;Auto login&lt;/h2&gt;
 
 &lt;p&gt;As Arch Linux uses systemd I just followed the instructions for &lt;a href=&#34;https://wiki.archlinux.org/index.php/Automatic_login_to_virtual_console&#34;&gt;setting up auto login to console&lt;/a&gt;.&lt;/p&gt;
 
@@ -361,7 +361,7 @@ ExecStart=-/usr/bin/agetty --autologin YOUR_USERNAME --noclear %I 38400 linux
 
 &lt;p&gt;Remember to change YOUR_USERNAME&lt;/p&gt;
 
-&lt;h2 id=&#34;auto-start-xorg:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Auto start Xorg&lt;/h2&gt;
+&lt;h2 id=&#34;auto-start-xorg&#34;&gt;Auto start Xorg&lt;/h2&gt;
 
 &lt;p&gt;I have this in &lt;code&gt;~/.bash_profile&lt;/code&gt; which gets sourced when auto login runs.&lt;/p&gt;
 
@@ -379,7 +379,7 @@ if [[ x$DISPLAY == &#39;x&#39; ]]; then
 fi
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;openbox:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Openbox&lt;/h2&gt;
+&lt;h2 id=&#34;openbox&#34;&gt;Openbox&lt;/h2&gt;
 
 &lt;p&gt;The startx command executes &lt;code&gt;~/.xinitrc&lt;/code&gt; which contains:&lt;/p&gt;
 
@@ -403,13 +403,13 @@ setxkbmap dk
 
 /usr/bin/kodi --standalone -fs &amp;&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;kodi-tweaks:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Kodi tweaks&lt;/h2&gt;
+&lt;h2 id=&#34;kodi-tweaks&#34;&gt;Kodi tweaks&lt;/h2&gt;
 
-&lt;h3 id=&#34;hardware-accelerated-playback-on-intel:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Hardware accelerated playback on Intel&lt;/h3&gt;
+&lt;h3 id=&#34;hardware-accelerated-playback-on-intel&#34;&gt;Hardware accelerated playback on Intel&lt;/h3&gt;
 
 &lt;p&gt;I have installed libva-intel-driver, libva-vdpau-driver, libvdpau and libva and enabled hardware accelerated playback in Kodi&#39;s settings. The Intel HD Graphics can handle 1080p without problems.&lt;/p&gt;
 
-&lt;h3 id=&#34;idle-cpu-usage:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Idle CPU usage&lt;/h3&gt;
+&lt;h3 id=&#34;idle-cpu-usage&#34;&gt;Idle CPU usage&lt;/h3&gt;
 
 &lt;p&gt;Depending on the Intel driver version, Kodi might use about 15% CPU when idle, but by editing &lt;code&gt;~/.kodi/userdata/advancedsettings.xml&lt;/code&gt; I was able to reduce it to 3%&lt;/p&gt;
 
@@ -422,7 +422,7 @@ setxkbmap dk
 &amp;lt;/advancedsettings&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;mouse-pointer:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Mouse pointer&lt;/h3&gt;
+&lt;h3 id=&#34;mouse-pointer&#34;&gt;Mouse pointer&lt;/h3&gt;
 
 &lt;p&gt;To get a decent size cursor in Chrome I have these settings in &lt;code&gt;~/.Xresources&lt;/code&gt; (Requires the DMZ mouse cursor theme installed)&lt;/p&gt;
 
@@ -431,11 +431,11 @@ Xcursor.theme: DMZ
 Xcursor.size: 32
 &lt;/pre&gt;
 
-&lt;h2 id=&#34;plugins:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Plugins&lt;/h2&gt;
+&lt;h2 id=&#34;plugins&#34;&gt;Plugins&lt;/h2&gt;
 
 &lt;p&gt;I created two simple addons that launches Chromium in fullscreen mode and opens a website like Rdio or Netflix. You can find them in my &lt;a href=&#34;https://github.com/henrik-farre/xbmc-addons&#34;&gt;XBMC addons repository&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;cec-consumer-electronics-control-over-hdmi:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;CEC (Consumer Electronics Control) over HDMI&lt;/h2&gt;
+&lt;h2 id=&#34;cec-consumer-electronics-control-over-hdmi&#34;&gt;CEC (Consumer Electronics Control) over HDMI&lt;/h2&gt;
 
 &lt;p&gt;I also added a USB - CEC Adapter from &lt;a href=&#34;https://www.pulse-eight.com/&#34;&gt;PulseEight&lt;/a&gt; so it is possible to control Kodi using the TVs remote control.&lt;/p&gt;
 
@@ -457,7 +457,7 @@ Xcursor.size: 32
 
 &lt;p&gt;Specifications of the new machine are:&lt;/p&gt;
 
-&lt;h2 id=&#34;motherboard:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Motherboard&lt;/h2&gt;
+&lt;h2 id=&#34;motherboard&#34;&gt;Motherboard&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.gigabyte.com/products/product-page.aspx?pid=4519&#34;&gt;Gigabyte GA-Z87-D3HP&lt;/a&gt;&lt;/p&gt;
 
@@ -498,31 +498,31 @@ Xcursor.size: 32
 00:1f.3 SMBus: Intel Corporation 8 Series/C220 Series Chipset Family SMBus Controller (rev 04)
 02:00.0 PCI bridge: Intel Corporation 82801 PCI Bridge (rev 41)&lt;/pre&gt;
 
-&lt;h3 id=&#34;ram:6f5e50861940930885d16cc412b3fd7a&#34;&gt;RAM&lt;/h3&gt;
+&lt;h3 id=&#34;ram&#34;&gt;RAM&lt;/h3&gt;
 
 &lt;p&gt;I went for some cheap &lt;a href=&#34;http://www.kingston.com/us/memory/hyperx/blu&#34;&gt;Kingston HyperX blu&lt;/a&gt; 2 x 2 GB memory. The motherboard supports faster memory which should boost graphics performance, but I&amp;#8217;m content with how it performs now.&lt;/p&gt;
 
-&lt;h2 id=&#34;cpu:6f5e50861940930885d16cc412b3fd7a&#34;&gt;CPU&lt;/h2&gt;
+&lt;h2 id=&#34;cpu&#34;&gt;CPU&lt;/h2&gt;
 
 &lt;p&gt;I really like the &lt;a href=&#34;http://ark.intel.com/products/77481/&#34;&gt;Intel i3-4130T&lt;/a&gt; (Haswell) CPU. It runs @ 2.9GHz with a TDP of just 35W, and it comes with integrated Intel HD graphics 4400.&lt;/p&gt;
 
 &lt;p&gt;It is possible to view Full HD content using &lt;a href=&#34;https://wiki.archlinux.org/index.php/VA-API&#34;&gt;va-api&lt;/a&gt; without using more than &amp;lt;20% CPU.&lt;/p&gt;
 
-&lt;h3 id=&#34;cpu-cooler:6f5e50861940930885d16cc412b3fd7a&#34;&gt;CPU cooler&lt;/h3&gt;
+&lt;h3 id=&#34;cpu-cooler&#34;&gt;CPU cooler&lt;/h3&gt;
 
 &lt;p&gt;The &lt;a href=&#34;http://www.coolermaster.com/product/Detail/cooling/cpu-air-cooler/hyper-212-evo.html&#34;&gt;Cooler Master Hyper 212 Evo&lt;/a&gt; is a direct heatpipe touch CPU cooler, and its fan can run at the lowest speed all the time thanks to the CPU&amp;#8217;s low TDP. I use &lt;a href=&#34;http://www.arcticsilver.com/as5.htm&#34;&gt;Arctic Silver 5&lt;/a&gt; thermal compound.&lt;/p&gt;
 
-&lt;h2 id=&#34;control:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Control&lt;/h2&gt;
+&lt;h2 id=&#34;control&#34;&gt;Control&lt;/h2&gt;
 
 &lt;p&gt;I picked the &lt;a href=&#34;http://www.chill-innovation.com/en/bluetooth-keyboards/12-chill-kb-1bt-wireless-bluetooth-micro-keyboard-nordic-5711045075841.html&#34;&gt;Chill KB-1BT Wireless Bluetooth Micro Keyboard&lt;/a&gt; because I was tired of my old infrared connected keyboard&amp;#8217;s poor range and it also had to be pointing directly at its receiver. And not only does the Chill KB-1BT have better range, it&amp;#8217;s also much easier to type on because it&amp;#8217;s much smaller so I can reach most keys with my thumbs.&lt;/p&gt;
 
 &lt;p&gt;While the keyboard is excellent for typing and controlling Netflix/Rdio, I also bought a &lt;a href=&#34;http://www.pulse-eight.com/store/products/104-usb-hdmi-cec-adapter.aspx&#34;&gt;Pulse Eight USB &amp;#8211; CEC Adapter&lt;/a&gt; which allows me to control XBMC 100% using my TV&amp;#8217;s (Sony KDL-40WE5) remote.&lt;/p&gt;
 
-&lt;h2 id=&#34;storage:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Storage&lt;/h2&gt;
+&lt;h2 id=&#34;storage&#34;&gt;Storage&lt;/h2&gt;
 
 &lt;p&gt;I reused the 3 x 500Gb Seagate ST3500630AS discs from the Atom server running in a Raid 5 configuration.&lt;/p&gt;
 
-&lt;h2 id=&#34;case:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Case&lt;/h2&gt;
+&lt;h2 id=&#34;case&#34;&gt;Case&lt;/h2&gt;
 
 &lt;p&gt;First revision &lt;a href=&#34;http://techreport.com/review/6247/antec-sonata-atx-case&#34;&gt;Antec Sonata&lt;/a&gt; (does not even exist on Antec&amp;#8217;s page any more)&lt;/p&gt;
 </description>

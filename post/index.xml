@@ -6,8 +6,230 @@
     <description>Recent content in Posts on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 May 2016 10:51:24 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jun 2016 09:42:24 +0200</lastBuildDate>
     <atom:link href="http://rockhopper.dk/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Linux on Lenovo ThinkPad L460</title>
+      <link>http://rockhopper.dk/linux/hardware/linux-on-lenovo-thinkpad-l460</link>
+      <pubDate>Wed, 15 Jun 2016 09:42:24 +0200</pubDate>
+      
+      <guid>http://rockhopper.dk/linux/hardware/linux-on-lenovo-thinkpad-l460</guid>
+      <description>
+
+&lt;p&gt;Finding a laptop that is well supported by Linux, has nice features and is not too expensive can be quite a task. Lucky the Lenovo ThinkPad L460 fits my requirements.&lt;/p&gt;
+
+&lt;h2 id=&#34;os&#34;&gt;OS&lt;/h2&gt;
+
+&lt;p&gt;I decided to do a fresh install of Arch Linux instead of just cloning one of my other systems as I normally do. At the time of this post the laptop is running with Linux kernel version 4.6.2-1.&lt;/p&gt;
+
+&lt;p&gt;Relevant info from &lt;a href=&#34;http://rockhopper.dk/uploads/files/dmesg.lenovo-thinkpad-l460.txt&#34;&gt;dmesg&lt;/a&gt;, &lt;a href=&#34;http://rockhopper.dk/uploads/files/dmidecode.lenovo-thinkpad-l460.txt&#34;&gt;dmidecode&lt;/a&gt;, &lt;a href=&#34;http://rockhopper.dk/uploads/files/lspci.lenovo-thinkpad-l460.txt&#34;&gt;lscpi&lt;/a&gt; and &lt;a href=&#34;http://rockhopper.dk/uploads/files/lsusb.lenovo-thinkpad-l460.txt&#34;&gt;lsusb&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For powersaving I have installed and configured &lt;a href=&#34;http://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html&#34;&gt;TLP&lt;/a&gt; and nothing more.&lt;/p&gt;
+
+&lt;h2 id=&#34;specs&#34;&gt;Specs&lt;/h2&gt;
+
+&lt;table class=&#34;table table-striped&#34;&gt;
+  &lt;tr&gt;
+    &lt;td&gt;CPU&lt;/td&gt;
+    &lt;td&gt;Intel i5-6200U (3MB Cache, up to 2.80GHz)&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;RAM&lt;/td&gt;
+    &lt;td&gt;16 GB PC3-12800 DDR3L 1600MHz (2 &amp;times; 8GB 1.35V 204-pin SODIMM, Samsung M471B1G73DB0-YK0)&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Storage&lt;/td&gt;
+    &lt;td&gt;256 GB Solid State Drive (SATA3, Samsung MZ7LN256HCHP-000L7)&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Screen / Graphics card&lt;/td&gt;
+    &lt;td&gt;14&#34; FHD (1920 x 1080), IPS, AntiGlare / Intel HD Graphics 520&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;WIFI / Bluetooth&lt;/td&gt;
+    &lt;td&gt;Intel Dual Band Wireless-AC (2x2) 8260 / Bluetooth-version 4.1 vPro&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Ethernet&lt;/td&gt;
+    &lt;td&gt;Intel PRO/1000 (I219-V)&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;UEFI&lt;/td&gt;
+    &lt;td&gt;Version R08ET41W (1.15), Option to disable secure boot: yes&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Battery&lt;/td&gt;
+    &lt;td&gt;6 cell Li-Ion (47Whr, Sanyo LNV-45N1)&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Webcam&lt;/td&gt;
+    &lt;td&gt;720p HD Camera, uses uvcvideo driver&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;touchpad-clickpad&#34;&gt;Touchpad / Clickpad&lt;/h2&gt;
+
+&lt;p&gt;The xf86-input-libinput driver was not very responsive and I had to move my finger a lot before it was registered, which made resizing windows and hitting small targets very hard.
+I replaced it with the xf86-input-synaptics and it works much better.&lt;/p&gt;
+
+&lt;p&gt;The next problem was that the cursor jumped down and to the left each time I tried to use the clickpad&#39;s left &amp;quot;button&amp;quot;.&lt;/p&gt;
+
+&lt;p&gt;I ended up with the following options in &lt;code&gt;/etc/X11/xorg.conf.d/55-synaptics.conf&lt;/code&gt;
+ to fix that:&lt;/p&gt;
+
+&lt;pre&gt;Section &#34;InputClass&#34;
+    Identifier      &#34;touchpad&#34;
+    Driver          &#34;synaptics&#34;
+    MatchIsTouchpad &#34;on&#34;
+    Option          &#34;SoftButtonAreas&#34;  &#34;60% 0 82% 0 40% 59% 82% 0&#34;
+    Option          &#34;AreaBottomEdge&#34;       &#34;90%&#34;
+EndSection&lt;/pre&gt;
+
+
+&lt;h2 id=&#34;graphics-card-driver&#34;&gt;Graphics card / driver&lt;/h2&gt;
+
+&lt;p&gt;I experienced a lot off screen flickering, so I tried the mode setting driver by uninstalling xf86-video-intel and xf86-video-vesa which fixes the problem, but that instead introduced screen tearing.&lt;/p&gt;
+
+&lt;p&gt;I update the UEFI to version 1.15 (which includes a new VBIOS version), Linux kernel to 4.6.x and the xf86-video-intel driver to version 2.99.917+662 and now the problem seems to have disappeared.&lt;/p&gt;
+
+&lt;p&gt;Two minor problems still persists, LightDM/Light-locker still flickers once after starting and after resume, but I just have to wait a second before entering my password.&lt;/p&gt;
+
+&lt;p&gt;Finally the cursor disappears after resume, this can be fixed by running &lt;kbd&gt;xset dpms force off&lt;/kbd&gt;
+.&lt;/p&gt;
+
+&lt;p&gt;I have only set &amp;quot;TearFree&amp;quot; as an extra option in &lt;code&gt;/etc/X11/xorg.conf.d/20-intel.conf&lt;/code&gt;
+:&lt;/p&gt;
+
+&lt;pre&gt;Section &#34;Device&#34;
+  Identifier  &#34;Intel Graphics&#34;
+  Driver      &#34;intel&#34;
+  Option      &#34;TearFree&#34; &#34;true&#34;
+EndSection&lt;/pre&gt;
+
+&lt;h2 id=&#34;overall&#34;&gt;Overall&lt;/h2&gt;
+
+&lt;p&gt;I like the overall build quality, the battery life feels okay, I just which the battery was smaller and not extending below the bottom of the laptop.&lt;/p&gt;
+
+&lt;p&gt;The Mini-DisplayPort to HDMI cable I bought as an accessory does not support sound, but that is just a minor inconvenience.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Drupal 8 and Behat tests</title>
+      <link>http://rockhopper.dk/linux/software/drupal-8-and-behat-tests</link>
+      <pubDate>Fri, 10 Jun 2016 10:23:40 +0200</pubDate>
+      
+      <guid>http://rockhopper.dk/linux/software/drupal-8-and-behat-tests</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://www.drupal.org/project/drupalextension&#34;&gt;&amp;quot;Drupal Extension to Behat and Mink&amp;quot;&lt;/a&gt; provides some nice Drupal specific step definitions and ways of setting test data up. This post runs through the setup process.&lt;/p&gt;
+
+&lt;p&gt;First create a behat directory outside your Drupal installation (&lt;code&gt;public_html&lt;/code&gt;
+ in my case) so that you have the following directory layout:&lt;/p&gt;
+
+&lt;pre&gt;.
+├── behat
+├── logs
+│   ├── access.log
+│   └── error.log
+├── public_html
+│   ├── autoload.php
+│   ├── ...
+│   └── web.config
+├── sessions
+├── tmp
+└── upload&lt;/pre&gt;
+
+&lt;p&gt;I always keep the entire layout show above in git (with git ignores on the contents of &lt;code&gt;logs&lt;/code&gt;
+, &lt;code&gt;session&lt;/code&gt;
+, &lt;code&gt;tmp&lt;/code&gt;
+ and &lt;code&gt;upload&lt;/code&gt;
+).&lt;/p&gt;
+
+&lt;p&gt;Inside the &lt;code&gt;behat&lt;/code&gt;
+ directory create a &lt;code&gt;composer.json&lt;/code&gt;
+ file, with the following content:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;{
+  &#34;require&#34;: {
+    &#34;drupal/drupal-extension&#34;: &#34;~3.0&#34;,
+    &#34;guzzlehttp/guzzle&#34;: &#34;^6.0@dev&#34;,
+    &#34;symfony/dependency-injection&#34;: &#34;2.8.2&#34;,
+    &#34;symfony/event-dispatcher&#34;: &#34;2.8.2&#34;
+  },
+  &#34;config&#34;: {
+    &#34;bin-dir&#34;: &#34;bin/&#34;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;It is needed to pin the version of the Symfony dependencies, else you will get this error:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;PHP Fatal error:  Undefined class constant &#39;Symfony\Component\DependencyInjection\ContainerInterface::SCOPE_CONTAINER&#39; in /var/www/drupal8.dev/public_html/core/lib/Drupal/Core/DependencyInjection/Container.php on line 16&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;See this &lt;a href=&#34;https://www.drupal.org/node/2704943&#34;&gt;bug report&lt;/a&gt; for more info. The file is based on the &lt;a href=&#34;https://behat-drupal-extension.readthedocs.io/en/3.1/localinstall.html&#34;&gt;Stand-alone installation&lt;/a&gt; documentation for the Drupal Extension to Behat and Mink.&lt;/p&gt;
+
+&lt;p&gt;Next the dependencies has to be installed. I use my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;Docker based dev environment &amp;quot;pilotboat&amp;quot;&lt;/a&gt;, so I execute &lt;kbd&gt;pilotboat shell&lt;/kbd&gt;
+ to get a shell inside the container, if you use something else, just follow the next instructions.&lt;/p&gt;
+
+&lt;p&gt;Enter the &lt;code&gt;behat&lt;/code&gt;
+ directory, &lt;kbd&gt;cd drupal8.dev/behat&lt;/kbd&gt;
+ and run: &lt;kbd&gt;composer install&lt;/kbd&gt;
+ and wait until everything is installed.&lt;/p&gt;
+
+&lt;p&gt;Now we can create &lt;code&gt;behat.yml&lt;/code&gt;
+. Adapt the url for PhantomJS (wd_host), and the paths to the Drupal installation so it matches your setup.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;default:
+  suites:
+    default:
+      contexts:
+        - FeatureContext
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\MessageContext
+        - Drupal\DrupalExtension\Context\DrushContext
+  extensions:
+    Behat\MinkExtension:
+      selenium2:
+        wd_host: &#39;http://phantomjs:8910/wd/hub&#39;
+      base_url: http://drupal8.dev
+    Drupal\DrupalExtension:
+      blackbox: ~
+      api_driver: &#39;drupal&#39;
+      drush:
+        root: &#39;/var/www/drupal8.dev/public_html&#39;
+      drupal:
+        drupal_root: &#39;/var/www/drupal8.dev/public_html&#39;&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Now everything should be ready so that you can run &lt;kbd&gt;bin/behat --init&lt;/kbd&gt;
+ and then create the first feature: &lt;code&gt;features/homepage.feature&lt;/code&gt;
+.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;Feature: Homepage
+  In order to see if the home page works
+  As a website user
+  I need to be able to see the home page
+
+  Scenario: See the home page
+    Given I am on &#34;/&#34;
+    Then I should see &#34;Welcome to drupal8.dev&#34;&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;If you want to create nodes, you can tag the feature or the scenario with &amp;quot;@api&amp;quot;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;@api
+  Scenario: Create a node
+    Given I am logged in as a user with the &#34;administrator&#34; role
+    When I am viewing an &#34;article&#34; content with the title &#34;My article&#34;
+    Then I should see the heading &#34;My article&#34;&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;For more information about the api driver see the &lt;a href=&#34;https://behat-drupal-extension.readthedocs.io/en/3.1/drupalapi.html&#34;&gt;Drupal API Driver documentation&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Behat: taking screenshots of failed steps</title>
@@ -123,14 +345,14 @@ class FeatureContext implements Context, SnippetAcceptingContext
 
 &lt;p&gt;I have created &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;pilotboat&lt;/a&gt; to make it easy for me to develop and test PHP based applications, and I will use it in this how-to. If you prefer to use another setup, feel free to look through my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;github repository for pilotboat&lt;/a&gt; for inspiration.&lt;/p&gt;
 
-&lt;h2 id=&#34;prerequisite:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Prerequisite&lt;/h2&gt;
+&lt;h2 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Working Docker installation&lt;/li&gt;
 &lt;li&gt;A top level domain that points to your local machine, e.g. .dev&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#34;pilotboat-setup:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Pilotboat setup&lt;/h2&gt;
+&lt;h2 id=&#34;pilotboat-setup&#34;&gt;Pilotboat setup&lt;/h2&gt;
 
 &lt;p&gt;The following steps are required to setup pilotboat:&lt;/p&gt;
 
@@ -145,13 +367,13 @@ class FeatureContext implements Context, SnippetAcceptingContext
 
 &lt;p&gt;Docker-compose will download and build the needed images and start the containers.&lt;/p&gt;
 
-&lt;h2 id=&#34;site-setup:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Site setup&lt;/h2&gt;
+&lt;h2 id=&#34;site-setup&#34;&gt;Site setup&lt;/h2&gt;
 
 &lt;p&gt;To create a site based on Symfony 3 run &lt;kbd&gt;pilotboat site-create symfony.dev symfony&lt;/kbd&gt;
  (symfony.dev is your domain name, you may choose anything you like). The latest stable version of the Symfony 3 framework will be downloaded and installed. Note that pilotboat will create a database, but you will have to manually configure &lt;code&gt;app/config/parameters.yml&lt;/code&gt;
  to access it.&lt;/p&gt;
 
-&lt;h2 id=&#34;behat-configuration:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Behat configuration&lt;/h2&gt;
+&lt;h2 id=&#34;behat-configuration&#34;&gt;Behat configuration&lt;/h2&gt;
 
 &lt;p&gt;Enter the container with &lt;kbd&gt;pilotboat shell&lt;/kbd&gt;
  and change to your site: &lt;kbd&gt;cd symfony.dev&lt;/kbd&gt;
@@ -183,7 +405,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
             wd_host: &#39;http://phantomjs:8910/wd/hub&#39;&lt;/code&gt;&lt;/pre&gt;
 
 
-&lt;h2 id=&#34;writing-and-running-tests:dd2227ba96c5d4fb3ed6a97f377930d8&#34;&gt;Writing and running tests&lt;/h2&gt;
+&lt;h2 id=&#34;writing-and-running-tests&#34;&gt;Writing and running tests&lt;/h2&gt;
 
 &lt;p&gt;I will not go into detail on how to write tests, so the following is just a small example. Create &lt;code&gt;features/homepage.feature&lt;/code&gt;
  and put the following in the file:&lt;/p&gt;
@@ -228,7 +450,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
 
 &lt;p&gt;As described in my &lt;a href=&#34;http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end/&#34;&gt;previous post&lt;/a&gt; I use Duplicity with Google Drive for storage. In this post I give a quick how to on configuring Duplicity for that setup.&lt;/p&gt;
 
-&lt;h2 id=&#34;prerequisites:a4873c35425d94672fb7ac53bf8aa261&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Duplicity installed&lt;/li&gt;
@@ -238,7 +460,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
 &lt;li&gt;First time you run Duplicity it has to be done interactively, as it will prompt you to allow access to Google drive&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;google-drive-api-setup:a4873c35425d94672fb7ac53bf8aa261&#34;&gt;Google drive API setup&lt;/h2&gt;
+&lt;h2 id=&#34;google-drive-api-setup&#34;&gt;Google drive API setup&lt;/h2&gt;
 
 &lt;p&gt;Go to &lt;a href=&#34;https://console.developers.google.com/&#34;&gt;console.developers.google.com&lt;/a&gt; and create a new project, under &amp;quot;Show advanced options &amp;gt; App Engine location&amp;quot; I selected &amp;quot;europe-west&amp;quot;.&lt;/p&gt;
 
@@ -371,7 +593,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
 &lt;p&gt;Create &lt;code&gt;/root/.duplicity/gdrive&lt;/code&gt;
  and add the values from step 5:&lt;/p&gt;
 
-&lt;p&gt;&lt;pre&gt;&lt;code class=&#34;language-yml&#34;&gt;client_config_backend: settings
+&lt;pre&gt;&lt;code class=&#34;language-yml&#34;&gt;client_config_backend: settings
 client_config:
   client_id: XXXXXXXXXXXXXXXXXXXXXX.apps.googleusercontent.com
   client_secret: XXXXXXXXXXXXXXXXXXXXXX
@@ -379,14 +601,14 @@ save_credentials: True
 save_credentials_backend: file
 save_credentials_file: gdrive.cache
 get_refresh_token: True&lt;/code&gt;&lt;/pre&gt;
-&lt;/p&gt;
 
-&lt;h2 id=&#34;granting-duplicity-access-to-google-drive:a4873c35425d94672fb7ac53bf8aa261&#34;&gt;Granting Duplicity access to Google drive&lt;/h2&gt;
+
+&lt;h2 id=&#34;granting-duplicity-access-to-google-drive&#34;&gt;Granting Duplicity access to Google drive&lt;/h2&gt;
 
 &lt;p&gt;PyDrive would prompt for a verification code everytime I ran Duplicity, and would not create the gdrive.cache file. I fixed it by changing the current working directory to &lt;code&gt;/root/.duplicity/&lt;/code&gt;
 . A simple script like the following should work:&lt;/p&gt;
 
-&lt;p&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
 cd /root/.duplicity/
 
 PASSPHRASE=&#34;XXXXXXXXXX&#34;
@@ -395,7 +617,7 @@ DEST=&#34;gdocs://YOUR_GMAIL/SOME_DIR/$HOSTNAME/home&#34;
 SRC=&#34;/home&#34;
 
 duplicity incr --encrypt-key XXXXXXX --full-if-older-than 4M --volsize 1024 --asynchronous-upload --exclude-device-files --exclude-other-filesystems &#34;${SRC}&#34; &#34;${DEST}&#34;&lt;/code&gt;&lt;/pre&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;When you run this script the first time, you should get a prompt that says (XXXXXXXXXXXXXXXXXXXXXX will be your client id):&lt;/p&gt;
 
@@ -408,7 +630,7 @@ Enter verification code:&lt;/pre&gt;
 &lt;p&gt;When you have approved access you should have the file &lt;code&gt;/root/.duplicity/gdrive.cache&lt;/code&gt;
 , and next time Duplicity runs, it should automatically be authorized.&lt;/p&gt;
 
-&lt;h2 id=&#34;wrapping-up:a4873c35425d94672fb7ac53bf8aa261&#34;&gt;Wrapping up&lt;/h2&gt;
+&lt;h2 id=&#34;wrapping-up&#34;&gt;Wrapping up&lt;/h2&gt;
 
 &lt;p&gt;I have created a set of &lt;a href=&#34;https://github.com/henrik-farre/duplicity_backup_scripts&#34;&gt;Duplicity backup scrips&lt;/a&gt; with error handling/reporting that wraps backup, restore, cleanup and backup verification, feel free to use or fork them :)&lt;/p&gt;
 </description>
@@ -489,7 +711,7 @@ DPBX_UPLOAD_CHUNK_SIZE = 16 * 1024 * 1024&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;So I decided to try Google Drive as back end, which was just fixed in duplicity version 0.7.07.1. Google drive utilized the bandwidth much better, and the delay between uploads is when duplicity prepares the next volume for upload.&lt;/p&gt;
 
-&lt;p&gt;
+
 
 &lt;div class=&#34;row&#34;&gt;
   &lt;div class=&#34;col-sm-4 photo&#34;&gt;
@@ -514,7 +736,7 @@ DPBX_UPLOAD_CHUNK_SIZE = 16 * 1024 * 1024&lt;/code&gt;&lt;/pre&gt;
 
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;So I purchased 1Tb of storage for Google drive for USD 9.99/month, and to my surprise it was without taxes, so I ended up paying USD 12.49/month (~ DKK 85/month), but it is much faster than Dropbox.&lt;/p&gt;
 
@@ -559,7 +781,7 @@ Giving up after 5 attempts. OverflowError: length too large&lt;/pre&gt;
 &lt;li&gt;&lt;code&gt;set-next-wakeup.sh&lt;/code&gt;: Sets when the computer should start next time&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#34;kodi-idle-shutdown-timer:5f91763b9d80fb35b2b67752e5825a34&#34;&gt;Kodi idle shutdown timer&lt;/h2&gt;
+&lt;h2 id=&#34;kodi-idle-shutdown-timer&#34;&gt;Kodi idle shutdown timer&lt;/h2&gt;
 
 &lt;p&gt;Kodi is set to shutdown after 5 mins of inactivity (See &amp;quot;Timer til lukning af funktion&amp;quot;):&lt;/p&gt;
 
@@ -747,11 +969,11 @@ fi
 /usr/bin/logger &#34;$0: shutdown ok&#34;
 exit 0&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;wakeup:5f91763b9d80fb35b2b67752e5825a34&#34;&gt;Wakeup&lt;/h2&gt;
+&lt;h2 id=&#34;wakeup&#34;&gt;Wakeup&lt;/h2&gt;
 
 &lt;p&gt;The last 2 pieces is to set up the computer so that it will automatically start the next day, and enable Wake-On-LAN.&lt;/p&gt;
 
-&lt;h3 id=&#34;wakeup-via-acpi-rtc:5f91763b9d80fb35b2b67752e5825a34&#34;&gt;Wakeup via ACPI / RTC&lt;/h3&gt;
+&lt;h3 id=&#34;wakeup-via-acpi-rtc&#34;&gt;Wakeup via ACPI / RTC&lt;/h3&gt;
 
 &lt;p&gt;I have made a simple script that ensures that the computer is turned on at 9:00 and again at 19:00 on weekdays, and at 7:00 in the weekend. The script is called &lt;code&gt;set-next-shutdown.sh&lt;/code&gt;.&lt;/p&gt;
 
@@ -827,7 +1049,7 @@ else
   echo $ONTIME &gt; $LASTWAKETIMEFILE
 fi&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;wake-on-lan-wol:5f91763b9d80fb35b2b67752e5825a34&#34;&gt;Wake On LAN (WOL)&lt;/h3&gt;
+&lt;h3 id=&#34;wake-on-lan-wol&#34;&gt;Wake On LAN (WOL)&lt;/h3&gt;
 
 &lt;p&gt;In case I need the computer at a time where it is not runnin, I can wake it from my desktop computer or from my phone using the &lt;a href=&#34;https://play.google.com/store/apps/details?id=de.ralischer.wakeonlan&#34;&gt;Wake On LAN&lt;/a&gt; app.&lt;/p&gt;
 
@@ -858,7 +1080,7 @@ WantedBy=multi-user.target&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;I use Neovim for all my text editing, and as I&#39;m a web developer I edit a lot of HTML, PHP, CSS and JavaScript. And not only do I have to switch between different programming/markup languages I also have to switch between different environments, ranging from old Drupal 6 sites on Debian squeeze to a Symfony setup on Debian Jessie to ensure that my code works in production.&lt;/p&gt;
 
-&lt;h2 id=&#34;enter-docker:0c08f28664efdd056b375f3539e6eeb3&#34;&gt;Enter Docker&lt;/h2&gt;
+&lt;h2 id=&#34;enter-docker&#34;&gt;Enter Docker&lt;/h2&gt;
 
 &lt;p&gt;Switching between different versions of Apache/PHP/MySQL and other components is nearly impossible if they are locally installed. In the old dark days I would work on a site directly on the server, then later Vagrant came along and gave a virtual server that could be provisioned like the production server and now Docker gives lightweight containers that allows to quickly switch between different setups.&lt;/p&gt;
 
@@ -866,7 +1088,7 @@ WantedBy=multi-user.target&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;My Docker image contains Apache, MariaDB, PHP5 with Xdebug, Mailhog and Webgrind. Database data is kept separately in a volume and sites/virtual hosts are kept on the host.&lt;/p&gt;
 
-&lt;h3 id=&#34;workflow:0c08f28664efdd056b375f3539e6eeb3&#34;&gt;Workflow&lt;/h3&gt;
+&lt;h3 id=&#34;workflow&#34;&gt;Workflow&lt;/h3&gt;
 
 &lt;p&gt;I can either drop an existing virtual host file in the vhosts directory, or run &lt;code&gt;pilotboat site-create mydomain.dev&lt;/code&gt; which will create a virtual host and directory structure. I use dnsmasq to point the top level domain (.dev) to localhost. If you use NetworkManager just create the following file: &lt;code&gt;/etc/NetworkManager/dnsmasq.d/dev.conf&lt;/code&gt; containing:&lt;/p&gt;
 
@@ -874,7 +1096,7 @@ WantedBy=multi-user.target&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Then I can checkout the site from git and import a database, which can be done by &lt;code&gt;pilotboat db-import database_name&lt;/code&gt;. The command will try to import a file in the databases directory called database_name.sql.gz and the file should have been created by running &lt;code&gt;mysqldump -f --opt -u root -p -c [database_name] | gzip &amp;gt; [database_name.sql.gz]&lt;/code&gt;, or alternative I use phpMyAdmin which is running in the container on &lt;a href=&#34;http://localhost/phpmyadmin/&#34;&gt;http://localhost/phpmyadmin/&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;vim-neovim:0c08f28664efdd056b375f3539e6eeb3&#34;&gt;Vim / Neovim&lt;/h2&gt;
+&lt;h2 id=&#34;vim-neovim&#34;&gt;Vim / Neovim&lt;/h2&gt;
 
 &lt;p&gt;The only special setup for Vim is connecting Xdebug in the container to Vdebug, and map paths from inside the container to the local file system:
 &lt;pre&gt;&lt;code class=&#34;language-vim&#34;&gt;let g:vdebug_options = {&amp;quot;path_maps&amp;quot;: {&amp;quot;/var/www&amp;quot;: &amp;quot;/path/to/pilotboat/sites&amp;quot;}, &amp;quot;break_on_open&amp;quot;: 0, &amp;quot;watch_window_style&amp;quot;: &amp;quot;compact&amp;quot;, &amp;quot;server&amp;quot; : &amp;quot;172.17.0.1&amp;quot;, &amp;quot;port&amp;quot;: 9000}
@@ -909,7 +1131,7 @@ WantedBy=multi-user.target&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Originally the setup used &lt;a href=&#34;https://wiki.archlinux.org/index.php/Pipelight&#34;&gt;Pipelight&lt;/a&gt; to watch Netflix, but I have moved away from that, because Chrome for Linux has native support for Netflix playback since version 42.&lt;/p&gt;
 
-&lt;h2 id=&#34;xorg-setup:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Xorg setup&lt;/h2&gt;
+&lt;h2 id=&#34;xorg-setup&#34;&gt;Xorg setup&lt;/h2&gt;
 
 &lt;p&gt;The system uses integrated Intel HD 4400 Graphics, and works without any configuration, but to tweak driver settings I created the file &lt;code&gt;/etc/X11/xorg.conf.d/40-device.conf&lt;/code&gt; and added:&lt;/p&gt;
 
@@ -926,7 +1148,7 @@ EndSection
 
 &lt;p&gt;Refer to the Arch Linux &lt;a href=&#34;https://wiki.archlinux.org/index.php/Xorg&#34;&gt;wiki entry on Xorg&lt;/a&gt; for more information&lt;/p&gt;
 
-&lt;h2 id=&#34;auto-login:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Auto login&lt;/h2&gt;
+&lt;h2 id=&#34;auto-login&#34;&gt;Auto login&lt;/h2&gt;
 
 &lt;p&gt;As Arch Linux uses systemd I just followed the instructions for &lt;a href=&#34;https://wiki.archlinux.org/index.php/Automatic_login_to_virtual_console&#34;&gt;setting up auto login to console&lt;/a&gt;.&lt;/p&gt;
 
@@ -940,7 +1162,7 @@ ExecStart=-/usr/bin/agetty --autologin YOUR_USERNAME --noclear %I 38400 linux
 
 &lt;p&gt;Remember to change YOUR_USERNAME&lt;/p&gt;
 
-&lt;h2 id=&#34;auto-start-xorg:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Auto start Xorg&lt;/h2&gt;
+&lt;h2 id=&#34;auto-start-xorg&#34;&gt;Auto start Xorg&lt;/h2&gt;
 
 &lt;p&gt;I have this in &lt;code&gt;~/.bash_profile&lt;/code&gt; which gets sourced when auto login runs.&lt;/p&gt;
 
@@ -958,7 +1180,7 @@ if [[ x$DISPLAY == &#39;x&#39; ]]; then
 fi
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;openbox:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Openbox&lt;/h2&gt;
+&lt;h2 id=&#34;openbox&#34;&gt;Openbox&lt;/h2&gt;
 
 &lt;p&gt;The startx command executes &lt;code&gt;~/.xinitrc&lt;/code&gt; which contains:&lt;/p&gt;
 
@@ -982,13 +1204,13 @@ setxkbmap dk
 
 /usr/bin/kodi --standalone -fs &amp;&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;kodi-tweaks:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Kodi tweaks&lt;/h2&gt;
+&lt;h2 id=&#34;kodi-tweaks&#34;&gt;Kodi tweaks&lt;/h2&gt;
 
-&lt;h3 id=&#34;hardware-accelerated-playback-on-intel:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Hardware accelerated playback on Intel&lt;/h3&gt;
+&lt;h3 id=&#34;hardware-accelerated-playback-on-intel&#34;&gt;Hardware accelerated playback on Intel&lt;/h3&gt;
 
 &lt;p&gt;I have installed libva-intel-driver, libva-vdpau-driver, libvdpau and libva and enabled hardware accelerated playback in Kodi&#39;s settings. The Intel HD Graphics can handle 1080p without problems.&lt;/p&gt;
 
-&lt;h3 id=&#34;idle-cpu-usage:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Idle CPU usage&lt;/h3&gt;
+&lt;h3 id=&#34;idle-cpu-usage&#34;&gt;Idle CPU usage&lt;/h3&gt;
 
 &lt;p&gt;Depending on the Intel driver version, Kodi might use about 15% CPU when idle, but by editing &lt;code&gt;~/.kodi/userdata/advancedsettings.xml&lt;/code&gt; I was able to reduce it to 3%&lt;/p&gt;
 
@@ -1001,7 +1223,7 @@ setxkbmap dk
 &amp;lt;/advancedsettings&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;mouse-pointer:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Mouse pointer&lt;/h3&gt;
+&lt;h3 id=&#34;mouse-pointer&#34;&gt;Mouse pointer&lt;/h3&gt;
 
 &lt;p&gt;To get a decent size cursor in Chrome I have these settings in &lt;code&gt;~/.Xresources&lt;/code&gt; (Requires the DMZ mouse cursor theme installed)&lt;/p&gt;
 
@@ -1010,11 +1232,11 @@ Xcursor.theme: DMZ
 Xcursor.size: 32
 &lt;/pre&gt;
 
-&lt;h2 id=&#34;plugins:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;Plugins&lt;/h2&gt;
+&lt;h2 id=&#34;plugins&#34;&gt;Plugins&lt;/h2&gt;
 
 &lt;p&gt;I created two simple addons that launches Chromium in fullscreen mode and opens a website like Rdio or Netflix. You can find them in my &lt;a href=&#34;https://github.com/henrik-farre/xbmc-addons&#34;&gt;XBMC addons repository&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;cec-consumer-electronics-control-over-hdmi:c2e1881c6cc9a7bacff7f9afad74d2a0&#34;&gt;CEC (Consumer Electronics Control) over HDMI&lt;/h2&gt;
+&lt;h2 id=&#34;cec-consumer-electronics-control-over-hdmi&#34;&gt;CEC (Consumer Electronics Control) over HDMI&lt;/h2&gt;
 
 &lt;p&gt;I also added a USB - CEC Adapter from &lt;a href=&#34;https://www.pulse-eight.com/&#34;&gt;PulseEight&lt;/a&gt; so it is possible to control Kodi using the TVs remote control.&lt;/p&gt;
 
@@ -1213,7 +1435,7 @@ xdebug.remote_port=9000&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Specifications of the new machine are:&lt;/p&gt;
 
-&lt;h2 id=&#34;motherboard:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Motherboard&lt;/h2&gt;
+&lt;h2 id=&#34;motherboard&#34;&gt;Motherboard&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.gigabyte.com/products/product-page.aspx?pid=4519&#34;&gt;Gigabyte GA-Z87-D3HP&lt;/a&gt;&lt;/p&gt;
 
@@ -1254,31 +1476,31 @@ xdebug.remote_port=9000&lt;/code&gt;&lt;/pre&gt;
 00:1f.3 SMBus: Intel Corporation 8 Series/C220 Series Chipset Family SMBus Controller (rev 04)
 02:00.0 PCI bridge: Intel Corporation 82801 PCI Bridge (rev 41)&lt;/pre&gt;
 
-&lt;h3 id=&#34;ram:6f5e50861940930885d16cc412b3fd7a&#34;&gt;RAM&lt;/h3&gt;
+&lt;h3 id=&#34;ram&#34;&gt;RAM&lt;/h3&gt;
 
 &lt;p&gt;I went for some cheap &lt;a href=&#34;http://www.kingston.com/us/memory/hyperx/blu&#34;&gt;Kingston HyperX blu&lt;/a&gt; 2 x 2 GB memory. The motherboard supports faster memory which should boost graphics performance, but I&amp;#8217;m content with how it performs now.&lt;/p&gt;
 
-&lt;h2 id=&#34;cpu:6f5e50861940930885d16cc412b3fd7a&#34;&gt;CPU&lt;/h2&gt;
+&lt;h2 id=&#34;cpu&#34;&gt;CPU&lt;/h2&gt;
 
 &lt;p&gt;I really like the &lt;a href=&#34;http://ark.intel.com/products/77481/&#34;&gt;Intel i3-4130T&lt;/a&gt; (Haswell) CPU. It runs @ 2.9GHz with a TDP of just 35W, and it comes with integrated Intel HD graphics 4400.&lt;/p&gt;
 
 &lt;p&gt;It is possible to view Full HD content using &lt;a href=&#34;https://wiki.archlinux.org/index.php/VA-API&#34;&gt;va-api&lt;/a&gt; without using more than &amp;lt;20% CPU.&lt;/p&gt;
 
-&lt;h3 id=&#34;cpu-cooler:6f5e50861940930885d16cc412b3fd7a&#34;&gt;CPU cooler&lt;/h3&gt;
+&lt;h3 id=&#34;cpu-cooler&#34;&gt;CPU cooler&lt;/h3&gt;
 
 &lt;p&gt;The &lt;a href=&#34;http://www.coolermaster.com/product/Detail/cooling/cpu-air-cooler/hyper-212-evo.html&#34;&gt;Cooler Master Hyper 212 Evo&lt;/a&gt; is a direct heatpipe touch CPU cooler, and its fan can run at the lowest speed all the time thanks to the CPU&amp;#8217;s low TDP. I use &lt;a href=&#34;http://www.arcticsilver.com/as5.htm&#34;&gt;Arctic Silver 5&lt;/a&gt; thermal compound.&lt;/p&gt;
 
-&lt;h2 id=&#34;control:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Control&lt;/h2&gt;
+&lt;h2 id=&#34;control&#34;&gt;Control&lt;/h2&gt;
 
 &lt;p&gt;I picked the &lt;a href=&#34;http://www.chill-innovation.com/en/bluetooth-keyboards/12-chill-kb-1bt-wireless-bluetooth-micro-keyboard-nordic-5711045075841.html&#34;&gt;Chill KB-1BT Wireless Bluetooth Micro Keyboard&lt;/a&gt; because I was tired of my old infrared connected keyboard&amp;#8217;s poor range and it also had to be pointing directly at its receiver. And not only does the Chill KB-1BT have better range, it&amp;#8217;s also much easier to type on because it&amp;#8217;s much smaller so I can reach most keys with my thumbs.&lt;/p&gt;
 
 &lt;p&gt;While the keyboard is excellent for typing and controlling Netflix/Rdio, I also bought a &lt;a href=&#34;http://www.pulse-eight.com/store/products/104-usb-hdmi-cec-adapter.aspx&#34;&gt;Pulse Eight USB &amp;#8211; CEC Adapter&lt;/a&gt; which allows me to control XBMC 100% using my TV&amp;#8217;s (Sony KDL-40WE5) remote.&lt;/p&gt;
 
-&lt;h2 id=&#34;storage:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Storage&lt;/h2&gt;
+&lt;h2 id=&#34;storage&#34;&gt;Storage&lt;/h2&gt;
 
 &lt;p&gt;I reused the 3 x 500Gb Seagate ST3500630AS discs from the Atom server running in a Raid 5 configuration.&lt;/p&gt;
 
-&lt;h2 id=&#34;case:6f5e50861940930885d16cc412b3fd7a&#34;&gt;Case&lt;/h2&gt;
+&lt;h2 id=&#34;case&#34;&gt;Case&lt;/h2&gt;
 
 &lt;p&gt;First revision &lt;a href=&#34;http://techreport.com/review/6247/antec-sonata-atx-case&#34;&gt;Antec Sonata&lt;/a&gt; (does not even exist on Antec&amp;#8217;s page any more)&lt;/p&gt;
 </description>
@@ -1294,7 +1516,7 @@ xdebug.remote_port=9000&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;As I&amp;#8217;ve just got a new Samsung 840 Pro Series 256GB SSD for my work laptop (HP ProBook 6360b), I wanted to try switching from BIOS booting to UEFI.&lt;/p&gt;
 
-&lt;h1 id=&#34;ssd-setup:769087bd4497991a049e43a8b2be2b7e&#34;&gt;SSD setup&lt;/h1&gt;
+&lt;h1 id=&#34;ssd-setup&#34;&gt;SSD setup&lt;/h1&gt;
 
 &lt;p&gt;Using gdisk I created two partitions:&lt;/p&gt;
 
@@ -1315,17 +1537,17 @@ xdebug.remote_port=9000&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Finally I mounted the old disk (connected using the eSATA connector on the laptop) and the new disk, and used rsync to copy everything to the new disk.&lt;/p&gt;
 
-&lt;h1 id=&#34;bootloader-setup:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Bootloader setup&lt;/h1&gt;
+&lt;h1 id=&#34;bootloader-setup&#34;&gt;Bootloader setup&lt;/h1&gt;
 
 &lt;p&gt;This was the tricky part. First I updated the firmware on the laptop to the newest version (F.29 from &lt;a href=&#34;http://h20000.www2.hp.com/bizsupport/TechSupport/SoftwareIndex.jsp?lang=en&amp;amp;cc=dk&amp;amp;prodNameId=5045588&amp;amp;prodTypeId=321957&amp;amp;prodSeriesId=5045581&amp;amp;swLang=13&amp;amp;taskId=135&amp;amp;swEnvOID=4060&#34;&gt;HPs support site&lt;/a&gt;). I tried all the .exe files on a computer running Windows 7 until I found the one that could create an USB stick.&lt;/p&gt;
 
-&lt;h2 id=&#34;booting-in-uefi-mode:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Booting in UEFI mode&lt;/h2&gt;
+&lt;h2 id=&#34;booting-in-uefi-mode&#34;&gt;Booting in UEFI mode&lt;/h2&gt;
 
 &lt;p&gt;Very importen bit: you can&amp;#8217;t install a UEFI bootloader unless you&amp;#8217;ve booted in UEFI mode.&lt;/p&gt;
 
 &lt;p&gt;I used the instructions in the Arch Linux wiki on how to &lt;a href=&#34;https://wiki.archlinux.org/index.php/UEFI#Create_UEFI_bootable_USB_from_ISO&#34;&gt;Create UEFI bootable USB from ISO&lt;/a&gt;. Sometimes UEFI refused to boot from the USB, but it worked each time I selected the EFI file on the USB stick. To do that press F9 while the computer is booting and select &amp;#8220;Boot from EFI file&amp;#8221;, then select the USB device and EFI/boot/bootx64.efi&lt;/p&gt;
 
-&lt;h2 id=&#34;installing-the-bootloader:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Installing the bootloader&lt;/h2&gt;
+&lt;h2 id=&#34;installing-the-bootloader&#34;&gt;Installing the bootloader&lt;/h2&gt;
 
 &lt;p&gt;I tried rEFInd, gummiboot, grub2 and just using the kernel EFI stub support. Nothing worked. After reading &lt;a href=&#34;http://blog.fpmurphy.com/2010/09/uefi-booting-64-bit-redhat-enterprise-linux-6.html&#34;&gt;UEFI Booting 64-bit Redhat Enterprise Linux 6&lt;/a&gt; I figured out that HPs firmware only allows you to boot from &amp;#8220;OS bootloader&amp;#8221;, which means that it will only boot from \EFI\BOOT\BOOTX64.EFI. So I installed grub2 using these commands (/dev/sda1 is mounted at /boot/efi):&lt;/p&gt;
 
@@ -1336,107 +1558,9 @@ xdebug.remote_port=9000&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;This will put the EFI application in /boot/efi/EFI/arch_grub/grubx64.efi which does not work. So I just copied /boot/efi/EFI/arch_grub/grubx64.efi /boot/efi/EFI/BOOT/BOOTX64.EFI and everything works.&lt;/p&gt;
 
-&lt;h1 id=&#34;conclusion:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Conclusion&lt;/h1&gt;
+&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
 
 &lt;p&gt;I can&amp;#8217;t say that that the time I used to get UEFI booting working was time well spend, nothing magic happens when booting using UEFI compared to legacy BIOS, but at least I&amp;#8217;m not using anything that is labelled &amp;#8220;legacy&amp;#8221; :)&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Installing CyanogenMod 7.1 on a Sony Ericsson Xperia Arc (LT15i)</title>
-      <link>http://rockhopper.dk/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/</link>
-      <pubDate>Tue, 03 Apr 2012 00:00:00 +0000</pubDate>
-      
-      <guid>http://rockhopper.dk/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/</guid>
-      <description>&lt;p&gt;Although the instructions for upgrading the Sony Ericsson Xperia Arc (not the new S version) are &lt;a title=&#34;Sony Ericsson Xperia Arc: Full Update Guide&#34; href=&#34;http://wiki.cyanogenmod.com/wiki/Sony_Ericsson_Xperia_Arc:_Full_Update_Guide&#34; target=&#34;_blank&#34;&gt;pretty detailed&lt;/a&gt; there are some twists that are not documented:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;You need to upgrade to the latests official Sony Ericsson rom (currently &amp;#8220;4.0.2.A.0.62 Generic Global World&amp;#8221; ), you can find links in this &lt;a title=&#34;ARC/ARC S (ROOT.FTF&amp;.IMG)4.0.2.A.0.62 Generic Global World+Flashtool+Ringtones+Other&#34; href=&#34;http://forum.xda-developers.com/showthread.php?t=1330314&#34; target=&#34;_blank&#34;&gt;xda developers thread&lt;/a&gt;, else the phone will not be able to unlock the SIM card&lt;/li&gt;
-&lt;li&gt;To flash the rom you will need &lt;a title=&#34;Flashtool&#34; href=&#34;http://androxyde.github.com/&#34; target=&#34;_blank&#34;&gt;FlashTool&lt;/a&gt; (Java based app, works fine in Linux). And when it says that you have to connect the USB cable, and press a button, you don&amp;#8217;t have to press the power button at the same time&lt;/li&gt;
-&lt;li&gt;The 7.1.0.2 version of CyanogenMod is not usable on the phone I installed it on, it kept crashing on the first screen, apparently the fix is to &lt;a title=&#34;The CyanogenMod7 droid animated screen loads in loop, can&#39;t setup phone &#34; href=&#34;http://forum.cyanogenmod.com/topic/44435-the-cyanogenmod7-droid-animated-screen-loads-in-loop-cant-setup-phone/page__p__302315#entry302315&#34; target=&#34;_blank&#34;&gt;remove an app using adb&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;I ended up using 7.1.0.1 which works fine, except vibrate.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Upgrading an Android Developer Phone 1 to Cyanogenmod 5.0.7 (Android 2.1)</title>
-      <link>http://rockhopper.dk/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/</link>
-      <pubDate>Sat, 19 Jun 2010 00:00:00 +0000</pubDate>
-      
-      <guid>http://rockhopper.dk/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/</guid>
-      <description>
-
-&lt;p&gt;My ADP1 has been running Android 1.6 (Cyanogenmod 4.2.x) for quite a while now, and I was exited to see that it would be possible to run Android 2.1 on it thanks to Cyanogen :). This guide is a digest of information found on Cyanogen&amp;#8217;s wiki, like: &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Full_Update_Guide_-_ADP1_Firmware_to_CyanogenMod&#34;&gt;ADP1 Firmware to CyanogenMod&lt;/a&gt;, please consult the wiki for up todate information and warnings :)&lt;/p&gt;
-
-&lt;h2 id=&#34;prerequisite:8dd91434cb3dabb8ad3f5975fe4ac3b3&#34;&gt;Prerequisite&lt;/h2&gt;
-
-&lt;p&gt;Download the following files:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://forum.xda-developers.com/showpost.php?p=4647751&amp;amp;postcount=1&#34;&gt;RA recovery for dream&lt;/a&gt; I use version 1.7.0&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/DangerSPL_and_CM_5_for_Dream&#34;&gt;DangerSPL&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Latest_version#ERE36B_Google_addon_for_G1.2FDream.2FSapphire&#34;&gt;Google apps for Cyanogen&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Latest_version#Current_Stable_Version_2&#34;&gt;Lateste Cyanogen 5.0.x for dream&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;install-recovery-image:8dd91434cb3dabb8ad3f5975fe4ac3b3&#34;&gt;Install recovery image&lt;/h2&gt;
-
-&lt;p&gt;Based on &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Full_Update_Guide_-_ADP1_Firmware_to_CyanogenMod&#34;&gt;Full Update Guide &amp;#8211; ADP1 Firmware to CyanogenMod&lt;/a&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Boot the phone into fastboot mode by holding the BACK button while pressing the power button&lt;/li&gt;
-&lt;li&gt;On your computer run the following commands:&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;./fastboot device #check if the phone is available
-./fastboot flash recovery recovery-RA-dream-v1.7.0.img
-./fastboot reboot&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://android-dls.com/wiki/index.php?title=Fastboot&#34;&gt;More information about fastboot&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;install-bootloader:8dd91434cb3dabb8ad3f5975fe4ac3b3&#34;&gt;Install bootloader&lt;/h2&gt;
-
-&lt;p&gt;In order to run Android 2.1 you need to replace the bootloader with one called &amp;#8220;DangerSPL&amp;#8221;, and there is a reason it is called &amp;#8220;Danger&amp;#8221; :) please read &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/DangerSPL_and_CM_5_for_Dream&#34;&gt;DangerSPL and CM 5 for Dream&lt;/a&gt; and read the warnings and prerequisites.&lt;/p&gt;
-
-&lt;p&gt;Copy the files to the root of your SD card:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;DangerSPL: spl-signed.zip&lt;/li&gt;
-&lt;li&gt;CyanogenMod: update-cm-5.0.7-DS-signed.zip&lt;/li&gt;
-&lt;li&gt;Google Apps: gapps-ds-ERE36B-signed.zip&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Reboot the phone into recovery mode by holding hold the home button while booting.&lt;/p&gt;
-
-&lt;p&gt;I did the following steps:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Run a Nandroid Backup&lt;/li&gt;
-&lt;li&gt;Wipe Data/Factory Reset&lt;/li&gt;
-&lt;li&gt;Flash DangerSPL by selecting &amp;#8220;Apply any zip from SD&amp;#8221; and then select spl-signed.zip&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;After the bootloader has been flashed, reboot the phone when asked for it. The phone should boot into recovery mode again to complete the upgrade.&lt;/p&gt;
-
-&lt;h2 id=&#34;install-cyanogenmod-5-0-7-and-google-apps:8dd91434cb3dabb8ad3f5975fe4ac3b3&#34;&gt;Install Cyanogenmod 5.0.7 and Google apps&lt;/h2&gt;
-
-&lt;p&gt;After the bootloader has been installed it is time to flash Android 2.1 and Google apps&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Select &amp;#8220;Apply any zip from SD&amp;#8221; and then update-cm-5.0.7-DS-signed.zip&lt;/li&gt;
-&lt;li&gt;Do the same with gapps-ds-ERE36B-signed.zip after CM 5.0.x&lt;/li&gt;
-&lt;li&gt;Reboot (takes awhile to boot)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;If all went well, you should be able to enter your PIN number and enjoy Android 2.1 :)&lt;/p&gt;
-
-&lt;div id=&#34;_mcePaste&#34; style=&#34;position: absolute; left: -10000px; top: 202px; width: 1px; height: 1px; overflow: hidden;&#34;&gt;
-  &lt;h1 id=&#34;firstHeading&#34; class=&#34;firstHeading&#34;&gt;
-    DangerSPL and CM 5 for Dream
-  &lt;/h1&gt;
-&lt;/div&gt;
 </description>
     </item>
     

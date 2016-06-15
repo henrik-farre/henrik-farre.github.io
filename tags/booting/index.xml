@@ -6,8 +6,114 @@
     <description>Recent content in Booting on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Mar 2013 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jun 2016 09:42:24 +0200</lastBuildDate>
     <atom:link href="http://rockhopper.dk/tags/booting/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Linux on Lenovo ThinkPad L460</title>
+      <link>http://rockhopper.dk/linux/hardware/linux-on-lenovo-thinkpad-l460</link>
+      <pubDate>Wed, 15 Jun 2016 09:42:24 +0200</pubDate>
+      
+      <guid>http://rockhopper.dk/linux/hardware/linux-on-lenovo-thinkpad-l460</guid>
+      <description>
+
+&lt;p&gt;Finding a laptop that is well supported by Linux, has nice features and is not too expensive can be quite a task. Lucky the Lenovo ThinkPad L460 fits my requirements.&lt;/p&gt;
+
+&lt;h2 id=&#34;os&#34;&gt;OS&lt;/h2&gt;
+
+&lt;p&gt;I decided to do a fresh install of Arch Linux instead of just cloning one of my other systems as I normally do. At the time of this post the laptop is running with Linux kernel version 4.6.2-1.&lt;/p&gt;
+
+&lt;p&gt;Relevant info from &lt;a href=&#34;http://rockhopper.dk/uploads/files/dmesg.lenovo-thinkpad-l460.txt&#34;&gt;dmesg&lt;/a&gt;, &lt;a href=&#34;http://rockhopper.dk/uploads/files/dmidecode.lenovo-thinkpad-l460.txt&#34;&gt;dmidecode&lt;/a&gt;, &lt;a href=&#34;http://rockhopper.dk/uploads/files/lspci.lenovo-thinkpad-l460.txt&#34;&gt;lscpi&lt;/a&gt; and &lt;a href=&#34;http://rockhopper.dk/uploads/files/lsusb.lenovo-thinkpad-l460.txt&#34;&gt;lsusb&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For powersaving I have installed and configured &lt;a href=&#34;http://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html&#34;&gt;TLP&lt;/a&gt; and nothing more.&lt;/p&gt;
+
+&lt;h2 id=&#34;specs&#34;&gt;Specs&lt;/h2&gt;
+
+&lt;table class=&#34;table table-striped&#34;&gt;
+  &lt;tr&gt;
+    &lt;td&gt;CPU&lt;/td&gt;
+    &lt;td&gt;Intel i5-6200U (3MB Cache, up to 2.80GHz)&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;RAM&lt;/td&gt;
+    &lt;td&gt;16 GB PC3-12800 DDR3L 1600MHz (2 &amp;times; 8GB 1.35V 204-pin SODIMM, Samsung M471B1G73DB0-YK0)&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Storage&lt;/td&gt;
+    &lt;td&gt;256 GB Solid State Drive (SATA3, Samsung MZ7LN256HCHP-000L7)&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Screen / Graphics card&lt;/td&gt;
+    &lt;td&gt;14&#34; FHD (1920 x 1080), IPS, AntiGlare / Intel HD Graphics 520&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;WIFI / Bluetooth&lt;/td&gt;
+    &lt;td&gt;Intel Dual Band Wireless-AC (2x2) 8260 / Bluetooth-version 4.1 vPro&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Ethernet&lt;/td&gt;
+    &lt;td&gt;Intel PRO/1000 (I219-V)&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;UEFI&lt;/td&gt;
+    &lt;td&gt;Version R08ET41W (1.15), Option to disable secure boot: yes&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Battery&lt;/td&gt;
+    &lt;td&gt;6 cell Li-Ion (47Whr, Sanyo LNV-45N1)&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Webcam&lt;/td&gt;
+    &lt;td&gt;720p HD Camera, uses uvcvideo driver&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;touchpad-clickpad&#34;&gt;Touchpad / Clickpad&lt;/h2&gt;
+
+&lt;p&gt;The xf86-input-libinput driver was not very responsive and I had to move my finger a lot before it was registered, which made resizing windows and hitting small targets very hard.
+I replaced it with the xf86-input-synaptics and it works much better.&lt;/p&gt;
+
+&lt;p&gt;The next problem was that the cursor jumped down and to the left each time I tried to use the clickpad&#39;s left &amp;quot;button&amp;quot;.&lt;/p&gt;
+
+&lt;p&gt;I ended up with the following options in &lt;code&gt;/etc/X11/xorg.conf.d/55-synaptics.conf&lt;/code&gt;
+ to fix that:&lt;/p&gt;
+
+&lt;pre&gt;Section &#34;InputClass&#34;
+    Identifier      &#34;touchpad&#34;
+    Driver          &#34;synaptics&#34;
+    MatchIsTouchpad &#34;on&#34;
+    Option          &#34;SoftButtonAreas&#34;  &#34;60% 0 82% 0 40% 59% 82% 0&#34;
+    Option          &#34;AreaBottomEdge&#34;       &#34;90%&#34;
+EndSection&lt;/pre&gt;
+
+
+&lt;h2 id=&#34;graphics-card-driver&#34;&gt;Graphics card / driver&lt;/h2&gt;
+
+&lt;p&gt;I experienced a lot off screen flickering, so I tried the mode setting driver by uninstalling xf86-video-intel and xf86-video-vesa which fixes the problem, but that instead introduced screen tearing.&lt;/p&gt;
+
+&lt;p&gt;I update the UEFI to version 1.15 (which includes a new VBIOS version), Linux kernel to 4.6.x and the xf86-video-intel driver to version 2.99.917+662 and now the problem seems to have disappeared.&lt;/p&gt;
+
+&lt;p&gt;Two minor problems still persists, LightDM/Light-locker still flickers once after starting and after resume, but I just have to wait a second before entering my password.&lt;/p&gt;
+
+&lt;p&gt;Finally the cursor disappears after resume, this can be fixed by running &lt;kbd&gt;xset dpms force off&lt;/kbd&gt;
+.&lt;/p&gt;
+
+&lt;p&gt;I have only set &amp;quot;TearFree&amp;quot; as an extra option in &lt;code&gt;/etc/X11/xorg.conf.d/20-intel.conf&lt;/code&gt;
+:&lt;/p&gt;
+
+&lt;pre&gt;Section &#34;Device&#34;
+  Identifier  &#34;Intel Graphics&#34;
+  Driver      &#34;intel&#34;
+  Option      &#34;TearFree&#34; &#34;true&#34;
+EndSection&lt;/pre&gt;
+
+&lt;h2 id=&#34;overall&#34;&gt;Overall&lt;/h2&gt;
+
+&lt;p&gt;I like the overall build quality, the battery life feels okay, I just which the battery was smaller and not extending below the bottom of the laptop.&lt;/p&gt;
+
+&lt;p&gt;The Mini-DisplayPort to HDMI cable I bought as an accessory does not support sound, but that is just a minor inconvenience.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>UEFI booting Arch Linux on a HP ProBook 6360b</title>
@@ -19,7 +125,7 @@
 
 &lt;p&gt;As I&amp;#8217;ve just got a new Samsung 840 Pro Series 256GB SSD for my work laptop (HP ProBook 6360b), I wanted to try switching from BIOS booting to UEFI.&lt;/p&gt;
 
-&lt;h1 id=&#34;ssd-setup:769087bd4497991a049e43a8b2be2b7e&#34;&gt;SSD setup&lt;/h1&gt;
+&lt;h1 id=&#34;ssd-setup&#34;&gt;SSD setup&lt;/h1&gt;
 
 &lt;p&gt;Using gdisk I created two partitions:&lt;/p&gt;
 
@@ -40,17 +146,17 @@
 
 &lt;p&gt;Finally I mounted the old disk (connected using the eSATA connector on the laptop) and the new disk, and used rsync to copy everything to the new disk.&lt;/p&gt;
 
-&lt;h1 id=&#34;bootloader-setup:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Bootloader setup&lt;/h1&gt;
+&lt;h1 id=&#34;bootloader-setup&#34;&gt;Bootloader setup&lt;/h1&gt;
 
 &lt;p&gt;This was the tricky part. First I updated the firmware on the laptop to the newest version (F.29 from &lt;a href=&#34;http://h20000.www2.hp.com/bizsupport/TechSupport/SoftwareIndex.jsp?lang=en&amp;amp;cc=dk&amp;amp;prodNameId=5045588&amp;amp;prodTypeId=321957&amp;amp;prodSeriesId=5045581&amp;amp;swLang=13&amp;amp;taskId=135&amp;amp;swEnvOID=4060&#34;&gt;HPs support site&lt;/a&gt;). I tried all the .exe files on a computer running Windows 7 until I found the one that could create an USB stick.&lt;/p&gt;
 
-&lt;h2 id=&#34;booting-in-uefi-mode:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Booting in UEFI mode&lt;/h2&gt;
+&lt;h2 id=&#34;booting-in-uefi-mode&#34;&gt;Booting in UEFI mode&lt;/h2&gt;
 
 &lt;p&gt;Very importen bit: you can&amp;#8217;t install a UEFI bootloader unless you&amp;#8217;ve booted in UEFI mode.&lt;/p&gt;
 
 &lt;p&gt;I used the instructions in the Arch Linux wiki on how to &lt;a href=&#34;https://wiki.archlinux.org/index.php/UEFI#Create_UEFI_bootable_USB_from_ISO&#34;&gt;Create UEFI bootable USB from ISO&lt;/a&gt;. Sometimes UEFI refused to boot from the USB, but it worked each time I selected the EFI file on the USB stick. To do that press F9 while the computer is booting and select &amp;#8220;Boot from EFI file&amp;#8221;, then select the USB device and EFI/boot/bootx64.efi&lt;/p&gt;
 
-&lt;h2 id=&#34;installing-the-bootloader:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Installing the bootloader&lt;/h2&gt;
+&lt;h2 id=&#34;installing-the-bootloader&#34;&gt;Installing the bootloader&lt;/h2&gt;
 
 &lt;p&gt;I tried rEFInd, gummiboot, grub2 and just using the kernel EFI stub support. Nothing worked. After reading &lt;a href=&#34;http://blog.fpmurphy.com/2010/09/uefi-booting-64-bit-redhat-enterprise-linux-6.html&#34;&gt;UEFI Booting 64-bit Redhat Enterprise Linux 6&lt;/a&gt; I figured out that HPs firmware only allows you to boot from &amp;#8220;OS bootloader&amp;#8221;, which means that it will only boot from \EFI\BOOT\BOOTX64.EFI. So I installed grub2 using these commands (/dev/sda1 is mounted at /boot/efi):&lt;/p&gt;
 
@@ -61,7 +167,7 @@
 
 &lt;p&gt;This will put the EFI application in /boot/efi/EFI/arch_grub/grubx64.efi which does not work. So I just copied /boot/efi/EFI/arch_grub/grubx64.efi /boot/efi/EFI/BOOT/BOOTX64.EFI and everything works.&lt;/p&gt;
 
-&lt;h1 id=&#34;conclusion:769087bd4497991a049e43a8b2be2b7e&#34;&gt;Conclusion&lt;/h1&gt;
+&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
 
 &lt;p&gt;I can&amp;#8217;t say that that the time I used to get UEFI booting working was time well spend, nothing magic happens when booting using UEFI compared to legacy BIOS, but at least I&amp;#8217;m not using anything that is labelled &amp;#8220;legacy&amp;#8221; :)&lt;/p&gt;
 </description>

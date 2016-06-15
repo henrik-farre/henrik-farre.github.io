@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.15" />
+    <meta name="generator" content="Hugo 0.16" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans%7CMarcellus+SC'>
@@ -54,7 +54,7 @@
             <ul class="nav navbar-nav navbar-right">
               
               
-              <li><a href="/about-me/"><i class='fa fa-user'></i> About me</a></li>
+              <li><a href="/about-me"><i class='fa fa-user'></i> About me</a></li>
               
               
               
@@ -112,14 +112,14 @@
 
 <p>I have created <a href="https://github.com/henrik-farre/docker">pilotboat</a> to make it easy for me to develop and test PHP based applications, and I will use it in this how-to. If you prefer to use another setup, feel free to look through my <a href="https://github.com/henrik-farre/docker">github repository for pilotboat</a> for inspiration.</p>
 
-<h2 id="prerequisite:dd2227ba96c5d4fb3ed6a97f377930d8">Prerequisite</h2>
+<h2 id="prerequisite">Prerequisite</h2>
 
 <ol>
 <li>Working Docker installation</li>
 <li>A top level domain that points to your local machine, e.g. .dev</li>
 </ol>
 
-<h2 id="pilotboat-setup:dd2227ba96c5d4fb3ed6a97f377930d8">Pilotboat setup</h2>
+<h2 id="pilotboat-setup">Pilotboat setup</h2>
 
 <p>The following steps are required to setup pilotboat:</p>
 
@@ -134,13 +134,13 @@
 
 <p>Docker-compose will download and build the needed images and start the containers.</p>
 
-<h2 id="site-setup:dd2227ba96c5d4fb3ed6a97f377930d8">Site setup</h2>
+<h2 id="site-setup">Site setup</h2>
 
 <p>To create a site based on Symfony 3 run <kbd>pilotboat site-create symfony.dev symfony</kbd>
  (symfony.dev is your domain name, you may choose anything you like). The latest stable version of the Symfony 3 framework will be downloaded and installed. Note that pilotboat will create a database, but you will have to manually configure <code>app/config/parameters.yml</code>
  to access it.</p>
 
-<h2 id="behat-configuration:dd2227ba96c5d4fb3ed6a97f377930d8">Behat configuration</h2>
+<h2 id="behat-configuration">Behat configuration</h2>
 
 <p>Enter the container with <kbd>pilotboat shell</kbd>
  and change to your site: <kbd>cd symfony.dev</kbd>
@@ -172,7 +172,7 @@
             wd_host: 'http://phantomjs:8910/wd/hub'</code></pre>
 
 
-<h2 id="writing-and-running-tests:dd2227ba96c5d4fb3ed6a97f377930d8">Writing and running tests</h2>
+<h2 id="writing-and-running-tests">Writing and running tests</h2>
 
 <p>I will not go into detail on how to write tests, so the following is just a small example. Create <code>features/homepage.feature</code>
  and put the following in the file:</p>
@@ -242,11 +242,11 @@
       
       <a href="http://rockhopper.dk/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
       
-      <a href="http://rockhopper.dk/categories/mythtv" class="list-group-item">mythtv</a>
+      <a href="http://rockhopper.dk/categories/php" class="list-group-item">php</a>
       
       <a href="http://rockhopper.dk/categories/linux" class="list-group-item">linux</a>
       
-      <a href="http://rockhopper.dk/categories/php" class="list-group-item">php</a>
+      <a href="http://rockhopper.dk/categories/mythtv" class="list-group-item">mythtv</a>
       
       <a href="http://rockhopper.dk/categories/backup" class="list-group-item">backup</a>
       
@@ -254,7 +254,7 @@
       
       <a href="http://rockhopper.dk/categories/xfce" class="list-group-item">xfce</a>
       
-      <a href="http://rockhopper.dk/categories/xorg" class="list-group-item">xorg</a>
+      <a href="http://rockhopper.dk/categories/pilotboat" class="list-group-item">pilotboat</a>
       
     </div>
   </div>
@@ -269,19 +269,19 @@
       
       <a href="http://rockhopper.dk/tags/archlinux" class="list-group-item">archlinux</a>
       
-      <a href="http://rockhopper.dk/tags/mythbackend" class="list-group-item">mythbackend</a>
-      
-      <a href="http://rockhopper.dk/tags/htpc" class="list-group-item">htpc</a>
+      <a href="http://rockhopper.dk/tags/behat" class="list-group-item">behat</a>
       
       <a href="http://rockhopper.dk/tags/docker" class="list-group-item">docker</a>
       
-      <a href="http://rockhopper.dk/tags/behat" class="list-group-item">behat</a>
+      <a href="http://rockhopper.dk/tags/htpc" class="list-group-item">htpc</a>
       
-      <a href="http://rockhopper.dk/tags/mythfrontend" class="list-group-item">mythfrontend</a>
+      <a href="http://rockhopper.dk/tags/mythbackend" class="list-group-item">mythbackend</a>
       
-      <a href="http://rockhopper.dk/tags/motherboard" class="list-group-item">motherboard</a>
+      <a href="http://rockhopper.dk/tags/booting" class="list-group-item">booting</a>
       
       <a href="http://rockhopper.dk/tags/duplicity" class="list-group-item">duplicity</a>
+      
+      <a href="http://rockhopper.dk/tags/dvb-c" class="list-group-item">dvb-c</a>
       
       <a href="http://rockhopper.dk/tags/kodi" class="list-group-item">kodi</a>
       

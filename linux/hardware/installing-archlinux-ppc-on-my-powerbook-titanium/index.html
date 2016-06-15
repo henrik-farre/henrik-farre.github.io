@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.15" />
+    <meta name="generator" content="Hugo 0.16" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans%7CMarcellus+SC'>
@@ -54,7 +54,7 @@
             <ul class="nav navbar-nav navbar-right">
               
               
-              <li><a href="/about-me/"><i class='fa fa-user'></i> About me</a></li>
+              <li><a href="/about-me"><i class='fa fa-user'></i> About me</a></li>
               
               
               
@@ -112,7 +112,7 @@
 
 <p>I just followed the <a href="http://wiki.archlinux.org/index.php/Install_Arch_Linux_PPC">instructions available</a> in the ArchLinux wiki, and here are my notes on the installation.</p>
 
-<h2 id="install-issues:ee78b04dbd8e2687e8423cd7c5e4eff0">Install issues</h2>
+<h2 id="install-issues">Install issues</h2>
 
 <p>I experienced 2 issues with the /arch/quickinstall script. First it failed because wget was missing from the cd. So I used &#8220;vi&#8221; to replace wget with <a href="http://www.xach.com/snarf/">snarf</a> (which is on the cd) in the script. Secondly the quickinstall ftp URL was wrong in the wiki, it should be core instead of current (I have updated the wiki with the correct link)</p>
 
@@ -131,7 +131,7 @@ useradd: PAM authentication failed</pre>
 
 <p>I finally track the problem down to a mismatch between /etc/shadow and /etc/shadow- in the line with the root user.</p>
 
-<h2 id="post-install:ee78b04dbd8e2687e8423cd7c5e4eff0">Post install</h2>
+<h2 id="post-install">Post install</h2>
 
 <p>When everything was installed and the system running, I started to add applications and tweak settings:</p>
 
@@ -145,7 +145,7 @@ useradd: PAM authentication failed</pre>
 
 <p>Finally I installed <a href="http://www.transmissionbt.com/">transmission bittorrent client</a>, and the <a href="http://clutchbt.com/">clutch web interface for transmission</a>, and a couple of other apps.</p>
 
-<h2 id="unresolved-issuses:ee78b04dbd8e2687e8423cd7c5e4eff0">Unresolved issuses</h2>
+<h2 id="unresolved-issuses">Unresolved issuses</h2>
 
 <p>I have 2 small problems left that are minor annoyances:</p>
 
@@ -162,7 +162,7 @@ useradd: PAM authentication failed</pre>
 
 <p>I also ignore this, because the machine uses ntpdate to set its time.</p>
 
-<h2 id="status:ee78b04dbd8e2687e8423cd7c5e4eff0">Status</h2>
+<h2 id="status">Status</h2>
 
 <p>The machine has been running stable in a couple of weeks, and ArchLinux PPC feels as stable as the x86 edition.</p>
 
@@ -203,11 +203,11 @@ useradd: PAM authentication failed</pre>
       
       <a href="http://rockhopper.dk/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
       
-      <a href="http://rockhopper.dk/categories/mythtv" class="list-group-item">mythtv</a>
-      
       <a href="http://rockhopper.dk/categories/php" class="list-group-item">php</a>
       
       <a href="http://rockhopper.dk/categories/linux" class="list-group-item">linux</a>
+      
+      <a href="http://rockhopper.dk/categories/mythtv" class="list-group-item">mythtv</a>
       
       <a href="http://rockhopper.dk/categories/backup" class="list-group-item">backup</a>
       
@@ -215,7 +215,7 @@ useradd: PAM authentication failed</pre>
       
       <a href="http://rockhopper.dk/categories/xfce" class="list-group-item">xfce</a>
       
-      <a href="http://rockhopper.dk/categories/xorg" class="list-group-item">xorg</a>
+      <a href="http://rockhopper.dk/categories/pilotboat" class="list-group-item">pilotboat</a>
       
     </div>
   </div>
@@ -230,19 +230,19 @@ useradd: PAM authentication failed</pre>
       
       <a href="http://rockhopper.dk/tags/archlinux" class="list-group-item">archlinux</a>
       
-      <a href="http://rockhopper.dk/tags/mythbackend" class="list-group-item">mythbackend</a>
-      
-      <a href="http://rockhopper.dk/tags/htpc" class="list-group-item">htpc</a>
+      <a href="http://rockhopper.dk/tags/behat" class="list-group-item">behat</a>
       
       <a href="http://rockhopper.dk/tags/docker" class="list-group-item">docker</a>
       
-      <a href="http://rockhopper.dk/tags/behat" class="list-group-item">behat</a>
+      <a href="http://rockhopper.dk/tags/htpc" class="list-group-item">htpc</a>
       
-      <a href="http://rockhopper.dk/tags/mythfrontend" class="list-group-item">mythfrontend</a>
+      <a href="http://rockhopper.dk/tags/mythbackend" class="list-group-item">mythbackend</a>
       
-      <a href="http://rockhopper.dk/tags/motherboard" class="list-group-item">motherboard</a>
+      <a href="http://rockhopper.dk/tags/booting" class="list-group-item">booting</a>
       
       <a href="http://rockhopper.dk/tags/duplicity" class="list-group-item">duplicity</a>
+      
+      <a href="http://rockhopper.dk/tags/dvb-c" class="list-group-item">dvb-c</a>
       
       <a href="http://rockhopper.dk/tags/kodi" class="list-group-item">kodi</a>
       

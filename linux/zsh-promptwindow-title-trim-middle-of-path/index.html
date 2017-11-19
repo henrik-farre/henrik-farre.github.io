@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.30.2" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans%7CMarcellus+SC'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+  
+    <link href="/css/combined.css" rel="stylesheet" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://rockhopper.dk//index.xml">
+    <link rel="canonical" href="http://rockhopper.dk/linux/zsh-promptwindow-title-trim-middle-of-path/" />
+
+    
+    <title>zsh prompt/window title: trim middle of path - Rockhopper.dk</title>
+    <meta property='og:title' content="zsh prompt/window title: trim middle of path - Rockhopper.dk">
+    <meta property="og:type" content="article">
+    
+    
+    <meta name="google-site-verification" content="eoEQEAp-8H6Sou4fffVz-N58YP34LIRG0wJyHvvxVJw" />
+    
+
+    <meta property="og:url" content="http://rockhopper.dk/linux/zsh-promptwindow-title-trim-middle-of-path/">
+    
+    
+  </head>
+
+  <body>
+
+    <header class="site">
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-md-12">
+            <img src="/img/header_strand.png" alt="">
+          </div>
+        </div>
+        <nav class="navbar navbar-inverse">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://rockhopper.dk/">Rockhopper.dk</a>
+          </div>
+
+          <div id="navbar" class="collapse navbar-collapse">
+            
+            <ul class="nav navbar-nav navbar-right">
+              
+              
+              <li><a href="/about-me"><i class='fa fa-user'></i> About me</a></li>
+              
+              
+              
+              <li><a href="https://github.com/henrik-farre"><i class='fa fa-github'></i> Github</a></li>
+              
+              
+              
+              <li><a href="https://dk.linkedin.com/in/henrikfarre"><i class='fa fa-linkedin'></i> LinkedIn</a></li>
+              
+              
+            </ul>
+            
+          </div>
+
+        </nav>
+      </div>
+    </header>
+
+    <div class="site">
+      <div class="container">
+
+
+
+<div class="single">
+
+  <div class="row">
+    <div class="col-md-8">
+
+      <article class="single" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+        <meta itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" content="http://rockhopper.dk/"/>
+        <meta itemprop="dateModified" content="2014-01-07T00:00:00&#43;00:00">
+        <meta itemprop="headline" content="zsh prompt/window title: trim middle of path">
+        <meta itemprop="description" content="I run zsh in tmux, and sometimes I end up in a deep directory where the path matches that of another window in tmux (for example in my local docker development environment and on the testing/production server). When this happens just seeing the last part of the path as the window title is not enough, like this: &#8230;/sites/all/modules/somemodule.
+">
+        <meta itemprop="url" content="http://rockhopper.dk/linux/zsh-promptwindow-title-trim-middle-of-path/">
+        <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+          <meta itemprop="name" content="Rockhopper.dk">
+        </div>
+        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <meta itemprop="name" content="Henrik Farre">
+          <meta itemprop="sameAs" content="https://dk.linkedin.com/in/henrikfarre">
+          <meta itemprop="sameAs" content="https://github.com/henrik-farre">
+        </div>
+
+        <header class="article-header">
+          <time itemprop="datePublished" pubdate="pubdate" datetime="2014-01-07T00:00:00&#43;00:00">Tue, Jan 7, 2014</time>
+          <h1 class="article-title">zsh prompt/window title: trim middle of path</h1>
+        </header>
+
+        <div class="article-body" itemprop="articleBody">
+          <p>I run zsh in tmux, and sometimes I end up in a deep directory where the path matches that of another window in tmux (for example in my local docker development environment and on the testing/production server). When this happens just seeing the last part of the path as the window title is not enough, like this: &#8230;/sites/all/modules/somemodule.
+</p>
+
+<p>So I changed my ~/.zshrc to contain this:</p>
+
+<pre>
+<code class="language-bash">####################################################
+# Set title function
+# Used in precmd
+function title() {
+  # escape '%' chars in $1, make nonprintables visible
+  local cmd=${(V)1//\%/\%\%}
+
+  # See "Conditional Substrings in Prompts"
+  # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+  # %X&gt;...&gt;                     : truncate to 40 chars followed by ...
+  # %X(c:true-text:false-text)  : if c &gt; %X show true text, else false text
+
+  # Truncate cmd to 40
+  cmd=$(print -Pn "%40&gt;...&gt;$cmd" | tr -d "\n")
+
+  case $TERM in
+    screen|screen-bce|screen-256color|screen-256color-bce)
+      if [[ -z $SSH_TTY ]]; then
+        #print -Pn "\ek%40&lt;...&lt;%~&gt; $cmd\e\\"
+        # if c (current path with prefix replace, aka ~) is larger than 7,
+        # show first 3 parts, then ... and then last 3 parts, else just %~
+        print -Pn "\ek%7(c:%-3~/.../%3~:%~) $cmd\e\\"
+      else
+        # With user/hostname
+        print -Pn "\ek%m:%40&lt;...&lt;%~&gt; $cmd\e\\"
+      fi
+      ;;
+    xterm*|rxvt*)
+      # plain xterm title
+      if [[ -z $SSH_TTY ]]; then
+        print -Pn "\e]2;%40&lt;...&lt;%~&gt; $cmd\a"
+      else
+        # With user/hostname
+        print -Pn "\e]2;%n@%m:%40&lt;...&lt;%~&gt; $cmd\a"
+      fi
+      ;;
+  esac
+}
+
+####################################################
+# Window title
+# precmd is called just before the prompt is printed
+function precmd() {
+  title ""
+  # Don't run vcs_info if remote shell
+  if [[ -z $SSH_TTY ]]; then
+    vcs_info
+  fi
+}
+# preexec is called just before any command line is executed
+function preexec() {
+  title "$1"
+}
+</code></pre>
+
+<p>This creates the following window title: ~/Work/docker/&#8230;/all/modules/somemodule. The magic happens by saying %7(c:%-3~/&#8230;/%3~:%~) which means: if &#8220;c&#8221;, which contains the entire path after prefix has been replaced -&gt; /home/username to ~, is larger than 7, show the 3 first directories, then &#8230; and finally the last 3 directories.</p>
+
+<p>The same can be done in the shell prompt.</p>
+        </div>
+
+        <aside>
+          <div class="section"><a href="http://rockhopper.dk/tags/tmux" class="tag">tmux</a> <a href="http://rockhopper.dk/tags/zsh" class="tag">zsh</a> </div>
+
+          <div class="section share">
+            <a href="https://www.reddit.com/submit?url=http%3a%2f%2frockhopper.dk%2flinux%2fzsh-promptwindow-title-trim-middle-of-path%2f&title=zsh%20prompt%2fwindow%20title%3a%20trim%20middle%20of%20path" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-reddit-alien"></i></a>
+            <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2frockhopper.dk%2flinux%2fzsh-promptwindow-title-trim-middle-of-path%2f&t=zsh%20prompt%2fwindow%20title%3a%20trim%20middle%20of%20path" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+            <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2frockhopper.dk%2flinux%2fzsh-promptwindow-title-trim-middle-of-path%2f&text=zsh%20prompt%2fwindow%20title%3a%20trim%20middle%20of%20path&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+            <a href="https://plus.google.com/share?url=http%3a%2f%2frockhopper.dk%2flinux%2fzsh-promptwindow-title-trim-middle-of-path%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+            <a href="http://getpocket.com/edit?url=http%3a%2f%2frockhopper.dk%2flinux%2fzsh-promptwindow-title-trim-middle-of-path%2f&title=zsh%20prompt%2fwindow%20title%3a%20trim%20middle%20of%20path" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+          </div>
+
+          
+          
+          
+        </aside>
+
+      </article>
+
+    </div>
+    <div class="col-md-4">
+      <aside class="site">
+
+  
+  <div class="panel panel-inverse">
+    <div class="panel-heading">
+      <h2 class="panel-title"><i class="fa fa-tags"></i> Categories</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://rockhopper.dk/categories/software" class="list-group-item">software</a>
+      
+      <a href="http://rockhopper.dk/categories/hardware" class="list-group-item">hardware</a>
+      
+      <a href="http://rockhopper.dk/categories/phone-and-pda" class="list-group-item">phone-and-pda</a>
+      
+      <a href="http://rockhopper.dk/categories/php" class="list-group-item">php</a>
+      
+      <a href="http://rockhopper.dk/categories/linux" class="list-group-item">linux</a>
+      
+      <a href="http://rockhopper.dk/categories/mythtv" class="list-group-item">mythtv</a>
+      
+      <a href="http://rockhopper.dk/categories/backup" class="list-group-item">backup</a>
+      
+      <a href="http://rockhopper.dk/categories/vim" class="list-group-item">vim</a>
+      
+      <a href="http://rockhopper.dk/categories/xfce" class="list-group-item">xfce</a>
+      
+      <a href="http://rockhopper.dk/categories/ansible" class="list-group-item">ansible</a>
+      
+    </div>
+  </div>
+  
+  <div class="panel panel-inverse">
+    <div class="panel-heading">
+      <h2 class="panel-title"><i class="fa fa-tags"></i> Tags</h2>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://rockhopper.dk/tags/android" class="list-group-item">android</a>
+      
+      <a href="http://rockhopper.dk/tags/archlinux" class="list-group-item">archlinux</a>
+      
+      <a href="http://rockhopper.dk/tags/behat" class="list-group-item">behat</a>
+      
+      <a href="http://rockhopper.dk/tags/docker" class="list-group-item">docker</a>
+      
+      <a href="http://rockhopper.dk/tags/htpc" class="list-group-item">htpc</a>
+      
+      <a href="http://rockhopper.dk/tags/mythbackend" class="list-group-item">mythbackend</a>
+      
+      <a href="http://rockhopper.dk/tags/booting" class="list-group-item">booting</a>
+      
+      <a href="http://rockhopper.dk/tags/duplicity" class="list-group-item">duplicity</a>
+      
+      <a href="http://rockhopper.dk/tags/dvb-c" class="list-group-item">dvb-c</a>
+      
+      <a href="http://rockhopper.dk/tags/kodi" class="list-group-item">kodi</a>
+      
+    </div>
+  </div>
+  
+
+</aside>
+
+    </div>
+  </div>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site">
+      <div class="container">
+        <p>&copy; 2017 Rockhopper.dk - <a href="/about-me/">About</a></p>
+      </div>
+    </footer>
+
+    <script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  
+    <script src="/js/combined.js" ></script>
+
+    
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-4186065-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+    
+
+  </body>
+</html>
+

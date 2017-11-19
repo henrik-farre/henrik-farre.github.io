@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 05 Nov 2008 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/tags/screen/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/screen/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>zsh, bash, screen and urxvt title</title>
@@ -15,7 +15,8 @@
       <pubDate>Wed, 05 Nov 2008 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/software/zsh-bash-screen-and-urxvt-title/</guid>
-      <description>&lt;p&gt;I use both the zsh and bash shell, and most of the time I run them in screen. This happens in my favourite terminal: urxvt (aka rxvt-unicode).&lt;/p&gt;
+      <description>&lt;p&gt;I use both the zsh and bash shell, and most of the time I run them in screen. This happens in my favourite terminal: urxvt (aka rxvt-unicode).
+&lt;/p&gt;
 
 &lt;p&gt;I have a pretty consistence terminal title in both shells. I use hostname[last part of current path]:&lt;/p&gt;
 
@@ -73,8 +74,7 @@ export PS1 PROMPT_COMMAND
 &lt;pre&gt;
 &lt;code class=&#34;language-bash&#34;&gt;hardstatus string &#34;%h&#34;
 caption always &#34;%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw} %=%d %M %0c %{g}%H%{-}&#34;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
   </channel>

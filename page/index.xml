@@ -7,14 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 01 Apr 2016 10:15:11 +0200</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/page/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/page/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>About me</title>
-      <link>http://rockhopper.dk/about-me</link>
+      <link>http://rockhopper.dk/about-me/</link>
       <pubDate>Fri, 01 Apr 2016 10:15:11 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/about-me</guid>
+      <guid>http://rockhopper.dk/about-me/</guid>
       <description>&lt;p&gt;I&#39;m a veteran web developer with experience in a multitude of PHP based applications, including:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -34,8 +34,7 @@
 &lt;li&gt;&lt;i class=&#39;fa fa-linkedin&#39;&gt;&lt;/i&gt; &lt;a href=&#34;https://dk.linkedin.com/in/henrikfarre&#34;&gt;LinkedIn&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;This blog is powered by &lt;a href=&#34;http://gohugo.io&#34;&gt;Hugo&lt;/a&gt; and &lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages&lt;/a&gt; and you can find my setup &lt;a href=&#34;https://github.com/henrik-farre/hugo.rockhopper.dk&#34;&gt;here&lt;/a&gt;. The theme is based on the &lt;a href=&#34;http://themes.gohugo.io/beg/&#34;&gt;Beg&lt;/a&gt; theme by &lt;a href=&#34;http://yet.unresolved.xyz/&#34;&gt;Daisuke Tsuji&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;This blog is powered by &lt;a href=&#34;http://gohugo.io&#34;&gt;Hugo&lt;/a&gt; and &lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages&lt;/a&gt; and you can find my setup &lt;a href=&#34;https://github.com/henrik-farre/hugo.rockhopper.dk&#34;&gt;here&lt;/a&gt;. The theme is based on the &lt;a href=&#34;http://themes.gohugo.io/beg/&#34;&gt;Beg&lt;/a&gt; theme by &lt;a href=&#34;http://yet.unresolved.xyz/&#34;&gt;Daisuke Tsuji&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -7,14 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 10 Jun 2016 10:23:40 +0200</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/tags/behat/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/behat/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Drupal 8 and Behat tests</title>
-      <link>http://rockhopper.dk/linux/software/drupal-8-and-behat-tests</link>
+      <link>http://rockhopper.dk/linux/software/drupal-8-and-behat-tests/</link>
       <pubDate>Fri, 10 Jun 2016 10:23:40 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/software/drupal-8-and-behat-tests</guid>
+      <guid>http://rockhopper.dk/linux/software/drupal-8-and-behat-tests/</guid>
       <description>&lt;p&gt;The &lt;a href=&#34;https://www.drupal.org/project/drupalextension&#34;&gt;&amp;quot;Drupal Extension to Behat and Mink&amp;quot;&lt;/a&gt; provides some nice Drupal specific step definitions and ways of setting test data up. This post runs through the setup process.&lt;/p&gt;
 
 &lt;p&gt;First create a behat directory outside your Drupal installation (&lt;code&gt;public_html&lt;/code&gt;
@@ -121,16 +121,15 @@
     Then I should see the heading &#34;My article&#34;&lt;/code&gt;&lt;/pre&gt;
 
 
-&lt;p&gt;For more information about the api driver see the &lt;a href=&#34;https://behat-drupal-extension.readthedocs.io/en/3.1/drupalapi.html&#34;&gt;Drupal API Driver documentation&lt;/a&gt;.&lt;/p&gt;
-</description>
+&lt;p&gt;For more information about the api driver see the &lt;a href=&#34;https://behat-drupal-extension.readthedocs.io/en/3.1/drupalapi.html&#34;&gt;Drupal API Driver documentation&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Behat: taking screenshots of failed steps</title>
-      <link>http://rockhopper.dk/linux/software/behat-taking-screenshots-of-failed-steps</link>
+      <link>http://rockhopper.dk/linux/software/behat-taking-screenshots-of-failed-steps/</link>
       <pubDate>Tue, 17 May 2016 10:51:24 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/software/behat-taking-screenshots-of-failed-steps</guid>
+      <guid>http://rockhopper.dk/linux/software/behat-taking-screenshots-of-failed-steps/</guid>
       <description>&lt;p&gt;Getting a screenshot and a dump of the HTML of a failed step is invaluable when running tests on a headless &amp;quot;browser&amp;quot; like PhantomJS, and this post will show you how&lt;/p&gt;
 
 &lt;p&gt;You will of cause need a working Behat/PhantomJS setup to run this code, you can see my post about &lt;a href=&#34;http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker/&#34;&gt;Behat tests with Symfony 3, PhantomJS and Docker&lt;/a&gt; on how to configure everything like &lt;code&gt;behat.yml&lt;/code&gt;
@@ -223,19 +222,16 @@ class FeatureContext implements Context, SnippetAcceptingContext
 2 steps (1 passed, 1 failed)
 0m0.31s (13.49Mb)&lt;/pre&gt;
 
-&lt;p&gt;Happy testing :)&lt;/p&gt;
-</description>
+&lt;p&gt;Happy testing :)&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Behat tests with Symfony 3, PhantomJS and Docker</title>
-      <link>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker</link>
+      <link>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker/</link>
       <pubDate>Sat, 14 May 2016 14:56:22 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker</guid>
-      <description>
-
-&lt;p&gt;Writing tests should be easy, but installing and maintaining every single piece needed is nontrivial. Thankfully Docker can provide each piece of the jigsaw: Symfony 3, Behat and PhantomJS.&lt;/p&gt;
+      <guid>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker/</guid>
+      <description>&lt;p&gt;Writing tests should be easy, but installing and maintaining every single piece needed is nontrivial. Thankfully Docker can provide each piece of the jigsaw: Symfony 3, Behat and PhantomJS.&lt;/p&gt;
 
 &lt;p&gt;I have created &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;pilotboat&lt;/a&gt; to make it easy for me to develop and test PHP based applications, and I will use it in this how-to. If you prefer to use another setup, feel free to look through my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;github repository for pilotboat&lt;/a&gt; for inspiration.&lt;/p&gt;
 
@@ -330,8 +326,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
 2 steps (2 passed)
 0m0.21s (13.43Mb)&lt;/pre&gt;
 
-&lt;p&gt;And you&#39;re ready to write tests :)&lt;/p&gt;
-</description>
+&lt;p&gt;And you&#39;re ready to write tests :)&lt;/p&gt;</description>
     </item>
     
   </channel>

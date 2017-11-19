@@ -6,18 +6,37 @@
     <description>Recent content in Posts on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Jun 2016 09:42:24 +0200</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Nov 2017 15:19:28 +0000</lastBuildDate>
+    <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Import Host and Group Vars Into AWX</title>
+      <link>http://rockhopper.dk/linux/software/import-host-and-group-vars-into-awx/</link>
+      <pubDate>Sat, 18 Nov 2017 15:19:28 +0000</pubDate>
+      
+      <guid>http://rockhopper.dk/linux/software/import-host-and-group-vars-into-awx/</guid>
+      <description>&lt;p&gt;Recently RedHat released &lt;a href=&#34;https://www.ansible.com/open-tower&#34;&gt;Ansible tower as open source&lt;/a&gt; as the &lt;a href=&#34;https://github.com/ansible/awx/&#34;&gt;AWX project&lt;/a&gt;. So I&#39;ve imported my local Ansible project into AWX, but manually importing alot of host and group vars can be a bit tedious.&lt;/p&gt;
+
+&lt;p&gt;Using &lt;a href=&#34;http://tower-cli.readthedocs.io/en/latest/&#34;&gt;tower-cli&lt;/a&gt; this can thankfully be automated.&lt;/p&gt;
+
+&lt;p&gt;To import all host vars in a directory, where each file is a FQDN matching the hostname in AWX, use:
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;for FILE in $(find . -depth 1 -type f); do tower-cli host modify --variables @${FILE#\./} --name=${FILE#\./} -i 2; done&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;
+
+&lt;p&gt;To do the same for groups:
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;for FILE in $(find . -depth 1 -type f); do tower-cli group modify --variables @${FILE#\./} --name=${FILE#\./} -i 2; done&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;
+
+&lt;p&gt;And you are done :)&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Linux on Lenovo ThinkPad L460</title>
-      <link>http://rockhopper.dk/linux/hardware/linux-on-lenovo-thinkpad-l460</link>
+      <link>http://rockhopper.dk/linux/hardware/linux-on-lenovo-thinkpad-l460/</link>
       <pubDate>Wed, 15 Jun 2016 09:42:24 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/hardware/linux-on-lenovo-thinkpad-l460</guid>
-      <description>
-
-&lt;p&gt;Finding a laptop that is well supported by Linux, has nice features and is not too expensive can be quite a task. Lucky the Lenovo ThinkPad L460 fits my requirements.&lt;/p&gt;
+      <guid>http://rockhopper.dk/linux/hardware/linux-on-lenovo-thinkpad-l460/</guid>
+      <description>&lt;p&gt;Finding a laptop that is well supported by Linux, has nice features and is not too expensive can be quite a task. Lucky the Lenovo ThinkPad L460 fits my requirements.&lt;/p&gt;
 
 &lt;h2 id=&#34;os&#34;&gt;OS&lt;/h2&gt;
 
@@ -111,16 +130,15 @@ EndSection&lt;/pre&gt;
 
 &lt;p&gt;I like the overall build quality, the battery life feels okay, I just which the battery was smaller and not extending below the bottom of the laptop.&lt;/p&gt;
 
-&lt;p&gt;The Mini-DisplayPort to HDMI cable I bought as an accessory does not support sound, but that is just a minor inconvenience.&lt;/p&gt;
-</description>
+&lt;p&gt;The Mini-DisplayPort to HDMI cable I bought as an accessory does not support sound, but that is just a minor inconvenience.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Drupal 8 and Behat tests</title>
-      <link>http://rockhopper.dk/linux/software/drupal-8-and-behat-tests</link>
+      <link>http://rockhopper.dk/linux/software/drupal-8-and-behat-tests/</link>
       <pubDate>Fri, 10 Jun 2016 10:23:40 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/software/drupal-8-and-behat-tests</guid>
+      <guid>http://rockhopper.dk/linux/software/drupal-8-and-behat-tests/</guid>
       <description>&lt;p&gt;The &lt;a href=&#34;https://www.drupal.org/project/drupalextension&#34;&gt;&amp;quot;Drupal Extension to Behat and Mink&amp;quot;&lt;/a&gt; provides some nice Drupal specific step definitions and ways of setting test data up. This post runs through the setup process.&lt;/p&gt;
 
 &lt;p&gt;First create a behat directory outside your Drupal installation (&lt;code&gt;public_html&lt;/code&gt;
@@ -227,16 +245,15 @@ EndSection&lt;/pre&gt;
     Then I should see the heading &#34;My article&#34;&lt;/code&gt;&lt;/pre&gt;
 
 
-&lt;p&gt;For more information about the api driver see the &lt;a href=&#34;https://behat-drupal-extension.readthedocs.io/en/3.1/drupalapi.html&#34;&gt;Drupal API Driver documentation&lt;/a&gt;.&lt;/p&gt;
-</description>
+&lt;p&gt;For more information about the api driver see the &lt;a href=&#34;https://behat-drupal-extension.readthedocs.io/en/3.1/drupalapi.html&#34;&gt;Drupal API Driver documentation&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Behat: taking screenshots of failed steps</title>
-      <link>http://rockhopper.dk/linux/software/behat-taking-screenshots-of-failed-steps</link>
+      <link>http://rockhopper.dk/linux/software/behat-taking-screenshots-of-failed-steps/</link>
       <pubDate>Tue, 17 May 2016 10:51:24 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/software/behat-taking-screenshots-of-failed-steps</guid>
+      <guid>http://rockhopper.dk/linux/software/behat-taking-screenshots-of-failed-steps/</guid>
       <description>&lt;p&gt;Getting a screenshot and a dump of the HTML of a failed step is invaluable when running tests on a headless &amp;quot;browser&amp;quot; like PhantomJS, and this post will show you how&lt;/p&gt;
 
 &lt;p&gt;You will of cause need a working Behat/PhantomJS setup to run this code, you can see my post about &lt;a href=&#34;http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker/&#34;&gt;Behat tests with Symfony 3, PhantomJS and Docker&lt;/a&gt; on how to configure everything like &lt;code&gt;behat.yml&lt;/code&gt;
@@ -329,19 +346,16 @@ class FeatureContext implements Context, SnippetAcceptingContext
 2 steps (1 passed, 1 failed)
 0m0.31s (13.49Mb)&lt;/pre&gt;
 
-&lt;p&gt;Happy testing :)&lt;/p&gt;
-</description>
+&lt;p&gt;Happy testing :)&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Behat tests with Symfony 3, PhantomJS and Docker</title>
-      <link>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker</link>
+      <link>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker/</link>
       <pubDate>Sat, 14 May 2016 14:56:22 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker</guid>
-      <description>
-
-&lt;p&gt;Writing tests should be easy, but installing and maintaining every single piece needed is nontrivial. Thankfully Docker can provide each piece of the jigsaw: Symfony 3, Behat and PhantomJS.&lt;/p&gt;
+      <guid>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker/</guid>
+      <description>&lt;p&gt;Writing tests should be easy, but installing and maintaining every single piece needed is nontrivial. Thankfully Docker can provide each piece of the jigsaw: Symfony 3, Behat and PhantomJS.&lt;/p&gt;
 
 &lt;p&gt;I have created &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;pilotboat&lt;/a&gt; to make it easy for me to develop and test PHP based applications, and I will use it in this how-to. If you prefer to use another setup, feel free to look through my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;github repository for pilotboat&lt;/a&gt; for inspiration.&lt;/p&gt;
 
@@ -436,19 +450,16 @@ class FeatureContext implements Context, SnippetAcceptingContext
 2 steps (2 passed)
 0m0.21s (13.43Mb)&lt;/pre&gt;
 
-&lt;p&gt;And you&#39;re ready to write tests :)&lt;/p&gt;
-</description>
+&lt;p&gt;And you&#39;re ready to write tests :)&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Backing up to Google drive with Duplicity</title>
-      <link>http://rockhopper.dk/linux/software/backing-up-to-google-drive-with-duplicity</link>
+      <link>http://rockhopper.dk/linux/software/backing-up-to-google-drive-with-duplicity/</link>
       <pubDate>Tue, 10 May 2016 10:40:15 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/software/backing-up-to-google-drive-with-duplicity</guid>
-      <description>
-
-&lt;p&gt;As described in my &lt;a href=&#34;http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end/&#34;&gt;previous post&lt;/a&gt; I use Duplicity with Google Drive for storage. In this post I give a quick how to on configuring Duplicity for that setup.&lt;/p&gt;
+      <guid>http://rockhopper.dk/linux/software/backing-up-to-google-drive-with-duplicity/</guid>
+      <description>&lt;p&gt;As described in my &lt;a href=&#34;http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end/&#34;&gt;previous post&lt;/a&gt; I use Duplicity with Google Drive for storage. In this post I give a quick how to on configuring Duplicity for that setup.&lt;/p&gt;
 
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 
@@ -632,16 +643,15 @@ Enter verification code:&lt;/pre&gt;
 
 &lt;h2 id=&#34;wrapping-up&#34;&gt;Wrapping up&lt;/h2&gt;
 
-&lt;p&gt;I have created a set of &lt;a href=&#34;https://github.com/henrik-farre/duplicity_backup_scripts&#34;&gt;Duplicity backup scrips&lt;/a&gt; with error handling/reporting that wraps backup, restore, cleanup and backup verification, feel free to use or fork them :)&lt;/p&gt;
-</description>
+&lt;p&gt;I have created a set of &lt;a href=&#34;https://github.com/henrik-farre/duplicity_backup_scripts&#34;&gt;Duplicity backup scrips&lt;/a&gt; with error handling/reporting that wraps backup, restore, cleanup and backup verification, feel free to use or fork them :)&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Duplicity backup: Dropbox vs Google drive back end</title>
-      <link>http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end</link>
+      <link>http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end/</link>
       <pubDate>Mon, 02 May 2016 14:08:31 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end</guid>
+      <guid>http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end/</guid>
       <description>&lt;p&gt;As many other I have been looking for a cheap encrypted offsite backup for family photos, documents and other important data. I quickly choose duplicity as it provides the encrypted part and the possibility to use many different storage solutions, but the cheap offsite part is was a bit harder to find.&lt;/p&gt;
 
 &lt;p&gt;I looked at Amazon offerings: S3 and Glacier, both look cheap, but I&#39;m unsure on how much I have to pay in total, and Glacier has crazy download prices.&lt;/p&gt;
@@ -757,8 +767,7 @@ Giving up after 5 attempts. OverflowError: length too large&lt;/pre&gt;
 
 &lt;p&gt;The solution is to split the backup into smaller sets, so instead of backing up the entire home directory up, I have one set for documents, one for pictures and so on.&lt;/p&gt;
 
-&lt;p&gt;So in conclusion I would say that I found almost every thing I looked for, except the cheap part :)&lt;/p&gt;
-</description>
+&lt;p&gt;So in conclusion I would say that I found almost every thing I looked for, except the cheap part :)&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -767,9 +776,7 @@ Giving up after 5 attempts. OverflowError: length too large&lt;/pre&gt;
       <pubDate>Sun, 24 Apr 2016 11:44:30 +0200</pubDate>
       
       <guid>http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-3-the-hardware/</guid>
-      <description>
-
-&lt;p&gt;My HTPC should be available when I need it, but not waste power when I&#39;m not at home or sleeping.&lt;/p&gt;
+      <description>&lt;p&gt;My HTPC should be available when I need it, but not waste power when I&#39;m not at home or sleeping.&lt;/p&gt;
 
 &lt;p&gt;See previous parts: &lt;a href=&#34;http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/&#34;&gt;Part 1&lt;/a&gt;, &lt;a href=&#34;http://rockhopper.dk/linux/software/htpcnas-for-watching-netflix-on-linux-part-2-the-software/&#34;&gt;Part 2&lt;/a&gt;&lt;/p&gt;
 
@@ -1066,19 +1073,16 @@ Type=oneshot
 [Install]
 WantedBy=multi-user.target&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Now I can use the wol tool to wake the HTPC: &lt;code&gt;wol -v ${MAC}&lt;/code&gt; where ${MAC} is the MAC address of NIC&lt;/p&gt;
-</description>
+&lt;p&gt;Now I can use the wol tool to wake the HTPC: &lt;code&gt;wol -v ${MAC}&lt;/code&gt; where ${MAC} is the MAC address of NIC&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Local PHP development with Vim/Neovim and Docker</title>
-      <link>http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker</link>
+      <link>http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker/</link>
       <pubDate>Tue, 12 Apr 2016 10:47:36 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker</guid>
-      <description>
-
-&lt;p&gt;I use Neovim for all my text editing, and as I&#39;m a web developer I edit a lot of HTML, PHP, CSS and JavaScript. And not only do I have to switch between different programming/markup languages I also have to switch between different environments, ranging from old Drupal 6 sites on Debian squeeze to a Symfony setup on Debian Jessie to ensure that my code works in production.&lt;/p&gt;
+      <guid>http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker/</guid>
+      <description>&lt;p&gt;I use Neovim for all my text editing, and as I&#39;m a web developer I edit a lot of HTML, PHP, CSS and JavaScript. And not only do I have to switch between different programming/markup languages I also have to switch between different environments, ranging from old Drupal 6 sites on Debian squeeze to a Symfony setup on Debian Jessie to ensure that my code works in production.&lt;/p&gt;
 
 &lt;h2 id=&#34;enter-docker&#34;&gt;Enter Docker&lt;/h2&gt;
 
@@ -1115,8 +1119,7 @@ WantedBy=multi-user.target&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/benekastah/neomake&#34;&gt;Neomake&lt;/a&gt;: Automatically asynchronous syntax checking, works with PHP lint, &lt;a href=&#34;https://phpmd.org/&#34;&gt;PHP Mess Detector&lt;/a&gt; and &lt;a href=&#34;https://github.com/squizlabs/PHP_CodeSniffer&#34;&gt;PHP_CodeSniffer&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;You can find my Neovim setup here: &lt;a href=&#34;http://github.com/henrik-farre/vimrc&#34;&gt;http://github.com/henrik-farre/vimrc&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;You can find my Neovim setup here: &lt;a href=&#34;http://github.com/henrik-farre/vimrc&#34;&gt;http://github.com/henrik-farre/vimrc&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1125,9 +1128,7 @@ WantedBy=multi-user.target&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Thu, 07 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/software/htpcnas-for-watching-netflix-on-linux-part-2-the-software/</guid>
-      <description>
-
-&lt;p&gt;The system runs Arch Linux with Kodi and Chrome to view Netflix. The post will not go into detail on how to configure Kodi, but rather getting the other pieces of the puzzle setup. Read part 1 here: &lt;a href=&#34;http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/&#34;&gt;HTPC/NAS for watching Netflix on Linux part 1: the hardware&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;The system runs Arch Linux with Kodi and Chrome to view Netflix. The post will not go into detail on how to configure Kodi, but rather getting the other pieces of the puzzle setup. Read part 1 here: &lt;a href=&#34;http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/&#34;&gt;HTPC/NAS for watching Netflix on Linux part 1: the hardware&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Originally the setup used &lt;a href=&#34;https://wiki.archlinux.org/index.php/Pipelight&#34;&gt;Pipelight&lt;/a&gt; to watch Netflix, but I have moved away from that, because Chrome for Linux has native support for Netflix playback since version 42.&lt;/p&gt;
 
@@ -1240,8 +1241,7 @@ Xcursor.size: 32
 
 &lt;p&gt;I also added a USB - CEC Adapter from &lt;a href=&#34;https://www.pulse-eight.com/&#34;&gt;PulseEight&lt;/a&gt; so it is possible to control Kodi using the TVs remote control.&lt;/p&gt;
 
-&lt;p&gt;If you wish to remap some of the buttons on your remote here is an excellent guide: &lt;a href=&#34;http://xbmcnut.blogspot.dk/2013/07/how-to-remap-cec-buttons-on-sony-tv.html&#34;&gt;How To remap CEC buttons on a Sony TV Remote for XBMC under Xbian 1.0.5a&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;If you wish to remap some of the buttons on your remote here is an excellent guide: &lt;a href=&#34;http://xbmcnut.blogspot.dk/2013/07/how-to-remap-cec-buttons-on-sony-tv.html&#34;&gt;How To remap CEC buttons on a Sony TV Remote for XBMC under Xbian 1.0.5a&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1250,10 +1250,10 @@ Xcursor.size: 32
       <pubDate>Thu, 12 Jun 2014 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/</guid>
-      <description>&lt;p&gt;I had a strange problem: when I was using Chromium (Open source version of Chrome): mouse hover was not working. Click, scroll and so on worked fine, but when the mouse hovered above an element on a webpage nothing happend.&lt;/p&gt;
+      <description>&lt;p&gt;I had a strange problem: when I was using Chromium (Open source version of Chrome): mouse hover was not working. Click, scroll and so on worked fine, but when the mouse hovered above an element on a webpage nothing happend.
+&lt;/p&gt;
 
-&lt;p&gt;After googling I found that &lt;a href=&#34;http://synergy-project.org/&#34;&gt;synergy&lt;/a&gt; is the &lt;a href=&#34;https://www.google.dk/search?q=chrome+hover+synergy&#34;&gt;cause&lt;/a&gt;, so now I only start synergy when I need it.&lt;/p&gt;
-</description>
+&lt;p&gt;After googling I found that &lt;a href=&#34;http://synergy-project.org/&#34;&gt;synergy&lt;/a&gt; is the &lt;a href=&#34;https://www.google.dk/search?q=chrome+hover+synergy&#34;&gt;cause&lt;/a&gt;, so now I only start synergy when I need it.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1264,7 +1264,8 @@ Xcursor.size: 32
       <guid>http://rockhopper.dk/linux/multiple-profiles-in-firefox-tips-and-tricks/</guid>
       <description>&lt;p&gt;I have two different profiles for Firefox, one for work, and one for everything else.&lt;/p&gt;
 
-&lt;p&gt;To start Firefox with the correct profile, I have created two different application launchers (.desktop files) in ~/.local/share/applications, one called firefox-work.desktop and the other firefox-home.desktop&lt;/p&gt;
+&lt;p&gt;To start Firefox with the correct profile, I have created two different application launchers (.desktop files) in ~/.local/share/applications, one called firefox-work.desktop and the other firefox-home.desktop
+&lt;/p&gt;
 
 &lt;p&gt;The files contain:&lt;/p&gt;
 
@@ -1313,8 +1314,7 @@ xdotool key --window $WID ctrl+l
 xdotool type --window $WID &#34;$1&#34;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The last thing to to is to open exo-preferred-applications and select the script as the preferred &amp;#8220;web-browser&amp;#8221; (remember &amp;#8220;%s&amp;#8221;).&lt;/p&gt;
-</description>
+&lt;p&gt;The last thing to to is to open exo-preferred-applications and select the script as the preferred &amp;#8220;web-browser&amp;#8221; (remember &amp;#8220;%s&amp;#8221;).&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1323,7 +1323,8 @@ xdotool type --window $WID &#34;$1&#34;
       <pubDate>Tue, 07 Jan 2014 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/zsh-promptwindow-title-trim-middle-of-path/</guid>
-      <description>&lt;p&gt;I run zsh in tmux, and sometimes I end up in a deep directory where the path matches that of another window in tmux (for example in my local docker development environment and on the testing/production server). When this happens just seeing the last part of the path as the window title is not enough, like this: &amp;#8230;/sites/all/modules/somemodule.&lt;/p&gt;
+      <description>&lt;p&gt;I run zsh in tmux, and sometimes I end up in a deep directory where the path matches that of another window in tmux (for example in my local docker development environment and on the testing/production server). When this happens just seeing the last part of the path as the window title is not enough, like this: &amp;#8230;/sites/all/modules/somemodule.
+&lt;/p&gt;
 
 &lt;p&gt;So I changed my ~/.zshrc to contain this:&lt;/p&gt;
 
@@ -1385,8 +1386,7 @@ function preexec() {
 
 &lt;p&gt;This creates the following window title: ~/Work/docker/&amp;#8230;/all/modules/somemodule. The magic happens by saying %7(c:%-3~/&amp;#8230;/%3~:%~) which means: if &amp;#8220;c&amp;#8221;, which contains the entire path after prefix has been replaced -&amp;gt; /home/username to ~, is larger than 7, show the 3 first directories, then &amp;#8230; and finally the last 3 directories.&lt;/p&gt;
 
-&lt;p&gt;The same can be done in the shell prompt.&lt;/p&gt;
-</description>
+&lt;p&gt;The same can be done in the shell prompt.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1395,7 +1395,8 @@ function preexec() {
       <pubDate>Sat, 04 Jan 2014 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/docker-and-php-xdebug/</guid>
-      <description>&lt;p&gt;I have switched from using Vagrant to Docker as my local development environment, and I&amp;#8217;m still mentally trying to switch :)&lt;/p&gt;
+      <description>&lt;p&gt;I have switched from using Vagrant to Docker as my local development environment, and I&amp;#8217;m still mentally trying to switch :)
+&lt;/p&gt;
 
 &lt;p&gt;To use the &lt;a href=&#34;https://github.com/joonty/vdebug&#34;&gt;vdebug plugin&lt;/a&gt; in Vim I have set xdebug up inside the container as follows:&lt;/p&gt;
 
@@ -1417,8 +1418,7 @@ xdebug.remote_port=9000&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;172.17.42.1 is the ip of the bridge created by docker, it can be found by using ip addr and looking for the &amp;#8220;docker0&amp;#8221; interface.&lt;/p&gt;
 
-&lt;p&gt;I create the xdebug ini file in my Dockerfile, see my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;Docker repository&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;I create the xdebug ini file in my Dockerfile, see my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;Docker repository&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1427,9 +1427,8 @@ xdebug.remote_port=9000&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Wed, 13 Nov 2013 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/</guid>
-      <description>
-
-&lt;p&gt;I decided to build a new HTPC/NAS in order to watch &lt;a href=&#34;http://www.netflix.com&#34;&gt;Netflix&lt;/a&gt; (using &lt;a href=&#34;https://wiki.archlinux.org/index.php/Pipelight&#34;&gt;pipelight&lt;/a&gt;) on Linux, and combine two older machines into one.&lt;/p&gt;
+      <description>&lt;p&gt;I decided to build a new HTPC/NAS in order to watch &lt;a href=&#34;http://www.netflix.com&#34;&gt;Netflix&lt;/a&gt; (using &lt;a href=&#34;https://wiki.archlinux.org/index.php/Pipelight&#34;&gt;pipelight&lt;/a&gt;) on Linux, and combine two older machines into one.
+&lt;/p&gt;
 
 &lt;p&gt;My old HTPC was based on a 1.6GHz AMD Sempron from 2007 and a Nvidia GeForce N210. While it played Full HD content fine using &lt;a href=&#34;https://wiki.archlinux.org/index.php/VDPAU&#34;&gt;vdpau&lt;/a&gt;, it was not able to handle Netflix using pipelight. A second machine with a Intel Atom CPU was used to store all the multimedia and host MythTV.&lt;/p&gt;
 
@@ -1502,66 +1501,7 @@ xdebug.remote_port=9000&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;case&#34;&gt;Case&lt;/h2&gt;
 
-&lt;p&gt;First revision &lt;a href=&#34;http://techreport.com/review/6247/antec-sonata-atx-case&#34;&gt;Antec Sonata&lt;/a&gt; (does not even exist on Antec&amp;#8217;s page any more)&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>UEFI booting Arch Linux on a HP ProBook 6360b</title>
-      <link>http://rockhopper.dk/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</link>
-      <pubDate>Sun, 17 Mar 2013 00:00:00 +0000</pubDate>
-      
-      <guid>http://rockhopper.dk/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</guid>
-      <description>
-
-&lt;p&gt;As I&amp;#8217;ve just got a new Samsung 840 Pro Series 256GB SSD for my work laptop (HP ProBook 6360b), I wanted to try switching from BIOS booting to UEFI.&lt;/p&gt;
-
-&lt;h1 id=&#34;ssd-setup&#34;&gt;SSD setup&lt;/h1&gt;
-
-&lt;p&gt;Using gdisk I created two partitions:&lt;/p&gt;
-
-&lt;pre&gt;Number  Start (sector)    End (sector)  Size       Code  Name
-   1            2048          206847   100.0 MiB   EF00  EFI System
-   2          206848       500118158   238.4 GiB   8300  Linux filesystem&lt;/pre&gt;
-
-&lt;p&gt;I left the default align to 2048-sector boundaries.&lt;/p&gt;
-
-&lt;p&gt;In gdisk I entered &amp;#8220;extra functionality (experts only)&amp;#8221; by pressing &amp;#8220;x&amp;#8221;, and then &amp;#8220;a&amp;#8221; ( &amp;#8220;set attributes&amp;#8221;), and selected &amp;#8220;0&amp;#8221; for &amp;#8220;system partition&amp;#8221; and &amp;#8220;2&amp;#8221; for &amp;#8220;legacy BIOS bootable&amp;#8221;&lt;/p&gt;
-
-&lt;p&gt;Next I formatted the two partitions using:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;mkfs.vfat -F32 /dev/sda1&lt;/li&gt;
-&lt;li&gt;mkfs.ext4 -m0 /dev/sda2&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Finally I mounted the old disk (connected using the eSATA connector on the laptop) and the new disk, and used rsync to copy everything to the new disk.&lt;/p&gt;
-
-&lt;h1 id=&#34;bootloader-setup&#34;&gt;Bootloader setup&lt;/h1&gt;
-
-&lt;p&gt;This was the tricky part. First I updated the firmware on the laptop to the newest version (F.29 from &lt;a href=&#34;http://h20000.www2.hp.com/bizsupport/TechSupport/SoftwareIndex.jsp?lang=en&amp;amp;cc=dk&amp;amp;prodNameId=5045588&amp;amp;prodTypeId=321957&amp;amp;prodSeriesId=5045581&amp;amp;swLang=13&amp;amp;taskId=135&amp;amp;swEnvOID=4060&#34;&gt;HPs support site&lt;/a&gt;). I tried all the .exe files on a computer running Windows 7 until I found the one that could create an USB stick.&lt;/p&gt;
-
-&lt;h2 id=&#34;booting-in-uefi-mode&#34;&gt;Booting in UEFI mode&lt;/h2&gt;
-
-&lt;p&gt;Very importen bit: you can&amp;#8217;t install a UEFI bootloader unless you&amp;#8217;ve booted in UEFI mode.&lt;/p&gt;
-
-&lt;p&gt;I used the instructions in the Arch Linux wiki on how to &lt;a href=&#34;https://wiki.archlinux.org/index.php/UEFI#Create_UEFI_bootable_USB_from_ISO&#34;&gt;Create UEFI bootable USB from ISO&lt;/a&gt;. Sometimes UEFI refused to boot from the USB, but it worked each time I selected the EFI file on the USB stick. To do that press F9 while the computer is booting and select &amp;#8220;Boot from EFI file&amp;#8221;, then select the USB device and EFI/boot/bootx64.efi&lt;/p&gt;
-
-&lt;h2 id=&#34;installing-the-bootloader&#34;&gt;Installing the bootloader&lt;/h2&gt;
-
-&lt;p&gt;I tried rEFInd, gummiboot, grub2 and just using the kernel EFI stub support. Nothing worked. After reading &lt;a href=&#34;http://blog.fpmurphy.com/2010/09/uefi-booting-64-bit-redhat-enterprise-linux-6.html&#34;&gt;UEFI Booting 64-bit Redhat Enterprise Linux 6&lt;/a&gt; I figured out that HPs firmware only allows you to boot from &amp;#8220;OS bootloader&amp;#8221;, which means that it will only boot from \EFI\BOOT\BOOTX64.EFI. So I installed grub2 using these commands (/dev/sda1 is mounted at /boot/efi):&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;grub-install &amp;#8211;target=x86_64-efi &amp;#8211;efi-directory=/boot/efi &amp;#8211;bootloader-id=arch_grub &amp;#8211;recheck&lt;/li&gt;
-&lt;li&gt;grub-mkconfig -o /boot/grub/grub.cfg&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This will put the EFI application in /boot/efi/EFI/arch_grub/grubx64.efi which does not work. So I just copied /boot/efi/EFI/arch_grub/grubx64.efi /boot/efi/EFI/BOOT/BOOTX64.EFI and everything works.&lt;/p&gt;
-
-&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
-
-&lt;p&gt;I can&amp;#8217;t say that that the time I used to get UEFI booting working was time well spend, nothing magic happens when booting using UEFI compared to legacy BIOS, but at least I&amp;#8217;m not using anything that is labelled &amp;#8220;legacy&amp;#8221; :)&lt;/p&gt;
-</description>
+&lt;p&gt;First revision &lt;a href=&#34;http://techreport.com/review/6247/antec-sonata-atx-case&#34;&gt;Antec Sonata&lt;/a&gt; (does not even exist on Antec&amp;#8217;s page any more)&lt;/p&gt;</description>
     </item>
     
   </channel>

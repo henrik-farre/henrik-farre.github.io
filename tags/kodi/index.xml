@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 24 Apr 2016 11:44:30 +0200</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/tags/kodi/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/kodi/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>HTPC/NAS for watching Netflix on Linux part 3: Powermanagement</title>
@@ -15,9 +15,7 @@
       <pubDate>Sun, 24 Apr 2016 11:44:30 +0200</pubDate>
       
       <guid>http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-3-the-hardware/</guid>
-      <description>
-
-&lt;p&gt;My HTPC should be available when I need it, but not waste power when I&#39;m not at home or sleeping.&lt;/p&gt;
+      <description>&lt;p&gt;My HTPC should be available when I need it, but not waste power when I&#39;m not at home or sleeping.&lt;/p&gt;
 
 &lt;p&gt;See previous parts: &lt;a href=&#34;http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/&#34;&gt;Part 1&lt;/a&gt;, &lt;a href=&#34;http://rockhopper.dk/linux/software/htpcnas-for-watching-netflix-on-linux-part-2-the-software/&#34;&gt;Part 2&lt;/a&gt;&lt;/p&gt;
 
@@ -314,8 +312,7 @@ Type=oneshot
 [Install]
 WantedBy=multi-user.target&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Now I can use the wol tool to wake the HTPC: &lt;code&gt;wol -v ${MAC}&lt;/code&gt; where ${MAC} is the MAC address of NIC&lt;/p&gt;
-</description>
+&lt;p&gt;Now I can use the wol tool to wake the HTPC: &lt;code&gt;wol -v ${MAC}&lt;/code&gt; where ${MAC} is the MAC address of NIC&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -324,9 +321,7 @@ WantedBy=multi-user.target&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Thu, 07 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/software/htpcnas-for-watching-netflix-on-linux-part-2-the-software/</guid>
-      <description>
-
-&lt;p&gt;The system runs Arch Linux with Kodi and Chrome to view Netflix. The post will not go into detail on how to configure Kodi, but rather getting the other pieces of the puzzle setup. Read part 1 here: &lt;a href=&#34;http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/&#34;&gt;HTPC/NAS for watching Netflix on Linux part 1: the hardware&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;The system runs Arch Linux with Kodi and Chrome to view Netflix. The post will not go into detail on how to configure Kodi, but rather getting the other pieces of the puzzle setup. Read part 1 here: &lt;a href=&#34;http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/&#34;&gt;HTPC/NAS for watching Netflix on Linux part 1: the hardware&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Originally the setup used &lt;a href=&#34;https://wiki.archlinux.org/index.php/Pipelight&#34;&gt;Pipelight&lt;/a&gt; to watch Netflix, but I have moved away from that, because Chrome for Linux has native support for Netflix playback since version 42.&lt;/p&gt;
 
@@ -439,8 +434,7 @@ Xcursor.size: 32
 
 &lt;p&gt;I also added a USB - CEC Adapter from &lt;a href=&#34;https://www.pulse-eight.com/&#34;&gt;PulseEight&lt;/a&gt; so it is possible to control Kodi using the TVs remote control.&lt;/p&gt;
 
-&lt;p&gt;If you wish to remap some of the buttons on your remote here is an excellent guide: &lt;a href=&#34;http://xbmcnut.blogspot.dk/2013/07/how-to-remap-cec-buttons-on-sony-tv.html&#34;&gt;How To remap CEC buttons on a Sony TV Remote for XBMC under Xbian 1.0.5a&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;If you wish to remap some of the buttons on your remote here is an excellent guide: &lt;a href=&#34;http://xbmcnut.blogspot.dk/2013/07/how-to-remap-cec-buttons-on-sony-tv.html&#34;&gt;How To remap CEC buttons on a Sony TV Remote for XBMC under Xbian 1.0.5a&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

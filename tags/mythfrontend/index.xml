@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 28 Jun 2008 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/tags/mythfrontend/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/mythfrontend/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Check video encoding script for MythTV</title>
@@ -43,8 +43,7 @@ EXTRA_OPTIONS=&#34;-pfhq --no-splash&#34;
 DEBUG_OPTIONS=&#34;--verbose=5 &amp;gt; /shared/mythtv/xine.log&#34;
 
 xine ${VIDEO_DRIVER} ${AUDIO_DRIVER} ${EXTRA_OPTIONS} ${1}
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
@@ -127,8 +126,7 @@ esac
 
 &lt;p&gt;If you run ArchLinux just added it to /etc/rc.conf in the DAEMONS array.&lt;/p&gt;
 
-&lt;p&gt;Remember to replace &lt;strong&gt;BACKEND_IP&lt;/strong&gt; and &lt;strong&gt;BACKEND_MACADDR&lt;/strong&gt; with your own values.&lt;/p&gt;
-</description>
+&lt;p&gt;Remember to replace &lt;strong&gt;BACKEND_IP&lt;/strong&gt; and &lt;strong&gt;BACKEND_MACADDR&lt;/strong&gt; with your own values.&lt;/p&gt;</description>
     </item>
     
   </channel>

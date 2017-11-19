@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Phone And Pda on Rockhopper.dk</title>
+    <title>Phone and Pda on Rockhopper.dk</title>
     <link>http://rockhopper.dk/categories/phone-and-pda/</link>
-    <description>Recent content in Phone And Pda on Rockhopper.dk</description>
+    <description>Recent content in Phone and Pda on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 03 Apr 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/categories/phone-and-pda/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/phone-and-pda/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Installing CyanogenMod 7.1 on a Sony Ericsson Xperia Arc (LT15i)</title>
@@ -15,7 +15,8 @@
       <pubDate>Tue, 03 Apr 2012 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/hardware/phone-and-pda/installing-cyanogenmod-7-1-on-a-sony-ericsson-xperia-arc-lt15i/</guid>
-      <description>&lt;p&gt;Although the instructions for upgrading the Sony Ericsson Xperia Arc (not the new S version) are &lt;a title=&#34;Sony Ericsson Xperia Arc: Full Update Guide&#34; href=&#34;http://wiki.cyanogenmod.com/wiki/Sony_Ericsson_Xperia_Arc:_Full_Update_Guide&#34; target=&#34;_blank&#34;&gt;pretty detailed&lt;/a&gt; there are some twists that are not documented:&lt;/p&gt;
+      <description>&lt;p&gt;Although the instructions for upgrading the Sony Ericsson Xperia Arc (not the new S version) are &lt;a title=&#34;Sony Ericsson Xperia Arc: Full Update Guide&#34; href=&#34;http://wiki.cyanogenmod.com/wiki/Sony_Ericsson_Xperia_Arc:_Full_Update_Guide&#34; target=&#34;_blank&#34;&gt;pretty detailed&lt;/a&gt; there are some twists that are not documented:
+&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;You need to upgrade to the latests official Sony Ericsson rom (currently &amp;#8220;4.0.2.A.0.62 Generic Global World&amp;#8221; ), you can find links in this &lt;a title=&#34;ARC/ARC S (ROOT.FTF&amp;.IMG)4.0.2.A.0.62 Generic Global World+Flashtool+Ringtones+Other&#34; href=&#34;http://forum.xda-developers.com/showthread.php?t=1330314&#34; target=&#34;_blank&#34;&gt;xda developers thread&lt;/a&gt;, else the phone will not be able to unlock the SIM card&lt;/li&gt;
@@ -23,8 +24,7 @@
 &lt;li&gt;The 7.1.0.2 version of CyanogenMod is not usable on the phone I installed it on, it kept crashing on the first screen, apparently the fix is to &lt;a title=&#34;The CyanogenMod7 droid animated screen loads in loop, can&#39;t setup phone &#34; href=&#34;http://forum.cyanogenmod.com/topic/44435-the-cyanogenmod7-droid-animated-screen-loads-in-loop-cant-setup-phone/page__p__302315#entry302315&#34; target=&#34;_blank&#34;&gt;remove an app using adb&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;I ended up using 7.1.0.1 which works fine, except vibrate.&lt;/p&gt;
-</description>
+&lt;p&gt;I ended up using 7.1.0.1 which works fine, except vibrate.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -33,9 +33,8 @@
       <pubDate>Sat, 19 Jun 2010 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/hardware/phone-and-pda/upgrading-an-android-developer-phone-1-to-cyanogenmod-5-0-7-android-2-1/</guid>
-      <description>
-
-&lt;p&gt;My ADP1 has been running Android 1.6 (Cyanogenmod 4.2.x) for quite a while now, and I was exited to see that it would be possible to run Android 2.1 on it thanks to Cyanogen :). This guide is a digest of information found on Cyanogen&amp;#8217;s wiki, like: &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Full_Update_Guide_-_ADP1_Firmware_to_CyanogenMod&#34;&gt;ADP1 Firmware to CyanogenMod&lt;/a&gt;, please consult the wiki for up todate information and warnings :)&lt;/p&gt;
+      <description>&lt;p&gt;My ADP1 has been running Android 1.6 (Cyanogenmod 4.2.x) for quite a while now, and I was exited to see that it would be possible to run Android 2.1 on it thanks to Cyanogen :). This guide is a digest of information found on Cyanogen&amp;#8217;s wiki, like: &lt;a href=&#34;http://wiki.cyanogenmod.com/index.php/Full_Update_Guide_-_ADP1_Firmware_to_CyanogenMod&#34;&gt;ADP1 Firmware to CyanogenMod&lt;/a&gt;, please consult the wiki for up todate information and warnings :)
+&lt;/p&gt;
 
 &lt;h2 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h2&gt;
 
@@ -103,8 +102,7 @@
   &lt;h1 id=&#34;firstHeading&#34; class=&#34;firstHeading&#34;&gt;
     DangerSPL and CM 5 for Dream
   &lt;/h1&gt;
-&lt;/div&gt;
-</description>
+&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -113,9 +111,8 @@
       <pubDate>Tue, 10 Feb 2009 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/hardware/phone-and-pda/updating-the-android-developer-phone1-to-v11/</guid>
-      <description>
-
-&lt;p&gt;I&amp;#8217;ve been putting off upgrading my ADP1 in fear of that I would brick it, but after reading that there now are official update images available I decided to give it a try.&lt;/p&gt;
+      <description>&lt;p&gt;I&amp;#8217;ve been putting off upgrading my ADP1 in fear of that I would brick it, but after reading that there now are official update images available I decided to give it a try.
+&lt;/p&gt;
 
 &lt;p&gt;Here is a short walk through:&lt;/p&gt;
 
@@ -227,8 +224,7 @@ Press home+back to reboot&lt;/pre&gt;
 &lt;li&gt;Build date: Mon Feb 9 10:28:32 PST 2009&lt;/li&gt;
 &lt;li&gt;Linux kernel version: 2.6.25-01845-g85d4f0d&lt;/li&gt;
 &lt;li&gt;Baseband version: 62.33.20.08H_1.22.14.11&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -237,9 +233,8 @@ Press home+back to reboot&lt;/pre&gt;
       <pubDate>Sat, 24 Jan 2009 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/hardware/phone-and-pda/android-developer-phone-mini-review/</guid>
-      <description>
-
-&lt;p&gt;I have been playing around with my Android Developer Phone (ADP) for about 2 weeks now, and this are my thoughts on it so far.&lt;/p&gt;
+      <description>&lt;p&gt;I have been playing around with my Android Developer Phone (ADP) for about 2 weeks now, and this are my thoughts on it so far.
+&lt;/p&gt;
 
 &lt;h2 id=&#34;wireless-connection-wi-fi-3g&#34;&gt;Wireless connection (Wi-Fi/3G)&lt;/h2&gt;
 
@@ -299,8 +294,7 @@ Press home+back to reboot&lt;/pre&gt;
 
 &lt;h2 id=&#34;overall&#34;&gt;Overall&lt;/h2&gt;
 
-&lt;p&gt;Although I have limited experience with smart phones, I really prefer the ADP when I compare it to my friends iPhones or HTC phones running Windows Mobile. My girlfriend also really likes it and is defently going to buy the regular HTC G1 when it hits Denmark.&lt;/p&gt;
-</description>
+&lt;p&gt;Although I have limited experience with smart phones, I really prefer the ADP when I compare it to my friends iPhones or HTC phones running Windows Mobile. My girlfriend also really likes it and is defently going to buy the regular HTC G1 when it hits Denmark.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -309,9 +303,8 @@ Press home+back to reboot&lt;/pre&gt;
       <pubDate>Sun, 11 Jan 2009 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/hardware/phone-and-pda/android-g1-dev-phone-has-landed-in-denmark/</guid>
-      <description>
-
-&lt;p&gt;Finally, my HTC G1 Dev Phone running Android OS has arrived!&lt;/p&gt;
+      <description>&lt;p&gt;Finally, my HTC G1 Dev Phone running Android OS has arrived!
+&lt;/p&gt;
 
 &lt;p&gt;It could not be shipped directly to Denmark so it had to make a detour via Germany.&lt;/p&gt;
 
@@ -456,9 +449,7 @@ Press home+back to reboot&lt;/pre&gt;
 &lt;/div&gt;
 
 
-&lt;/div&gt;
-
-</description>
+&lt;/div&gt;</description>
     </item>
     
   </channel>

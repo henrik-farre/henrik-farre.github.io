@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 29 May 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/tags/dvb-c/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/dvb-c/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>AnySee E30 C Plus &#43; MythTV</title>
@@ -15,7 +15,8 @@
       <pubDate>Sat, 29 May 2010 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/software/mythtv/anysee-e30-c-plus-mythtv/</guid>
-      <description>&lt;p&gt;I had the chance to test &lt;a href=&#34;http://www.anysee.dk/products.html&#34;&gt;AnySee&amp;#8217;s USB based DVB-C tuner&lt;/a&gt; with MythTV, and I can confirm it &amp;#8220;just works&amp;#8221;.&lt;/p&gt;
+      <description>&lt;p&gt;I had the chance to test &lt;a href=&#34;http://www.anysee.dk/products.html&#34;&gt;AnySee&amp;#8217;s USB based DVB-C tuner&lt;/a&gt; with MythTV, and I can confirm it &amp;#8220;just works&amp;#8221;.
+&lt;/p&gt;
 
 &lt;p&gt;To setup the AnySee E30 C Plus just follow my &lt;a href=&#34;https://rockhopper.dk/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/&#34;&gt;Terratec Cinergy C PCI HD + MythTV guide&lt;/a&gt;, the setup is exactly the same. The only thing I noticed is that the signal strength is not as high as it is with the Terratec card, it hovers around 40-50% vs 90-95%.&lt;/p&gt;
 
@@ -38,8 +39,7 @@ anysee: firmware version:0.1.2 hardware id:15
 DVB: registering adapter 0 frontend 0 (Philips TDA10023 DVB-C)...
 input: IR-receiver inside an USB DVB receiver as /devices/pci0000:00/0000:00:1d.7/usb2/2-6/input/input10
 dvb-usb: schedule remote query interval to 200 msecs.
-dvb-usb: Anysee DVB USB2.0 successfully initialized and connected.&lt;/pre&gt;
-</description>
+dvb-usb: Anysee DVB USB2.0 successfully initialized and connected.&lt;/pre&gt;</description>
     </item>
     
     <item>
@@ -48,9 +48,8 @@ dvb-usb: Anysee DVB USB2.0 successfully initialized and connected.&lt;/pre&gt;
       <pubDate>Tue, 09 Feb 2010 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/software/mythtv/terratec-cinergy-c-pci-hd-mythtv/</guid>
-      <description>
-
-&lt;p&gt;In the middle of December 2009 danish cable TV providor &lt;a href=&#34;http://stofa.dk&#34;&gt;Stofa&lt;/a&gt; made most of the channels in its DVB-C network &lt;a href=&#34;http://www.stofa.dk/showpage.php?mid=368&#34;&gt;available unencoded&lt;/a&gt;. This prompted me to replace my analogue &lt;a href=&#34;https://rockhopper.dk/old/linux/hardware/pvr_cards.html&#34;&gt;Hauppauge WinTV-PVR-500 TV tuner card&lt;/a&gt; (yes the links goes to my old PVR-150 page) with something that could record the digital signal from DVB-C. I looked for a card that had the following characteristic:&lt;/p&gt;
+      <description>&lt;p&gt;In the middle of December 2009 danish cable TV providor &lt;a href=&#34;http://stofa.dk&#34;&gt;Stofa&lt;/a&gt; made most of the channels in its DVB-C network &lt;a href=&#34;http://www.stofa.dk/showpage.php?mid=368&#34;&gt;available unencoded&lt;/a&gt;. This prompted me to replace my analogue &lt;a href=&#34;https://rockhopper.dk/old/linux/hardware/pvr_cards.html&#34;&gt;Hauppauge WinTV-PVR-500 TV tuner card&lt;/a&gt; (yes the links goes to my old PVR-150 page) with something that could record the digital signal from DVB-C. I looked for a card that had the following characteristic:
+&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Have stable Open Source Linux drivers&lt;/li&gt;
@@ -443,8 +442,7 @@ mantis_ack_wait (0): Slave RACK Fail !&lt;/pre&gt;
 
 &lt;p&gt;I hope this problem is fixed when the 2.6.33 Linux kernel hits my machine.&lt;/p&gt;
 
-&lt;p&gt;To view the recorded shows I strongly recommend a &lt;a href=&#34;http://en.wikipedia.org/wiki/VDPAU&#34;&gt;Nvidia graphics card that support VDPAU&lt;/a&gt;.&lt;/p&gt;
-</description>
+&lt;p&gt;To view the recorded shows I strongly recommend a &lt;a href=&#34;http://en.wikipedia.org/wiki/VDPAU&#34;&gt;Nvidia graphics card that support VDPAU&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
   </channel>

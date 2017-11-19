@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 13 Nov 2008 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/tags/cmd-line/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/cmd-line/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>CD/DVD burning, and working with .iso files</title>
@@ -15,9 +15,8 @@
       <pubDate>Thu, 13 Nov 2008 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/software/cddvd-burning-and-working-with-iso-files/</guid>
-      <description>
-
-&lt;p&gt;Some handy command line tools to burn CDs/DVDs and work with .iso files:&lt;/p&gt;
+      <description>&lt;p&gt;Some handy command line tools to burn CDs/DVDs and work with .iso files:
+&lt;/p&gt;
 
 &lt;h2 id=&#34;burning-iso-files&#34;&gt;Burning .iso files:&lt;/h2&gt;
 
@@ -55,8 +54,7 @@
 
 &lt;p&gt;This requires root rights:&lt;/p&gt;
 
-&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;mount&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-o&lt;/span&gt; loop &lt;span class=&#34;re5&#34;&gt;-t&lt;/span&gt; iso9660 image.iso &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;mnt&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;image&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;&lt;/pre&gt;
-</description>
+&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;mount&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-o&lt;/span&gt; loop &lt;span class=&#34;re5&#34;&gt;-t&lt;/span&gt; iso9660 image.iso &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;mnt&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;image&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;&lt;/pre&gt;</description>
     </item>
     
   </channel>

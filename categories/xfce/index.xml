@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 14 Feb 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/categories/xfce/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/xfce/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Xfce: auto rotate wallpaper without cron</title>
@@ -15,7 +15,8 @@
       <pubDate>Sun, 14 Feb 2010 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/software/xfce/xfce-auto-rotate-wallpaper-without-cron/</guid>
-      <description>&lt;p&gt;Since Xfce 4.6 I&amp;#8217;ve had the wallpaper autorotated on my Xfce desktop with the help of a small script and cron. But after an update of some component (probably libxfconf / xfconf) my script did not work anymore and I got this error if I tried to run the script from a console or via ssh:&lt;/p&gt;
+      <description>&lt;p&gt;Since Xfce 4.6 I&amp;#8217;ve had the wallpaper autorotated on my Xfce desktop with the help of a small script and cron. But after an update of some component (probably libxfconf / xfconf) my script did not work anymore and I got this error if I tried to run the script from a console or via ssh:
+&lt;/p&gt;
 
 &lt;pre&gt;** (process:4150): CRITICAL **: Failed to init libxfconf: Failed to connect to socket /tmp/dbus-xrIvHB4Jas: Connection refused&lt;/pre&gt;
 
@@ -49,8 +50,7 @@ done
 
 &lt;p&gt;The sleep command controls the delay between wallpaper changes.&lt;/p&gt;
 
-&lt;p&gt;Remember this only works if you have created a list of wallpapers in the desktop settings of Xfce.&lt;/p&gt;
-</description>
+&lt;p&gt;Remember this only works if you have created a list of wallpapers in the desktop settings of Xfce.&lt;/p&gt;</description>
     </item>
     
     <item>

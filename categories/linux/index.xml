@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 12 Jun 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/linux/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Mouse hover not working in Chrome/Chromium? Solution: stop synergy</title>
@@ -15,10 +15,10 @@
       <pubDate>Thu, 12 Jun 2014 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/mouse-hover-not-working-in-chromechromium-solution-stop-synergy/</guid>
-      <description>&lt;p&gt;I had a strange problem: when I was using Chromium (Open source version of Chrome): mouse hover was not working. Click, scroll and so on worked fine, but when the mouse hovered above an element on a webpage nothing happend.&lt;/p&gt;
+      <description>&lt;p&gt;I had a strange problem: when I was using Chromium (Open source version of Chrome): mouse hover was not working. Click, scroll and so on worked fine, but when the mouse hovered above an element on a webpage nothing happend.
+&lt;/p&gt;
 
-&lt;p&gt;After googling I found that &lt;a href=&#34;http://synergy-project.org/&#34;&gt;synergy&lt;/a&gt; is the &lt;a href=&#34;https://www.google.dk/search?q=chrome+hover+synergy&#34;&gt;cause&lt;/a&gt;, so now I only start synergy when I need it.&lt;/p&gt;
-</description>
+&lt;p&gt;After googling I found that &lt;a href=&#34;http://synergy-project.org/&#34;&gt;synergy&lt;/a&gt; is the &lt;a href=&#34;https://www.google.dk/search?q=chrome+hover+synergy&#34;&gt;cause&lt;/a&gt;, so now I only start synergy when I need it.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -29,7 +29,8 @@
       <guid>http://rockhopper.dk/linux/multiple-profiles-in-firefox-tips-and-tricks/</guid>
       <description>&lt;p&gt;I have two different profiles for Firefox, one for work, and one for everything else.&lt;/p&gt;
 
-&lt;p&gt;To start Firefox with the correct profile, I have created two different application launchers (.desktop files) in ~/.local/share/applications, one called firefox-work.desktop and the other firefox-home.desktop&lt;/p&gt;
+&lt;p&gt;To start Firefox with the correct profile, I have created two different application launchers (.desktop files) in ~/.local/share/applications, one called firefox-work.desktop and the other firefox-home.desktop
+&lt;/p&gt;
 
 &lt;p&gt;The files contain:&lt;/p&gt;
 
@@ -78,8 +79,7 @@ xdotool key --window $WID ctrl+l
 xdotool type --window $WID &#34;$1&#34;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The last thing to to is to open exo-preferred-applications and select the script as the preferred &amp;#8220;web-browser&amp;#8221; (remember &amp;#8220;%s&amp;#8221;).&lt;/p&gt;
-</description>
+&lt;p&gt;The last thing to to is to open exo-preferred-applications and select the script as the preferred &amp;#8220;web-browser&amp;#8221; (remember &amp;#8220;%s&amp;#8221;).&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -88,7 +88,8 @@ xdotool type --window $WID &#34;$1&#34;
       <pubDate>Tue, 07 Jan 2014 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/zsh-promptwindow-title-trim-middle-of-path/</guid>
-      <description>&lt;p&gt;I run zsh in tmux, and sometimes I end up in a deep directory where the path matches that of another window in tmux (for example in my local docker development environment and on the testing/production server). When this happens just seeing the last part of the path as the window title is not enough, like this: &amp;#8230;/sites/all/modules/somemodule.&lt;/p&gt;
+      <description>&lt;p&gt;I run zsh in tmux, and sometimes I end up in a deep directory where the path matches that of another window in tmux (for example in my local docker development environment and on the testing/production server). When this happens just seeing the last part of the path as the window title is not enough, like this: &amp;#8230;/sites/all/modules/somemodule.
+&lt;/p&gt;
 
 &lt;p&gt;So I changed my ~/.zshrc to contain this:&lt;/p&gt;
 
@@ -150,8 +151,7 @@ function preexec() {
 
 &lt;p&gt;This creates the following window title: ~/Work/docker/&amp;#8230;/all/modules/somemodule. The magic happens by saying %7(c:%-3~/&amp;#8230;/%3~:%~) which means: if &amp;#8220;c&amp;#8221;, which contains the entire path after prefix has been replaced -&amp;gt; /home/username to ~, is larger than 7, show the 3 first directories, then &amp;#8230; and finally the last 3 directories.&lt;/p&gt;
 
-&lt;p&gt;The same can be done in the shell prompt.&lt;/p&gt;
-</description>
+&lt;p&gt;The same can be done in the shell prompt.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -160,7 +160,8 @@ function preexec() {
       <pubDate>Sat, 04 Jan 2014 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/docker-and-php-xdebug/</guid>
-      <description>&lt;p&gt;I have switched from using Vagrant to Docker as my local development environment, and I&amp;#8217;m still mentally trying to switch :)&lt;/p&gt;
+      <description>&lt;p&gt;I have switched from using Vagrant to Docker as my local development environment, and I&amp;#8217;m still mentally trying to switch :)
+&lt;/p&gt;
 
 &lt;p&gt;To use the &lt;a href=&#34;https://github.com/joonty/vdebug&#34;&gt;vdebug plugin&lt;/a&gt; in Vim I have set xdebug up inside the container as follows:&lt;/p&gt;
 
@@ -182,8 +183,7 @@ xdebug.remote_port=9000&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;172.17.42.1 is the ip of the bridge created by docker, it can be found by using ip addr and looking for the &amp;#8220;docker0&amp;#8221; interface.&lt;/p&gt;
 
-&lt;p&gt;I create the xdebug ini file in my Dockerfile, see my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;Docker repository&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;I create the xdebug ini file in my Dockerfile, see my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;Docker repository&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

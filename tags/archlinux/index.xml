@@ -7,17 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 15 Jun 2016 09:42:24 +0200</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/tags/archlinux/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/archlinux/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Linux on Lenovo ThinkPad L460</title>
-      <link>http://rockhopper.dk/linux/hardware/linux-on-lenovo-thinkpad-l460</link>
+      <link>http://rockhopper.dk/linux/hardware/linux-on-lenovo-thinkpad-l460/</link>
       <pubDate>Wed, 15 Jun 2016 09:42:24 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/hardware/linux-on-lenovo-thinkpad-l460</guid>
-      <description>
-
-&lt;p&gt;Finding a laptop that is well supported by Linux, has nice features and is not too expensive can be quite a task. Lucky the Lenovo ThinkPad L460 fits my requirements.&lt;/p&gt;
+      <guid>http://rockhopper.dk/linux/hardware/linux-on-lenovo-thinkpad-l460/</guid>
+      <description>&lt;p&gt;Finding a laptop that is well supported by Linux, has nice features and is not too expensive can be quite a task. Lucky the Lenovo ThinkPad L460 fits my requirements.&lt;/p&gt;
 
 &lt;h2 id=&#34;os&#34;&gt;OS&lt;/h2&gt;
 
@@ -111,8 +109,7 @@ EndSection&lt;/pre&gt;
 
 &lt;p&gt;I like the overall build quality, the battery life feels okay, I just which the battery was smaller and not extending below the bottom of the laptop.&lt;/p&gt;
 
-&lt;p&gt;The Mini-DisplayPort to HDMI cable I bought as an accessory does not support sound, but that is just a minor inconvenience.&lt;/p&gt;
-</description>
+&lt;p&gt;The Mini-DisplayPort to HDMI cable I bought as an accessory does not support sound, but that is just a minor inconvenience.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -121,9 +118,8 @@ EndSection&lt;/pre&gt;
       <pubDate>Sun, 17 Mar 2013 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</guid>
-      <description>
-
-&lt;p&gt;As I&amp;#8217;ve just got a new Samsung 840 Pro Series 256GB SSD for my work laptop (HP ProBook 6360b), I wanted to try switching from BIOS booting to UEFI.&lt;/p&gt;
+      <description>&lt;p&gt;As I&amp;#8217;ve just got a new Samsung 840 Pro Series 256GB SSD for my work laptop (HP ProBook 6360b), I wanted to try switching from BIOS booting to UEFI.
+&lt;/p&gt;
 
 &lt;h1 id=&#34;ssd-setup&#34;&gt;SSD setup&lt;/h1&gt;
 
@@ -169,8 +165,7 @@ EndSection&lt;/pre&gt;
 
 &lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
 
-&lt;p&gt;I can&amp;#8217;t say that that the time I used to get UEFI booting working was time well spend, nothing magic happens when booting using UEFI compared to legacy BIOS, but at least I&amp;#8217;m not using anything that is labelled &amp;#8220;legacy&amp;#8221; :)&lt;/p&gt;
-</description>
+&lt;p&gt;I can&amp;#8217;t say that that the time I used to get UEFI booting working was time well spend, nothing magic happens when booting using UEFI compared to legacy BIOS, but at least I&amp;#8217;m not using anything that is labelled &amp;#8220;legacy&amp;#8221; :)&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -179,7 +174,8 @@ EndSection&lt;/pre&gt;
       <pubDate>Sat, 06 Dec 2008 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/hardware/logitech-marble-fx-trackball-with-xorg-and-hal/</guid>
-      <description>&lt;p&gt;After the recent upgrade in ArchLinux of xorg-server from 1.4.x to 1.5.x my thrusty Logitech Marble FX trackball did not work entirely. The trackball does not have a dedicated scroll wheel, but by pressing a button, and using the trackball, you can scroll both vertical and horizontal.&lt;/p&gt;
+      <description>&lt;p&gt;After the recent upgrade in ArchLinux of xorg-server from 1.4.x to 1.5.x my thrusty Logitech Marble FX trackball did not work entirely. The trackball does not have a dedicated scroll wheel, but by pressing a button, and using the trackball, you can scroll both vertical and horizontal.
+&lt;/p&gt;
 
 &lt;p&gt;In order to get the emulated scroll working again you first have to update the evdev driver (the xf86-input-evdev package), as version 2.0.7 doesn&amp;#8217;t support the needed options.&lt;/p&gt;
 
@@ -225,8 +221,7 @@ EndSection&lt;/pre&gt;
 (**) Option &#34;XAxisMapping&#34; &#34;6 7&#34;
 (**) PS2++ Logitech Mouse: XAxisMapping: buttons 6 and 7
 (**) PS2++ Logitech Mouse: EmulateWheelButton: 8, EmulateWheelInertia: 30, EmulateWheelTimeout: 200
-(II) XINPUT: Adding extended input device &#34;PS2++ Logitech Mouse&#34; (type: MOUSE)&lt;/pre&gt;
-</description>
+(II) XINPUT: Adding extended input device &#34;PS2++ Logitech Mouse&#34; (type: MOUSE)&lt;/pre&gt;</description>
     </item>
     
     <item>
@@ -235,9 +230,8 @@ EndSection&lt;/pre&gt;
       <pubDate>Sat, 26 Jul 2008 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/hardware/installing-archlinux-ppc-on-my-powerbook-titanium/</guid>
-      <description>
-
-&lt;p&gt;I decided to bring my &lt;a href=&#34;https://rockhopper.dk/old/linux/hardware/powerbook-titanium.html&#34;&gt;Powerbook Titanium&lt;/a&gt; back into service as a server/torrent fetcher. So I downloaded &lt;a href=&#34;http://www.archlinuxppc.org/&#34;&gt;ArchLinux PPC&lt;/a&gt; and installed it.&lt;/p&gt;
+      <description>&lt;p&gt;I decided to bring my &lt;a href=&#34;https://rockhopper.dk/old/linux/hardware/powerbook-titanium.html&#34;&gt;Powerbook Titanium&lt;/a&gt; back into service as a server/torrent fetcher. So I downloaded &lt;a href=&#34;http://www.archlinuxppc.org/&#34;&gt;ArchLinux PPC&lt;/a&gt; and installed it.
+&lt;/p&gt;
 
 &lt;p&gt;I just followed the &lt;a href=&#34;http://wiki.archlinux.org/index.php/Install_Arch_Linux_PPC&#34;&gt;instructions available&lt;/a&gt; in the ArchLinux wiki, and here are my notes on the installation.&lt;/p&gt;
 
@@ -293,8 +287,7 @@ useradd: PAM authentication failed&lt;/pre&gt;
 
 &lt;h2 id=&#34;status&#34;&gt;Status&lt;/h2&gt;
 
-&lt;p&gt;The machine has been running stable in a couple of weeks, and ArchLinux PPC feels as stable as the x86 edition.&lt;/p&gt;
-</description>
+&lt;p&gt;The machine has been running stable in a couple of weeks, and ArchLinux PPC feels as stable as the x86 edition.&lt;/p&gt;</description>
     </item>
     
   </channel>

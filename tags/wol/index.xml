@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 12 Apr 2008 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/tags/wol/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/wol/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Check if MythTV backend is up</title>
@@ -89,8 +89,7 @@ esac
 
 &lt;p&gt;If you run ArchLinux just added it to /etc/rc.conf in the DAEMONS array.&lt;/p&gt;
 
-&lt;p&gt;Remember to replace &lt;strong&gt;BACKEND_IP&lt;/strong&gt; and &lt;strong&gt;BACKEND_MACADDR&lt;/strong&gt; with your own values.&lt;/p&gt;
-</description>
+&lt;p&gt;Remember to replace &lt;strong&gt;BACKEND_IP&lt;/strong&gt; and &lt;strong&gt;BACKEND_MACADDR&lt;/strong&gt; with your own values.&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.16" />
+    <meta name="generator" content="Hugo 0.30.2" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans%7CMarcellus+SC'>
@@ -86,11 +86,29 @@
       
       <article class="li">
   <header>
+    <div class="date">Sun, Apr 19, 2009</div>
+    <h2 class="title"><a href="http://rockhopper.dk/linux/software/how-not-to-restore-a-linux-software-raid/">How not to restore a Linux software raid</a></h2>
+  </header>
+  <div class="body">We had a disk failure on one of our Xen servers at work last week, and what we thought would be a quick disk replace, turned into a small nightmare.
+Our setup is fairly &#8220;simple&#8221;: 2 x raid1&#8217;s consisting of sda1/sdb1 (/dev/md0 mounted at /) and sda3/sdb3 (/dev/md1 with LVM on top of it).
+mdadm reported that sdb1 and sdb3 had failed, so we just had to identify which disk was sdb in the server and replace it.</div>
+
+  
+  <footer>
+    <a href="http://rockhopper.dk/linux/software/how-not-to-restore-a-linux-software-raid/" class="btn btn-default">Read More…</a>
+  </footer>
+  
+</article>
+<hr>
+
+      
+      <article class="li">
+  <header>
     <div class="date">Thu, Nov 13, 2008</div>
     <h2 class="title"><a href="http://rockhopper.dk/linux/software/cddvd-burning-and-working-with-iso-files/">CD/DVD burning, and working with .iso files</a></h2>
   </header>
-  <div class="body"><p>Some handy command line tools to burn CDs/DVDs and work with .iso files:</p>
-</div>
+  <div class="body"><p>Some handy command line tools to burn CDs/DVDs and work with .iso files:
+</p></div>
 
   
   <footer>
@@ -106,8 +124,8 @@
     <div class="date">Wed, Nov 5, 2008</div>
     <h2 class="title"><a href="http://rockhopper.dk/linux/software/zsh-bash-screen-and-urxvt-title/">zsh, bash, screen and urxvt title</a></h2>
   </header>
-  <div class="body"><p>I use both the zsh and bash shell, and most of the time I run them in screen. This happens in my favourite terminal: urxvt (aka rxvt-unicode).</p>
-</div>
+  <div class="body"><p>I use both the zsh and bash shell, and most of the time I run them in screen. This happens in my favourite terminal: urxvt (aka rxvt-unicode).
+</p></div>
 
   
   <footer>
@@ -123,8 +141,8 @@
     <div class="date">Sat, Jul 26, 2008</div>
     <h2 class="title"><a href="http://rockhopper.dk/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/">Fast nagios exim mail queue plugin replacement</a></h2>
   </header>
-  <div class="body"><p>We had a problem with the nagios check_mailq plugin at [work][1], it kept timing out. So I wrote a simple bash script (instead of 610 lines of perl) which is &#8220;compatible&#8221; with check_mailq (supports the same arguments) which uses &#8220;exim4&#8221; and is very quick. Just drop it in /usr/local/bin/check_mailq_simple.sh and adjust your nagios conf to use that instead of check_mailq</p>
-</div>
+  <div class="body"><p>We had a problem with the nagios check_mailq plugin at <a href="http://www.bellcom.dk">work</a>, it kept timing out. So I wrote a simple bash script (instead of 610 lines of perl) which is &#8220;compatible&#8221; with check_mailq (supports the same arguments) which uses &#8220;exim4&#8221; and is very quick. Just drop it in /usr/local/bin/check_mailq_simple.sh and adjust your nagios conf to use that instead of check_mailq
+</p></div>
 
   
   <footer>
@@ -178,7 +196,7 @@
       
       <a href="http://rockhopper.dk/categories/xfce" class="list-group-item">xfce</a>
       
-      <a href="http://rockhopper.dk/categories/pilotboat" class="list-group-item">pilotboat</a>
+      <a href="http://rockhopper.dk/categories/ansible" class="list-group-item">ansible</a>
       
     </div>
   </div>
@@ -224,7 +242,7 @@
 
     <footer class="site">
       <div class="container">
-        <p>&copy; 2016 Henrik Farre - <a href="/about-me/">About</a></p>
+        <p>&copy; 2017 Rockhopper.dk - <a href="/about-me/">About</a></p>
       </div>
     </footer>
 

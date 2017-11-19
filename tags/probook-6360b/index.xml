@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 17 Mar 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/tags/probook-6360b/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/probook-6360b/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>UEFI booting Arch Linux on a HP ProBook 6360b</title>
@@ -15,9 +15,8 @@
       <pubDate>Sun, 17 Mar 2013 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</guid>
-      <description>
-
-&lt;p&gt;As I&amp;#8217;ve just got a new Samsung 840 Pro Series 256GB SSD for my work laptop (HP ProBook 6360b), I wanted to try switching from BIOS booting to UEFI.&lt;/p&gt;
+      <description>&lt;p&gt;As I&amp;#8217;ve just got a new Samsung 840 Pro Series 256GB SSD for my work laptop (HP ProBook 6360b), I wanted to try switching from BIOS booting to UEFI.
+&lt;/p&gt;
 
 &lt;h1 id=&#34;ssd-setup&#34;&gt;SSD setup&lt;/h1&gt;
 
@@ -63,8 +62,7 @@
 
 &lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
 
-&lt;p&gt;I can&amp;#8217;t say that that the time I used to get UEFI booting working was time well spend, nothing magic happens when booting using UEFI compared to legacy BIOS, but at least I&amp;#8217;m not using anything that is labelled &amp;#8220;legacy&amp;#8221; :)&lt;/p&gt;
-</description>
+&lt;p&gt;I can&amp;#8217;t say that that the time I used to get UEFI booting working was time well spend, nothing magic happens when booting using UEFI compared to legacy BIOS, but at least I&amp;#8217;m not using anything that is labelled &amp;#8220;legacy&amp;#8221; :)&lt;/p&gt;</description>
     </item>
     
   </channel>

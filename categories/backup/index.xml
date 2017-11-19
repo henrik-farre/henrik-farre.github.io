@@ -7,17 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 10 May 2016 10:40:15 +0200</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/categories/backup/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/backup/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Backing up to Google drive with Duplicity</title>
-      <link>http://rockhopper.dk/linux/software/backing-up-to-google-drive-with-duplicity</link>
+      <link>http://rockhopper.dk/linux/software/backing-up-to-google-drive-with-duplicity/</link>
       <pubDate>Tue, 10 May 2016 10:40:15 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/software/backing-up-to-google-drive-with-duplicity</guid>
-      <description>
-
-&lt;p&gt;As described in my &lt;a href=&#34;http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end/&#34;&gt;previous post&lt;/a&gt; I use Duplicity with Google Drive for storage. In this post I give a quick how to on configuring Duplicity for that setup.&lt;/p&gt;
+      <guid>http://rockhopper.dk/linux/software/backing-up-to-google-drive-with-duplicity/</guid>
+      <description>&lt;p&gt;As described in my &lt;a href=&#34;http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end/&#34;&gt;previous post&lt;/a&gt; I use Duplicity with Google Drive for storage. In this post I give a quick how to on configuring Duplicity for that setup.&lt;/p&gt;
 
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 
@@ -201,16 +199,15 @@ Enter verification code:&lt;/pre&gt;
 
 &lt;h2 id=&#34;wrapping-up&#34;&gt;Wrapping up&lt;/h2&gt;
 
-&lt;p&gt;I have created a set of &lt;a href=&#34;https://github.com/henrik-farre/duplicity_backup_scripts&#34;&gt;Duplicity backup scrips&lt;/a&gt; with error handling/reporting that wraps backup, restore, cleanup and backup verification, feel free to use or fork them :)&lt;/p&gt;
-</description>
+&lt;p&gt;I have created a set of &lt;a href=&#34;https://github.com/henrik-farre/duplicity_backup_scripts&#34;&gt;Duplicity backup scrips&lt;/a&gt; with error handling/reporting that wraps backup, restore, cleanup and backup verification, feel free to use or fork them :)&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Duplicity backup: Dropbox vs Google drive back end</title>
-      <link>http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end</link>
+      <link>http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end/</link>
       <pubDate>Mon, 02 May 2016 14:08:31 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end</guid>
+      <guid>http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end/</guid>
       <description>&lt;p&gt;As many other I have been looking for a cheap encrypted offsite backup for family photos, documents and other important data. I quickly choose duplicity as it provides the encrypted part and the possibility to use many different storage solutions, but the cheap offsite part is was a bit harder to find.&lt;/p&gt;
 
 &lt;p&gt;I looked at Amazon offerings: S3 and Glacier, both look cheap, but I&#39;m unsure on how much I have to pay in total, and Glacier has crazy download prices.&lt;/p&gt;
@@ -326,8 +323,7 @@ Giving up after 5 attempts. OverflowError: length too large&lt;/pre&gt;
 
 &lt;p&gt;The solution is to split the backup into smaller sets, so instead of backing up the entire home directory up, I have one set for documents, one for pictures and so on.&lt;/p&gt;
 
-&lt;p&gt;So in conclusion I would say that I found almost every thing I looked for, except the cheap part :)&lt;/p&gt;
-</description>
+&lt;p&gt;So in conclusion I would say that I found almost every thing I looked for, except the cheap part :)&lt;/p&gt;</description>
     </item>
     
   </channel>

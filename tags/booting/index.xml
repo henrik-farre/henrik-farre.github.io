@@ -7,17 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 15 Jun 2016 09:42:24 +0200</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/tags/booting/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/booting/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Linux on Lenovo ThinkPad L460</title>
-      <link>http://rockhopper.dk/linux/hardware/linux-on-lenovo-thinkpad-l460</link>
+      <link>http://rockhopper.dk/linux/hardware/linux-on-lenovo-thinkpad-l460/</link>
       <pubDate>Wed, 15 Jun 2016 09:42:24 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/hardware/linux-on-lenovo-thinkpad-l460</guid>
-      <description>
-
-&lt;p&gt;Finding a laptop that is well supported by Linux, has nice features and is not too expensive can be quite a task. Lucky the Lenovo ThinkPad L460 fits my requirements.&lt;/p&gt;
+      <guid>http://rockhopper.dk/linux/hardware/linux-on-lenovo-thinkpad-l460/</guid>
+      <description>&lt;p&gt;Finding a laptop that is well supported by Linux, has nice features and is not too expensive can be quite a task. Lucky the Lenovo ThinkPad L460 fits my requirements.&lt;/p&gt;
 
 &lt;h2 id=&#34;os&#34;&gt;OS&lt;/h2&gt;
 
@@ -111,8 +109,7 @@ EndSection&lt;/pre&gt;
 
 &lt;p&gt;I like the overall build quality, the battery life feels okay, I just which the battery was smaller and not extending below the bottom of the laptop.&lt;/p&gt;
 
-&lt;p&gt;The Mini-DisplayPort to HDMI cable I bought as an accessory does not support sound, but that is just a minor inconvenience.&lt;/p&gt;
-</description>
+&lt;p&gt;The Mini-DisplayPort to HDMI cable I bought as an accessory does not support sound, but that is just a minor inconvenience.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -121,9 +118,8 @@ EndSection&lt;/pre&gt;
       <pubDate>Sun, 17 Mar 2013 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/hardware/uefi-booting-arch-linux-on-a-hp-probook-6360b/</guid>
-      <description>
-
-&lt;p&gt;As I&amp;#8217;ve just got a new Samsung 840 Pro Series 256GB SSD for my work laptop (HP ProBook 6360b), I wanted to try switching from BIOS booting to UEFI.&lt;/p&gt;
+      <description>&lt;p&gt;As I&amp;#8217;ve just got a new Samsung 840 Pro Series 256GB SSD for my work laptop (HP ProBook 6360b), I wanted to try switching from BIOS booting to UEFI.
+&lt;/p&gt;
 
 &lt;h1 id=&#34;ssd-setup&#34;&gt;SSD setup&lt;/h1&gt;
 
@@ -169,8 +165,7 @@ EndSection&lt;/pre&gt;
 
 &lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
 
-&lt;p&gt;I can&amp;#8217;t say that that the time I used to get UEFI booting working was time well spend, nothing magic happens when booting using UEFI compared to legacy BIOS, but at least I&amp;#8217;m not using anything that is labelled &amp;#8220;legacy&amp;#8221; :)&lt;/p&gt;
-</description>
+&lt;p&gt;I can&amp;#8217;t say that that the time I used to get UEFI booting working was time well spend, nothing magic happens when booting using UEFI compared to legacy BIOS, but at least I&amp;#8217;m not using anything that is labelled &amp;#8220;legacy&amp;#8221; :)&lt;/p&gt;</description>
     </item>
     
   </channel>

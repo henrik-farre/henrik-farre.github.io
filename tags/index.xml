@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Rockhopper.dk</title>
+    <link>http://rockhopper.dk/tags/</link>
+    <description>Recent content in Tags on Rockhopper.dk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 03 Apr 2012 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Android</title>
+      <link>http://rockhopper.dk/tags/android/</link>
+      <pubDate>Tue, 03 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://rockhopper.dk/tags/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ansible Tower</title>
+      <link>http://rockhopper.dk/tags/ansible-tower/</link>
+      <pubDate>Sat, 18 Nov 2017 15:19:28 +0000</pubDate>
+      
+      <guid>http://rockhopper.dk/tags/ansible-tower/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Archlinux</title>
+      <link>http://rockhopper.dk/tags/archlinux/</link>
+      <pubDate>Wed, 15 Jun 2016 09:42:24 +0200</pubDate>
+      
+      <guid>http://rockhopper.dk/tags/archlinux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Awx</title>
+      <link>http://rockhopper.dk/tags/awx/</link>
+      <pubDate>Sat, 18 Nov 2017 15:19:28 +0000</pubDate>
+      
+      <guid>http://rockhopper.dk/tags/awx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bash</title>
+      <link>http://rockhopper.dk/tags/bash/</link>
+      <pubDate>Wed, 05 Nov 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://rockhopper.dk/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Behat</title>
+      <link>http://rockhopper.dk/tags/behat/</link>
+      <pubDate>Fri, 10 Jun 2016 10:23:40 +0200</pubDate>
+      
+      <guid>http://rockhopper.dk/tags/behat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bios</title>
+      <link>http://rockhopper.dk/tags/bios/</link>
+      <pubDate>Sun, 17 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://rockhopper.dk/tags/bios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Booting</title>
+      <link>http://rockhopper.dk/tags/booting/</link>
+      <pubDate>Wed, 15 Jun 2016 09:42:24 +0200</pubDate>
+      
+      <guid>http://rockhopper.dk/tags/booting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chrome</title>
+      <link>http://rockhopper.dk/tags/chrome/</link>
+      <pubDate>Thu, 12 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://rockhopper.dk/tags/chrome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chromium</title>
+      <link>http://rockhopper.dk/tags/chromium/</link>
+      <pubDate>Thu, 12 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://rockhopper.dk/tags/chromium/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cmd Line</title>
+      <link>http://rockhopper.dk/tags/cmd-line/</link>
+      <pubDate>Thu, 13 Nov 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://rockhopper.dk/tags/cmd-line/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>http://rockhopper.dk/tags/docker/</link>
+      <pubDate>Sat, 14 May 2016 14:56:22 +0200</pubDate>
+      
+      <guid>http://rockhopper.dk/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Drupal 8</title>
+      <link>http://rockhopper.dk/tags/drupal-8/</link>
+      <pubDate>Fri, 10 Jun 2016 10:23:40 +0200</pubDate>
+      
+      <guid>http://rockhopper.dk/tags/drupal-8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Duplicity</title>
+      <link>http://rockhopper.dk/tags/duplicity/</link>
+      <pubDate>Tue, 10 May 2016 10:40:15 +0200</pubDate>
+      
+      <guid>http://rockhopper.dk/tags/duplicity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dvb C</title>
+      <link>http://rockhopper.dk/tags/dvb-c/</link>
+      <pubDate>Sat, 29 May 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rockhopper.dk/tags/dvb-c/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

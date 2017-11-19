@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 06 Dec 2008 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/categories/xorg/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/xorg/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Logitech Marble FX trackball with Xorg and Hal</title>
@@ -15,7 +15,8 @@
       <pubDate>Sat, 06 Dec 2008 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/hardware/logitech-marble-fx-trackball-with-xorg-and-hal/</guid>
-      <description>&lt;p&gt;After the recent upgrade in ArchLinux of xorg-server from 1.4.x to 1.5.x my thrusty Logitech Marble FX trackball did not work entirely. The trackball does not have a dedicated scroll wheel, but by pressing a button, and using the trackball, you can scroll both vertical and horizontal.&lt;/p&gt;
+      <description>&lt;p&gt;After the recent upgrade in ArchLinux of xorg-server from 1.4.x to 1.5.x my thrusty Logitech Marble FX trackball did not work entirely. The trackball does not have a dedicated scroll wheel, but by pressing a button, and using the trackball, you can scroll both vertical and horizontal.
+&lt;/p&gt;
 
 &lt;p&gt;In order to get the emulated scroll working again you first have to update the evdev driver (the xf86-input-evdev package), as version 2.0.7 doesn&amp;#8217;t support the needed options.&lt;/p&gt;
 
@@ -61,8 +62,7 @@
 (**) Option &#34;XAxisMapping&#34; &#34;6 7&#34;
 (**) PS2++ Logitech Mouse: XAxisMapping: buttons 6 and 7
 (**) PS2++ Logitech Mouse: EmulateWheelButton: 8, EmulateWheelInertia: 30, EmulateWheelTimeout: 200
-(II) XINPUT: Adding extended input device &#34;PS2++ Logitech Mouse&#34; (type: MOUSE)&lt;/pre&gt;
-</description>
+(II) XINPUT: Adding extended input device &#34;PS2++ Logitech Mouse&#34; (type: MOUSE)&lt;/pre&gt;</description>
     </item>
     
   </channel>

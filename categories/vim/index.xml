@@ -7,17 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 12 Apr 2016 10:47:36 +0200</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/categories/vim/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/vim/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Local PHP development with Vim/Neovim and Docker</title>
-      <link>http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker</link>
+      <link>http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker/</link>
       <pubDate>Tue, 12 Apr 2016 10:47:36 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker</guid>
-      <description>
-
-&lt;p&gt;I use Neovim for all my text editing, and as I&#39;m a web developer I edit a lot of HTML, PHP, CSS and JavaScript. And not only do I have to switch between different programming/markup languages I also have to switch between different environments, ranging from old Drupal 6 sites on Debian squeeze to a Symfony setup on Debian Jessie to ensure that my code works in production.&lt;/p&gt;
+      <guid>http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker/</guid>
+      <description>&lt;p&gt;I use Neovim for all my text editing, and as I&#39;m a web developer I edit a lot of HTML, PHP, CSS and JavaScript. And not only do I have to switch between different programming/markup languages I also have to switch between different environments, ranging from old Drupal 6 sites on Debian squeeze to a Symfony setup on Debian Jessie to ensure that my code works in production.&lt;/p&gt;
 
 &lt;h2 id=&#34;enter-docker&#34;&gt;Enter Docker&lt;/h2&gt;
 
@@ -54,8 +52,7 @@
 &lt;li&gt;&lt;a href=&#34;https://github.com/benekastah/neomake&#34;&gt;Neomake&lt;/a&gt;: Automatically asynchronous syntax checking, works with PHP lint, &lt;a href=&#34;https://phpmd.org/&#34;&gt;PHP Mess Detector&lt;/a&gt; and &lt;a href=&#34;https://github.com/squizlabs/PHP_CodeSniffer&#34;&gt;PHP_CodeSniffer&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;You can find my Neovim setup here: &lt;a href=&#34;http://github.com/henrik-farre/vimrc&#34;&gt;http://github.com/henrik-farre/vimrc&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;You can find my Neovim setup here: &lt;a href=&#34;http://github.com/henrik-farre/vimrc&#34;&gt;http://github.com/henrik-farre/vimrc&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -64,7 +61,8 @@
       <pubDate>Sat, 04 Jan 2014 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/docker-and-php-xdebug/</guid>
-      <description>&lt;p&gt;I have switched from using Vagrant to Docker as my local development environment, and I&amp;#8217;m still mentally trying to switch :)&lt;/p&gt;
+      <description>&lt;p&gt;I have switched from using Vagrant to Docker as my local development environment, and I&amp;#8217;m still mentally trying to switch :)
+&lt;/p&gt;
 
 &lt;p&gt;To use the &lt;a href=&#34;https://github.com/joonty/vdebug&#34;&gt;vdebug plugin&lt;/a&gt; in Vim I have set xdebug up inside the container as follows:&lt;/p&gt;
 
@@ -86,8 +84,7 @@ xdebug.remote_port=9000&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;172.17.42.1 is the ip of the bridge created by docker, it can be found by using ip addr and looking for the &amp;#8220;docker0&amp;#8221; interface.&lt;/p&gt;
 
-&lt;p&gt;I create the xdebug ini file in my Dockerfile, see my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;Docker repository&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;I create the xdebug ini file in my Dockerfile, see my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;Docker repository&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

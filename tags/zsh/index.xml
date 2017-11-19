@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 07 Jan 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/tags/zsh/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/zsh/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>zsh prompt/window title: trim middle of path</title>
@@ -15,7 +15,8 @@
       <pubDate>Tue, 07 Jan 2014 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/zsh-promptwindow-title-trim-middle-of-path/</guid>
-      <description>&lt;p&gt;I run zsh in tmux, and sometimes I end up in a deep directory where the path matches that of another window in tmux (for example in my local docker development environment and on the testing/production server). When this happens just seeing the last part of the path as the window title is not enough, like this: &amp;#8230;/sites/all/modules/somemodule.&lt;/p&gt;
+      <description>&lt;p&gt;I run zsh in tmux, and sometimes I end up in a deep directory where the path matches that of another window in tmux (for example in my local docker development environment and on the testing/production server). When this happens just seeing the last part of the path as the window title is not enough, like this: &amp;#8230;/sites/all/modules/somemodule.
+&lt;/p&gt;
 
 &lt;p&gt;So I changed my ~/.zshrc to contain this:&lt;/p&gt;
 
@@ -77,8 +78,7 @@ function preexec() {
 
 &lt;p&gt;This creates the following window title: ~/Work/docker/&amp;#8230;/all/modules/somemodule. The magic happens by saying %7(c:%-3~/&amp;#8230;/%3~:%~) which means: if &amp;#8220;c&amp;#8221;, which contains the entire path after prefix has been replaced -&amp;gt; /home/username to ~, is larger than 7, show the 3 first directories, then &amp;#8230; and finally the last 3 directories.&lt;/p&gt;
 
-&lt;p&gt;The same can be done in the shell prompt.&lt;/p&gt;
-</description>
+&lt;p&gt;The same can be done in the shell prompt.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -87,7 +87,8 @@ function preexec() {
       <pubDate>Wed, 05 Nov 2008 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/software/zsh-bash-screen-and-urxvt-title/</guid>
-      <description>&lt;p&gt;I use both the zsh and bash shell, and most of the time I run them in screen. This happens in my favourite terminal: urxvt (aka rxvt-unicode).&lt;/p&gt;
+      <description>&lt;p&gt;I use both the zsh and bash shell, and most of the time I run them in screen. This happens in my favourite terminal: urxvt (aka rxvt-unicode).
+&lt;/p&gt;
 
 &lt;p&gt;I have a pretty consistence terminal title in both shells. I use hostname[last part of current path]:&lt;/p&gt;
 
@@ -145,8 +146,7 @@ export PS1 PROMPT_COMMAND
 &lt;pre&gt;
 &lt;code class=&#34;language-bash&#34;&gt;hardstatus string &#34;%h&#34;
 caption always &#34;%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw} %=%d %M %0c %{g}%H%{-}&#34;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
   </channel>

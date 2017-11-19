@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Rockhopper.dk</title>
+    <link>http://rockhopper.dk/categories/</link>
+    <description>Recent content in Categories on Rockhopper.dk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 18 Nov 2017 15:19:28 +0000</lastBuildDate>
+    <atom:link href="/categories/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Ansible</title>
+      <link>http://rockhopper.dk/categories/ansible/</link>
+      <pubDate>Sat, 18 Nov 2017 15:19:28 +0000</pubDate>
+      
+      <guid>http://rockhopper.dk/categories/ansible/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Awx</title>
+      <link>http://rockhopper.dk/categories/awx/</link>
+      <pubDate>Sat, 18 Nov 2017 15:19:28 +0000</pubDate>
+      
+      <guid>http://rockhopper.dk/categories/awx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Backup</title>
+      <link>http://rockhopper.dk/categories/backup/</link>
+      <pubDate>Tue, 10 May 2016 10:40:15 +0200</pubDate>
+      
+      <guid>http://rockhopper.dk/categories/backup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hardware</title>
+      <link>http://rockhopper.dk/categories/hardware/</link>
+      <pubDate>Wed, 15 Jun 2016 09:42:24 +0200</pubDate>
+      
+      <guid>http://rockhopper.dk/categories/hardware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>http://rockhopper.dk/categories/linux/</link>
+      <pubDate>Thu, 12 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://rockhopper.dk/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mythtv</title>
+      <link>http://rockhopper.dk/categories/mythtv/</link>
+      <pubDate>Sat, 29 May 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rockhopper.dk/categories/mythtv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Phone and Pda</title>
+      <link>http://rockhopper.dk/categories/phone-and-pda/</link>
+      <pubDate>Tue, 03 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://rockhopper.dk/categories/phone-and-pda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Php</title>
+      <link>http://rockhopper.dk/categories/php/</link>
+      <pubDate>Fri, 10 Jun 2016 10:23:40 +0200</pubDate>
+      
+      <guid>http://rockhopper.dk/categories/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pilotboat</title>
+      <link>http://rockhopper.dk/categories/pilotboat/</link>
+      <pubDate>Sat, 14 May 2016 14:56:22 +0200</pubDate>
+      
+      <guid>http://rockhopper.dk/categories/pilotboat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software</title>
+      <link>http://rockhopper.dk/categories/software/</link>
+      <pubDate>Sat, 18 Nov 2017 15:19:28 +0000</pubDate>
+      
+      <guid>http://rockhopper.dk/categories/software/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vim</title>
+      <link>http://rockhopper.dk/categories/vim/</link>
+      <pubDate>Tue, 12 Apr 2016 10:47:36 +0200</pubDate>
+      
+      <guid>http://rockhopper.dk/categories/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Xfce</title>
+      <link>http://rockhopper.dk/categories/xfce/</link>
+      <pubDate>Sun, 14 Feb 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://rockhopper.dk/categories/xfce/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Xorg</title>
+      <link>http://rockhopper.dk/categories/xorg/</link>
+      <pubDate>Sat, 06 Dec 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://rockhopper.dk/categories/xorg/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

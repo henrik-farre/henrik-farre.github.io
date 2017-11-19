@@ -1,38 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://rockhopper.dk/</loc>
+    <loc>http://rockhopper.dk/linux/software/import-host-and-group-vars-into-awx/</loc>
+    <lastmod>2017-11-18T15:19:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/linux/hardware/linux-on-lenovo-thinkpad-l460/</loc>
     <lastmod>2016-06-15T09:42:24+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://rockhopper.dk/linux/hardware/linux-on-lenovo-thinkpad-l460</loc>
-    <lastmod>2016-06-15T09:42:24+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://rockhopper.dk/linux/software/drupal-8-and-behat-tests</loc>
+    <loc>http://rockhopper.dk/linux/software/drupal-8-and-behat-tests/</loc>
     <lastmod>2016-06-10T10:23:40+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://rockhopper.dk/linux/software/behat-taking-screenshots-of-failed-steps</loc>
+    <loc>http://rockhopper.dk/linux/software/behat-taking-screenshots-of-failed-steps/</loc>
     <lastmod>2016-05-17T10:51:24+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker</loc>
+    <loc>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker/</loc>
     <lastmod>2016-05-14T14:56:22+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://rockhopper.dk/linux/software/backing-up-to-google-drive-with-duplicity</loc>
+    <loc>http://rockhopper.dk/linux/software/backing-up-to-google-drive-with-duplicity/</loc>
     <lastmod>2016-05-10T10:40:15+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end</loc>
+    <loc>http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end/</loc>
     <lastmod>2016-05-02T14:08:31+02:00</lastmod>
   </url>
   
@@ -42,7 +43,7 @@
   </url>
   
   <url>
-    <loc>http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker</loc>
+    <loc>http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker/</loc>
     <lastmod>2016-04-12T10:47:36+02:00</lastmod>
   </url>
   
@@ -52,7 +53,7 @@
   </url>
   
   <url>
-    <loc>http://rockhopper.dk/about-me</loc>
+    <loc>http://rockhopper.dk/about-me/</loc>
     <lastmod>2016-04-01T10:15:11+02:00</lastmod>
   </url>
   
@@ -174,6 +175,324 @@
   <url>
     <loc>http://rockhopper.dk/linux/software/mythtv/check-if-mythtv-backend-is-up/</loc>
     <lastmod>2008-04-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/android/</loc>
+    <lastmod>2012-04-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/categories/ansible/</loc>
+    <lastmod>2017-11-18T15:19:28+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/ansible-tower/</loc>
+    <lastmod>2017-11-18T15:19:28+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/archlinux/</loc>
+    <lastmod>2016-06-15T09:42:24+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/awx/</loc>
+    <lastmod>2017-11-18T15:19:28+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/categories/awx/</loc>
+    <lastmod>2017-11-18T15:19:28+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/categories/backup/</loc>
+    <lastmod>2016-05-10T10:40:15+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/bash/</loc>
+    <lastmod>2008-11-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/behat/</loc>
+    <lastmod>2016-06-10T10:23:40+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/bios/</loc>
+    <lastmod>2013-03-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/booting/</loc>
+    <lastmod>2016-06-15T09:42:24+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/categories/</loc>
+    <lastmod>2017-11-18T15:19:28+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/chrome/</loc>
+    <lastmod>2014-06-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/chromium/</loc>
+    <lastmod>2014-06-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/cmd-line/</loc>
+    <lastmod>2008-11-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/docker/</loc>
+    <lastmod>2016-05-14T14:56:22+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/drupal-8/</loc>
+    <lastmod>2016-06-10T10:23:40+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/duplicity/</loc>
+    <lastmod>2016-05-10T10:40:15+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/dvb-c/</loc>
+    <lastmod>2010-05-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/exim/</loc>
+    <lastmod>2008-07-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/firefox/</loc>
+    <lastmod>2014-06-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/categories/hardware/</loc>
+    <lastmod>2016-06-15T09:42:24+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/htpc/</loc>
+    <lastmod>2016-04-24T11:44:30+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/kodi/</loc>
+    <lastmod>2016-04-24T11:44:30+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/categories/linux/</loc>
+    <lastmod>2014-06-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/motherboard/</loc>
+    <lastmod>2013-11-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/mythbackend/</loc>
+    <lastmod>2010-05-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/mythfrontend/</loc>
+    <lastmod>2008-06-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/categories/mythtv/</loc>
+    <lastmod>2010-05-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/nagios/</loc>
+    <lastmod>2008-07-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/page/</loc>
+    <lastmod>2016-04-01T10:15:11+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/categories/phone-and-pda/</loc>
+    <lastmod>2012-04-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/categories/php/</loc>
+    <lastmod>2016-06-10T10:23:40+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/categories/pilotboat/</loc>
+    <lastmod>2016-05-14T14:56:22+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/post/</loc>
+    <lastmod>2017-11-18T15:19:28+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/powerbook/</loc>
+    <lastmod>2008-07-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/probook-6360b/</loc>
+    <lastmod>2013-03-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/raid/</loc>
+    <lastmod>2009-04-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/review/</loc>
+    <lastmod>2009-01-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/</loc>
+    <lastmod>2017-11-18T15:19:28+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/screen/</loc>
+    <lastmod>2008-11-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/categories/software/</loc>
+    <lastmod>2017-11-18T15:19:28+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/synergy/</loc>
+    <lastmod>2014-06-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/</loc>
+    <lastmod>2012-04-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/tmux/</loc>
+    <lastmod>2014-01-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/uefi/</loc>
+    <lastmod>2016-06-15T09:42:24+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/urxvt/</loc>
+    <lastmod>2008-11-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/categories/vim/</loc>
+    <lastmod>2016-04-12T10:47:36+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/wol/</loc>
+    <lastmod>2008-04-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/xbmc/</loc>
+    <lastmod>2013-11-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/categories/xfce/</loc>
+    <lastmod>2010-02-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/categories/xorg/</loc>
+    <lastmod>2008-12-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rockhopper.dk/tags/zsh/</loc>
+    <lastmod>2014-01-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>

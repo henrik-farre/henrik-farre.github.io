@@ -7,17 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 14 May 2016 14:56:22 +0200</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/docker/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Behat tests with Symfony 3, PhantomJS and Docker</title>
-      <link>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker</link>
+      <link>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker/</link>
       <pubDate>Sat, 14 May 2016 14:56:22 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker</guid>
-      <description>
-
-&lt;p&gt;Writing tests should be easy, but installing and maintaining every single piece needed is nontrivial. Thankfully Docker can provide each piece of the jigsaw: Symfony 3, Behat and PhantomJS.&lt;/p&gt;
+      <guid>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker/</guid>
+      <description>&lt;p&gt;Writing tests should be easy, but installing and maintaining every single piece needed is nontrivial. Thankfully Docker can provide each piece of the jigsaw: Symfony 3, Behat and PhantomJS.&lt;/p&gt;
 
 &lt;p&gt;I have created &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;pilotboat&lt;/a&gt; to make it easy for me to develop and test PHP based applications, and I will use it in this how-to. If you prefer to use another setup, feel free to look through my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;github repository for pilotboat&lt;/a&gt; for inspiration.&lt;/p&gt;
 
@@ -112,19 +110,16 @@
 2 steps (2 passed)
 0m0.21s (13.43Mb)&lt;/pre&gt;
 
-&lt;p&gt;And you&#39;re ready to write tests :)&lt;/p&gt;
-</description>
+&lt;p&gt;And you&#39;re ready to write tests :)&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Local PHP development with Vim/Neovim and Docker</title>
-      <link>http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker</link>
+      <link>http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker/</link>
       <pubDate>Tue, 12 Apr 2016 10:47:36 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker</guid>
-      <description>
-
-&lt;p&gt;I use Neovim for all my text editing, and as I&#39;m a web developer I edit a lot of HTML, PHP, CSS and JavaScript. And not only do I have to switch between different programming/markup languages I also have to switch between different environments, ranging from old Drupal 6 sites on Debian squeeze to a Symfony setup on Debian Jessie to ensure that my code works in production.&lt;/p&gt;
+      <guid>http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker/</guid>
+      <description>&lt;p&gt;I use Neovim for all my text editing, and as I&#39;m a web developer I edit a lot of HTML, PHP, CSS and JavaScript. And not only do I have to switch between different programming/markup languages I also have to switch between different environments, ranging from old Drupal 6 sites on Debian squeeze to a Symfony setup on Debian Jessie to ensure that my code works in production.&lt;/p&gt;
 
 &lt;h2 id=&#34;enter-docker&#34;&gt;Enter Docker&lt;/h2&gt;
 
@@ -161,8 +156,7 @@
 &lt;li&gt;&lt;a href=&#34;https://github.com/benekastah/neomake&#34;&gt;Neomake&lt;/a&gt;: Automatically asynchronous syntax checking, works with PHP lint, &lt;a href=&#34;https://phpmd.org/&#34;&gt;PHP Mess Detector&lt;/a&gt; and &lt;a href=&#34;https://github.com/squizlabs/PHP_CodeSniffer&#34;&gt;PHP_CodeSniffer&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;You can find my Neovim setup here: &lt;a href=&#34;http://github.com/henrik-farre/vimrc&#34;&gt;http://github.com/henrik-farre/vimrc&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;You can find my Neovim setup here: &lt;a href=&#34;http://github.com/henrik-farre/vimrc&#34;&gt;http://github.com/henrik-farre/vimrc&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -171,7 +165,8 @@
       <pubDate>Sat, 04 Jan 2014 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/docker-and-php-xdebug/</guid>
-      <description>&lt;p&gt;I have switched from using Vagrant to Docker as my local development environment, and I&amp;#8217;m still mentally trying to switch :)&lt;/p&gt;
+      <description>&lt;p&gt;I have switched from using Vagrant to Docker as my local development environment, and I&amp;#8217;m still mentally trying to switch :)
+&lt;/p&gt;
 
 &lt;p&gt;To use the &lt;a href=&#34;https://github.com/joonty/vdebug&#34;&gt;vdebug plugin&lt;/a&gt; in Vim I have set xdebug up inside the container as follows:&lt;/p&gt;
 
@@ -193,8 +188,7 @@ xdebug.remote_port=9000&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;172.17.42.1 is the ip of the bridge created by docker, it can be found by using ip addr and looking for the &amp;#8220;docker0&amp;#8221; interface.&lt;/p&gt;
 
-&lt;p&gt;I create the xdebug ini file in my Dockerfile, see my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;Docker repository&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;I create the xdebug ini file in my Dockerfile, see my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;Docker repository&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

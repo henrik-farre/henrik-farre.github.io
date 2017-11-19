@@ -6,15 +6,36 @@
     <description>Recent content in Software on Rockhopper.dk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Jun 2016 10:23:40 +0200</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/categories/software/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Nov 2017 15:19:28 +0000</lastBuildDate>
+    <atom:link href="/categories/software/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Import Host and Group Vars Into AWX</title>
+      <link>http://rockhopper.dk/linux/software/import-host-and-group-vars-into-awx/</link>
+      <pubDate>Sat, 18 Nov 2017 15:19:28 +0000</pubDate>
+      
+      <guid>http://rockhopper.dk/linux/software/import-host-and-group-vars-into-awx/</guid>
+      <description>&lt;p&gt;Recently RedHat released &lt;a href=&#34;https://www.ansible.com/open-tower&#34;&gt;Ansible tower as open source&lt;/a&gt; as the &lt;a href=&#34;https://github.com/ansible/awx/&#34;&gt;AWX project&lt;/a&gt;. So I&#39;ve imported my local Ansible project into AWX, but manually importing alot of host and group vars can be a bit tedious.&lt;/p&gt;
+
+&lt;p&gt;Using &lt;a href=&#34;http://tower-cli.readthedocs.io/en/latest/&#34;&gt;tower-cli&lt;/a&gt; this can thankfully be automated.&lt;/p&gt;
+
+&lt;p&gt;To import all host vars in a directory, where each file is a FQDN matching the hostname in AWX, use:
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;for FILE in $(find . -depth 1 -type f); do tower-cli host modify --variables @${FILE#\./} --name=${FILE#\./} -i 2; done&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;
+
+&lt;p&gt;To do the same for groups:
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;for FILE in $(find . -depth 1 -type f); do tower-cli group modify --variables @${FILE#\./} --name=${FILE#\./} -i 2; done&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;
+
+&lt;p&gt;And you are done :)&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Drupal 8 and Behat tests</title>
-      <link>http://rockhopper.dk/linux/software/drupal-8-and-behat-tests</link>
+      <link>http://rockhopper.dk/linux/software/drupal-8-and-behat-tests/</link>
       <pubDate>Fri, 10 Jun 2016 10:23:40 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/software/drupal-8-and-behat-tests</guid>
+      <guid>http://rockhopper.dk/linux/software/drupal-8-and-behat-tests/</guid>
       <description>&lt;p&gt;The &lt;a href=&#34;https://www.drupal.org/project/drupalextension&#34;&gt;&amp;quot;Drupal Extension to Behat and Mink&amp;quot;&lt;/a&gt; provides some nice Drupal specific step definitions and ways of setting test data up. This post runs through the setup process.&lt;/p&gt;
 
 &lt;p&gt;First create a behat directory outside your Drupal installation (&lt;code&gt;public_html&lt;/code&gt;
@@ -121,16 +142,15 @@
     Then I should see the heading &#34;My article&#34;&lt;/code&gt;&lt;/pre&gt;
 
 
-&lt;p&gt;For more information about the api driver see the &lt;a href=&#34;https://behat-drupal-extension.readthedocs.io/en/3.1/drupalapi.html&#34;&gt;Drupal API Driver documentation&lt;/a&gt;.&lt;/p&gt;
-</description>
+&lt;p&gt;For more information about the api driver see the &lt;a href=&#34;https://behat-drupal-extension.readthedocs.io/en/3.1/drupalapi.html&#34;&gt;Drupal API Driver documentation&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Behat: taking screenshots of failed steps</title>
-      <link>http://rockhopper.dk/linux/software/behat-taking-screenshots-of-failed-steps</link>
+      <link>http://rockhopper.dk/linux/software/behat-taking-screenshots-of-failed-steps/</link>
       <pubDate>Tue, 17 May 2016 10:51:24 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/software/behat-taking-screenshots-of-failed-steps</guid>
+      <guid>http://rockhopper.dk/linux/software/behat-taking-screenshots-of-failed-steps/</guid>
       <description>&lt;p&gt;Getting a screenshot and a dump of the HTML of a failed step is invaluable when running tests on a headless &amp;quot;browser&amp;quot; like PhantomJS, and this post will show you how&lt;/p&gt;
 
 &lt;p&gt;You will of cause need a working Behat/PhantomJS setup to run this code, you can see my post about &lt;a href=&#34;http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker/&#34;&gt;Behat tests with Symfony 3, PhantomJS and Docker&lt;/a&gt; on how to configure everything like &lt;code&gt;behat.yml&lt;/code&gt;
@@ -223,19 +243,16 @@ class FeatureContext implements Context, SnippetAcceptingContext
 2 steps (1 passed, 1 failed)
 0m0.31s (13.49Mb)&lt;/pre&gt;
 
-&lt;p&gt;Happy testing :)&lt;/p&gt;
-</description>
+&lt;p&gt;Happy testing :)&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Behat tests with Symfony 3, PhantomJS and Docker</title>
-      <link>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker</link>
+      <link>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker/</link>
       <pubDate>Sat, 14 May 2016 14:56:22 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker</guid>
-      <description>
-
-&lt;p&gt;Writing tests should be easy, but installing and maintaining every single piece needed is nontrivial. Thankfully Docker can provide each piece of the jigsaw: Symfony 3, Behat and PhantomJS.&lt;/p&gt;
+      <guid>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker/</guid>
+      <description>&lt;p&gt;Writing tests should be easy, but installing and maintaining every single piece needed is nontrivial. Thankfully Docker can provide each piece of the jigsaw: Symfony 3, Behat and PhantomJS.&lt;/p&gt;
 
 &lt;p&gt;I have created &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;pilotboat&lt;/a&gt; to make it easy for me to develop and test PHP based applications, and I will use it in this how-to. If you prefer to use another setup, feel free to look through my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;github repository for pilotboat&lt;/a&gt; for inspiration.&lt;/p&gt;
 
@@ -330,19 +347,16 @@ class FeatureContext implements Context, SnippetAcceptingContext
 2 steps (2 passed)
 0m0.21s (13.43Mb)&lt;/pre&gt;
 
-&lt;p&gt;And you&#39;re ready to write tests :)&lt;/p&gt;
-</description>
+&lt;p&gt;And you&#39;re ready to write tests :)&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Backing up to Google drive with Duplicity</title>
-      <link>http://rockhopper.dk/linux/software/backing-up-to-google-drive-with-duplicity</link>
+      <link>http://rockhopper.dk/linux/software/backing-up-to-google-drive-with-duplicity/</link>
       <pubDate>Tue, 10 May 2016 10:40:15 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/software/backing-up-to-google-drive-with-duplicity</guid>
-      <description>
-
-&lt;p&gt;As described in my &lt;a href=&#34;http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end/&#34;&gt;previous post&lt;/a&gt; I use Duplicity with Google Drive for storage. In this post I give a quick how to on configuring Duplicity for that setup.&lt;/p&gt;
+      <guid>http://rockhopper.dk/linux/software/backing-up-to-google-drive-with-duplicity/</guid>
+      <description>&lt;p&gt;As described in my &lt;a href=&#34;http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end/&#34;&gt;previous post&lt;/a&gt; I use Duplicity with Google Drive for storage. In this post I give a quick how to on configuring Duplicity for that setup.&lt;/p&gt;
 
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 
@@ -526,16 +540,15 @@ Enter verification code:&lt;/pre&gt;
 
 &lt;h2 id=&#34;wrapping-up&#34;&gt;Wrapping up&lt;/h2&gt;
 
-&lt;p&gt;I have created a set of &lt;a href=&#34;https://github.com/henrik-farre/duplicity_backup_scripts&#34;&gt;Duplicity backup scrips&lt;/a&gt; with error handling/reporting that wraps backup, restore, cleanup and backup verification, feel free to use or fork them :)&lt;/p&gt;
-</description>
+&lt;p&gt;I have created a set of &lt;a href=&#34;https://github.com/henrik-farre/duplicity_backup_scripts&#34;&gt;Duplicity backup scrips&lt;/a&gt; with error handling/reporting that wraps backup, restore, cleanup and backup verification, feel free to use or fork them :)&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Duplicity backup: Dropbox vs Google drive back end</title>
-      <link>http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end</link>
+      <link>http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end/</link>
       <pubDate>Mon, 02 May 2016 14:08:31 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end</guid>
+      <guid>http://rockhopper.dk/linux/software/duplicity-backup-dropbox-vs-google-drive-back-end/</guid>
       <description>&lt;p&gt;As many other I have been looking for a cheap encrypted offsite backup for family photos, documents and other important data. I quickly choose duplicity as it provides the encrypted part and the possibility to use many different storage solutions, but the cheap offsite part is was a bit harder to find.&lt;/p&gt;
 
 &lt;p&gt;I looked at Amazon offerings: S3 and Glacier, both look cheap, but I&#39;m unsure on how much I have to pay in total, and Glacier has crazy download prices.&lt;/p&gt;
@@ -651,8 +664,7 @@ Giving up after 5 attempts. OverflowError: length too large&lt;/pre&gt;
 
 &lt;p&gt;The solution is to split the backup into smaller sets, so instead of backing up the entire home directory up, I have one set for documents, one for pictures and so on.&lt;/p&gt;
 
-&lt;p&gt;So in conclusion I would say that I found almost every thing I looked for, except the cheap part :)&lt;/p&gt;
-</description>
+&lt;p&gt;So in conclusion I would say that I found almost every thing I looked for, except the cheap part :)&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -661,9 +673,7 @@ Giving up after 5 attempts. OverflowError: length too large&lt;/pre&gt;
       <pubDate>Sun, 24 Apr 2016 11:44:30 +0200</pubDate>
       
       <guid>http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-3-the-hardware/</guid>
-      <description>
-
-&lt;p&gt;My HTPC should be available when I need it, but not waste power when I&#39;m not at home or sleeping.&lt;/p&gt;
+      <description>&lt;p&gt;My HTPC should be available when I need it, but not waste power when I&#39;m not at home or sleeping.&lt;/p&gt;
 
 &lt;p&gt;See previous parts: &lt;a href=&#34;http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/&#34;&gt;Part 1&lt;/a&gt;, &lt;a href=&#34;http://rockhopper.dk/linux/software/htpcnas-for-watching-netflix-on-linux-part-2-the-software/&#34;&gt;Part 2&lt;/a&gt;&lt;/p&gt;
 
@@ -960,19 +970,16 @@ Type=oneshot
 [Install]
 WantedBy=multi-user.target&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Now I can use the wol tool to wake the HTPC: &lt;code&gt;wol -v ${MAC}&lt;/code&gt; where ${MAC} is the MAC address of NIC&lt;/p&gt;
-</description>
+&lt;p&gt;Now I can use the wol tool to wake the HTPC: &lt;code&gt;wol -v ${MAC}&lt;/code&gt; where ${MAC} is the MAC address of NIC&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Local PHP development with Vim/Neovim and Docker</title>
-      <link>http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker</link>
+      <link>http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker/</link>
       <pubDate>Tue, 12 Apr 2016 10:47:36 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker</guid>
-      <description>
-
-&lt;p&gt;I use Neovim for all my text editing, and as I&#39;m a web developer I edit a lot of HTML, PHP, CSS and JavaScript. And not only do I have to switch between different programming/markup languages I also have to switch between different environments, ranging from old Drupal 6 sites on Debian squeeze to a Symfony setup on Debian Jessie to ensure that my code works in production.&lt;/p&gt;
+      <guid>http://rockhopper.dk/linux/software/local-php-development-with-vimneovim-and-docker/</guid>
+      <description>&lt;p&gt;I use Neovim for all my text editing, and as I&#39;m a web developer I edit a lot of HTML, PHP, CSS and JavaScript. And not only do I have to switch between different programming/markup languages I also have to switch between different environments, ranging from old Drupal 6 sites on Debian squeeze to a Symfony setup on Debian Jessie to ensure that my code works in production.&lt;/p&gt;
 
 &lt;h2 id=&#34;enter-docker&#34;&gt;Enter Docker&lt;/h2&gt;
 
@@ -1009,8 +1016,7 @@ WantedBy=multi-user.target&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/benekastah/neomake&#34;&gt;Neomake&lt;/a&gt;: Automatically asynchronous syntax checking, works with PHP lint, &lt;a href=&#34;https://phpmd.org/&#34;&gt;PHP Mess Detector&lt;/a&gt; and &lt;a href=&#34;https://github.com/squizlabs/PHP_CodeSniffer&#34;&gt;PHP_CodeSniffer&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;You can find my Neovim setup here: &lt;a href=&#34;http://github.com/henrik-farre/vimrc&#34;&gt;http://github.com/henrik-farre/vimrc&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;You can find my Neovim setup here: &lt;a href=&#34;http://github.com/henrik-farre/vimrc&#34;&gt;http://github.com/henrik-farre/vimrc&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1019,9 +1025,7 @@ WantedBy=multi-user.target&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Thu, 07 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/software/htpcnas-for-watching-netflix-on-linux-part-2-the-software/</guid>
-      <description>
-
-&lt;p&gt;The system runs Arch Linux with Kodi and Chrome to view Netflix. The post will not go into detail on how to configure Kodi, but rather getting the other pieces of the puzzle setup. Read part 1 here: &lt;a href=&#34;http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/&#34;&gt;HTPC/NAS for watching Netflix on Linux part 1: the hardware&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;The system runs Arch Linux with Kodi and Chrome to view Netflix. The post will not go into detail on how to configure Kodi, but rather getting the other pieces of the puzzle setup. Read part 1 here: &lt;a href=&#34;http://rockhopper.dk/linux/hardware/htpcnas-for-watching-netflix-on-linux-part-1-the-hardware/&#34;&gt;HTPC/NAS for watching Netflix on Linux part 1: the hardware&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Originally the setup used &lt;a href=&#34;https://wiki.archlinux.org/index.php/Pipelight&#34;&gt;Pipelight&lt;/a&gt; to watch Netflix, but I have moved away from that, because Chrome for Linux has native support for Netflix playback since version 42.&lt;/p&gt;
 
@@ -1134,8 +1138,7 @@ Xcursor.size: 32
 
 &lt;p&gt;I also added a USB - CEC Adapter from &lt;a href=&#34;https://www.pulse-eight.com/&#34;&gt;PulseEight&lt;/a&gt; so it is possible to control Kodi using the TVs remote control.&lt;/p&gt;
 
-&lt;p&gt;If you wish to remap some of the buttons on your remote here is an excellent guide: &lt;a href=&#34;http://xbmcnut.blogspot.dk/2013/07/how-to-remap-cec-buttons-on-sony-tv.html&#34;&gt;How To remap CEC buttons on a Sony TV Remote for XBMC under Xbian 1.0.5a&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;If you wish to remap some of the buttons on your remote here is an excellent guide: &lt;a href=&#34;http://xbmcnut.blogspot.dk/2013/07/how-to-remap-cec-buttons-on-sony-tv.html&#34;&gt;How To remap CEC buttons on a Sony TV Remote for XBMC under Xbian 1.0.5a&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1146,7 +1149,8 @@ Xcursor.size: 32
       <guid>http://rockhopper.dk/linux/multiple-profiles-in-firefox-tips-and-tricks/</guid>
       <description>&lt;p&gt;I have two different profiles for Firefox, one for work, and one for everything else.&lt;/p&gt;
 
-&lt;p&gt;To start Firefox with the correct profile, I have created two different application launchers (.desktop files) in ~/.local/share/applications, one called firefox-work.desktop and the other firefox-home.desktop&lt;/p&gt;
+&lt;p&gt;To start Firefox with the correct profile, I have created two different application launchers (.desktop files) in ~/.local/share/applications, one called firefox-work.desktop and the other firefox-home.desktop
+&lt;/p&gt;
 
 &lt;p&gt;The files contain:&lt;/p&gt;
 
@@ -1195,8 +1199,7 @@ xdotool key --window $WID ctrl+l
 xdotool type --window $WID &#34;$1&#34;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The last thing to to is to open exo-preferred-applications and select the script as the preferred &amp;#8220;web-browser&amp;#8221; (remember &amp;#8220;%s&amp;#8221;).&lt;/p&gt;
-</description>
+&lt;p&gt;The last thing to to is to open exo-preferred-applications and select the script as the preferred &amp;#8220;web-browser&amp;#8221; (remember &amp;#8220;%s&amp;#8221;).&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1238,9 +1241,8 @@ unused devices: &amp;lt;none&amp;gt;&lt;/pre&gt;
       <pubDate>Thu, 13 Nov 2008 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/software/cddvd-burning-and-working-with-iso-files/</guid>
-      <description>
-
-&lt;p&gt;Some handy command line tools to burn CDs/DVDs and work with .iso files:&lt;/p&gt;
+      <description>&lt;p&gt;Some handy command line tools to burn CDs/DVDs and work with .iso files:
+&lt;/p&gt;
 
 &lt;h2 id=&#34;burning-iso-files&#34;&gt;Burning .iso files:&lt;/h2&gt;
 
@@ -1278,8 +1280,7 @@ unused devices: &amp;lt;none&amp;gt;&lt;/pre&gt;
 
 &lt;p&gt;This requires root rights:&lt;/p&gt;
 
-&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;mount&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-o&lt;/span&gt; loop &lt;span class=&#34;re5&#34;&gt;-t&lt;/span&gt; iso9660 image.iso &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;mnt&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;image&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;&lt;/pre&gt;
-</description>
+&lt;pre class=&#34;bash codesnip&#34; style=&#34;font-family:monospace;&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;mount&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-o&lt;/span&gt; loop &lt;span class=&#34;re5&#34;&gt;-t&lt;/span&gt; iso9660 image.iso &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;mnt&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;image&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
@@ -1288,7 +1289,8 @@ unused devices: &amp;lt;none&amp;gt;&lt;/pre&gt;
       <pubDate>Wed, 05 Nov 2008 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/software/zsh-bash-screen-and-urxvt-title/</guid>
-      <description>&lt;p&gt;I use both the zsh and bash shell, and most of the time I run them in screen. This happens in my favourite terminal: urxvt (aka rxvt-unicode).&lt;/p&gt;
+      <description>&lt;p&gt;I use both the zsh and bash shell, and most of the time I run them in screen. This happens in my favourite terminal: urxvt (aka rxvt-unicode).
+&lt;/p&gt;
 
 &lt;p&gt;I have a pretty consistence terminal title in both shells. I use hostname[last part of current path]:&lt;/p&gt;
 
@@ -1346,8 +1348,7 @@ export PS1 PROMPT_COMMAND
 &lt;pre&gt;
 &lt;code class=&#34;language-bash&#34;&gt;hardstatus string &#34;%h&#34;
 caption always &#34;%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw} %=%d %M %0c %{g}%H%{-}&#34;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
@@ -1356,7 +1357,8 @@ caption always &#34;%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw} %=%d %M %0c %{g}%H%{-}
       <pubDate>Sat, 26 Jul 2008 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/software/fast-nagios-exim-mail-queue-plugin-replacement/</guid>
-      <description>&lt;p&gt;We had a problem with the nagios check_mailq plugin at &lt;a href=&#34;http://www.bellcom.dk&#34;&gt;work&lt;/a&gt;, it kept timing out. So I wrote a simple bash script (instead of 610 lines of perl) which is &amp;#8220;compatible&amp;#8221; with check_mailq (supports the same arguments) which uses &amp;#8220;exim4&amp;#8221; and is very quick. Just drop it in /usr/local/bin/check_mailq_simple.sh and adjust your nagios conf to use that instead of check_mailq&lt;/p&gt;
+      <description>&lt;p&gt;We had a problem with the nagios check_mailq plugin at &lt;a href=&#34;http://www.bellcom.dk&#34;&gt;work&lt;/a&gt;, it kept timing out. So I wrote a simple bash script (instead of 610 lines of perl) which is &amp;#8220;compatible&amp;#8221; with check_mailq (supports the same arguments) which uses &amp;#8220;exim4&amp;#8221; and is very quick. Just drop it in /usr/local/bin/check_mailq_simple.sh and adjust your nagios conf to use that instead of check_mailq
+&lt;/p&gt;
 
 &lt;pre&gt;
 &lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
@@ -1392,8 +1394,7 @@ else
 fi
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;This has been tested on Debian sarge.&lt;/p&gt;
-</description>
+&lt;p&gt;This has been tested on Debian sarge.&lt;/p&gt;</description>
     </item>
     
   </channel>

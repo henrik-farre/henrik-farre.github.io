@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 24 Jan 2009 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/tags/review/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/review/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Android Developer Phone: Mini review</title>
@@ -15,9 +15,8 @@
       <pubDate>Sat, 24 Jan 2009 00:00:00 +0000</pubDate>
       
       <guid>http://rockhopper.dk/linux/hardware/phone-and-pda/android-developer-phone-mini-review/</guid>
-      <description>
-
-&lt;p&gt;I have been playing around with my Android Developer Phone (ADP) for about 2 weeks now, and this are my thoughts on it so far.&lt;/p&gt;
+      <description>&lt;p&gt;I have been playing around with my Android Developer Phone (ADP) for about 2 weeks now, and this are my thoughts on it so far.
+&lt;/p&gt;
 
 &lt;h2 id=&#34;wireless-connection-wi-fi-3g&#34;&gt;Wireless connection (Wi-Fi/3G)&lt;/h2&gt;
 
@@ -77,8 +76,7 @@
 
 &lt;h2 id=&#34;overall&#34;&gt;Overall&lt;/h2&gt;
 
-&lt;p&gt;Although I have limited experience with smart phones, I really prefer the ADP when I compare it to my friends iPhones or HTC phones running Windows Mobile. My girlfriend also really likes it and is defently going to buy the regular HTC G1 when it hits Denmark.&lt;/p&gt;
-</description>
+&lt;p&gt;Although I have limited experience with smart phones, I really prefer the ADP when I compare it to my friends iPhones or HTC phones running Windows Mobile. My girlfriend also really likes it and is defently going to buy the regular HTC G1 when it hits Denmark.&lt;/p&gt;</description>
     </item>
     
   </channel>

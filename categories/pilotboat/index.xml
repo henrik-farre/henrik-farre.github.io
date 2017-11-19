@@ -7,17 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 14 May 2016 14:56:22 +0200</lastBuildDate>
-    <atom:link href="http://rockhopper.dk/categories/pilotboat/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/pilotboat/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Behat tests with Symfony 3, PhantomJS and Docker</title>
-      <link>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker</link>
+      <link>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker/</link>
       <pubDate>Sat, 14 May 2016 14:56:22 +0200</pubDate>
       
-      <guid>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker</guid>
-      <description>
-
-&lt;p&gt;Writing tests should be easy, but installing and maintaining every single piece needed is nontrivial. Thankfully Docker can provide each piece of the jigsaw: Symfony 3, Behat and PhantomJS.&lt;/p&gt;
+      <guid>http://rockhopper.dk/linux/software/behat-tests-with-symfony3-phantomjs-and-docker/</guid>
+      <description>&lt;p&gt;Writing tests should be easy, but installing and maintaining every single piece needed is nontrivial. Thankfully Docker can provide each piece of the jigsaw: Symfony 3, Behat and PhantomJS.&lt;/p&gt;
 
 &lt;p&gt;I have created &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;pilotboat&lt;/a&gt; to make it easy for me to develop and test PHP based applications, and I will use it in this how-to. If you prefer to use another setup, feel free to look through my &lt;a href=&#34;https://github.com/henrik-farre/docker&#34;&gt;github repository for pilotboat&lt;/a&gt; for inspiration.&lt;/p&gt;
 
@@ -112,8 +110,7 @@
 2 steps (2 passed)
 0m0.21s (13.43Mb)&lt;/pre&gt;
 
-&lt;p&gt;And you&#39;re ready to write tests :)&lt;/p&gt;
-</description>
+&lt;p&gt;And you&#39;re ready to write tests :)&lt;/p&gt;</description>
     </item>
     
   </channel>
